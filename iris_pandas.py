@@ -26,14 +26,15 @@ csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.d
 
 ## the data read in does not have any column names. Specify header = None to avoid reading the 
 # first row of data as a header or column name
+# This creates a panda dataframe. 
 iris_data = pd.read_csv(csv_url, header = None)
 
 # View the top and bottom of the dataframe
-"""
+
 # https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html#viewing-data
 # `describe` shows a quick summary statistic of the data
 
-""" 
+
 
 print(iris_data.head())
 print(iris_data.tail())
@@ -42,17 +43,6 @@ print(iris_data.tail())
 # The column names are the attribute information from the iris.names files
 # (https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names)
 
-"""
-Attribute Information:
-   1. sepal length in cm
-   2. sepal width in cm
-   3. petal length in cm
-   4. petal width in cm
-   5. class: 
-      -- Iris Setosa
-      -- Iris Versicolour
-      -- Iris Virginica
-"""
 
 # create a list containing the correct column names for the iris dataset
 col_names = ['Sepal_Length','Sepal_Width','Petal_length','Petal_Width','Species']
@@ -62,5 +52,15 @@ col_names = ['Sepal_Length','Sepal_Width','Petal_length','Petal_Width','Species'
 iris_df =  pd.read_csv(csv_url, names = col_names)
 ## see the first few rows
 print(iris_df.head())
+# see the last few rows of the dataset
 print(iris_df.tail())
+
+# describe() shows a quick summary statistic of the data including count, mean, standard deviation, percentiles.
+# It generates descriptive statistics summarising the central tendancy, dispersion and shape of the 
+# dataset's distribution. 
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html#pandas.DataFrame.describe
 print(iris_df.describe())
+
+import matplotlib.pyplot as plt 
+iris_df.head()
+plt.plot (x,y)
