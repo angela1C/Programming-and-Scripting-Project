@@ -17,24 +17,28 @@ import matplotlib.pyplot as plt
 # Therefore I read in the data from the csv file I had initially downloaded
 iris_csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
 
+
 # the data read in does not have any column names. 
 # Specify header = None to avoid reading the first row of data as a header or column name
 
-iris_data = pd.read_csv(iris_csv_url, header = None)
+iris_df = pd.read_csv(iris_csv_url, header = None)
 
 #iris = pd.read_csv('iris_data.csv', header =  None)
 
 col_names = ['Sepal_Length','Sepal_Width','Petal_length','Petal_Width','Species']
 
-iris =  pd.read_csv(iris_csv_url, names = col_names)
+iris_df =  pd.read_csv(iris_csv_url, names = col_names)
 
-print(iris.head())
+print(iris_df.head())
 
 # Handling missing data
 
 
-print(iris.isnull())
+print(iris_df.isnull().sum())
 
 # can look at a subset of the data by using square brackets
-SL = iris['Sepal_Length']
-print(SL.head())
+SL = iris_df['Sepal_Length']
+print(SL.head()
+)
+iris_names = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names', header = None)
+print(iris_names)

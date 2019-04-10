@@ -10,9 +10,16 @@ The project entails researching the data set, and then writing documentation and
 
 ## 1. Background information about the dataset
 
-According to the [UCI Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris), Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and Fisher's paper is frequently referenced to this day. The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other two which are not linearly separable from each other.
+The Iris Data Set is available from the UCI Machine Learning Repository. It is a multivariate data set with a default machine learning task of classification. The attribute types are real numbers. It has 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher.
+http://archive.ics.uci.edu/ml/datasets/Iris
 
->This is perhaps the best known database to be found in the pattern recognition literature. Fisher's paper is a classic in the field and is referenced frequently to this day. (See Duda & Hart, for example.) The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other 2; the latter are NOT linearly separable from each other. 
+[UCI Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris) states that Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and Fisher's paper is frequently referenced to this day. The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other two which are not linearly separable from each other.
+
+>This is perhaps the best known database to be found in the pattern recognition literature. Fisher's paper is a classic in the field and is referenced frequently to this day. 
+
+> The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other 2; the latter are NOT linearly separable from each other. 
+
+The predicted attribute of the data set is the class of iris plant. 
 
 [Wikipedia - Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher)
 >Sir Ronald Aylmer Fisher FRS[3] (17 February 1890 – 29 July 1962) was a British statistician and geneticist. For his work in statistics, he has been described as "a genius who almost single-handedly created the foundations for modern statistical science"[4] and "the single most important figure in 20th century statistics".
@@ -21,9 +28,8 @@ Fisher developed ANOVA, the Analysis of Variance. He used it to analyse data fro
 
 In 1936 Fisher introduced the Iris flower data set as an example of discriminant analysis. Linear discriminant analysis (LDA) is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition and machine learning to find a linear combination of features that characterizes or separates two or more classes of objects or events. The resulting combination may be used as a linear classifier.
 
-The Iris dataset is a multivariate dataset. 
 [Wikipedia - Iris Flower Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set)
-The data set consists of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other.
+The Iris dataset is a multivariate dataset consisting of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other.
 
 
 
@@ -51,14 +57,18 @@ The data set consists of 50 samples from each of three species of Iris (Iris set
 - Python for Data Analysis - Wes McKinney
 Data Wrangling with Pandas, NumPy and IPython
 
-For this project, I am mainly working through the pandas documentation at - [https://pandas.pydata.org](https://pandas.pydata.org) and the Python for Data Analysis book by Wes McKinney the creator of the Python Pandas project.
+For this project, I am mainly working through the pandas documentation at - [https://pandas.pydata.org](https://pandas.pydata.org).
+I am also reading through the `Python for Data Analysis` book by Wes McKinney who is the creator of the Python Pandas project.
 
 ## 3. Download the dataset and investigate it using Python code
+
+The Iris Data Set is available from the UCI Machine Learning Repository. According to the Data Set listing, it is a multivariate data set and the default machine learning task is classification. The attribute types are real numbers. It has 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher.
+http://archive.ics.uci.edu/ml/datasets/Iris
 
 https://archive.ics.uci.edu/ml/machine-learning-databases/iris/
 https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data
 
-The dataset at the UCI Machine Learning repository doesnt have headers attached. However they are to be found in section 7 of the [iris.names](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names)
+The actual data set itself at the UCI Machine Learning repository does not have the attribute information included in the csv file. However this information can be found under the section [Iris Data Set: Attribute Information](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names)
 
  Attribute Information:
    1. sepal length in cm
@@ -70,32 +80,27 @@ The dataset at the UCI Machine Learning repository doesnt have headers attached.
       -- Iris Versicolour
       -- Iris Virginica
 
+The python `pandas` library is designed for working with tabular or heteogenous data, i.e. data that is in a tabular format containing an ordered collection of columns and each column can have a different value type.  Python `pandas` is therefore ideal for exploring a dataset such as Iris which has 4 numerical columns and 1 string column. 
+
 `pandas` has several functions for reading tabular data as a `DataFrame` object. 
 `read_csv` loads delimited data from a file, URL or file-like object using a comma as the default delimiter.
 
-The Iris data set is located at the URL and it can be read in directly from this url.
-Alternatively it can be saved locally and read if from there.
+The Iris data set can be read in directly from the url or alternatively it can be saved locally and read in from there. I haved saved it into this project's repository for convenience. 
 
+`pandas.read_csv` performs type inference because the column data types are not part of the data format. Therefore you do not need to specify the data format of each column.
 
-`pandas.read_csv` performs type inference because the column data types are not part of the data format. You do not need to specify the data format of each column.
+A `DataFrame` represents a rectangular table of data containing an ordered collection of columns and each column can have a different value type.
+A `DataFrame` has both a row and a column index.
+When the data is imported into python using `pandas.read_csv` function, an index is added to the DataFrame by default. This is a range of numbers from 0 to 150 with the last observation being at index 149.
 
 In `terminal` I can look at the csv file using the `cat` command which prints the raw contents of the file to the screen. or the `head` command whoch prints the first 10 rows to the screen. The file has 4 numerical columns and 1 descriptive string column. 
 
-The raw csv file does not contain any headers. However there is a separate file on the website that provides the details under 'attribute_information' and these can be added to the dataframe. 
+The raw csv file does not contain any headers. However this information is available under 'attribute_information'. I can add the column names to the DataFrame. 
 I set `header = None` on first reading in the file and then specified the names to use as column names using `names = []`.
-Instead of settign `header=None` and then adding column names, you could add the names to the `panda.read_csv()` function.
-
-When the data is imported into python using pandas.read_csv function, an index is added by default. This is the far left column which ranges from 0 to 150. 
-
-A DataFrame represents a rectangular table of data containingan ordered collection of columns and each column can have a different value type.
-A DataFrame has both a row and a column index.
-
+Instead of setting `header=None` and then adding column names, you could add the names to the `panda.read_csv()` function.
 
 
 Having added column names, the DataFrame can be saved to a csv file using the `to_csv` method which writes the data out to a comma separated file.
-
-Pandas is designed for working with tabular or heteogenous data. That is data that is an a tabular format containing an ordered collection of columns and each column can have a different value type.  Pandas is therefore ideal for exploring a dataset such as Iris which has 4 numerical columns and 1 string column. 
-
 
 
 ## Exploring the dataset
@@ -181,7 +186,23 @@ There are three observations which appear to have the same measurements as other
 ## Visualising the Iris data set.
 
 The `matplotlib` package can be used to create a graph or plot of the Iris Data set. The `pandas` library also has some built in methods to create visualisations from DataFrame and Series objects.
-`seaborn` is another library for creating visualisations.
+`Seaborn` is a library for making statistical graphics in Python. It is built on top of matplotlib and closely integrated with pandas data structures.
+`Seaborn` has dataset-oriented plotting functions that operate on dataframes such as iris.
+
+Can use it to draw a facetted scatter plot. The iris measurement variables determine the position of each point on the axes.
+
+A `scatter plot` can be used to visualize relationships between numerical variables such as the petal measurements and the sepal measurements in the iris data set.  A `catplot()` can capture the relationship between a numeric variable and one (or more) categorical variables, such as the class or species of iris plant. 
+
+The [Visualising dataset structure](http://seaborn.pydata.org/introduction.html#visualizing-dataset-structure) section of the `Seaborn` documentation actually illustrates using the iris data set!
+
+
+
+
+# The function relplot() is used to visualize many different statistical relationships.
+https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#visualization
+https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#visualization
+https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py
+https://seaborn.pydata.org/introduction.html#introduction
 
 ## 5. Summary write up of the investigations.
 
