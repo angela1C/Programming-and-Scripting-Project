@@ -1,5 +1,7 @@
+# first importing the following libraries
 import numpy as np 
 import pandas as pd  
+import matplotlib.pyplot as plt 
 
 
 ## save link to data and reference the link 
@@ -25,6 +27,7 @@ print(iris.head())
 
 print(iris.isnull())
 print(pd.isnull(iris))
+print(iris[pd.isnull()])
 
 # by default index.col is set to a range from 0 to the number of rows. 
 # This is fine for here. I would prefer to have the row number starting from 1 and the last observation 150

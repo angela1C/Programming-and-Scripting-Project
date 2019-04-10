@@ -29,9 +29,12 @@ The data set consists of 50 samples from each of three species of Iris (Iris set
 
 
 ## 2. References
-- [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+
+- [Python Data Analysis Library](https://pandas.pydata.org)
 
 - [10 Minutes to Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html)
+
+- [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
 
 - [UCI Machine Learning Repository: Iris Dataset](https://archive.ics.uci.edu/ml/datasets/iris)
 
@@ -41,9 +44,13 @@ The data set consists of 50 samples from each of three species of Iris (Iris set
 
 - [Wikipedia - Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher)
 
+- [cmdlinetips.com](https://cmdlinetips.com/2018/01/7-tips-to-read-a-csv-file-as-pandas-data-frame/)
+
+
 - Python for Data Analysis - Wes McKinney
 Data Wrangling with Pandas, NumPy and IPython
 
+For this project, I am mainly working through the pandas documentation at - [https://pandas.pydata.org](https://pandas.pydata.org) and the Python for Data Analysis book by Wes McKinney the creator of the Python Pandas project.
 
 ## 3. Download the dataset and investigate it using Python code
 
@@ -68,8 +75,6 @@ The dataset at the UCI Machine Learning repository doesnt have headers attached.
 The Iris data set is located at the URL and it can be read in directly from this url.
 Alternatively it can be saved locally and read if from there.
 
-Note to myself - I initially read in the csv file from the URL, however I am now having a problem with the website  as the certificate has expired a day ago.
-I will work with the local file for now until I figure out what I need to do or if the certificate is renewed.
 
 `pandas.read_csv` performs type inference because the column data types are not part of the data format. You do not need to specify the data format of each column.
 
@@ -90,9 +95,14 @@ using `.head()` to look at the observations at the top of the dataset and `.tail
 
 The far left (without a column name) contains the index of the dataframe which in this case is a range from 0 to 150 in steps of 1.
 
+### data cleaning and preparation
+
+(Chapter 7 Python for Data Analysis)
 The data can be checked for any missing values. In pandas objects, the floating point `NaN` for Not a Number is used to represent missing values.
 
+Missing data is a common occurence in data analysis. By default the descriptive statistics on pandas objects exclude missing value.
 
+In R programming language, missing data is referenced as NA for Not Available. NA data in statisics is usually data that doesn't exist or was not observed for some reason or other.
 
 ## 4. Summarise the dataset - high level statistics
 
