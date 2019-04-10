@@ -46,6 +46,7 @@ The data set consists of 50 samples from each of three species of Iris (Iris set
 
 - [cmdlinetips.com](https://cmdlinetips.com/2018/01/7-tips-to-read-a-csv-file-as-pandas-data-frame/)
 
+- [Iris Dataset - Exploratory Data Analysis](https://www.kaggle.com/lalitharajesh/iris-dataset-exploratory-data-analysis)
 
 - Python for Data Analysis - Wes McKinney
 Data Wrangling with Pandas, NumPy and IPython
@@ -70,7 +71,7 @@ The dataset at the UCI Machine Learning repository doesnt have headers attached.
       -- Iris Virginica
 
 `pandas` has several functions for reading tabular data as a `DataFrame` object. 
-`read_csv` loads delimited data from a file, URL or file-like object using a comma as the defauly delimiter.
+`read_csv` loads delimited data from a file, URL or file-like object using a comma as the default delimiter.
 
 The Iris data set is located at the URL and it can be read in directly from this url.
 Alternatively it can be saved locally and read if from there.
@@ -86,14 +87,35 @@ Instead of settign `header=None` and then adding column names, you could add the
 
 When the data is imported into python using pandas.read_csv function, an index is added by default. This is the far left column which ranges from 0 to 150. 
 
-Having added column names, the dataframe can be saved to a csv file using the `to_csv` method which writes the data out to a comma separated file.
+A DataFrame represents a rectangular table of data containingan ordered collection of columns and each column can have a different value type.
+A DataFrame has both a row and a column index.
+
+
+
+Having added column names, the DataFrame can be saved to a csv file using the `to_csv` method which writes the data out to a comma separated file.
+
+Pandas is designed for working with tabular or heteogenous data. That is data that is an a tabular format containing an ordered collection of columns and each column can have a different value type.  Pandas is therefore ideal for exploring a dataset such as Iris which has 4 numerical columns and 1 string column. 
+
 
 
 ## Exploring the dataset
 
-using `.head()` to look at the observations at the top of the dataset and `.tail()` to lool at the observations at the end of the dataset
+### Viewing the dataset.
+
+Can use  `.head()` to look at the observations at the top of the dataset and `.tail()` to lool at the observations at the end of the dataset
 
 The far left (without a column name) contains the index of the dataframe which in this case is a range from 0 to 150 in steps of 1.
+
+The `pandas.index()` can be used to look at the index of the dataframe. and `pandas.columns()` to look at the columns of the dataset.
+When the data set is read in using, an index is automatically assigned starting at 0, stopping and 150.
+
+The columns on the dataset will contain the column names I used in reading in the csv file.
+'Sepal_Length', 'Sepal_Width', 'Petal_Length', 'Petal_Width','Species'
+
+The data set has 150 rows and 5 columns. 
+`.shape()`
+
+
 
 ### data cleaning and preparation
 
@@ -104,8 +126,17 @@ Missing data is a common occurence in data analysis. By default the descriptive 
 
 In R programming language, missing data is referenced as NA for Not Available. NA data in statisics is usually data that doesn't exist or was not observed for some reason or other.
 
+The Iris dataset does not have any missing values. `pandas.isnull` can be used to check for missing data. This returns a True or False for each observation. Boolean values are coerced to 1 for True and 0 for False so the `sum` function can be used to count the number of True values.
+
+`pandas.notnull()` is th opposite.
+
 ## 4. Summarise the dataset - high level statistics
 
+`pandas` objects have a set of common mathematical and statistical methods. Most of these methods
+produce a single value such as the mean or the max or standard deviation
+Multiple summary statistics can be obtained in one go using pandas.descibe().
+
+### Descriptive statistics
 A quick statistic summary of the data using `.describe()`
  
        Sepal_Length  Sepal_Width  Petal_length  Petal_Width
@@ -118,6 +149,40 @@ min        4.300000     2.000000      1.000000     0.100000
 75%        6.400000     3.300000      5.100000     1.800000
 max        7.900000     4.400000      6.900000     2.500000
 
+### Correlation and Covariance
+The correlation and covariance statistics are computed from  pairs of arguments.
+The correlation of the measurements can be got using the `corr` method on the DataFrame while the covariance can be obtained using the `cov` method on the DataFrame. 
+
+The correlation matrix is as follows.
+
+              Sepal_Length  Sepal_Width  Petal_length  Petal_Width
+Sepal_Length      1.000000    -0.109369      0.871754     0.817954
+Sepal_Width      -0.109369     1.000000     -0.420516    -0.356544
+Petal_length      0.871754    -0.420516      1.000000     0.962757
+Petal_Width       0.817954    -0.356544      0.962757     1.000000
+
+The covariance matrix is as follows.
+
+              Sepal_Length  Sepal_Width  Petal_length  Petal_Width
+Sepal_Length      0.685694    -0.039268      1.273682     0.516904
+Sepal_Width      -0.039268     0.188004     -0.321713    -0.117981
+Petal_length      1.273682    -0.321713      3.113179     1.296387
+Petal_Width       0.516904    -0.117981      1.296387     0.582414
+
+The `DataFrame` method `duplicated` can be used to see if any of the rows in the data set are duplicates of another row. I am just using it to see if there are any individual observations that have the exact same measurements as another observation.
+
+There are three observations which appear to have the same measurements as other observations in the dataset as follows. It is possible that these values may have been rounded at some stage when or since the dataset was put together in 1936.
+
+     Sepal_Length  Sepal_Width  Petal_length  Petal_Width         Species
+34            4.9          3.1           1.5          0.1     Iris-setosa
+37            4.9          3.1           1.5          0.1     Iris-setosa
+142           5.8          2.7           5.1          1.9  Iris-virginica
+
+## Visualising the Iris data set.
+
+The `matplotlib` package can be used to create a graph or plot of the Iris Data set. The `pandas` library also has some built in methods to create visualisations from DataFrame and Series objects.
+`seaborn` is another library for creating visualisations.
+
 ## 5. Summary write up of the investigations.
 
 ## 6. Clearly document how to run the Python code to investigate the dataset, and what the code does.
@@ -125,3 +190,17 @@ max        7.900000     4.400000      6.900000     2.500000
 ## 6. Include supporting tables and graphics
 
 ### https://guides.github.com/features/mastering-markdown/
+
+
+## How to run the code
+
+
+Make sure you have Python 3 installed. If not go to https://www.python.org/downloads/ and follow the instructions.
+
+To run each python program, first navigate to the folder downloaded from this repository.
+
+At the command line enter python <program_name> for example: $ python isi_expl.py
+
+The python program can also be run inside the environment of an iPython session using the `%run` command.
+ `% run iris_expl.py`
+
