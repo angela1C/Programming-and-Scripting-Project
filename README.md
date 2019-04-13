@@ -10,7 +10,21 @@ The project entails researching the data set, and then writing documentation and
 
 ## 1. Background information about the dataset
 
-The Iris Data Set is available from the UCI Machine Learning Repository. It is a multivariate data set with a default machine learning task of classification. The attribute types are real numbers. It has 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher.
+The Iris data set consists of measurements of the flowers of 50 plants each of three species of the Iris flower collected by Dr E. Anderson.
+The three species are Iris Setosa, Iris Versicolor and Iris Virginica. Four flower measurements are given.
+
+Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Problems` shows the four measurement for each of the three Iris Species. 
+- Sepal length
+- Sepal width
+- Petal length
+- Petal Width
+insert image of table 1.
+
+The two species Iris Setosa and Iris Versicolor were found growing together in the same colony. The sample of the third species - the Iris Virginica differs from the other two samples as they were not taken from the same natural colony. 
+
+Fisher considered the question of what linear function of the four measurements would maximise the ratio of the difference  between the specific means to the standard deviation between species.
+
+The Iris Data Set is available from the UCI Machine Learning Repository where it is listed as a multivariate data set with a default machine learning task of classification. The attribute types are real numbers. It has 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher.
 http://archive.ics.uci.edu/ml/datasets/Iris
 
 [UCI Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris) states that Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and Fisher's paper is frequently referenced to this day. The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other two which are not linearly separable from each other.
@@ -20,6 +34,9 @@ http://archive.ics.uci.edu/ml/datasets/Iris
 > The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other 2; the latter are NOT linearly separable from each other. 
 
 The predicted attribute of the data set is the class of iris plant. 
+
+
+
 
 [Wikipedia - Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher)
 >Sir Ronald Aylmer Fisher FRS[3] (17 February 1890 – 29 July 1962) was a British statistician and geneticist. For his work in statistics, he has been described as "a genius who almost single-handedly created the foundations for modern statistical science"[4] and "the single most important figure in 20th century statistics".
@@ -31,7 +48,7 @@ In 1936 Fisher introduced the Iris flower data set as an example of discriminant
 [Wikipedia - Iris Flower Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set)
 The Iris dataset is a multivariate dataset consisting of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other.
 
-
+[Multiple Measurements in Taxonomic Problems by R.A Fisher](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1469-1809.1936.tb02137.x)
 
 
 ## 2. References
@@ -53,6 +70,8 @@ The Iris dataset is a multivariate dataset consisting of 50 samples from each of
 - [cmdlinetips.com](https://cmdlinetips.com/2018/01/7-tips-to-read-a-csv-file-as-pandas-data-frame/)
 
 - [Iris Dataset - Exploratory Data Analysis](https://www.kaggle.com/lalitharajesh/iris-dataset-exploratory-data-analysis)
+
+-[seaborn:statistical data visualisation ](https://seaborn.pydata.org/index.html)
 
 - Python for Data Analysis - Wes McKinney
 Data Wrangling with Pandas, NumPy and IPython
@@ -105,6 +124,16 @@ Having added column names, the DataFrame can be saved to a csv file using the `t
 
 ## Exploring the dataset
 
+There are several tables in Fisher's paper which I will try to reproduce.
+The first table, Table 1 shows the 4 measurement variables for each observation of the three iris species.
+The equivalent data is shown in the iris DataFrame resulting from reading in the csv file, although the layout is slightly different.
+
+Table II in Fisher's paper is entitled *Observed means for two species and their difference (cm.)*
+This table displays the means for each of the 4 measurements for the Iris-Versicolor and Iris-Setosa species. It also shows the differences between the Versicolor means and the Setosa means for each of the 4 measurement variables.
+
+I want to try and get the same information in Table 2 of Fisher's paper.
+Table II. Observed means for two species and their difference(cm.)
+
 ### Viewing the dataset.
 
 Can use  `.head()` to look at the observations at the top of the dataset and `.tail()` to lool at the observations at the end of the dataset
@@ -119,6 +148,42 @@ The columns on the dataset will contain the column names I used in reading in th
 
 The data set has 150 rows and 5 columns. 
 `.shape()`
+
+### Indexing and Filtering the data set
+
+There are several ways of selecting data from the DataFrame that is detailed on the pandas documentation.
+http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-and-selecting-data
+
+Indexing with square brackets will return a Series corresponding to the column name.
+A column of data can be retrieved from the Iris DataFrame using dict-like notation or by attribute such as 
+`iris.Petal_Width_cm`
+
+The rows of the iris DataFrame can be retrieved by position name or using the loc attribute.
+The index operators can be used to select a subset or rows and columns using `loc` for axis labels or `iloc` for integers.
+The index for the iris DataFrame at the moment is just a range of integers from 0 to 150 
+An index into the dataframe can used to retrieve one or more columns either with a single value or a sequence
+
+[Boolean Indexing](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#boolean-index)ing
+
+Can select rows from a DataFrame using a boolean vector the same length as the DataFrame’s index. This can be used to filter the data here for a particular class or species of the iris plant.
+
+#### Groupby 
+Can use groupby to split the iris data into groups based on the species. Can then do groupwise operatations such as summary statistics etc.
+This will keep the entire data set in the one file but operations can be applied to each group and the results will be at group level.
+
+
+http://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html
+`group by` is a process involving one or more of the following steps:
+
+- First split the data into groups based on some criteria.
+Split the data into groups and then do something with the individual groups
+
+- Applying a function to each group independently.
+Aggregation function such as computing summary statistic for each group, group sums or means, group sizes and group counts
+Transformation function to perform some group-specific computations and return a like-indexed object. 
+
+- Combining the results into a data structure.
+
 
 
 
@@ -186,14 +251,15 @@ There are three observations which appear to have the same measurements as other
 ## Visualising the Iris data set.
 
 The `matplotlib` package can be used to create a graph or plot of the Iris Data set. The `pandas` library also has some built in methods to create visualisations from DataFrame and Series objects.
-`Seaborn` is a library for making statistical graphics in Python. It is built on top of matplotlib and closely integrated with pandas data structures.
+`Seaborn` is a library for making statistical graphics in Python. It is built on top of matplotlib and closely integrated with pandas data structures. `Seaborn` provides a high-level interface for creating nice looking and informative plots. 
 `Seaborn` has dataset-oriented plotting functions that operate on dataframes such as iris.
 
 Can use it to draw a facetted scatter plot. The iris measurement variables determine the position of each point on the axes.
 
 A `scatter plot` can be used to visualize relationships between numerical variables such as the petal measurements and the sepal measurements in the iris data set.  A `catplot()` can capture the relationship between a numeric variable and one (or more) categorical variables, such as the class or species of iris plant. 
 
-The [Visualising dataset structure](http://seaborn.pydata.org/introduction.html#visualizing-dataset-structure) section of the `Seaborn` documentation actually illustrates using the iris data set!
+The [Visualising dataset structure](http://seaborn.pydata.org/introduction.html#visualizing-dataset-structure) section of the `Seaborn` documentation actually illustrates using the iris data set. 
+While `jointplot()` focusses on a single relationship in the data set, `pairplot()` shows all pairwise relationships and the marginal distributions that can be conditioned on a categorical variable.
 
 
 
@@ -215,7 +281,23 @@ https://seaborn.pydata.org/introduction.html#introduction
 
 ## How to run the code
 
+### Note to myself about all the files! 
+For  now I am working with several scripts for different sections of the project as I try out different things from the pandas documentation and the book `Python for Data Analysis` by Wes McKinney.
+In particular, I am keeping the plots separate so I don't have to generate plots everytime I try something new to me.  
+For the project submission though, I intend to put my final script into a single python script.
 
+I am also trying out Jupyter notebook again but being careful this time to make sure that the changes are actually saved before I exit out of it in the Terminal!
+Its far easier to run lines of code at a time and to see the output but I will transfer it back into the python script.
+
+I have been working on a Jupyter notebook and downloaded it as a `ipynb` notebook and have also downloaded it as a python script which I will update to my repository.
+For the submission, I will tidy all the scripts into one python script and one jupyter notebook.
+The main files I am working on are `iris_expl.py`, `project_iris` and `exploring_iris.ipynb`
+`project_iris` is the name I am saving my current jupyter notebook to, both as a notebook and as a .py python file.
+
+
+
+
+#### to run the scripts
 Make sure you have Python 3 installed. If not go to https://www.python.org/downloads/ and follow the instructions.
 
 To run each python program, first navigate to the folder downloaded from this repository.

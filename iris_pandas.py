@@ -55,4 +55,7 @@ print(SW.head())
 #Rows can be retrieved by position or name using the `loc` attribute
 
 obs0 = iris_df.loc(1)
-print('The first observation is ',obs0)
+
+# can filter with Boolean expressions
+
+
