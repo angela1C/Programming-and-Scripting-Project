@@ -294,7 +294,9 @@ For the submission, I will tidy all the scripts into one python script and one j
 The main files I am working on are `iris_expl.py`, `project_iris` and `exploring_iris.ipynb`
 `project_iris` is the name I am saving my current jupyter notebook to, both as a notebook and as a .py python file.
 
-
+On exiting the Jupyter notebook 
+ file:///Users/angelacorkery/Library/Jupyter/runtime/nbserver-1892-open.html
+http://localhost:8889/?token=3e22d6124c915eaecd374f44fc171a0f2eeb49c351331eeb
 
 
 #### to run the scripts
