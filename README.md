@@ -6,7 +6,7 @@ The pdf file containing the problem set instructions is available by clicking on
 - [Programming and Scripting Project 2019](https://github.com/ianmcloughlin/project-pands/raw/master/project.pdf)  
 
 
-## Problem Statement
+## Problem Statement <a name="problem-statement"></a>
 
 The project concerns the well-known Fisher's Iris data set. 
 The project entails researching the data set, and then writing documentation and code in the Python programming language based on that research.
@@ -47,14 +47,19 @@ Project Task List
 - [ ] Look at examples of interesting analyses pursued by other people on the Iris data set 
 - [ ] Refer to task list as a guideline
 - [ ] Use headings as links, maybe create a table of contents
+- [ ] keep the jupyter notebook in line with the python script and readme document.
+- [ ] get links to images working
 
 # Table of Contents
 
-1. Background information about the Iris data set
-2. Downlaod the Iris data set [link to loading data](#loading)
+1. Introduction and problem statement
+2. [Background information about the Iris data set](#background)  
+3. [Download the Iris data set ](#loading)
+10. [References](#references)
 
 
-## 1. Background information about the dataset
+## 1. Background information about the dataset 
+<a name="loading"></a> 
 
 Fisher's Iris data set is a famous database consisting of the measurements of parts of 150 iris flowers. It is available from the UCI Machine Learning Repository where it is listed as a multivariate data set with a default machine learning task of classification. The data set consists of 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher in 1936. 
 http://archive.ics.uci.edu/ml/datasets/Iris.
@@ -103,12 +108,6 @@ Here I am linking to an image I am saving into the repository into a folder call
 ![iris-versicolor](/images/iris_versicolor.jpg)
 
 
-
-
-
-
-
-
 Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Problems` shows the four measurement for each of the three Iris Species. 
 - Sepal length
 - Sepal width
@@ -116,66 +115,15 @@ Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Probl
 - Petal Width
 insert image of table 1.
 
-
-Include images of the three iris class.
-Here using a url to the image located online
-![iris-setosa](https://en.wikipedia.org/wiki/File:Kosaciec_szczecinkowaty_Iris_setosa.jpg "iris-setosa")
-![iris-versicolor](https://en.wikipedia.org/wiki/File:Iris_versicolor_3.jpg "iris-versicolor")
-![iris-virginica](https://en.wikipedia.org/wiki/File:Iris_virginica.jpg "iris -virginica")
-
-Here I am linking to an image I am saving into the repository into a folder called `images`
-![iris-setosa](/images/iris_setosa.jpg)
-![iris-virginica](/images/iris_virginica.jpg)
-![iris-versicolor](/images/iris_versicolor.jpg)
-
-
-
-[Multiple Measurements in Taxonomic Problems by R.A Fisher](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1469-1809.1936.tb02137.x)
-
-
-## 2. References
-
-- [Python Data Analysis Library](https://pandas.pydata.org)
-
-- [10 Minutes to Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html)
-
-- [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-
-- [Github Flavoured Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-)
-
-- [UCI Machine Learning Repository: Iris Dataset](https://archive.ics.uci.edu/ml/datasets/iris)
-
-- [Python, R and Linux Tips](https://cmdlinetips.com/category/python/)
-
-- [Wikipedia - Iris Flower Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set)
-
-- [Wikipedia - Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher)
-
-- [cmdlinetips.com](https://cmdlinetips.com/2018/01/7-tips-to-read-a-csv-file-as-pandas-data-frame/)
-
-- [Iris Dataset - Exploratory Data Analysis](https://www.kaggle.com/lalitharajesh/iris-dataset-exploratory-data-analysis)
-
-- [seaborn:statistical data visualisation ](https://seaborn.pydata.org/index.html)
-
-- [Multiple Measurements in Taxonomic Problems by R.A Fisher](https://onlinelibrary.wiley.com/doi/pdf/10.1111j.1469-1809.1936.tb02137.x)
-
-- Python for Data Analysis - Wes McKinney
-Data Wrangling with Pandas, NumPy and IPython
-
-
-
-For this project, I am mainly working through the pandas documentation at - [https://pandas.pydata.org](https://pandas.pydata.org). I am also using the `seaborn` library for plotting and hope to explore some of the other python libraries.
-I am also reading through the `Python for Data Analysis` book by Wes McKinney, who is the creator of the Python Pandas project.
-
 ## 3. Download the dataset and investigate it using Python code
 <a name="loading"></a>
-The Iris Data Set is available from the UCI Machine Learning Repository. According to the Data Set listing, it is a multivariate data set and the default machine learning task is classification. The attribute types are real numbers. It has 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher.
-http://archive.ics.uci.edu/ml/datasets/Iris
+The Iris Data Set is available from the UC Irvine Machine Learning Repository at http://archive.ics.uci.edu/ml/datasets/Iris.
 
-https://archive.ics.uci.edu/ml/machine-learning-databases/iris/
-https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data
+[UCI Machine Learning Iris Database](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/)
 
-The actual data set itself at the UCI Machine Learning repository does not have the attribute information included in the csv file. However this information can be found under the section [Iris Data Set: Attribute Information](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names)
+The csv data is directly accessible at the following url: https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+
+The data set itself at the UCI Machine Learning repository does not have the attribute information included in the csv file. However this information can be found under the section [Iris Data Set: Attribute Information](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names)
 
  Attribute Information:
    1. sepal length in cm
@@ -187,27 +135,52 @@ The actual data set itself at the UCI Machine Learning repository does not have 
       -- Iris Versicolour
       -- Iris Virginica
 
-The python `pandas` library is designed for working with tabular or heteogenous data, i.e. data that is in a tabular format containing an ordered collection of columns and each column can have a different value type.  Python `pandas` is therefore ideal for exploring a dataset such as Iris which has 4 numerical columns and 1 string column. 
 
-`pandas` has several functions for reading tabular data as a `DataFrame` object. 
-`read_csv` loads delimited data from a file, URL or file-like object using a comma as the default delimiter.
+According to the [pandas.pydata.org website](https://pandas.pydata.org/index.html),`pandas` is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. 
 
-The Iris data set can be read in directly from the url or alternatively it can be saved locally and read in from there. I haved saved it into this project's repository for convenience. 
+The python `pandas` library is designed for working with tabular or heteogenous data - data that is in a tabular format containing an ordered collection of columns and each column can have a different value type.  Python `pandas` library is therefore ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one string categorical column. 
 
-`pandas.read_csv` performs type inference because the column data types are not part of the data format. Therefore you do not need to specify the data format of each column.
+`pandas` has several functions for reading tabular data as a `DataFrame` object. \n
+[pandas docs -DataFrame](http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame)
+>A `DataFrame` is a two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). Arithmetic operations align on both row and column labels. Can be thought of as a dict-like container for Series objects. 
 
-A `DataFrame` represents a rectangular table of data containing an ordered collection of columns and each column can have a different value type.
-A `DataFrame` has both a row and a column index.
-When the data is imported into python using `pandas.read_csv` function, an index is added to the DataFrame by default. This is a range of numbers from 0 to 150 with the last observation being at index 149.
+When a pandas `DataFrame`  object is created, it has all the pandas attributes and methods available to it.
 
-In `terminal` I can look at the csv file using the `cat` command which prints the raw contents of the file to the screen. or the `head` command whoch prints the first 10 rows to the screen. The file has 4 numerical columns and 1 descriptive string column. 
+The pandas `read_csv`  function loads delimited data from a file, URL or file-like object using a comma as the default delimiter.
 
-The raw csv file does not contain any headers. However this information is available under 'attribute_information'. I can add the column names to the DataFrame. 
-I set `header = None` on first reading in the file and then specified the names to use as column names using `names = []`.
+The Iris data set can be read in directly from the url https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data or alternatively it can be saved locally and read in from there. In the script I will download the csv file into python as part of the script. However, I haved also saved the csv file containing the Iris data set into this project's repository for convenience. 
+
+`pandas.read_csv` performs type inference because the column data types are not part of the data format. Therefore you do not need to specify the data format of each column. The data types for each column will be inferred by the `read_csv` function.
+
+A pandas `DataFrame` represents a rectangular table of data containing an ordered collection of columns and each column can have a different value type. A `DataFrame` has both a row and a column index.
+When csv data is imported into python using `pandas.read_csv` function, an index is added to the `DataFrame` by default if none is provided. 
+This is a range of numbers beginning at 0 for the first observation.
+
+The csv file can be inspected on the command line using the `cat` command which prints the raw contents of the file to the screen or the `head` command  which prints just the first 10 rows to the screen. The file has 4 numerical columns and 1 descriptive string column. 
+
+The raw csv file does not contain any headers. This information is available on the Iris data set page at the UCI Machine Learning Repository the under 'attribute_information'. I can add the column names to the DataFrame. 
+
+The `pandas` library must first be imported before it can be used as it not part of the Python standard library. 
+At the beginning of the script, I import the `pandas` library using `import pandas as pd` along with any other libraries to be used in this project.
+This imports the `pandas` library and allow all of its functions to be used by the script.
+
+I set the parameters `header = None` to the `pandas.read_csv()` function on the very first reading in of the csv file. I then specified the names to use as column names using `names = []`.
 Instead of setting `header=None` and then adding column names, you could add the names to the `panda.read_csv()` function.
 
+my final code for reading in the data set:
 
-Having added column names, the DataFrame can be saved to a csv file using the `to_csv` method which writes the data out to a comma separated file.
+Create a variable `csv_url` and assing to it the url 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'. 
+Create a list of column names `col_names` using the iris attribute information. 
+Create a panda's DataFrame object called `iris`.
+
+```
+csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+# using the attribute information as the column names
+col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Class']
+iris =  pd.read_csv(csv_url, names = col_names)
+```
+
+(Having added column names, the pandas DataFrame can be saved to a csv file using the `to_csv` method which writes the data out to a comma separated file.)
 
 
 ## Exploring the dataset
@@ -397,3 +370,37 @@ At the command line enter python <program_name> for example: $ python isi_expl.p
 The python program can also be run inside the environment of an iPython session using the `%run` command.
  `% run iris_expl.py`
 
+## 10. References
+<a name="references"></a>
+
+- [Python Data Analysis Library](https://pandas.pydata.org)
+
+- [10 Minutes to Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html)
+
+- [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+
+- [Github Flavoured Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-)
+
+- [UCI Machine Learning Repository: Iris Dataset](https://archive.ics.uci.edu/ml/datasets/iris)
+
+- [Python, R and Linux Tips](https://cmdlinetips.com/category/python/)
+
+- [Wikipedia - Iris Flower Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set)
+
+- [Wikipedia - Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher)
+
+- [cmdlinetips.com](https://cmdlinetips.com/2018/01/7-tips-to-read-a-csv-file-as-pandas-data-frame/)
+
+- [Iris Dataset - Exploratory Data Analysis](https://www.kaggle.com/lalitharajesh/iris-dataset-exploratory-data-analysis)
+
+- [seaborn:statistical data visualisation ](https://seaborn.pydata.org/index.html)
+
+- [Multiple Measurements in Taxonomic Problems by R.A Fisher](https://onlinelibrary.wiley.com/doi/pdf/10.1111j.1469-1809.1936.tb02137.x)
+
+- Python for Data Analysis - Wes McKinney
+Data Wrangling with Pandas, NumPy and IPython
+
+
+
+For this project, I am mainly working through the pandas documentation at - [https://pandas.pydata.org](https://pandas.pydata.org). I am also using the `seaborn` library for plotting and hope to explore some of the other python libraries.
+I am also reading through the `Python for Data Analysis` book by Wes McKinney, who is the creator of the Python Pandas project.
