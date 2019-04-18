@@ -1,17 +1,113 @@
 # pands-project
 Project 2019 for Programming and Scripting Module
 
-The instructions for the project are to be found on the [Programming and Scripting Project 2019](https://github.com/ianmcloughlin/project-pands/raw/master/project.pd)
+This repository contains my submission for the class project for the Programming and Scripting Module at GMIT as part of the Higher Diploma in Computing and Data Analytics. 
+The pdf file containing the problem set instructions is available by clicking on the following link.
+- [Programming and Scripting Project 2019](https://github.com/ianmcloughlin/project-pands/raw/master/project.pdf)  
+
 
 ## Problem Statement
 
 The project concerns the well-known Fisher's Iris data set. 
 The project entails researching the data set, and then writing documentation and code in the Python programming language based on that research.
 
+The suggested task breakdown for this project (taken from the Project Instructions document) are as follows:
+1. Research background information about the data set and write a summary about it.    
+2. Keep a list of references you used in completing the project  
+3. Download the data set and write some Python code to investigate it.  
+4. Summarise the data set by, for example, calculating the maximum, minimum and mean of each column of the data set. A Python script will quickly do this for you.  
+5. Write a summary of your investigations.
+6. Include supporting tables and graphics as you deem necessary.
+
+The project should contain a repository containing a README and a python script.
+The readme should contain  a summary of the dataset and your investigations into it
+Readme should list all references.
+The project should be well organised and contain detailed explanations
+The analysis will be well conceived and and examples of interesting analyses that others have pursued based on the data set will be discussed.
+Note that the point of this project is to use Python. You may use any Python libraries that you wish, whether they have been discussed in class or not. You should not be thinking of using spreadsheet software like Excel to do your calculations
+
+
+
+
+# My project plan
+
+I will use a Task List as described on the GitHub Flavoured Markdown Syntax cheatsheet.
+
+Project Task List
+
+
+- [ ] Research Background information about the Iris data set
+- [ ] List all the references used 
+- [ ] Download the Iris data set  
+- [ ] Investigate the Iris data set using python code
+- [ ] Summarise the Iris data set - provide statistics such as means, minimum and maximum values
+- [ ] Include tables and graphics
+- [ ] Clearly document how to run the code used to investigate the Iris data set  
+- [ ] Clearly document what the python code used actually does
+- [ ] Look at examples of interesting analyses pursued by other people on the Iris data set 
+- [ ] Refer to task list as a guideline
+- [ ] Use headings as links, maybe create a table of contents
+
+# Table of Contents
+
+1. Background information about the Iris data set
+2. Downlaod the Iris data set [link to loading data](#loading)
+
+
 ## 1. Background information about the dataset
 
-The Iris data set consists of measurements of the flowers of 50 plants each of three species of the Iris flower collected by Dr E. Anderson.
-The three species are Iris Setosa, Iris Versicolor and Iris Virginica. Four flower measurements are given.
+Fisher's Iris data set is a famous database consisting of the measurements of parts of 150 iris flowers. It is available from the UCI Machine Learning Repository where it is listed as a multivariate data set with a default machine learning task of classification. The data set consists of 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher in 1936. 
+http://archive.ics.uci.edu/ml/datasets/Iris.
+
+The data set includes 50 plants each of three classes of iris plant, where each class is a different type or species of iris plant.
+The three classes are Iris Setosa, Iris Versicolor and Iris Virginica. 
+Four flower measurements are given for each observation in the data set, which are the lengths and widths of the petals and the sepals of the flowers in the sample.
+
+According to the [UCI Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris), Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and is still relevant today. One class is linearly separable from the other two classes, which are not linearly separable from each other. The predicted attribute of the data set is the class of iris plant to which each observation belongs. 
+
+>This is perhaps the best known database to be found in the pattern recognition literature. Fisher's paper is a classic in the field and is referenced frequently to this day. 
+
+Now a little bit about Fisher:
+
+According to a wiki on wikipedia about him, [Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher),
+>Sir Ronald Aylmer Fisher FRS[3] (17 February 1890 – 29 July 1962) was a British statistician and geneticist. For his work in statistics, he has been described as "a genius who almost single-handedly created the foundations for modern statistical science"[4] and "the single most important figure in 20th century statistics".
+
+Fisher also developed the ANOVA method (Analysis of Variance) which he used to analyse data from crop experiments. He also developed the Fisher Distribution. Fisher pioneered the principles of the design of experiments and the statistics of small samples and the analysis of real data.
+
+In 1936 Fisher introduced the Iris flower data set as an example of discriminant analysis. Linear discriminant analysis (LDA) is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition and machine learning to find a linear combination of features that characterizes or separates two or more classes of objects or events. The resulting combination may be used as a linear classifier.
+
+Based on the combination of the four measurement features of the sample of plants in the iris datas set, Fisher developed a linear discriminant model to distinguish the species from each other.
+
+[Wikipedia - Iris Flower Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set)
+>Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other.
+
+According to Fisher's paper, [The Use of Multiple Measurements in Taxonomic Problems by R.A Fisher](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1469-1809.1936.tb02137.x):
+>When two or more populations have been measured in several characters, xl, ...,x8, special interest attaches to certain linear functions of the measurements by which the populations are best discriminated.
+
+His paper then applies the principle of the linear discriminant model to the sample of iris flowers to see how it could be used to discriminate or distinguish the species of iris plant. 
+
+The two species Iris Setosa and Iris Versicolor were found growing together in the same colony. The sample of the third species - the Iris Virginica differs from the other two samples as they were not taken from the same natural colony. 
+
+Fisher considered the question of what linear function of the four measurements would maximise the ratio of the difference  between the specific means to the standard deviation between species.
+
+
+Include images of the three iris class.
+Here using a url to the image located online
+![iris-setosa](https://en.wikipedia.org/wiki/File:Kosaciec_szczecinkowaty_Iris_setosa.jpg "iris-setosa")
+![iris-versicolor](https://en.wikipedia.org/wiki/File:Iris_versicolor_3.jpg "iris-versicolor")
+![iris-virginica](https://en.wikipedia.org/wiki/File:Iris_virginica.jpg "iris -virginica")
+
+Here I am linking to an image I am saving into the repository into a folder called `images`
+![iris-setosa](/images/iris_setosa.jpg)
+![iris-virginica](/images/iris_virginica.jpg)
+![iris-versicolor](/images/iris_versicolor.jpg)
+
+
+
+
+
+
+
 
 Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Problems` shows the four measurement for each of the three Iris Species. 
 - Sepal length
@@ -20,33 +116,19 @@ Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Probl
 - Petal Width
 insert image of table 1.
 
-The two species Iris Setosa and Iris Versicolor were found growing together in the same colony. The sample of the third species - the Iris Virginica differs from the other two samples as they were not taken from the same natural colony. 
 
-Fisher considered the question of what linear function of the four measurements would maximise the ratio of the difference  between the specific means to the standard deviation between species.
+Include images of the three iris class.
+Here using a url to the image located online
+![iris-setosa](https://en.wikipedia.org/wiki/File:Kosaciec_szczecinkowaty_Iris_setosa.jpg "iris-setosa")
+![iris-versicolor](https://en.wikipedia.org/wiki/File:Iris_versicolor_3.jpg "iris-versicolor")
+![iris-virginica](https://en.wikipedia.org/wiki/File:Iris_virginica.jpg "iris -virginica")
 
-The Iris Data Set is available from the UCI Machine Learning Repository where it is listed as a multivariate data set with a default machine learning task of classification. The attribute types are real numbers. It has 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher.
-http://archive.ics.uci.edu/ml/datasets/Iris
-
-[UCI Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris) states that Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and Fisher's paper is frequently referenced to this day. The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other two which are not linearly separable from each other.
-
->This is perhaps the best known database to be found in the pattern recognition literature. Fisher's paper is a classic in the field and is referenced frequently to this day. 
-
-> The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other 2; the latter are NOT linearly separable from each other. 
-
-The predicted attribute of the data set is the class of iris plant. 
+Here I am linking to an image I am saving into the repository into a folder called `images`
+![iris-setosa](/images/iris_setosa.jpg)
+![iris-virginica](/images/iris_virginica.jpg)
+![iris-versicolor](/images/iris_versicolor.jpg)
 
 
-
-
-[Wikipedia - Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher)
->Sir Ronald Aylmer Fisher FRS[3] (17 February 1890 – 29 July 1962) was a British statistician and geneticist. For his work in statistics, he has been described as "a genius who almost single-handedly created the foundations for modern statistical science"[4] and "the single most important figure in 20th century statistics".
-
-Fisher developed ANOVA, the Analysis of Variance. He used it to analyse data from crop experiments. He also developed the Fisher Distribution. He pioneered the principles of the design of experiments and the statistics of small samples and the analysis of real data.
-
-In 1936 Fisher introduced the Iris flower data set as an example of discriminant analysis. Linear discriminant analysis (LDA) is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition and machine learning to find a linear combination of features that characterizes or separates two or more classes of objects or events. The resulting combination may be used as a linear classifier.
-
-[Wikipedia - Iris Flower Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set)
-The Iris dataset is a multivariate dataset consisting of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other.
 
 [Multiple Measurements in Taxonomic Problems by R.A Fisher](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1469-1809.1936.tb02137.x)
 
@@ -58,6 +140,8 @@ The Iris dataset is a multivariate dataset consisting of 50 samples from each of
 - [10 Minutes to Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html)
 
 - [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+
+- [Github Flavoured Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-)
 
 - [UCI Machine Learning Repository: Iris Dataset](https://archive.ics.uci.edu/ml/datasets/iris)
 
@@ -71,16 +155,20 @@ The Iris dataset is a multivariate dataset consisting of 50 samples from each of
 
 - [Iris Dataset - Exploratory Data Analysis](https://www.kaggle.com/lalitharajesh/iris-dataset-exploratory-data-analysis)
 
--[seaborn:statistical data visualisation ](https://seaborn.pydata.org/index.html)
+- [seaborn:statistical data visualisation ](https://seaborn.pydata.org/index.html)
+
+- [Multiple Measurements in Taxonomic Problems by R.A Fisher](https://onlinelibrary.wiley.com/doi/pdf/10.1111j.1469-1809.1936.tb02137.x)
 
 - Python for Data Analysis - Wes McKinney
 Data Wrangling with Pandas, NumPy and IPython
 
-For this project, I am mainly working through the pandas documentation at - [https://pandas.pydata.org](https://pandas.pydata.org).
-I am also reading through the `Python for Data Analysis` book by Wes McKinney who is the creator of the Python Pandas project.
+
+
+For this project, I am mainly working through the pandas documentation at - [https://pandas.pydata.org](https://pandas.pydata.org). I am also using the `seaborn` library for plotting and hope to explore some of the other python libraries.
+I am also reading through the `Python for Data Analysis` book by Wes McKinney, who is the creator of the Python Pandas project.
 
 ## 3. Download the dataset and investigate it using Python code
-
+<a name="loading"></a>
 The Iris Data Set is available from the UCI Machine Learning Repository. According to the Data Set listing, it is a multivariate data set and the default machine learning task is classification. The attribute types are real numbers. It has 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher.
 http://archive.ics.uci.edu/ml/datasets/Iris
 
