@@ -70,36 +70,25 @@ import seaborn as sns
 # A `DataFrame` represents a rectangular table of data containing an ordered collection of columns and each column can have a different value type.
 # A `DataFrame` has both a row and a column index.
 # When the data is imported into python using `pandas.read_csv` function, an index is added to the DataFrame by default. This is a range of numbers from 0 to 150 with the last observation being at index 149.
-# 
 
-# In[2]:
 
 
 # READING IN THE IRIS DATA SET
 
-# save url to data and reference the link 
+# Create a variable `csv_url` and pass to it the url where the data set is available 
+# at 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'. 
 csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
-
-# As the data does not have any column names, specify header = None to avoid reading the first row of data as a header or column name
-
-#iris_data = pd.read_csv(csv_url, header = None)
-
 # I have also saved the csv file to the folder or repository and can read it in from there in case for some reason the url is not available.
-#iris = pd.read_csv('iris_data.csv', header =  None)
 
-# using the attribute information as the column names
+# As the data does not have any column names, I can specify header = None to avoid reading the first row of data as a header or column name
+# Create a list of column names `col_names` using the iris attribute information available at the UCI machine learning repository.
+# When the column names are passed in as a parameter to read_csv, then it is not necessary to include 'header = none'
+
+# using the iris data set attribute information as the column names, create a list of column names to use
 col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Class']
 
 iris =  pd.read_csv(csv_url, names = col_names)
-
-
-# In[3]:
-
-
-iris.head()
-
-
-# In[4]:
+# iris = pd.read_csv('iris_data.csv', names = col_names)
 
 
 print(iris.head())
