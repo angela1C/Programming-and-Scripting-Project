@@ -36,44 +36,37 @@ print(iris.head(10))
 print(iris.tail(10))
 
 
-# GETTING HELP ON PYTHON 
-# To get help on any function, I can use the python help function https://docs.python.org/3/library/pdb.html?highlight=help#pdbcommand-help with the command in parentheses.
-#  `help(pd)` will show help on the package pandas.
-#  I can get more specific help as follows:
-#  `help(pd.DataFrame.describe())`
-#  
-# -[Pandas.pydata documentation](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html)  
-# -[Matplotlib documentation](https://matplotlib.org/index.html)  
-# -[Seaborn.pydata documentaion](https://seaborn.pydata.org/index.html)  
-# -[Python 3 documentation](https://docs.python.org/3/index.html)  
-
 # EXPLORING / INVESTIGATING THE IRIS DATA SET
 
+## ATTRIBUTES OF THE IRIS DATA FRAME
 # First looking at the attributes of the iris DataFrame created from importing the iris data set above.
 
-# return a a list representing the axes of the iris DataFrame.
-print(iris.axes)
-
-# The column labels of the iris DataFrame.
+# Get the column labels of the iris DataFrame.
 print(iris.columns)
+
+# the number of axes / array dimensions of the iris DataFrame
+print(iris.ndim)
+# Look at the shape of the iris DataFrame - this shows the number of rows and columns
+print(iris.shape)
+# the number of elements in the iris object.
+print(iris.size)
+
+# The DataFrame has an index which was automatically assigned when the DataFrame was created
+# on reading in the csv file. The index is a range from 0 to 150
+print(iris.index)
 
 # the dtypes (data types) of the iris DataFrame
 print(iris.dtypes)
 
-# the number of axes / array dimensions of the iris DataFrame
-print(iris.ndim)
-
-# the number of elements in the iris object.
-print(iris.size)
-
-# Return a tuple representing the dimensionality of the iris DataFrame - this shows the number of rows and columns
-print(iris.shape)
-
 # Return the ftypes (indication of sparse/dense and dtype) in the iris DataFrame.
 print(iris.ftypes)
 
-# Look at the shape of the DataFrame. This shows the number of rows and columns in the DataFrame
-print(iris.shape)
+# return a a list representing the axes of the iris DataFrame.
+print(iris.axes)
+
+# **************** **************** **************** **************** ****************
+
+# USING DATAFRAME METHODS TO EXPLORE THE IRIS DATAFRAME
 
 # Look at the first ten observations in the DataFrame
 print(iris.head(10))
@@ -81,54 +74,39 @@ print(iris.head(10))
 # Look at the last ten observations in the DataFrame
 print(iris.tail(10))
 
-# The DataFrame has an index which was automatically assigned when the DataFrame was created
-# on reading in the csv file. The index is a range from 0 to 150
-print(iris.index)
-
-# Look at the shape of the DataFrame. This shows the number of rows and columns in the DataFrame
-print(iris.shape)
-
-
 # It is possible to check for missing values in the DataFrame using the panda's `isnull()` method.
 # This shows that there are no missing values which is as expected for this well known data set consisting of 150 instances of 5 attributes.
-# 
 
 print(iris.isnull().sum())
-
-
-# In[11]:
-
-
-# Look at the column names of the DataFrame. 
-print(iris.columns)
-
-
-# In[12]:
-
 
 # look at the summary statistics of the DataFrame
 print(iris.describe())
 
+# Print a concise summary of the iris DataFrame.
+print(iris.info())
 
-# The initial exploration of the Iris DataFrame shows that there are 150 rows and 5 columns of data. 
-# Each row corresponds to an individual observation of an iris plant. The columns show the individual measurements (in centimetres) of the length of the sepal, the length of the petal, the width of the sepal and the width of the petal.
-# 
-# The mean of the Sepal length is greater than the mean of all the other measurements. 
-# The mean of the petal width has the lowest measurements. 
-# The standard deviation in the petal lengths shows the highest variability of the four measurements at 1.76 while the standard deviations of the petal width is approx 0.43.
-# 
-# The shortest petal in the data set is 1 cm while the longest petal is 6.9 cm.
-# The widths of the petals vary from 0.1 cm to 2.5 cm.
-# The shortest sepal in the data set is 4.3 cm while the longest sepal is 7.9 cm. The narrowest sepal is 2cm while the widest sepal is 4.4 centimetres.
-# 
+# Count non-NA cells for each column or row.
+print(iris.count())
 
-# There are three classes or species of iris flower in this data set. The data set is known to have three classes of iris flower, the Iris Setosa, the Iris Versicolor and the Iris Virginica.
-# It is possible to look at each 
-# 
-# 
+# It is possible to check for missing values in the DataFrame using the panda's isnull() and isna() methods.
+# There should be no missing values in this DataFrame as there are no missing values in the csv file from which it is created. 
 
-# In[13]:
+# Detect missing values in the DataFrame. Sum the values instead of printing the boolean values as True = 1.
+iris.isna().sum()
+iris.isnull().sum()
+iris.notnull().sum()
+iris.notna().sum()
+iris.count()
 
+# Make a histogram of the DataFrame. A `histogram` is a representation of the distribution of data.
+# This function calls :meth:`matplotlib.pyplot.hist`, on each series in the DataFrame, resulting in one histogram per column.
+# A histogram will be produced for each of the four numeric columns in the iris data set.
+# The number of bins can be specified. For now I go with the default settings.
+    
+iris.hist()
+
+# count distinct observations.
+iris.nunique()
 
 # Using the `unique()` method to show how many different class or species of Iris flower is in the data set.
 

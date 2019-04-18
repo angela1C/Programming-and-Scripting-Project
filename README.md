@@ -192,33 +192,85 @@ The pandas library is imported in the script using `import pandas as pd`. Theref
 Help can be obtained using the python help function
 For example `help(pd)` or `help(pd.DataFrame.describe)`
 
+GETTING HELP ON PYTHON 
+To get help on any function, I can use the python help function https://docs.python.org/3/library/pdb.html?highlight=help#pdbcommand-help with the command in parentheses.
+ `help(pd)` will show help on the package pandas.
+ I can get more specific help as follows:
+ `help(pd.DataFrame.describe())`
+ 
+-[Pandas.pydata documentation](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html)  
+-[Matplotlib documentation](https://matplotlib.org/index.html)  
+-[Seaborn.pydata documentaion](https://seaborn.pydata.org/index.html)  
+-[Python 3 documentation](https://docs.python.org/3/index.html)  
+
+
+
+
 ## Exploring the dataset
 There are many functions in the `pandas` library which can be used to explore the Iris data set. Having imported the iris data set from a csv file into a pandas DataFrame, there are many pandas attributes and methods which I can use here on the iris DataFrame object.
 
+### Attributes of the iris DataFrame 
 I looked at the attributes of the iris DataFrame in the section # EXPLORING / INVESTIGATING THE IRIS DATA SET of the python script.
-The iris DataFrame has two dimensions. It consists of 150 rows and 5 columns. There are 750 elements in total in the iris dataframe.
-It has a range index which was set by default on reading in the data set. this index starts at 0 for the first row of observations and goes up to 149 for the last row of observations.
-
+The iris DataFrame has two dimensions. It consists of 150 rows and 5 columns which correspond to the 150 rows of observations in the csv data set and the five columns of data. 
+The columns on the dataset contain the column names that were specified when reading in the csv file.
+'Sepal_Length', 'Sepal_Width', 'Petal_Length', 'Petal_Width','Species'. (If the csv data set had contained a row of column names at the top of the file, then this could have been used to set the column names.)
+There are 750 elements in total in the iris dataframe.
+The dataframe is assigned a range index by default on reading in the data set. This index starts at 0 for the first row of observations and goes up to 149 for the last row of observations. The index can be changed if desired. 
 The datatypes of the numeric measurement columns are floats. 
 
+### Using `DataFrame` methods to explore the iris data set.
+
+The `head` and `tail` methods are useful to take a quick look at the observations at the top and bottom rows of the dataframe. The number of rows to dosplay can be specified as an argument. The rows at the top belong to the setosa class. The rows at the bottom belong to the virginica class. This is just the way the observations are ordered in the csv data set. 
+
+`pandas` objects have a set of common mathematical and statistical methods. Most of these methods
+produce a single value such as the mean or the max or standard deviation
+Multiple summary statistics can be obtained in one go using pandas.descibe().
+
+Using the `describe` method to produce some quick summary statistics produces the following table. These statistics are for the data set as a whole. Later I look at the descriptive statistics by class or species of iris plant.
+The various statistics that are generated from the `describe` function can also be obtained on their own. For example the mean could be obtained using `iris.mean()`, minimum with `.min()` etc.
+
+(using markdown guide to get this into a table format, You can create tables by assembling a list of words and dividing them with hyphens - (for the first row), and then separating each column with a pipe | )
+ 
+      - Sepal_Length  - Sepal_Width - Petal_length  -Petal_Width
+count  |   150.000000  | 150.000000   | 150.000000  | 150.000000
+mean   |   5.843333    | 3.054000     | 3.758667    | 1.198667
+std    |   0.828066    | 0.433594     | 1.764420    | 0.763161
+min    |   4.300000    | 2.000000     | 1.000000    | 0.100000
+25%    |  5.100000     | 2.800000     | 1.600000    | 0.300000
+50%    |   5.800000    | 3.000000     | 4.350000    | 1.300000
+75%    |   6.400000    | 3.300000     | 5.100000    | 1.800000
+max    |    7.900000   | 4.400000     | 6.900000    | 2.500000
+
+
+The initial exploration of the Iris DataFrame shows that there are 150 rows and 5 columns of data. 
+Each row corresponds to an individual observation of an iris plant. The columns show the individual measurements (in centimetres) of the length of the sepal, the length of the petal, the width of the sepal and the width of the petal.
+
+The mean of the Sepal length is greater than the mean of the other three measurements. 
+The measurements of the petal width has the lowest average measurements. 
+The standard deviation in the petal lengths shows the highest variability of the four measurements at 1.76 while the standard deviations of the petal width is approx 0.43.
+
+The shortest petal in the data set is 1 cm while the longest petal is 6.9 cm.
+The widths of the petals vary from 0.1 cm to 2.5 cm.
+The shortest sepal in the data set is 4.3 cm while the longest sepal is 7.9 cm. The narrowest sepal is 2cm while the widest sepal is 4.4 centimetres.
+
+#### histogram - insert plot images
+A `histogram`is a representation of the distribution of data. The pandas hist function calls `matplotlib.pyplot.hist` on each series in
+the DataFrame, resulting in one histogram per column.
+
+#### histogram - insert plot images
+
+
+
+There are three classes or species of iris flower in this data set, the Iris Setosa, the Iris Versicolor and the Iris Virginica.
+It is possible to look at the summary statistics as the class or species level which I will describe later on.
+For now I will continue with exploring the data set over all.
 
 
 
 
 
 
-Can use  `.head()` to look at the observations at the top of the dataset and `.tail()` to lool at the observations at the end of the dataset
 
-The far left (without a column name) contains the index of the dataframe which in this case is a range from 0 to 150 in steps of 1.
-
-The `pandas.index()` can be used to look at the index of the dataframe. and `pandas.columns()` to look at the columns of the dataset.
-When the data set is read in using, an index is automatically assigned starting at 0, stopping and 150.
-
-The columns on the dataset will contain the column names I used in reading in the csv file.
-'Sepal_Length', 'Sepal_Width', 'Petal_Length', 'Petal_Width','Species'
-
-The data set has 150 rows and 5 columns. 
-`.shape()`
 
 There are several tables in Fisher's paper which I will try to reproduce.
 The first table, Table 1 shows the 4 measurement variables for each observation of the three iris species.
@@ -421,8 +473,6 @@ The python program can also be run inside the environment of an iPython session 
 
 - Python for Data Analysis - Wes McKinney
 Data Wrangling with Pandas, NumPy and IPython
-
-
 
 For this project, I am mainly working through the pandas documentation at - [https://pandas.pydata.org](https://pandas.pydata.org). I am also using the `seaborn` library for plotting and hope to explore some of the other python libraries.
 I am also reading through the `Python for Data Analysis` book by Wes McKinney, who is the creator of the Python Pandas project.
