@@ -180,20 +180,32 @@ iris =  pd.read_csv(csv_url, names = col_names)
 
 (Having added column names, the pandas DataFrame could be saved to a csv file using the `to_csv` method which writes the data out to a comma separated file.)
 
+Having loaded the data set, the created DataFrame can be viewed using the DataFrame methods `head` and `tail` to see the first rows and the last rows respectively. 
+
+
+## Loading python libraries
+
+The `pandas` library is the main python library being used in this project. In addition the `seaborn` library for plotting which requires `matplotlib.pyplot` for some functions. 
+
+The pandas library is imported in the script using `import pandas as pd`. Therefore wherever `pd` is used in the script, it is referring to the pandas library. Similarly for the `seaborn` library as `sn`. 
+
+Help can be obtained using the python help function
+For example `help(pd)` or `help(pd.DataFrame.describe)`
 
 ## Exploring the dataset
+There are many functions in the `pandas` library which can be used to explore the Iris data set. Having imported the iris data set from a csv file into a pandas DataFrame, there are many pandas attributes and methods which I can use here on the iris DataFrame object.
 
-There are several tables in Fisher's paper which I will try to reproduce.
-The first table, Table 1 shows the 4 measurement variables for each observation of the three iris species.
-The equivalent data is shown in the iris DataFrame resulting from reading in the csv file, although the layout is slightly different.
+I looked at the attributes of the iris DataFrame in the section # EXPLORING / INVESTIGATING THE IRIS DATA SET of the python script.
+The iris DataFrame has two dimensions. It consists of 150 rows and 5 columns. There are 750 elements in total in the iris dataframe.
+It has a range index which was set by default on reading in the data set. this index starts at 0 for the first row of observations and goes up to 149 for the last row of observations.
 
-Table II in Fisher's paper is entitled *Observed means for two species and their difference (cm.)*
-This table displays the means for each of the 4 measurements for the Iris-Versicolor and Iris-Setosa species. It also shows the differences between the Versicolor means and the Setosa means for each of the 4 measurement variables.
+The datatypes of the numeric measurement columns are floats. 
 
-I want to try and get the same information in Table 2 of Fisher's paper.
-Table II. Observed means for two species and their difference(cm.)
 
-### Viewing the dataset.
+
+
+
+
 
 Can use  `.head()` to look at the observations at the top of the dataset and `.tail()` to lool at the observations at the end of the dataset
 
@@ -207,6 +219,18 @@ The columns on the dataset will contain the column names I used in reading in th
 
 The data set has 150 rows and 5 columns. 
 `.shape()`
+
+There are several tables in Fisher's paper which I will try to reproduce.
+The first table, Table 1 shows the 4 measurement variables for each observation of the three iris species.
+The equivalent data is shown in the iris DataFrame resulting from reading in the csv file, although the layout is slightly different.
+
+Table II in Fisher's paper is entitled *Observed means for two species and their difference (cm.)*
+This table displays the means for each of the 4 measurements for the Iris-Versicolor and Iris-Setosa species. It also shows the differences between the Versicolor means and the Setosa means for each of the 4 measurement variables.
+
+I want to try and get the same information in Table 2 of Fisher's paper.
+Table II. Observed means for two species and their difference(cm.)
+
+
 
 ### Indexing and Filtering the data set
 

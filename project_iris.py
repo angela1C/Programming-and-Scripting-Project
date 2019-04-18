@@ -1,79 +1,19 @@
 # Project Iris
-# This is the Jupyter notebook I have been working on which I have copied in here. 
+# This is from the Jupyter notebook I have been working on which I have copied in here.
+# I am deleting out background to the data set as this is in the README file. 
 
 
-
-# first importing the following libraries
-import numpy as np 
+# In order to use python libraries that are not part of the standard python library, they first need to be imported.
+# Here I import the pandas library, the matplotlib pyplot library and the seaborn library.
 import pandas as pd  
 import matplotlib.pyplot as plt 
 import seaborn as sns
 
-
-# ### Background Information about the Iris Data Set
-# 
-# [UCI Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris) states that Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and Fisher's paper is frequently referenced to this day. The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other two which are not linearly separable from each other.
-# 
-# >This is perhaps the best known database to be found in the pattern recognition literature. Fisher's paper is a classic in the field and is referenced frequently to this day. 
-# 
-# > The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other 2; the latter are NOT linearly separable from each other. 
-# 
-# The predicted attribute of the data set is the class of iris plant. 
-# 
-# 
-# [Wikipedia - Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher)
-# >Sir Ronald Aylmer Fisher FRS[3] (17 February 1890 – 29 July 1962) was a British statistician and geneticist. For his work in statistics, he has been described as "a genius who almost single-handedly created the foundations for modern statistical science"[4] and "the single most important figure in 20th century statistics".
-# 
-# Fisher developed ANOVA, the Analysis of Variance. He used it to analyse data from crop experiments. He also developed the Fisher Distribution. He pioneered the principles of the design of experiments and the statistics of small samples and the analysis of real data.
-# 
-# In 1936 Fisher introduced the Iris flower data set as an example of discriminant analysis. Linear discriminant analysis (LDA) is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition and machine learning to find a linear combination of features that characterizes or separates two or more classes of objects or events. The resulting combination may be used as a linear classifier.
-# 
-# [Wikipedia - Iris Flower Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set)
-# The Iris dataset is a multivariate dataset consisting of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other.
-# 
-# [Multiple Measurements in Taxonomic Problems by R.A Fisher](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1469-1809.1936.tb02137.x)
-# 
-# 
-
-# ### LOADING THE IRIS DATA SET
-# Next read in the Iris data set that is available at the UCI Machine Learning Repository.
-# The data is available in a csv format. 
-# 
-# The Iris Data Set is available from the UCI Machine Learning Repository. According to the Data Set listing, it is a multivariate data set and the default machine learning task is classification. The attribute types are real numbers. It has 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher.
-# http://archive.ics.uci.edu/ml/datasets/Iris
-# 
-# https://archive.ics.uci.edu/ml/machine-learning-databases/iris/
-# https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data
-# 
-# The actual data set itself at the UCI Machine Learning repository does not have the attribute information included in the csv file. However this information can be found under the section [Iris Data Set: Attribute Information](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names)
-# 
-#  Attribute Information:
-#    1. sepal length in cm
-#    2. sepal width in cm
-#    3. petal length in cm
-#    4. petal width in cm
-#    5. class: 
-#       -- Iris Setosa
-#       -- Iris Versicolour
-#       -- Iris Virginica
-#       
-#       
-# The python `pandas` library is designed for working with tabular or heteogenous data, i.e. data that is in a tabular format containing an ordered collection of columns and each column can have a different value type.  Python `pandas` is therefore ideal for exploring a dataset such as Iris which has 4 numerical columns and 1 string column. 
-# 
-# `pandas` has several functions for reading tabular data as a `DataFrame` object. 
-# `read_csv` loads delimited data from a file, URL or file-like object using a comma as the default delimiter.
-# 
-# The Iris data set can be read in directly from the url or alternatively it can be saved locally and read in from there. I haved saved it into this project's repository for convenience.
-# 
-# `pandas.read_csv` performs type inference because the column data types are not part of the data format. Therefore you do not need to specify the data format of each column.
-# 
-# A `DataFrame` represents a rectangular table of data containing an ordered collection of columns and each column can have a different value type.
-# A `DataFrame` has both a row and a column index.
-# When the data is imported into python using `pandas.read_csv` function, an index is added to the DataFrame by default. This is a range of numbers from 0 to 150 with the last observation being at index 149.
+# help can be obtained using the python help function
+# help(pd) or help(pd.DataFrame.describe())
 
 
-
-# READING IN THE IRIS DATA SET
+# LOADING / READING IN THE IRIS DATA SET
 
 # Create a variable `csv_url` and pass to it the url where the data set is available 
 # at 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'. 
@@ -90,11 +30,13 @@ col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Class']
 iris =  pd.read_csv(csv_url, names = col_names)
 # iris = pd.read_csv('iris_data.csv', names = col_names)
 
+# using the pandas DataFrame method head to return the first rows of the DataFrame and check that the file was correctly loaded
+print(iris.head(10))
+# using the pandas DataFrame method tail to return the last rows of the DataFrame and check that the file was correctly loaded
+print(iris.tail(10))
 
-print(iris.head())
 
-
-# ### gettting help for the packages I am using here
+# GETTING HELP ON PYTHON 
 # To get help on any function, I can use the python help function https://docs.python.org/3/library/pdb.html?highlight=help#pdbcommand-help with the command in parentheses.
 #  `help(pd)` will show help on the package pandas.
 #  I can get more specific help as follows:
@@ -105,52 +47,43 @@ print(iris.head())
 # -[Seaborn.pydata documentaion](https://seaborn.pydata.org/index.html)  
 # -[Python 3 documentation](https://docs.python.org/3/index.html)  
 
-# In[188]:
+# EXPLORING / INVESTIGATING THE IRIS DATA SET
 
+# First looking at the attributes of the iris DataFrame created from importing the iris data set above.
 
-# to get help on the pandas package (imported as pd)
-# help(pd)
-# help(pd.DataFrame())
-# help(pd.DataFrame.describe)
+# return a a list representing the axes of the iris DataFrame.
+print(iris.axes)
 
+# The column labels of the iris DataFrame.
+print(iris.columns)
 
-# ### Exploring the Iris data set
-# `pandas.describe()` produces a set of summary statistics for the DataFrame.
-# pandas `head()` shows the top 5 observations while `tail()` shows the bottom 5 observations of the dataFrame.
-# Tne number of observations to display can be changed by adding an argument to the head and tail functions.
-# 
+# the dtypes (data types) of the iris DataFrame
+print(iris.dtypes)
 
-# In[5]:
+# the number of axes / array dimensions of the iris DataFrame
+print(iris.ndim)
 
+# the number of elements in the iris object.
+print(iris.size)
+
+# Return a tuple representing the dimensionality of the iris DataFrame - this shows the number of rows and columns
+print(iris.shape)
+
+# Return the ftypes (indication of sparse/dense and dtype) in the iris DataFrame.
+print(iris.ftypes)
 
 # Look at the shape of the DataFrame. This shows the number of rows and columns in the DataFrame
 print(iris.shape)
 
-
-# In[6]:
-
-
 # Look at the first ten observations in the DataFrame
 print(iris.head(10))
-
-
-# In[7]:
-
 
 # Look at the last ten observations in the DataFrame
 print(iris.tail(10))
 
-
-# In[8]:
-
-
 # The DataFrame has an index which was automatically assigned when the DataFrame was created
 # on reading in the csv file. The index is a range from 0 to 150
 print(iris.index)
-
-
-# In[9]:
-
 
 # Look at the shape of the DataFrame. This shows the number of rows and columns in the DataFrame
 print(iris.shape)
@@ -159,9 +92,6 @@ print(iris.shape)
 # It is possible to check for missing values in the DataFrame using the panda's `isnull()` method.
 # This shows that there are no missing values which is as expected for this well known data set consisting of 150 instances of 5 attributes.
 # 
-
-# In[10]:
-
 
 print(iris.isnull().sum())
 
