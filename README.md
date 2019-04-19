@@ -258,15 +258,16 @@ A `histogram`is a representation of the distribution of data. The pandas hist fu
 the DataFrame, resulting in one histogram per column.
 
 #### histogram - insert plot images
-
-
+The histograms show the distribution of the measurements with one plot for each type of measurement.
+The histogram for the petal lengths show a clear group of observations having petal lengths that are much smaller than the rest of the observations. Similarly with the petal widths. The sepal lengths show quite a bit of variation with a number of peaks while sepal widths seem to be centred around 3 cms but with a few smaller peaks at both sides of 3 cms.
 
 There are three classes or species of iris flower in this data set, the Iris Setosa, the Iris Versicolor and the Iris Virginica.
 It is possible to look at the summary statistics as the class or species level which I will describe later on.
 For now I will continue with exploring the data set over all.
 
-
-
+# I AM HERE! 
+#
+According to the [UCI Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris), Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and is still relevant today. One class is linearly separable from the other two classes, which are not linearly separable from each other. The predicted attribute of the data set is the class of iris plant to which each observation belongs. 
 
 
 
