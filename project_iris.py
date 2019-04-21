@@ -102,18 +102,25 @@ print(iris.count())
 # There should be no missing values in this DataFrame as there are no missing values in the csv file from which it is created. 
 
 # Detect missing values in the DataFrame. Sum the values instead of printing the boolean values as True = 1.
-iris.isna().sum()
+# iris.isna().sum()
 iris.isnull().sum()
 iris.notnull().sum()
-iris.notna().sum()
+# iris.notna().sum()
 iris.count()
 
 # Make a histogram of the DataFrame. A `histogram` is a representation of the distribution of data.
 # This function calls :meth:`matplotlib.pyplot.hist`, on each series in the DataFrame, resulting in one histogram per column.
 # A histogram will be produced for each of the four numeric columns in the iris data set.
 # The number of bins can be specified. For now I go with the default settings.
+
+# DataFrame.hist() plots the histograms of the columns on multiple subplots:
     
-iris.hist()
+iris.hist(alpha=0.8, bins=30, figsize=(12,8))
+plt.show()
+
+
+iris.plot.box(figsize=(12,8))
+plt.show()
 
 # count distinct observations.
 iris.nunique()
@@ -244,7 +251,7 @@ means
 # Below I am plotting the boxplots for each of the four measurements against the iris species.
 
 # get information on the boxplot in the seaborn package
-get_ipython().run_line_magic('pinfo', 'sns.boxplot')
+# get_ipython().run_line_magic('pinfo', 'sns.boxplot')
 
 import seaborn as sns
 import matplotlib.pyplot as plt
