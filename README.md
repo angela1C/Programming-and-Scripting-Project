@@ -241,7 +241,6 @@ In summary:
 - The `head` and `tail` methods are useful to take a quick look at the observations at the top and bottom rows of the dataframe. The number of rows to display can be specified as an argument. The rows at the top belong to the setosa class. The rows at the bottom belong to the virginica class. This is just the way the observations are ordered in the csv data set. 
 
 The top of the iris data set:
-![iris_head](images/iris_head.png)
 <img src="images/iris_head.png" height="200" alt="iris-head" />
 
 The bottom of the iris data set:
@@ -253,7 +252,7 @@ The bottom of the iris data set:
 
 - The various statistics that are generated from the `describe` function can also be obtained on their own. For example the mean could be obtained using `iris.mean()`, minimum with `.min()` etc.
 
-<img src="images/iris_describe.png" height="200" alt="iris-describe" />
+<img src="images/iris_describe.png" width="400" alt="iris-describe" />
 
 - The initial exploration of the Iris DataFrame shows that there are 150 rows and 5 columns of data. 
 Each row corresponds to an individual observation of an iris plant. 
@@ -272,13 +271,12 @@ The data can be checked for any missing values. By default the descriptive stati
 `pandas.isnull` can be used to check for missing data. This returns a True or False for each observation. Boolean values are coerced to a 1 for True and 0 for False so the `sum` function can be used to count the number of `True` values rather than printing all the `True` and `False` values.
 `notnull()` returns the opposite of `isnull` while `notna` is the opposite of `isna`.
 
-#### histogram - insert plot images
 A `histogram`is a representation of the distribution of data. The pandas hist function calls `matplotlib.pyplot.hist` on each series in
 the DataFrame, resulting in one histogram per column.
 
-The histograms show the distribution of the measurements with one plot for each type of measurement attribute. 
+The histograms here show the distribution of each of the the measurements attributes across the iris data set. 
 
-<img src="images/iris_histogram.png" height="200" alt="iris-histogram" />
+<img src="images/iris_histogram.png" width="400" alt="iris-histogram" />
 
 The histogram for the petal lengths show a clear group of observations having petal lengths that are much smaller than the rest of the observations. Similarly with the petal widths. The sepal lengths show quite a bit of variation with a number of peaks while sepal widths seem to be centred around 3 cms but with a few smaller peaks at both sides of 3 cms.
 
@@ -286,7 +284,13 @@ There are three classes or species of iris flower in this data set, the Iris Set
 It is possible to look at the summary statistics as the class or species level which I will describe later on.
 For now I will continue with exploring the data set over all.
 
-# I AM HERE! 
+Looking at a basic boxplot of the iris dataset:
+
+<img src="images/iris_boxplot.png" width="400" alt="iris-boxplot" />
+
+
+### next looking at statistics and plots by species.
+
 As mentioned earlier, Fisher's iris dataset is a well known data set in pattern recognition literature. One class / species of the three iris classes is linearly separable from the other two classes, which are not linearly separable from each other. 
 Therefore I will now look at the different classes on their own. To do so, I will need to be able to separate the observations into three groups based on their known class.   
 
