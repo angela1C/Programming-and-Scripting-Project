@@ -1,11 +1,17 @@
 # Project Iris
 # This is from the Jupyter notebook I have been working on which I have copied in here.
-# I am deleting out background to the data set as this is in the README file. 
+# I am deleting out background to the data set in this python script as this will be in the README file. 
 # I am deleting out any of my analysis as this is going into the readme file also.
 # I am currently looking at the groupby statistics at line 162.
-# anything below that is from my jupyter notebook that I was working on and has yet to be edited!
-#
+# I need to look at the results of the group by statistics in the readme.
+# anything below line 162 still needs to be edited and revised. 
+# I will move comments into the readme for the sections below this at a later stage.
+# will look at the plotting and visualising by species next
+# Then will look at some anaysis that other people may have done - particularly in the machine learning side.
+# I will keep working on the script here and the readme in tandem with the jupyter notebook. 
+# I find it easier to work on the Jupyter notebook and then copy into the script here,
 
+# IMPORT LIBRARIES
 
 # In order to use python libraries that are not part of the standard python library, they first need to be imported.
 # Here I import the pandas library, the matplotlib pyplot library and the seaborn library.
@@ -145,6 +151,15 @@ iris.groupby("Class").max()
 # get min of group values
 iris.groupby("Class").min()
 
+# There does not seem to be a range function to see the range of values so I am going to calculate these ranges here.
+# by taking the differences between the mimimum and the maximum values
+
+iris_ranges = iris_grouped.max() - iris_grouped.min()
+iris_ranges
+
+# sorting the range of values in ascending order, first by petal lengths, then petal widths and then by sepal lengths.
+iris_ranges.sort_values(["Petal_Length","Petal_Width","Sepal_Length"])
+
 # get mean of group values
 iris.groupby("Class").mean()
 
@@ -155,10 +170,12 @@ print(iris_grouped.count())
 
 print(iris_grouped.mean())
 
-# now looking at the summary statistics for each class of Iris in the data set.
+# Can look at the summary statistics for each class of Iris in the data set.
 # I transposed the results to make it easier to read.
 print(iris_grouped.describe())
 iris_grouped.describe().T
+
+
 
 # THIS IS WHERE I AM!
 # 

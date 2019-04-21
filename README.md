@@ -11,13 +11,15 @@ The pdf file containing the problem set instructions is available by clicking on
 The project concerns the well-known Fisher's Iris data set. 
 The project entails researching the data set, and then writing documentation and code in the Python programming language based on that research.
 
-The suggested task breakdown for this project (taken from the Project Instructions document) are as follows:
-1. Research background information about the data set and write a summary about it.    
-2. Keep a list of references you used in completing the project  
-3. Download the data set and write some Python code to investigate it.  
-4. Summarise the data set by, for example, calculating the maximum, minimum and mean of each column of the data set. A Python script will quickly do this for you.  
-5. Write a summary of your investigations.
-6. Include supporting tables and graphics as you deem necessary.
+The project should achieve the following goals:
+
+1. Research background information about the data set and summarise it.    
+2. Provide a list of references used in completing the project.  
+3. Download the data set using Python code.
+4. Investigate the data set using python code  
+5. Summarise the data set using python. Provide summary statistics.  
+5. Summarise the investigations.
+6. Include supporting tables and graphics.
 
 The project should contain a repository containing a README and a python script.
 The readme should contain  a summary of the dataset and your investigations into it
@@ -25,8 +27,6 @@ Readme should list all references.
 The project should be well organised and contain detailed explanations
 The analysis will be well conceived and and examples of interesting analyses that others have pursued based on the data set will be discussed.
 Note that the point of this project is to use Python. You may use any Python libraries that you wish, whether they have been discussed in class or not. You should not be thinking of using spreadsheet software like Excel to do your calculations
-
-
 
 
 # My project plan
@@ -53,8 +53,17 @@ Project Task List
 # Table of Contents
 
 1. Introduction and problem statement
-2. [Background information about the Iris data set](#background)  
-3. [Download the Iris data set ](#loading)
+2. [Background information about the Iris data set](#background) 
+3. [python libraries](#pythonlibraries)
+4. [Download the Iris data set using python code](#loading)
+5. [Exploring the data set](#exploring)
+6. [Summarise the data set](#summarise)
+7. [conclusions](#conclusions)
+8. [Terms uses](#terms)
+
+Taxonomy is the branch of science concerned with classification, especially organisms (Oxford Dictionary)
+A sepal is the green part of the flower that protects the petals.
+
 10. [References](#references)
 
 
@@ -67,6 +76,54 @@ http://archive.ics.uci.edu/ml/datasets/Iris.
 The data set includes 50 plants each of three classes of iris plant, where each class is a different type or species of iris plant.
 The three classes are Iris Setosa, Iris Versicolor and Iris Virginica. 
 Four flower measurements are given for each observation in the data set, which are the lengths and widths of the petals and the sepals of the flowers in the sample.
+
+
+ Iris Setosa,   Iris Versicolor and Iris Virginica
+<p float="left">
+  <img src="images/iris_setosa.png" height="200" alt="iris setosa" />
+  <img src="images/iris_versicolor.png" height="200" alt = "versicolor" />
+  <img src="images/iris_virginica.png" height="200" alt ="iris virginica" /> 
+</p>
+
+
+#### The iris setosa
+See [Iris setosa description](https://en.wikipedia.org/w/index.php?title=Iris_setosa&oldid=858265829).
+
+- The Iris setosa has *mid-green* leaves, which are *grass-like*, and lanceolate (sword-shaped).   
+- They have a *purplish tinged base* and the leaves can measure *30–60 cm long by 0.8–2.5 cm wide*.  
+- The plant has 3–4 flowers per stem (between 6 and 13 for the whole plant,in groups of 3, and it blooms between June and July.
+- The large flowers are between 5–8 cm across,usually 7–8 cm, and come in a range of shades of blue, which can depend on the location. and range from violet, purple-blue, violet-blue, blue,to lavender. Very occasionally, there are pink or white forms.
+- Like other irises, it has 2 pairs of petals, 3 large sepals (outer petals), known as the 'falls' and 3 inner, smaller petals (or tepals), known as the 'standards'. 
+- The sepals can be deeply veined dark purple with a yellow-white signal (centre). 
+- The standards are so small, that they are reduced to bristles.Which gives the flower, a flat, three petal appearance
+
+### The Iris versicolor 
+see [iris versicolor description](https://en.wikipedia.org/wiki/Iris_versicolor)
+
+- The *Iris versicolor* is a species of Iris native to North America, in the Eastern United States and Eastern Canada
+- Iris versicolor is a flowering herbaceous perennial plant, growing 10–80 cm high. 
+- It tends to form large clumps from thick, creeping rhizomes. 
+- The unwinged, erect stems generally have basal leaves that are more than 1 cm wide. 
+- Leaves are folded on the midribs so that they form an overlapping flat fan. 
+- The well developed blue flower has 6 petals and sepals spread out nearly flat and have two forms. 
+- The longer sepals are hairless and have a greenish-yellow blotch at their base. The inferior ovary is bluntly angled. 
+- Flowers are usually light to deep blue (purple and violet are not uncommon)
+
+### The Iris Virginica
+see [iris virginica description](https://en.wikipedia.org/wiki/Iris_virginica)
+The plant has 2 to 4 *erect* or arching, *bright green, lance-shaped* leaves that are flattened into one plane at the base. 
+- Leaves are *1–3 cm* wide and are sometimes longer than the flower stalk. 
+- The slightly fragrant flowers (4 cm long, 7 cm across) consist of 3 horizontal sepals, or "falls", and 3 erect petals. 
+- The petals and sepals can vary in color from dark-violet to pinkish-white. 
+- The sepals have a splash of yellow to yellow-orange at the crest. 
+- Each plant has 2 to 6 flowers that bloom from April to May upon a single, erect, 30–90 cm tall stalk. 
+- The stalk is sometimes branched and has a slight zigzag appearance.
+
+
+
+
+
+
 
 According to the [UCI Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris), Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and is still relevant today. One class is linearly separable from the other two classes, which are not linearly separable from each other. The predicted attribute of the data set is the class of iris plant to which each observation belongs. 
 
@@ -97,15 +154,9 @@ Fisher considered the question of what linear function of the four measurements 
 
 
 Include images of the three iris class.
-Here using a url to the image located online
-![iris-setosa](https://en.wikipedia.org/wiki/File:Kosaciec_szczecinkowaty_Iris_setosa.jpg "iris-setosa")
-![iris-versicolor](https://en.wikipedia.org/wiki/File:Iris_versicolor_3.jpg "iris-versicolor")
-![iris-virginica](https://en.wikipedia.org/wiki/File:Iris_virginica.jpg "iris -virginica")
 
-Here I am linking to an image I am saving into the repository into a folder called `images`
-![iris-setosa](/images/iris_setosa.jpg)
-![iris-virginica](/images/iris_virginica.jpg)
-![iris-versicolor](/images/iris_versicolor.jpg)
+
+Here using a url to the image located online
 
 
 Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Problems` shows the four measurement for each of the three Iris Species. 
@@ -253,6 +304,9 @@ The shortest petal in the data set is 1 cm while the longest petal is 6.9 cm.
 The widths of the petals vary from 0.1 cm to 2.5 cm.
 The shortest sepal in the data set is 4.3 cm while the longest sepal is 7.9 cm. The narrowest sepal is 2cm while the widest sepal is 4.4 centimetres.
 
+The data can be checked for any missing values. By default the descriptive statistics on pandas objects exclude missing value.  The Iris dataset does not have any missing values. `pandas.isnull` can be used to check for missing data. This returns a True or False for each observation. Boolean values are coerced to 1 for True and 0 for False so the `sum` function can be used to count the number of True values rather than printing all the True and False values.
+`notnull()` is the opposite of `isnull` while `notna` is the opposite of `isna`.
+
 #### histogram - insert plot images
 A `histogram`is a representation of the distribution of data. The pandas hist function calls `matplotlib.pyplot.hist` on each series in
 the DataFrame, resulting in one histogram per column.
@@ -266,12 +320,31 @@ It is possible to look at the summary statistics as the class or species level w
 For now I will continue with exploring the data set over all.
 
 # I AM HERE! 
-#
-According to the [UCI Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris), Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and is still relevant today. One class is linearly separable from the other two classes, which are not linearly separable from each other. The predicted attribute of the data set is the class of iris plant to which each observation belongs. 
+As mentioned earlier, Fisher's iris dataset is a well known data set in pattern recognition literature. One class / species of the three iris classes is linearly separable from the other two classes, which are not linearly separable from each other. 
+Therefore I will now look at the different classes on their own. To do so, I will need to be able to separate the observations into three groups based on their known class.   
+
+`pandas` has a groupby function that can be used to group the data by a Series of columns. 
+A `groupby` operation involves some combination of splitting the data into groups based on some criteria and applying a function to each group independently. 
+I can do this to the iris data set and then look at the characteristics and statistics of each subset group. The observations will be grouped by Class or species of iris plant.
+
+(An aternative option would be to create subsets of the iris DataFrame for each class or species of Iris plant and then perform the operations on each subset dateFrame.)
 
 
+## GroupBy statistics
 
+GroupBy objects are returned by groupby calls. Descriptive statistics and computations can be applied to these GroupBy objects,
 
+### Interpreting Summary Statistics of the Iris data set
+The pandas `describe` function shows the count number of the non-NA/null observations in the dataset. There are 50 observations in each class. The `max` shows the maximum of the values and the `min` shows the minimum of the values. The `mean` shows the mean of the values, the `std` shows the standard deviation of the observations. The `describe` function also shows the 25th, 50th and 75th percentiles. The 25th percentile shows the percentage of values falling below that percentile. The 50th percentile shows the same information as the median would, that is where 50% of the values fall above and 50% fall below the value.
+
+The statistics at the class level show that the average petal length for a Setosa is much smaller at 1.464 cm than the other two classes. The average petal length for the Versicolor is 4.26 while the iris Virginica has the largest average petal length of 5.552 centimetres which is almost four times greater than the petal length of the Iris Setosa.
+The standard deviation of the setosa petal length is quite small compared to the standard deviation of the other two species. The petal measurements of the iris setosa is much less variable than that of the other two species. 
+
+The average petal width of the setosa is also much smaller than the average petal width of the other two species. In fact the petal width of the setosa is twelve times smaller than the petal width of the virginica. There is less variability in petal widths in all three species though compared to the variability in the petal length.
+There is not such a large difference between the sepal lengths of the three iris species, although the setosa is again showing the smallest average measurements.
+The average sepal width of the setosa however is actually larger than the averages for the other two species. The average sepal width for the setosa is 3.42 centimetres compared to an average of 2.77 cm for the Versicolor and 2.97 for the virginica. This is also shown in the minimum and maximum measurements for the three species.
+
+From the summary statistics of the sepal and petal measurements by class type it would seem that the iris setosa is very different from the other two species, the versicolor and the virginica.
 
 There are several tables in Fisher's paper which I will try to reproduce.
 The first table, Table 1 shows the 4 measurement variables for each observation of the three iris species.
@@ -280,9 +353,7 @@ The equivalent data is shown in the iris DataFrame resulting from reading in the
 Table II in Fisher's paper is entitled *Observed means for two species and their difference (cm.)*
 This table displays the means for each of the 4 measurements for the Iris-Versicolor and Iris-Setosa species. It also shows the differences between the Versicolor means and the Setosa means for each of the 4 measurement variables.
 
-I want to try and get the same information in Table 2 of Fisher's paper.
-Table II. Observed means for two species and their difference(cm.)
-
+I will try  to get the same information as in Table 2 of Fisher's paper.
 
 
 ### Indexing and Filtering the data set
@@ -303,38 +374,6 @@ An index into the dataframe can used to retrieve one or more columns either with
 
 Can select rows from a DataFrame using a boolean vector the same length as the DataFrame’s index. This can be used to filter the data here for a particular class or species of the iris plant.
 
-#### Groupby 
-Can use groupby to split the iris data into groups based on the species. Can then do groupwise operatations such as summary statistics etc.
-This will keep the entire data set in the one file but operations can be applied to each group and the results will be at group level.
-
-
-http://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html
-`group by` is a process involving one or more of the following steps:
-
-- First split the data into groups based on some criteria.
-Split the data into groups and then do something with the individual groups
-
-- Applying a function to each group independently.
-Aggregation function such as computing summary statistic for each group, group sums or means, group sizes and group counts
-Transformation function to perform some group-specific computations and return a like-indexed object. 
-
-- Combining the results into a data structure.
-
-
-
-
-### data cleaning and preparation
-
-(Chapter 7 Python for Data Analysis)
-The data can be checked for any missing values. In pandas objects, the floating point `NaN` for Not a Number is used to represent missing values.
-
-Missing data is a common occurence in data analysis. By default the descriptive statistics on pandas objects exclude missing value.
-
-In R programming language, missing data is referenced as NA for Not Available. NA data in statisics is usually data that doesn't exist or was not observed for some reason or other.
-
-The Iris dataset does not have any missing values. `pandas.isnull` can be used to check for missing data. This returns a True or False for each observation. Boolean values are coerced to 1 for True and 0 for False so the `sum` function can be used to count the number of True values.
-
-`pandas.notnull()` is th opposite.
 
 ## 4. Summarise the dataset - high level statistics
 
@@ -417,18 +456,9 @@ https://seaborn.pydata.org/introduction.html#introduction
 
 ## How to run the code
 
-### Note to myself about all the files! 
-For  now I am working with several scripts for different sections of the project as I try out different things from the pandas documentation and the book `Python for Data Analysis` by Wes McKinney.
-In particular, I am keeping the plots separate so I don't have to generate plots everytime I try something new to me.  
-For the project submission though, I intend to put my final script into a single python script.
-
-I am also trying out Jupyter notebook again but being careful this time to make sure that the changes are actually saved before I exit out of it in the Terminal!
-Its far easier to run lines of code at a time and to see the output but I will transfer it back into the python script.
-
 I have been working on a Jupyter notebook and downloaded it as a `ipynb` notebook and have also downloaded it as a python script which I will update to my repository.
 For the submission, I will tidy all the scripts into one python script and one jupyter notebook.
-The main files I am working on are `iris_expl.py`, `project_iris` and `exploring_iris.ipynb`
-`project_iris` is the name I am saving my current jupyter notebook to, both as a notebook and as a .py python file.
+The main files I am currently working on are `project_iris` using Visual Studio Code and `project_iris.ipynb` using Anaconda Jupyter Notebook. 
 
 On exiting the Jupyter notebook 
  file:///Users/angelacorkery/Library/Jupyter/runtime/nbserver-1892-open.html
