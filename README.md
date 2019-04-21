@@ -38,7 +38,7 @@ Project Task List
 
 - [ ] Research Background information about the Iris data set
 - [ ] List all the references used 
-- [ ] Download the Iris data set  
+- [-] Download the Iris data set  
 - [ ] Investigate the Iris data set using python code
 - [ ] Summarise the Iris data set - provide statistics such as means, minimum and maximum values
 - [ ] Include tables and graphics
@@ -85,45 +85,7 @@ Four flower measurements are given for each observation in the data set, which a
   <img src="images/iris_virginica.png" height="200" alt ="iris virginica" /> 
 </p>
 
-
-#### The iris setosa
-See [Iris setosa description](https://en.wikipedia.org/w/index.php?title=Iris_setosa&oldid=858265829).
-
-- The Iris setosa has *mid-green* leaves, which are *grass-like*, and lanceolate (sword-shaped).   
-- They have a *purplish tinged base* and the leaves can measure *30–60 cm long by 0.8–2.5 cm wide*.  
-- The plant has 3–4 flowers per stem (between 6 and 13 for the whole plant,in groups of 3, and it blooms between June and July.
-- The large flowers are between 5–8 cm across,usually 7–8 cm, and come in a range of shades of blue, which can depend on the location. and range from violet, purple-blue, violet-blue, blue,to lavender. Very occasionally, there are pink or white forms.
-- Like other irises, it has 2 pairs of petals, 3 large sepals (outer petals), known as the 'falls' and 3 inner, smaller petals (or tepals), known as the 'standards'. 
-- The sepals can be deeply veined dark purple with a yellow-white signal (centre). 
-- The standards are so small, that they are reduced to bristles.Which gives the flower, a flat, three petal appearance
-
-### The Iris versicolor 
-see [iris versicolor description](https://en.wikipedia.org/wiki/Iris_versicolor)
-
-- The *Iris versicolor* is a species of Iris native to North America, in the Eastern United States and Eastern Canada
-- Iris versicolor is a flowering herbaceous perennial plant, growing 10–80 cm high. 
-- It tends to form large clumps from thick, creeping rhizomes. 
-- The unwinged, erect stems generally have basal leaves that are more than 1 cm wide. 
-- Leaves are folded on the midribs so that they form an overlapping flat fan. 
-- The well developed blue flower has 6 petals and sepals spread out nearly flat and have two forms. 
-- The longer sepals are hairless and have a greenish-yellow blotch at their base. The inferior ovary is bluntly angled. 
-- Flowers are usually light to deep blue (purple and violet are not uncommon)
-
-### The Iris Virginica
-see [iris virginica description](https://en.wikipedia.org/wiki/Iris_virginica)
-The plant has 2 to 4 *erect* or arching, *bright green, lance-shaped* leaves that are flattened into one plane at the base. 
-- Leaves are *1–3 cm* wide and are sometimes longer than the flower stalk. 
-- The slightly fragrant flowers (4 cm long, 7 cm across) consist of 3 horizontal sepals, or "falls", and 3 erect petals. 
-- The petals and sepals can vary in color from dark-violet to pinkish-white. 
-- The sepals have a splash of yellow to yellow-orange at the crest. 
-- Each plant has 2 to 6 flowers that bloom from April to May upon a single, erect, 30–90 cm tall stalk. 
-- The stalk is sometimes branched and has a slight zigzag appearance.
-
-
-
-
-
-
+See [iris flower description](iris flowers description.md) for more details.
 
 According to the [UCI Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris), Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and is still relevant today. One class is linearly separable from the other two classes, which are not linearly separable from each other. The predicted attribute of the data set is the class of iris plant to which each observation belongs. 
 
@@ -152,13 +114,6 @@ The two species Iris Setosa and Iris Versicolor were found growing together in t
 
 Fisher considered the question of what linear function of the four measurements would maximise the ratio of the difference  between the specific means to the standard deviation between species.
 
-
-Include images of the three iris class.
-
-
-Here using a url to the image located online
-
-
 Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Problems` shows the four measurement for each of the three Iris Species. 
 - Sepal length
 - Sepal width
@@ -166,11 +121,55 @@ Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Probl
 - Petal Width
 insert image of table 1.
 
+![Fishers Table I](images/IrisTable1.png)
+
+## How to run the python code
+
+The purpose of this project is to investigate the Fisher Iris data set described above using python code.
+Python is a high level interpreted general purpose programming language. The python interpreter and its extensive standard library are freely available to all. Along with the python standard library, there are many libraries that enhance the usage of python and make it a powerful tool for performing data analytics and machine learning.
+Make sure you have Python 3 installed. If not go to https://www.python.org/downloads/ and follow the instructions.
+
+To run the python script, first navigate to the folder downloaded from this repository.
+
+At the command line enter python <program_name> for example: $ python project_iris.py
+
+The python program can also be run inside the environment of an iPython session using the `%run` command.
+ `% run project_iris.py`
+
+### Loading python libraries
+
+The `pandas` library is the main python library being used in this project. According to the [pandas package overview ](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html)  
+
+> `pandas` is a `Python` package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. 
+
+In addition to `pandas`, the `seaborn` library is also used for plotting which requires `matplotlib.pyplot` for some functions.
+
+[seaborn.pydata.org](https://seaborn.pydata.org/index.html)
+>Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics
+
+[matplotlib.org](https://matplotlib.org)
+>Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
+
+The pandas library is imported in the script using `import pandas as pd`. Therefore wherever `pd` is used in the script, it is referring to the pandas library. Similarly, the `seaborn` library is imported as `sn` and thereafter referred to using `sn` 
+
+Help can be obtained using the python help function
+For example `help(pd)` or `help(pd.DataFrame.describe)`
+
+### Getting help in python
+To get help on any function, I can use the python help function https://docs.python.org/3/library/pdb.html?highlight=help#pdbcommand-help with the command in parentheses.
+ `help(pd)` will show help on the package pandas.
+ I can get more specific help as follows:
+ `help(pd.DataFrame.describe())`
+ 
+-[Pandas.pydata documentation](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html)  
+-[Matplotlib documentation](https://matplotlib.org/index.html)  
+-[Seaborn.pydata documentaion](https://seaborn.pydata.org/index.html)  
+-[Python 3 documentation](https://docs.python.org/3/index.html)  
+
+
 ## 3. Download the dataset and investigate it using Python code
 <a name="loading"></a>
 The Iris Data Set is available in csv format from the UC Irvine Machine Learning Repository at http://archive.ics.uci.edu/ml/datasets/Iris.
-
-The csv data can be directly downloaded at the following url:[UCI Machine Learning Iris Database](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/)
 
 The data set itself at the UCI Machine Learning repository does not have the attribute information included in the csv file. However this information can be found under the section [Iris Data Set: Attribute Information](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names)
 
@@ -180,29 +179,29 @@ The data set itself at the UCI Machine Learning repository does not have the att
    3. petal length in cm
    4. petal width in cm
    5. class: 
-      -- Iris Setosa
-      -- Iris Versicolour
-      -- Iris Virginica
+      - Iris Setosa  
+      - Iris Versicolor  
+      - Iris Virginica  
 
 
-According to the [pandas.pydata.org website](https://pandas.pydata.org/index.html),`pandas` is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. 
+According to the [pandas.pydata.org website](https://pandas.pydata.org/index.html),the python `pandas` library is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. 
 
-The python `pandas` library is designed for working with tabular or heteogenous data - data that is in a tabular format containing an ordered collection of columns and each column can have a different value type.  Python `pandas` library is therefore ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one string categorical column. 
+The python `pandas` library is designed for working with tabular or heteogenous data - data that is in a tabular format containing an ordered collection of columns where each column can have a different value type.  Python `pandas` library is therefore ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one string categorical column. 
 
 The `pandas` library has several functions for reading tabular data into a python script. Data can be imported as a `DataFrame` object. According to the [pandas docs -DataFrame](http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame)
 >A `DataFrame` is a two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). Arithmetic operations align on both row and column labels. Can be thought of as a dict-like container for Series objects. 
 
-When a pandas `DataFrame`  object is created, it has many attributes and methods available to it. The list of pandas.DataFrame attributes and methods is available at (http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame).
+When a pandas `DataFrame`  object is created, it has many attributes and methods available to it. The list of pandas.DataFrame attributes and methods is available at[pandas.DataFrame](http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame).
 
 The pandas `read_csv`function loads delimited data from a file, URL or file-like object using a comma as the default delimiter and  creates a DataFrame. 
 
-The Iris data set can be read in directly from the url https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data or alternatively it can be saved locally and read in fby specifiying the file path. In the script I will download the csv file into python as part of the script. However, I haved also saved the csv file containing the Iris data set into this project's repository for convenience. 
+The Iris data set can be read in directly from the url[https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data] (https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data)or alternatively it can be saved locally and read in fby specifiying the file path. In the script I will download the csv file into python as part of the script.   
+However, I haved also saved the csv file containing the Iris data set into this project's repository for convenience. 
 
-`pandas.read_csv` performs type inference because the column data types are not part of the data format. Therefore you do not need to specify the data format of each column. The data types for each column will be inferred by the `read_csv` function.
+The `pandas.read_csv` function performs type inference because the column data types are not part of the data format. Therefore you do not need to specify the data format of each column. The data types for each column will be inferred by the `read_csv` function.
 
 A pandas `DataFrame` represents a rectangular table of data containing an ordered collection of columns and each column can have a different value type. A `DataFrame` has both a row and a column index.
-When csv data is imported into python using `pandas.read_csv` function, an index is added to the `DataFrame` by default if none is provided. 
-This is a range of numbers beginning at 0 for the first observation.
+When csv data is imported into python using `pandas.read_csv` function, an index is added to the `DataFrame` by default if none is provided. This is a range of numbers beginning at 0 for the first observation.
 
 The csv file can be inspected on the command line using the `cat` command which prints the raw contents of the file to the screen or the `head` command  which prints just the first 10 rows to the screen. The file has 4 numerical columns and 1 descriptive string column. 
 
@@ -232,29 +231,6 @@ iris =  pd.read_csv(csv_url, names = col_names)
 (Having added column names, the pandas DataFrame could be saved to a csv file using the `to_csv` method which writes the data out to a comma separated file.)
 
 Having loaded the data set, the created DataFrame can be viewed using the DataFrame methods `head` and `tail` to see the first rows and the last rows respectively. 
-
-
-## Loading python libraries
-
-The `pandas` library is the main python library being used in this project. In addition the `seaborn` library for plotting which requires `matplotlib.pyplot` for some functions. 
-
-The pandas library is imported in the script using `import pandas as pd`. Therefore wherever `pd` is used in the script, it is referring to the pandas library. Similarly for the `seaborn` library as `sn`. 
-
-Help can be obtained using the python help function
-For example `help(pd)` or `help(pd.DataFrame.describe)`
-
-GETTING HELP ON PYTHON 
-To get help on any function, I can use the python help function https://docs.python.org/3/library/pdb.html?highlight=help#pdbcommand-help with the command in parentheses.
- `help(pd)` will show help on the package pandas.
- I can get more specific help as follows:
- `help(pd.DataFrame.describe())`
- 
--[Pandas.pydata documentation](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html)  
--[Matplotlib documentation](https://matplotlib.org/index.html)  
--[Seaborn.pydata documentaion](https://seaborn.pydata.org/index.html)  
--[Python 3 documentation](https://docs.python.org/3/index.html)  
-
-
 
 
 ## Exploring the dataset
@@ -454,26 +430,6 @@ https://seaborn.pydata.org/introduction.html#introduction
 ### https://guides.github.com/features/mastering-markdown/
 
 
-## How to run the code
-
-I have been working on a Jupyter notebook and downloaded it as a `ipynb` notebook and have also downloaded it as a python script which I will update to my repository.
-For the submission, I will tidy all the scripts into one python script and one jupyter notebook.
-The main files I am currently working on are `project_iris` using Visual Studio Code and `project_iris.ipynb` using Anaconda Jupyter Notebook. 
-
-On exiting the Jupyter notebook 
- file:///Users/angelacorkery/Library/Jupyter/runtime/nbserver-1892-open.html
-http://localhost:8889/?token=3e22d6124c915eaecd374f44fc171a0f2eeb49c351331eeb
-
-
-#### to run the scripts
-Make sure you have Python 3 installed. If not go to https://www.python.org/downloads/ and follow the instructions.
-
-To run each python program, first navigate to the folder downloaded from this repository.
-
-At the command line enter python <program_name> for example: $ python isi_expl.py
-
-The python program can also be run inside the environment of an iPython session using the `%run` command.
- `% run iris_expl.py`
 
 ## 10. References
 <a name="references"></a>
