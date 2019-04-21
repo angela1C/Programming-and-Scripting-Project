@@ -119,7 +119,7 @@ Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Probl
 - Sepal width
 - Petal length
 - Petal Width  
-<img src="images/IrisTable1.png" height="200" alt="Fisher Table I" 
+<img src="images/IrisTable1.png" height="200" alt="Fisher Table I">
 
 
 ## How to run the python code
@@ -219,46 +219,39 @@ There are other parameters which can be set for the `read_csv` function and thes
       iris =  pd.read_csv(csv_url, names = col_names)
 ```
 
-Having loaded the iris data set, the resulting DataFrame can be viewed using the DataFrame methods `head` and `tail` to see the first rows and the last rows respectively. 
+Having loaded the iris data set, the resulting `iris` DataFrame can be viewed using the DataFrame methods `head` and `tail` to see the first rows and the last rows respectively. 
 
+## Exploring the dataset - summary results
+The `pandas` library has many functions that can be used to explore the Iris data set. Having imported the iris data set from a csv file into a pandas `DataFrame`, all the attributes and methods of `DataFrame` objects can be used on the iris DataFrame object.
 
-## Exploring the dataset
-There are many functions in the `pandas` library which can be used to explore the Iris data set. Having imported the iris data set from a csv file into a pandas DataFrame, there are many pandas attributes and methods which I can use here on the iris DataFrame object.
+##### Attributes of the iris DataFrame 
+I looked at the attributes of the `iris` DataFrame in the section # EXPLORING & INVESTIGATING THE IRIS DATA SET of the project_iris.py python script.   
 
-### Attributes of the iris DataFrame 
-I looked at the attributes of the iris DataFrame in the section # EXPLORING / INVESTIGATING THE IRIS DATA SET of the python script.
-The iris DataFrame has two dimensions. It consists of 150 rows and 5 columns which correspond to the 150 rows of observations in the csv data set and the five columns of data. 
-The columns on the dataset contain the column names that were specified when reading in the csv file.
-'Sepal_Length', 'Sepal_Width', 'Petal_Length', 'Petal_Width','Species'. (If the csv data set had contained a row of column names at the top of the file, then this could have been used to set the column names.)
-There are 750 elements in total in the iris dataframe.
-The dataframe is assigned a range index by default on reading in the data set. This index starts at 0 for the first row of observations and goes up to 149 for the last row of observations. The index can be changed if desired. 
-The datatypes of the numeric measurement columns are floats. 
+In summary:  
+- The iris DataFrame has two dimensions.   (`ndim`)
+- It consists of 150 rows and 5 columns corresponding to the 150 rows of observations in the csv data and the five columns of data.(`shape`) 
+- The columns on the dataset contain the column names that were specified when reading in the csv file. (`columns`)
+'Sepal_Length', 'Sepal_Width', 'Petal_Length', 'Petal_Width','Species'. (If the csv data set had contained a row of column names at the top of the file, then this could have been used to set the column names.)  
+- There are 750 elements in total in the iris dataframe.  (`size`)
+- The dataframe is assigned a range index by default on reading in the data set. This index starts at 0 for the first row of observations and goes up to 149 for the last row of observations. The index can be changed if desired.   (`index`)
+- The datatypes of the numeric measurement columns are floats.   (`dtypes`)
 
-### Using `DataFrame` methods to explore the iris data set.
+##### Using `DataFrame` methods to explore the iris data set.
 
-The `head` and `tail` methods are useful to take a quick look at the observations at the top and bottom rows of the dataframe. The number of rows to dosplay can be specified as an argument. The rows at the top belong to the setosa class. The rows at the bottom belong to the virginica class. This is just the way the observations are ordered in the csv data set. 
+- The `head` and `tail` methods are useful to take a quick look at the observations at the top and bottom rows of the dataframe. The number of rows to display can be specified as an argument. The rows at the top belong to the setosa class. The rows at the bottom belong to the virginica class. This is just the way the observations are ordered in the csv data set. 
 
-`pandas` objects have a set of common mathematical and statistical methods. Most of these methods
-produce a single value such as the mean or the max or standard deviation
-Multiple summary statistics can be obtained in one go using pandas.descibe().
+![iris_head](images/iris_head.png)
+![iris_tail](images/iris_tail.png)
 
-Using the `describe` method to produce some quick summary statistics produces the following table. These statistics are for the data set as a whole. Later I look at the descriptive statistics by class or species of iris plant.
-The various statistics that are generated from the `describe` function can also be obtained on their own. For example the mean could be obtained using `iris.mean()`, minimum with `.min()` etc.
+- `pandas` objects have a set of common mathematical and statistical methods. Most of these methods produce a single value such as the mean or the max or standard deviation.  Multiple summary statistics can be obtained in one go using pandas.descibe().
 
-(using markdown guide to get this into a table format, You can create tables by assembling a list of words and dividing them with hyphens - (for the first row), and then separating each column with a pipe | )
- 
-      - Sepal_Length  - Sepal_Width - Petal_length  -Petal_Width
-count  |   150.000000  | 150.000000   | 150.000000  | 150.000000
-mean   |   5.843333    | 3.054000     | 3.758667    | 1.198667
-std    |   0.828066    | 0.433594     | 1.764420    | 0.763161
-min    |   4.300000    | 2.000000     | 1.000000    | 0.100000
-25%    |  5.100000     | 2.800000     | 1.600000    | 0.300000
-50%    |   5.800000    | 3.000000     | 4.350000    | 1.300000
-75%    |   6.400000    | 3.300000     | 5.100000    | 1.800000
-max    |    7.900000   | 4.400000     | 6.900000    | 2.500000
+- Using the `describe` method to produce some quick summary statistics produces the following table. These statistics are for the data set as a whole. (Later I look at the descriptive statistics by class or species of iris plant).
 
+- The various statistics that are generated from the `describe` function can also be obtained on their own. For example the mean could be obtained using `iris.mean()`, minimum with `.min()` etc.
 
-The initial exploration of the Iris DataFrame shows that there are 150 rows and 5 columns of data. 
+![iris_describe](images/iris_describe.png)
+
+- The initial exploration of the Iris DataFrame shows that there are 150 rows and 5 columns of data. 
 Each row corresponds to an individual observation of an iris plant. The columns show the individual measurements (in centimetres) of the length of the sepal, the length of the petal, the width of the sepal and the width of the petal.
 
 The mean of the Sepal length is greater than the mean of the other three measurements. 
