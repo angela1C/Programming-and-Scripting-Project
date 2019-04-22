@@ -11,7 +11,7 @@
 # I will keep working on the script here and the readme in tandem with the jupyter notebook. 
 # I find it easier to work on the Jupyter notebook and then copy into the script here,
 
-# IMPORT LIBRARIES
+# 1. IMPORT LIBRARIES
 
 # In order to use python libraries that are not part of the standard python library, they first need to be imported.
 # Here I import the pandas library, the matplotlib pyplot library and the seaborn library.
@@ -46,7 +46,7 @@ print(iris.head(10))
 print(iris.tail(10))
 
 
-# EXPLORING / INVESTIGATING THE IRIS DATA SET
+# 2. EXPLORING AND INVESTIGATING THE IRIS DATA SET
 
 ## ATTRIBUTES OF THE IRIS DATA FRAME
 # First looking at the attributes of the iris DataFrame created from importing the iris data set above.

@@ -1,16 +1,21 @@
-# pands-project
+##### pands-project 
 Project 2019 for Programming and Scripting Module
 
-This repository contains my submission for the class project for the Programming and Scripting Module at GMIT as part of the Higher Diploma in Computing and Data Analytics. 
-The pdf file containing the problem set instructions is available by clicking on the following link.
-- [Programming and Scripting Project 2019](https://github.com/ianmcloughlin/project-pands/raw/master/project.pdf)  
+# Introduction to this project.
 
-
-## Problem Statement <a name="problem-statement"></a>
+This repository contains my submission for the class project for the Programming and Scripting Module at GMIT as part of the Higher Diploma in Computing and Data Analytics.   
+The pdf file containing the problem set instructions is available by clicking on the following link.  [Programming and Scripting Project 2019](https://github.com/ianmcloughlin/project-pands/raw/master/project.pdf)  
 
 The project concerns the well-known Fisher's Iris data set. 
-The project entails researching the data set, and then writing documentation and code in the Python programming language based on that research.
+It entails researching the data set, and then writing documentation and code in the Python programming language based on that research.
 
+The first part of this document provides some background information on the Fisher Iris data set.  
+The next part outlines the tools used in preparing and executing this project.  
+I then analyse the data set using the python programming language.
+The first part of my analysis looks at an overview of the Fisher Iris data set including some summary statistics that describe the data at a high level and some basic plots that provide an overall picture of the Fisher Iris data set. 
+The next part of the analysis looks more closely at analysing the data set.  
+
+## Problem Statement <a name="problem-statement"></a>
 The project should achieve the following goals:
 
 1. Research background information about the data set and summarise it.    
@@ -21,15 +26,7 @@ The project should achieve the following goals:
 5. Summarise the investigations.
 6. Include supporting tables and graphics.
 
-The project should contain a repository containing a README and a python script.
-The readme should contain  a summary of the dataset and your investigations into it
-Readme should list all references.
-The project should be well organised and contain detailed explanations
-The analysis will be well conceived and and examples of interesting analyses that others have pursued based on the data set will be discussed.
-Note that the point of this project is to use Python. You may use any Python libraries that you wish, whether they have been discussed in class or not. You should not be thinking of using spreadsheet software like Excel to do your calculations
-
-
-# My project plan
+#### My project plan
 
 I will use a Task List as described on the GitHub Flavoured Markdown Syntax cheatsheet.
 
@@ -38,7 +35,7 @@ Project Task List
 
 - [ ] Research Background information about the Iris data set
 - [ ] List all the references used 
-- [-] Download the Iris data set  
+- [x] Download the Iris data set  
 - [ ] Investigate the Iris data set using python code
 - [ ] Summarise the Iris data set - provide statistics such as means, minimum and maximum values
 - [ ] Include tables and graphics
@@ -48,9 +45,11 @@ Project Task List
 - [ ] Refer to task list as a guideline
 - [ ] Use headings as links, maybe create a table of contents
 - [ ] keep the jupyter notebook in line with the python script and readme document.
-- [ ] get links to images working
+- [x] get links to images working
+- [ ] The project should be well organised and contain detailed explanations
+- [ ] The analysis will be well conceived and and examples of interesting analyses that others have pursued based on the data set will be discussed.
 
-# Table of Contents
+## Table of Contents
 
 1. Introduction and problem statement
 2. [Background information about the Iris data set](#background) 
@@ -59,11 +58,7 @@ Project Task List
 5. [Exploring the data set](#exploring)
 6. [Summarise the data set](#summarise)
 7. [conclusions](#conclusions)
-8. [Terms uses](#terms)
-
-Taxonomy is the branch of science concerned with classification, especially organisms (Oxford Dictionary)
-A sepal is the green part of the flower that protects the petals.
-
+8. [Terms uses](terms.md)
 10. [References](#references)
 
 
@@ -112,14 +107,8 @@ His paper then applies the principle of the linear discriminant model to the sam
 
 The two species Iris Setosa and Iris Versicolor were found growing together in the same colony. The sample of the third species - the Iris Virginica differs from the other two samples as they were not taken from the same natural colony. 
 
-Fisher considered the question of what linear function of the four measurements would maximise the ratio of the difference  between the specific means to the standard deviation between species.
+As well as other statistical analyses that are beyond the scope of this project, Fisher considered the question of what linear function of the four measurements would maximise the ratio of the difference  between the specific means to the standard deviation between species.
 
-Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Problems` shows the four measurement for each of the three Iris Species. 
-- Sepal length
-- Sepal width
-- Petal length
-- Petal Width  
-<img src="images/IrisTable1.png" width="400" alt="Fisher Table I">
 
 
 ## How to run the python code
@@ -155,10 +144,9 @@ Help can be obtained using the python help function
 For example `help(pd)` or `help(pd.DataFrame.describe)`
 
 ### Getting help in python
-To get help on any function, I can use the python help function https://docs.python.org/3/library/pdb.html?highlight=help#pdbcommand-help with the command in parentheses.
- `help(pd)` will show help on the package pandas.
- I can get more specific help as follows:
- `help(pd.DataFrame.describe())`
+To get help on any python command, I can use the python help function as outlined in the [Python help command document](https://docs.python.org/3/library/pdb.html?highlight=help#pdbcommand-help) with the command in parentheses.  
+For example, `help(pd)` will show help on the python `pandas` package while `help(pd.DataFrame.describe())` provides help on the `describe` function of the pandas DataFrame.    
+The documentation pages for each of the python packages used in this project provided details of all the commands for that package.
  
 -[Pandas.pydata documentation](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html)  
 -[Matplotlib documentation](https://matplotlib.org/index.html)  
@@ -168,8 +156,20 @@ To get help on any function, I can use the python help function https://docs.pyt
 
 ## 3. Download the dataset and investigate it using Python code
 <a name="loading"></a>
-The Iris Data Set is available in csv format from the UC Irvine Machine Learning Repository at http://archive.ics.uci.edu/ml/datasets/Iris.
+The Iris Data Set is available from the UC Irvine Machine Learning Repository at http://archive.ics.uci.edu/ml/datasets/Iris in csv format.
 
+According to [pandas.pydata.org](https://pandas.pydata.org/index.html),the python `pandas` open source library provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. `pandas` is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type.  This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column. 
+
+Using `pandas`, tabular data can be imported as a `DataFrame` object. According to the [pandas docs - DataFrame](http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame)
+>A `DataFrame` is a two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). Arithmetic operations align on both row and column labels. 
+A pandas `DataFrame` represents a rectangular table of data containing an ordered collection of columns and each column can have a different value type.
+
+The pandas `read_csv`function loads delimited data from a file, URL or file-like object using a comma as the default delimiter and  creates a DataFrame. When a pandas `DataFrame`  object is created, it has many attributes and methods available that can be used on that object.
+
+The Iris data set can be read in directly from the url at [https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data] (https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data)or alternatively it can be saved locally and read in by specifiying the file path.   
+In the script, I will download the csv file into python as part of the script. (I haved also saved the csv file containing the Iris data set into this project's repository for convenience). 
+
+The csv file can be inspected on the command line using the `cat` command which prints the raw contents of the file to the screen or the `head` command  which prints just the first 10 rows to the screen. The file has 4 numerical columns and 1 descriptive string column. 
 The data set itself at the UCI Machine Learning repository does not have the attribute information included in the csv file. However this information can be found under the section [Iris Data Set: Attribute Information](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names)
 
  Attribute Information:
@@ -182,24 +182,10 @@ The data set itself at the UCI Machine Learning repository does not have the att
       - Iris Versicolor  
       - Iris Virginica  
 
-
-According to [pandas.pydata.org](https://pandas.pydata.org/index.html),the python `pandas` open source library provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. `pandas` is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type.  This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column. 
-
-Using `pandas` tabular data can be imported as a `DataFrame` object. According to the [pandas docs - DataFrame](http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame)
->A `DataFrame` is a two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). Arithmetic operations align on both row and column labels. 
-A pandas `DataFrame` represents a rectangular table of data containing an ordered collection of columns and each column can have a different value type.
-
-The pandas `read_csv`function loads delimited data from a file, URL or file-like object using a comma as the default delimiter and  creates a DataFrame. When a pandas `DataFrame`  object is created, it has many attributes and methods available.
-
-The Iris data set can be read in directly from the url at [https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data] (https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data)or alternatively it can be saved locally and read in by specifiying the file path.   
-In the script, I will download the csv file into python as part of the script. (I haved also saved the csv file containing the Iris data set into this project's repository for convenience). 
-
-The csv file can be inspected on the command line using the `cat` command which prints the raw contents of the file to the screen or the `head` command  which prints just the first 10 rows to the screen. The file has 4 numerical columns and 1 descriptive string column. 
-
 The `pandas.read_csv` function performs type inference. The data types for each column will be inferred by the `read_csv` function. 
 A `DataFrame` has both a row and a column index.  When csv data is imported into python using `pandas.read_csv`, an index is added to the `DataFrame` by default if none is provided. This is a range of numbers beginning at 0 for the first observation.
 
-As mentioned earlier, the raw csv file does not contain any headers. However, this information is available on the Iris data set page at the UCI Machine Learning Repository the under 'attribute_information'. I can add the column names to the DataFrame. 
+The raw csv file does not contain any headers. Column names can be added to the DataFrame.   
 
 The `pandas` library must first be imported before it can be used as it not part of the Python standard library. 
 At the beginning of the script, I import the `pandas` library using `import pandas as pd`, along with any other libraries to be used in this project.
@@ -212,7 +198,7 @@ My code for reading in the data set does the following:
 3. Create a panda's DataFrame object called `iris`.
 There are other parameters which can be set for the `read_csv` function and these can be found using `?pd.read_csv`. 
 
-```
+```python
       csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
       # using the attribute information as the column names
       col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Class']
@@ -222,6 +208,12 @@ There are other parameters which can be set for the `read_csv` function and thes
 Having loaded the iris data set, the resulting `iris` DataFrame can be viewed using the DataFrame methods `head` and `tail` to see the first rows and the last rows respectively. 
 
 ## Exploring the dataset - summary results
+
+The first part of my analysis looks at an overview of the Fisher Iris data set including some summary statistics that describe the data at a high level and some basic plots that provide an overall picture of the Fisher Iris data set. 
+
+According to the Iris data set information on the UCI Machine Learning Repository where the data set is stored, Fishers Iris data set is well known in the pattern recognition literature because one of the three Iris species or classes in the data set is linearly separable from the other two classes while the other two species of iris plant are not linearly separabel from each other. 
+Therefore, after doing a summary overview of the data set as a whole, I will look at the data as the iris species / class level.
+
 The `pandas` library has many functions that can be used to explore the Iris data set. Having imported the iris data set from a csv file into a pandas `DataFrame`, all the attributes and methods of `DataFrame` objects can be used on the iris DataFrame object.
 
 ##### Attributes of the iris DataFrame 
@@ -237,6 +229,13 @@ In summary:
 - The datatypes of the numeric measurement columns are floats.   (`dtypes`)
 
 ##### Using `DataFrame` methods to explore the iris data set.
+
+Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Problems` shows the four measurement for each of the three Iris Species. 
+- Sepal length
+- Sepal width
+- Petal length
+- Petal Width  
+<img src="images/IrisTable1.png" width="400" alt="Fisher Table I">
 
 - The `head` and `tail` methods are useful to take a quick look at the observations at the top and bottom rows of the dataframe. The number of rows to display can be specified as an argument. The rows at the top belong to the setosa class. The rows at the bottom belong to the virginica class. This is just the way the observations are ordered in the csv data set. 
 
@@ -258,21 +257,22 @@ The bottom of the iris data set:
 Each row corresponds to an individual observation of an iris plant. 
 - The columns show the individual measurements (in centimetres) of the length of the sepal, the length of the petal, the width of the sepal and the width of the petal.
 
-- The mean of the Sepal length is greater than the mean of the other three measurements.   
+- The mean (the mean or average is the sum of data values divided by total number of values) of the Sepal length is greater than the mean of the other three measurements.   
 - The measurements of the petal width has the lowest average measurements.   
-- The standard deviation in the petal lengths shows the highest variability of the four measurements at 1.76 while the standard deviations of the petal width is approx 0.43.  
+- The standard deviation (the standard deviation measures the dispersion or spread of the data) in the petal lengths shows the highest variability of the four measurements at 1.76 while the standard deviations of the petal width is approx 0.43.  
 
 - The shortest petal in the data set is 1 cm while the longest petal is 6.9 cm.  
 - The widths of the petals vary from 0.1 cm to 2.5 cm.  
 - The shortest sepal in the data set is 4.3 cm while the longest sepal is 7.9 cm. The narrowest sepal is 2cm while the widest sepal is 4.4 centimetres.  
 
-The data can be checked for any missing values. By default the descriptive statistics on pandas objects exclude missing value.  
--  The Iris dataset does not have any missing values.   
-`pandas.isnull` can be used to check for missing data. This returns a True or False for each observation. Boolean values are coerced to a 1 for True and 0 for False so the `sum` function can be used to count the number of `True` values rather than printing all the `True` and `False` values.
+
+The data can be checked for any missing values. By default, the descriptive statistics on `pandas` objects exclude missing value.  
+The Fisher Iris data set is a small data set and it does not have any missing values.
+`pandas.isnull` can be used to check for missing data. It returns a True or False boolean value for each observation. Boolean values are coerced to a 1 for True and 0 for False so the `sum` function can be used to count the number of `True` values in the data set, rather than printing all the `True` and `False` values.
 `notnull()` returns the opposite of `isnull` while `notna` is the opposite of `isna`.
 
-A `histogram`is a representation of the distribution of data. The pandas hist function calls `matplotlib.pyplot.hist` on each series in
-the DataFrame, resulting in one histogram per column.
+A `histogram`is a representation of the distribution of data. It charts the data using rectangular bars that are adjacent to each other and display either the frequency or relative frequency of the measurements on the interval or ratio scale.
+ The pandas `hist` function calls `matplotlib.pyplot.hist` on each numerical series in the DataFrame, resulting in one histogram per column.
 
 The histograms here show the distribution of each of the the measurements attributes across the iris data set. 
 
@@ -287,6 +287,9 @@ For now I will continue with exploring the data set over all.
 Looking at a basic boxplot of the iris dataset:
 
 <img src="images/iris_boxplot.png" width="400" alt="iris-boxplot" />
+
+Interpreting the boxplot.
+The length of the box is the interquartile range and measures the variability in the data set. The interquartile range (IQR) is the middle 50% of the data and can show the spread or variation of the data. The whiskers show if the data is skewed on one direction or the other. The median is the line through the box. (horizontal line in the plot above)
 
 
 ### next looking at statistics and plots by species.
