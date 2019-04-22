@@ -216,6 +216,8 @@ Therefore, after doing a summary overview of the data set as a whole, I will loo
 
 The `pandas` library has many functions that can be used to explore the Iris data set. Having imported the iris data set from a csv file into a pandas `DataFrame`, all the attributes and methods of `DataFrame` objects can be used on the iris DataFrame object.
 
+### Summary results of the Fisher Iris data set. 
+
 ##### Attributes of the iris DataFrame 
 I looked at the attributes of the `iris` DataFrame in the section # EXPLORING & INVESTIGATING THE IRIS DATA SET of the project_iris.py python script.   
 
@@ -235,31 +237,35 @@ Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Probl
 - Sepal width
 - Petal length
 - Petal Width  
-<img src="images/IrisTable1.png" width="400" alt="Fisher Table I">
+<img src="images/IrisTable1.png" width="400" alt="Fisher Table I">  
 
-- The `head` and `tail` methods are useful to take a quick look at the observations at the top and bottom rows of the dataframe. The number of rows to display can be specified as an argument. The rows at the top belong to the setosa class. The rows at the bottom belong to the virginica class. This is just the way the observations are ordered in the csv data set. 
+The equivalent data is shown in the iris DataFrame resulting from reading in the csv file, although the layout is slightly different.
+The `head` and `tail` methods are useful to take a quick look at the observations at the top and bottom rows of the dataframe. The number of rows to display can be specified as an argument. The rows at the top belong to the setosa class. The rows at the bottom belong to the virginica class. This is just the way the observations are ordered in the csv data set. 
 
-The top of the iris data set:
+##### The top of the iris data set:
 <img src="images/iris_head.png" height="200" alt="iris-head" />
 
-The bottom of the iris data set:
+#### The bottom of the iris data set:
 <img src="images/iris_tail.png" height="200" alt="iris-tail" />
 
 - `pandas` objects have a set of common mathematical and statistical methods. Most of these methods produce a single value such as the mean or the max or standard deviation.  Multiple summary statistics can be obtained in one go using pandas.descibe().
 
 - Using the `describe` method to produce some quick summary statistics produces the following table. These statistics are for the data set as a whole. (Later I look at the descriptive statistics by class or species of iris plant).
 
+The pandas `describe` function shows the count number of the non-NA/null observations in the dataset. There are 50 observations in each class. The `max` shows the maximum of the values and the `min` shows the minimum of the values. 
+The `mean` shows the mean or average  of the values (the sum of data values divided by total number of values), the `std` shows the standard deviation (a measure of the dispersion or spread of the data) of the observations. The `describe` function also shows the 25th, 50th and 75th percentiles. The 25th percentile shows the percentage of values falling below that percentile. The 50th percentile shows the same information as the median would, that is where 50% of the values fall above and 50% fall below the value.
+
 - The various statistics that are generated from the `describe` function can also be obtained on their own. For example the mean could be obtained using `iris.mean()`, minimum with `.min()` etc.
 
-<img src="images/iris_describe.png" width="400" alt="iris-describe" />
+<img src="images/iris_describe.png" width="600" alt="iris-describe" />
 
 - The initial exploration of the Iris DataFrame shows that there are 150 rows and 5 columns of data. 
 Each row corresponds to an individual observation of an iris plant. 
 - The columns show the individual measurements (in centimetres) of the length of the sepal, the length of the petal, the width of the sepal and the width of the petal.
 
-- The mean (the mean or average is the sum of data values divided by total number of values) of the Sepal length is greater than the mean of the other three measurements.   
+- The mean of the Sepal length is greater than the mean of the other three measurements.   
 - The measurements of the petal width has the lowest average measurements.   
-- The standard deviation (the standard deviation measures the dispersion or spread of the data) in the petal lengths shows the highest variability of the four measurements at 1.76 while the standard deviations of the petal width is approx 0.43.  
+- The standard deviation in the petal lengths shows the highest variability of the four measurements at 1.76 while the standard deviations of the petal width is approx 0.43.  
 
 - The shortest petal in the data set is 1 cm while the longest petal is 6.9 cm.  
 - The widths of the petals vary from 0.1 cm to 2.5 cm.  
@@ -291,25 +297,23 @@ Looking at a basic boxplot of the iris dataset:
 Interpreting the boxplot.
 The length of the box is the interquartile range and measures the variability in the data set. The interquartile range (IQR) is the middle 50% of the data and can show the spread or variation of the data. The whiskers show if the data is skewed on one direction or the other. The median is the line through the box. (horizontal line in the plot above)
 
-
-### next looking at statistics and plots by species.
-
+### Summary results of the Fisher Iris data set by species or class or iris plant.
 As mentioned earlier, Fisher's iris dataset is a well known data set in pattern recognition literature. One class / species of the three iris classes is linearly separable from the other two classes, which are not linearly separable from each other. 
-Therefore I will now look at the different classes on their own. To do so, I will need to be able to separate the observations into three groups based on their known class.   
+Therefore I will now look at the different classes on their own. To do so, I will need to be able to separate the observations into three groups based on their known class. 
 
-`pandas` has a groupby function that can be used to group the data by a Series of columns. 
-A `groupby` operation involves some combination of splitting the data into groups based on some criteria and applying a function to each group independently. 
-I can do this to the iris data set and then look at the characteristics and statistics of each subset group. The observations will be grouped by Class or species of iris plant.
+There are several ways of selecting data from the DataFrame that is detailed on the pandas documentation [Indexing and selecting data](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-and-selecting-data).
 
-(An aternative option would be to create subsets of the iris DataFrame for each class or species of Iris plant and then perform the operations on each subset dateFrame.)
+Indexing with square brackets will return a `Series` corresponding to the column name. A column of data can be retrieved from the Iris DataFrame using dict-like notation or by attribute such as `iris.Petal_Width`. The rows of the iris DataFrame can be retrieved by position name or by using the `loc` attribute.  
+The index operators can be used to select a subset or rows and columns using the `loc` attribute for axis labels or `iloc` attribute for integers.  The index for the iris DataFrame is a range of integers from 0 to 150. An index into the dataframe can used to retrieve one or more columns, either with a single value or a sequence of values for the index.
 
+[Boolean Indexing](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#boolean-index) could be used to select rows from the `iris` DataFrame by filtering the data for rows that correspond to a a particular class or species of the iris plant.  
+    
+I could create subsets of the iris DataFrame for each class or species of Iris plant by using one of these methods.  
+There is another way, using the pandas `groupby` function that I will use to split the iris data set into subset groups by their class or species of iris plant.
+The `groupby` function can be used to group the data by a `Series` of columns. A `groupby` operation involves some combination of splitting the data into groups of observations based on some criteria and then applying a function to each group independently. 
+I can then look at the characteristics and statistics of each subset group.
 
-## GroupBy statistics
-
-GroupBy objects are returned by groupby calls. Descriptive statistics and computations can be applied to these GroupBy objects,
-
-### Interpreting Summary Statistics of the Iris data set
-The pandas `describe` function shows the count number of the non-NA/null observations in the dataset. There are 50 observations in each class. The `max` shows the maximum of the values and the `min` shows the minimum of the values. The `mean` shows the mean of the values, the `std` shows the standard deviation of the observations. The `describe` function also shows the 25th, 50th and 75th percentiles. The 25th percentile shows the percentage of values falling below that percentile. The 50th percentile shows the same information as the median would, that is where 50% of the values fall above and 50% fall below the value.
+`GroupBy` objects are returned by `groupby` calls. Descriptive statistics and computations can be applied to these `GroupBy` objects.
 
 The statistics at the class level show that the average petal length for a Setosa is much smaller at 1.464 cm than the other two classes. The average petal length for the Versicolor is 4.26 while the iris Virginica has the largest average petal length of 5.552 centimetres which is almost four times greater than the petal length of the Iris Setosa.
 The standard deviation of the setosa petal length is quite small compared to the standard deviation of the other two species. The petal measurements of the iris setosa is much less variable than that of the other two species. 
@@ -320,73 +324,41 @@ The average sepal width of the setosa however is actually larger than the averag
 
 From the summary statistics of the sepal and petal measurements by class type it would seem that the iris setosa is very different from the other two species, the versicolor and the virginica.
 
-There are several tables in Fisher's paper which I will try to reproduce.
-The first table, Table 1 shows the 4 measurement variables for each observation of the three iris species.
-The equivalent data is shown in the iris DataFrame resulting from reading in the csv file, although the layout is slightly different.
+- insert table here or image of the describe function output.
 
 Table II in Fisher's paper is entitled *Observed means for two species and their difference (cm.)*
 This table displays the means for each of the 4 measurements for the Iris-Versicolor and Iris-Setosa species. It also shows the differences between the Versicolor means and the Setosa means for each of the 4 measurement variables.
 
-I will try  to get the same information as in Table 2 of Fisher's paper.
+
+### Correlation between variables.
+Correlation is a statistical method used to determine whether a linear relationship between variables exists. It shows if one variable tends to occur with large or small values of another variable. It calculates a number *r* between -1 and + 1 where the number (the correlation coefficient) indicates the strength of the relationship and the sign indicates whether that relationship is positive or negative. The correlation coefficient does not depend on the units of measurement or on which variable is on the x or y axis. 
+The correlation statistics are computed from  pairs of arguments.
+The correlation of the measurements can be got using the `corr` method on the DataFrame. If there is a strong positive relationship beytween the variables, the value of the correlation coefficient *r* will be close to 1, while a strong negative relationship will have a correlation coefficient *r* close to -1. A vlaue of *r* close to zero would indicate that there is no relationship between the variables.
+
+A scatter plot is used to visualise the relationship between two variables. It is a graph of the ordered pairs of two variables. One variable is plotted on the x-axis while the other variable is plotted on the y-axis.
+
+### Visualising the Iris data set by class of iris.
+
+The `matplotlib` package can be used to create a graph or plot of the Iris Data set. The `pandas` library also has some built in methods to create visualisations from DataFrame and Series objects which are based on the `matplotlib` library.
+The `seaborn` library is used for making statistical graphics in Python. It is built on top of matplotlib and closely integrated with pandas data structures. It provides a high-level interface for creating nice looking and informative plots. 
+It's dataset-oriented plotting functions operate on DataFrames such as the `iris` dataframe created from importing the csv data.
+
+I will use `seaborn` to create a facetted scatter plot. The iris measurement variables determine the position of each point on the axes. 
+- A `scatter plot` can be used to visualize relationships between numerical variables such as the petal measurements and the sepal measurements in the iris data set.    
+- A `catplot()` can capture the relationship between a numeric variable and one (or more) categorical variables, such as the class or species of iris plant.   
+
+The `seaborn` documentation section called [Visualising dataset structure](http://seaborn.pydata.org/introduction.html#visualizing-dataset-structure) actually illustrates some of the `seaborn` plotting functions using the iris data set which is built into the seabron library.
+
+It's `jointplot()` function focusses on a single relationship in the data set, while it's `pairplot()` function shows all pairwise relationships and the marginal distributions that can be conditioned on a categorical variable.
+
+The function `relplot()` is used to visualize many different statistical relationships.
+
+[pandas-visualisation](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#visualization)  
+[matplotlib -pyplot](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py)
+[seaborn](https://seaborn.pydata.org/introduction.html#introduction)
 
 
-### Indexing and Filtering the data set
-
-There are several ways of selecting data from the DataFrame that is detailed on the pandas documentation.
-http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-and-selecting-data
-
-Indexing with square brackets will return a Series corresponding to the column name.
-A column of data can be retrieved from the Iris DataFrame using dict-like notation or by attribute such as 
-`iris.Petal_Width_cm`
-
-The rows of the iris DataFrame can be retrieved by position name or using the loc attribute.
-The index operators can be used to select a subset or rows and columns using `loc` for axis labels or `iloc` for integers.
-The index for the iris DataFrame at the moment is just a range of integers from 0 to 150 
-An index into the dataframe can used to retrieve one or more columns either with a single value or a sequence
-
-[Boolean Indexing](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#boolean-index)ing
-
-Can select rows from a DataFrame using a boolean vector the same length as the DataFrame’s index. This can be used to filter the data here for a particular class or species of the iris plant.
-
-
-## 4. Summarise the dataset - high level statistics
-
-`pandas` objects have a set of common mathematical and statistical methods. Most of these methods
-produce a single value such as the mean or the max or standard deviation
-Multiple summary statistics can be obtained in one go using pandas.descibe().
-
-### Descriptive statistics
-A quick statistic summary of the data using `.describe()`
- 
-       Sepal_Length  Sepal_Width  Petal_length  Petal_Width
-count    150.000000   150.000000    150.000000   150.000000
-mean       5.843333     3.054000      3.758667     1.198667
-std        0.828066     0.433594      1.764420     0.763161
-min        4.300000     2.000000      1.000000     0.100000
-25%        5.100000     2.800000      1.600000     0.300000
-50%        5.800000     3.000000      4.350000     1.300000
-75%        6.400000     3.300000      5.100000     1.800000
-max        7.900000     4.400000      6.900000     2.500000
-
-### Correlation and Covariance
-The correlation and covariance statistics are computed from  pairs of arguments.
-The correlation of the measurements can be got using the `corr` method on the DataFrame while the covariance can be obtained using the `cov` method on the DataFrame. 
-
-The correlation matrix is as follows.
-
-              Sepal_Length  Sepal_Width  Petal_length  Petal_Width
-Sepal_Length      1.000000    -0.109369      0.871754     0.817954
-Sepal_Width      -0.109369     1.000000     -0.420516    -0.356544
-Petal_length      0.871754    -0.420516      1.000000     0.962757
-Petal_Width       0.817954    -0.356544      0.962757     1.000000
-
-The covariance matrix is as follows.
-
-              Sepal_Length  Sepal_Width  Petal_length  Petal_Width
-Sepal_Length      0.685694    -0.039268      1.273682     0.516904
-Sepal_Width      -0.039268     0.188004     -0.321713    -0.117981
-Petal_length      1.273682    -0.321713      3.113179     1.296387
-Petal_Width       0.516904    -0.117981      1.296387     0.582414
+#### include plots here 
 
 The `DataFrame` method `duplicated` can be used to see if any of the rows in the data set are duplicates of another row. I am just using it to see if there are any individual observations that have the exact same measurements as another observation.
 
@@ -397,35 +369,6 @@ There are three observations which appear to have the same measurements as other
 37            4.9          3.1           1.5          0.1     Iris-setosa
 142           5.8          2.7           5.1          1.9  Iris-virginica
 
-## Visualising the Iris data set.
-
-The `matplotlib` package can be used to create a graph or plot of the Iris Data set. The `pandas` library also has some built in methods to create visualisations from DataFrame and Series objects.
-`Seaborn` is a library for making statistical graphics in Python. It is built on top of matplotlib and closely integrated with pandas data structures. `Seaborn` provides a high-level interface for creating nice looking and informative plots. 
-`Seaborn` has dataset-oriented plotting functions that operate on dataframes such as iris.
-
-Can use it to draw a facetted scatter plot. The iris measurement variables determine the position of each point on the axes.
-
-A `scatter plot` can be used to visualize relationships between numerical variables such as the petal measurements and the sepal measurements in the iris data set.  A `catplot()` can capture the relationship between a numeric variable and one (or more) categorical variables, such as the class or species of iris plant. 
-
-The [Visualising dataset structure](http://seaborn.pydata.org/introduction.html#visualizing-dataset-structure) section of the `Seaborn` documentation actually illustrates using the iris data set. 
-While `jointplot()` focusses on a single relationship in the data set, `pairplot()` shows all pairwise relationships and the marginal distributions that can be conditioned on a categorical variable.
-
-
-
-
-# The function relplot() is used to visualize many different statistical relationships.
-https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#visualization
-https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#visualization
-https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py
-https://seaborn.pydata.org/introduction.html#introduction
-
-## 5. Summary write up of the investigations.
-
-## 6. Clearly document how to run the Python code to investigate the dataset, and what the code does.
-
-## 6. Include supporting tables and graphics
-
-### https://guides.github.com/features/mastering-markdown/
 
 
 
