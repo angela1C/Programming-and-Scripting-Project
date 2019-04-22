@@ -11,10 +11,11 @@
 # I will keep working on the script here and the readme in tandem with the jupyter notebook. 
 # I find it easier to work on the Jupyter notebook and then copy into the script here,
 
-# 1. IMPORT LIBRARIES
+# 1. IMPORT PYTHON LIBRARIES
 
 # In order to use python libraries that are not part of the standard python library, they first need to be imported.
 # Here I import the pandas library, the matplotlib pyplot library and the seaborn library.
+print("First importing the python libraries")
 import pandas as pd  
 import matplotlib.pyplot as plt 
 import seaborn as sns
@@ -23,7 +24,7 @@ import seaborn as sns
 # help(pd) or help(pd.DataFrame.describe())
 
 
-# LOADING / READING IN THE IRIS DATA SET
+# 2. LOADING / READING IN THE IRIS DATA SET
 
 # Create a variable `csv_url` and pass to it the url where the data set is available 
 # at 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'. 
@@ -41,31 +42,42 @@ iris =  pd.read_csv(csv_url, names = col_names)
 # iris = pd.read_csv('iris_data.csv', names = col_names)
 
 # using the pandas DataFrame method head to return the first rows of the DataFrame and check that the file was correctly loaded
+print("The first 10 rows of the iris dataframe:")
 print(iris.head(10))
+
 # using the pandas DataFrame method tail to return the last rows of the DataFrame and check that the file was correctly loaded
+print("The last 10 rows of the iris dataframe:")
 print(iris.tail(10))
 
 
-# 2. EXPLORING AND INVESTIGATING THE IRIS DATA SET
+# 3. EXPLORING AND INVESTIGATING THE IRIS DATA SET 
 
-## ATTRIBUTES OF THE IRIS DATA FRAME
+# 3.1 EXPLORING USING ATTRIBUTES OF THE IRIS DATA FRAME
 # First looking at the attributes of the iris DataFrame created from importing the iris data set above.
 
 # Get the column labels of the iris DataFrame.
+print("The column labels of the iris DataFrame:")
 print(iris.columns)
 
 # the number of axes / array dimensions of the iris DataFrame
+print("The dimensions of the iris dataframe")
 print(iris.ndim)
 # Look at the shape of the iris DataFrame - this shows the number of rows and columns
+
+print("The shape of the iris dataframe")
 print(iris.shape)
 # the number of elements in the iris object.
+
+print("The number of elements in the iris dataframe")
 print(iris.size)
 
 # The DataFrame has an index which was automatically assigned when the DataFrame was created
 # on reading in the csv file. The index is a range from 0 to 150
+print("the index of the dataframe")
 print(iris.index)
 
 # the dtypes (data types) of the iris DataFrame
+print("the data types of iris dataframe:")
 print(iris.dtypes)
 
 # Return the ftypes (indication of sparse/dense and dtype) in the iris DataFrame.
@@ -76,7 +88,7 @@ print(iris.axes)
 
 # **************** **************** **************** **************** ****************
 
-# USING DATAFRAME METHODS TO EXPLORE THE IRIS DATAFRAME
+# 3.2 USING DATAFRAME METHODS TO EXPLORE THE IRIS DATAFRAME
 
 # Look at the first ten observations in the DataFrame
 print(iris.head(10))
@@ -86,10 +98,11 @@ print(iris.tail(10))
 
 # It is possible to check for missing values in the DataFrame using the panda's `isnull()` method.
 # This shows that there are no missing values which is as expected for this well known data set consisting of 150 instances of 5 attributes.
-
+print("The number of null or missing values in the iris dataframe: ")
 print(iris.isnull().sum())
 
 # look at the summary statistics of the DataFrame
+print("summary statistics for the iris dataframe")
 print(iris.describe())
 
 # Print a concise summary of the iris DataFrame.
@@ -114,11 +127,11 @@ iris.count()
 # The number of bins can be specified. For now I go with the default settings.
 
 # DataFrame.hist() plots the histograms of the columns on multiple subplots:
-    
+print("Histogram of the distribution of the iris data. Make sure to close the plot to continue. ") 
 iris.hist(alpha=0.8, bins=30, figsize=(12,8))
 plt.show()
 
-
+print("Boxplot the distribution of the iris data. Make sure to close the plot to continue. ") 
 iris.plot.box(figsize=(12,8))
 plt.show()
 
@@ -129,16 +142,37 @@ iris.nunique()
 
 iris['Class'].unique()
 
+
+# 4. EXPLORING IRIS DATA SET BY SPECIES
+
+## Here I am subsetting the data to meet a given criteria su
+# http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-with-isin
+values =  {'Class': ['Iris-versicolor', 'Iris-virginica']}
+row_mask = iris.isin(values).any(1)
+iris[row_mask].head()
+
+# select from the iris DataFrame only the rows where the Class equals the string "Iris-setosa"
+iris_setosa = iris[iris['Class'] == "Iris-setosa"]
+print("Selecting from the iris dataframe only those rows containing the Class Iris-setosa")
+print(iris_setosa.head())
+
+# subsetting the data to meet a given criteria.
+# http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-with-isin
+values =  {'Class': ['Iris-versicolor', 'Iris-virginica']}
+row_mask = iris.isin(values).any(1)
+print(" subsetting the dataframe using Boolean masks")
+print(iris[row_mask].head())
 # GROUP BY 
 
+print("using groupby to split the iris dataframe by Class of iris species")
 # Using groupby functions to look at statistics at the class / species level
 iris_grouped = iris.groupby("Class")
 
 # Compute count of group, excluding missing values.
-iris.groupby("Class").count()
+print(iris.groupby("Class").count())
 
 # Groupby Class and return the mean of the remaining columns in each group.
-iris.groupby('Class').mean()
+print(iris.groupby('Class').mean())
 
 # Group by class and then return the first observations in each group
 iris.groupby("Class").first()
@@ -180,12 +214,8 @@ print(iris_grouped.mean())
 # Can look at the summary statistics for each class of Iris in the data set.
 # I transposed the results to make it easier to read.
 print(iris_grouped.describe())
-iris_grouped.describe().T
+print(iris_grouped.describe().T)
 
-
-
-# THIS IS WHERE I AM!
-# 
 
 # Using the mean function to see the average measurements by species.
 iris_means =iris_grouped.mean()
@@ -330,14 +360,3 @@ row_mask = iris.isin(values).any(1)
 iris[row_mask].head()
 
 iris_grouped.mean()
-
-# select from the iris DataFrame only the rows where the Class equals the string "Iris-setosa"
-iris_setosa = iris[iris['Class'] == "Iris-setosa"]
-iris_setosa.head()
-
-# Here I am subsetting the data to meet a given criteria su
-# http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-with-isin
-values =  {'Class': ['Iris-versicolor', 'Iris-virginica']}
-row_mask = iris.isin(values).any(1)
-iris[row_mask].head()
-

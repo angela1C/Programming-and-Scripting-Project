@@ -1,7 +1,7 @@
 ##### pands-project 
 Project 2019 for Programming and Scripting Module
 
-# Introduction to this project.
+# Introduction to this project. <a name="introduction"></a>
 
 This repository contains my submission for the class project for the Programming and Scripting Module at GMIT as part of the Higher Diploma in Computing and Data Analytics.   
 The pdf file containing the problem set instructions is available by clicking on the following link.  [Programming and Scripting Project 2019](https://github.com/ianmcloughlin/project-pands/raw/master/project.pdf)  
@@ -11,9 +11,9 @@ It entails researching the data set, and then writing documentation and code in 
 
 The first part of this document provides some background information on the Fisher Iris data set.  
 The next part outlines the tools used in preparing and executing this project.  
-I then analyse the data set using the python programming language.
+The Iris data set is then analysed using the python programming language.
 The first part of my analysis looks at an overview of the Fisher Iris data set including some summary statistics that describe the data at a high level and some basic plots that provide an overall picture of the Fisher Iris data set. 
-The next part of the analysis looks more closely at analysing the data set.  
+The next part of the analysis looks more closely at the species of iris plant when analysing the data set.  
 
 ## Problem Statement <a name="problem-statement"></a>
 The project should achieve the following goals:
@@ -33,25 +33,24 @@ I will use a Task List as described on the GitHub Flavoured Markdown Syntax chea
 Project Task List
 
 
-- [ ] Research Background information about the Iris data set
-- [ ] List all the references used 
+- [x] Research Background information about the Iris data set
+- [x] List all the references used 
 - [x] Download the Iris data set  
-- [ ] Investigate the Iris data set using python code
-- [ ] Summarise the Iris data set - provide statistics such as means, minimum and maximum values
+- [x] Investigate the Iris data set using python code
+- [x] Summarise the Iris data set - provide statistics such as means, minimum and maximum values
 - [ ] Include tables and graphics
 - [ ] Clearly document how to run the code used to investigate the Iris data set  
 - [ ] Clearly document what the python code used actually does
 - [ ] Look at examples of interesting analyses pursued by other people on the Iris data set 
-- [ ] Refer to task list as a guideline
 - [ ] Use headings as links, maybe create a table of contents
 - [ ] keep the jupyter notebook in line with the python script and readme document.
 - [x] get links to images working
-- [ ] The project should be well organised and contain detailed explanations
-- [ ] The analysis will be well conceived and and examples of interesting analyses that others have pursued based on the data set will be discussed.
+- [ ] Ensure the project is well organised and contain detailed explanations
+- [ ] Include examples of interesting analyses that others have pursued based on the data set.
 
 ## Table of Contents
 
-1. Introduction and problem statement
+1. [Introduction](#introduction) 
 2. [Background information about the Iris data set](#background) 
 3. [python libraries](#pythonlibraries)
 4. [Download the Iris data set using python code](#loading)
@@ -82,34 +81,32 @@ Four flower measurements are given for each observation in the data set, which a
 
 See [iris_flower_description](iris flowers description.md) for more details.
 
-According to the [UCI Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris), Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and is still relevant today. One class is linearly separable from the other two classes, which are not linearly separable from each other. The predicted attribute of the data set is the class of iris plant to which each observation belongs. 
+According to the [Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris) on the UCI Machine Learning Repository, Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and it is still relevant today. One class is linearly separable from the other two classes, which are not linearly separable from each other. The predicted attribute of the data set is the class of iris plant to which each observation belongs. 
 
 >This is perhaps the best known database to be found in the pattern recognition literature. Fisher's paper is a classic in the field and is referenced frequently to this day. 
 
-Now a little bit about Fisher:
+#### Now a little bit about Fisher and the Iris data set:
+Note that this information is primarily gathered from following the web links at the [Iris flower data set wikipedia wiki](https://en.wikipedia.org/wiki/Iris_flower_data_set#cite_note-5) and the [UCI Machine Learning Repository - Iris Data Set](https://archive.ics.uci.edu/ml/datasets/iris) pages which both provide references to the original works by R.A. Fisher and Edgar Anderson. The Iris flower data set or Fisher Iris data set is often called Anderson's Iris data set as the data was collected by Edgar Anderson.
 
-According to a wiki on wikipedia about him, [Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher),
+[Ronald Fisher - wiki](https://en.wikipedia.org/wiki/Ronald_Fisher),
 >Sir Ronald Aylmer Fisher FRS[3] (17 February 1890 – 29 July 1962) was a British statistician and geneticist. For his work in statistics, he has been described as "a genius who almost single-handedly created the foundations for modern statistical science"[4] and "the single most important figure in 20th century statistics".
 
-Fisher also developed the ANOVA method (Analysis of Variance) which he used to analyse data from crop experiments. He also developed the Fisher Distribution. Fisher pioneered the principles of the design of experiments and the statistics of small samples and the analysis of real data.
+Fisher also developed the ANOVA method (Analysis of Variance) which he used to analyse data from crop experiments. He pioneered the principles of the design of experiments and the statistics of small samples and the analysis of real data.
 
-In 1936 Fisher introduced the Iris flower data set as an example of discriminant analysis. Linear discriminant analysis (LDA) is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition and machine learning to find a linear combination of features that characterizes or separates two or more classes of objects or events. The resulting combination may be used as a linear classifier.
-
-Based on the combination of the four measurement features of the sample of plants in the iris datas set, Fisher developed a linear discriminant model to distinguish the species from each other.
-
-[Wikipedia - Iris Flower Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set)
->Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other.
-
+In 1936 Fisher introduced the Iris flower data set as an example of discriminant analysis. 
+The two species Iris Setosa and Iris Versicolor were found growing together in the same colony in the Gaspé Pensinsula in Canada. The sample of the third species - the Iris Virginica differs from the other two samples as they were not taken from the same natural colony. 
 According to Fisher's paper, [The Use of Multiple Measurements in Taxonomic Problems by R.A Fisher](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1469-1809.1936.tb02137.x):
 >When two or more populations have been measured in several characters, xl, ...,x8, special interest attaches to certain linear functions of the measurements by which the populations are best discriminated.
 
-His paper then applies the principle of the linear discriminant model to the sample of iris flowers to see how it could be used to discriminate or distinguish the species of iris plant. 
+Fisher considered the question of what linear function of the four measurements would maximise the ratio of the difference  between the specific means to the standard deviation between species.
+Based on the combination of the four measurement features of the sample of plants in the iris datas set, Fisher developed a linear discriminant model to discrimiante or distinguish the iris species from each other. 
 
-The two species Iris Setosa and Iris Versicolor were found growing together in the same colony. The sample of the third species - the Iris Virginica differs from the other two samples as they were not taken from the same natural colony. 
+Linear disciminant analysis is a popular classification technique for classification where there are multiple classes. 
 
-As well as other statistical analyses that are beyond the scope of this project, Fisher considered the question of what linear function of the four measurements would maximise the ratio of the difference  between the specific means to the standard deviation between species.
+[Linear Disciminant Analysis](https://en.wikipedia.org/wiki/Linear_discriminant_analysis)
+>Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition and machine learning to find a linear combination of features that characterizes or separates two or more classes of objects or events. The resulting combination may be used as a linear classifier, or, more commonly, for dimensionality reduction before later classification.
 
-
+>Based on Fisher's linear discriminant model, this data set became a typical test case for many statistical classification techniques in machine learning such as support vector machines. [Use of the Iris Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set).
 
 ## How to run the python code
 
@@ -245,7 +242,7 @@ The `head` and `tail` methods are useful to take a quick look at the observation
 ##### The top of the iris data set:
 <img src="images/iris_head.png" height="200" alt="iris-head" />
 
-#### The bottom of the iris data set:
+##### The bottom of the iris data set:
 <img src="images/iris_tail.png" height="200" alt="iris-tail" />
 
 - `pandas` objects have a set of common mathematical and statistical methods. Most of these methods produce a single value such as the mean or the max or standard deviation.  Multiple summary statistics can be obtained in one go using pandas.descibe().
@@ -257,7 +254,7 @@ The `mean` shows the mean or average  of the values (the sum of data values divi
 
 - The various statistics that are generated from the `describe` function can also be obtained on their own. For example the mean could be obtained using `iris.mean()`, minimum with `.min()` etc.
 
-<img src="images/iris_describe.png" width="600" alt="iris-describe" />
+<img src="images/iris_describe.png" height="300" alt="iris-describe" />
 
 - The initial exploration of the Iris DataFrame shows that there are 150 rows and 5 columns of data. 
 Each row corresponds to an individual observation of an iris plant. 
@@ -282,20 +279,20 @@ A `histogram`is a representation of the distribution of data. It charts the data
 
 The histograms here show the distribution of each of the the measurements attributes across the iris data set. 
 
-<img src="images/iris_histogram.png" width="400" alt="iris-histogram" />
+<img src="images/iris_histogram.png" width="600" alt="iris-histogram" />
 
-The histogram for the petal lengths show a clear group of observations having petal lengths that are much smaller than the rest of the observations. Similarly with the petal widths. The sepal lengths show quite a bit of variation with a number of peaks while sepal widths seem to be centred around 3 cms but with a few smaller peaks at both sides of 3 cms.
-
-There are three classes or species of iris flower in this data set, the Iris Setosa, the Iris Versicolor and the Iris Virginica.
-It is possible to look at the summary statistics as the class or species level which I will describe later on.
-For now I will continue with exploring the data set over all.
-
+The histogram for the petal lengths show a clear group of observations having petal lengths that are much smaller than the rest of the observations. Similarly with the petal widths. The sepal lengths show quite a bit of variation with a number of peaks while sepal widths seem to be centred around 3 cms but with a few smaller peaks at both sides of 3 cms.  
+  
 Looking at a basic boxplot of the iris dataset:
 
-<img src="images/iris_boxplot.png" width="400" alt="iris-boxplot" />
+<img src="images/iris_boxplot.png" width="500" alt="iris-boxplot" />
 
 Interpreting the boxplot.
 The length of the box is the interquartile range and measures the variability in the data set. The interquartile range (IQR) is the middle 50% of the data and can show the spread or variation of the data. The whiskers show if the data is skewed on one direction or the other. The median is the line through the box. (horizontal line in the plot above)
+There are three classes or species of iris flower in this data set, the Iris Setosa, the Iris Versicolor and the Iris Virginica.
+It is possible to look at the summary statistics as the class or species level.
+
+
 
 ### Summary results of the Fisher Iris data set by species or class or iris plant.
 As mentioned earlier, Fisher's iris dataset is a well known data set in pattern recognition literature. One class / species of the three iris classes is linearly separable from the other two classes, which are not linearly separable from each other. 
@@ -307,13 +304,29 @@ Indexing with square brackets will return a `Series` corresponding to the column
 The index operators can be used to select a subset or rows and columns using the `loc` attribute for axis labels or `iloc` attribute for integers.  The index for the iris DataFrame is a range of integers from 0 to 150. An index into the dataframe can used to retrieve one or more columns, either with a single value or a sequence of values for the index.
 
 [Boolean Indexing](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#boolean-index) could be used to select rows from the `iris` DataFrame by filtering the data for rows that correspond to a a particular class or species of the iris plant.  
-    
+
+```python
+      # select from the iris DataFrame only the rows where the Class equals the string "Iris-setosa"
+      iris_setosa = iris[iris['Class'] == "Iris-setosa"]
+      iris_setosa.head()
+```
+
+
+
 I could create subsets of the iris DataFrame for each class or species of Iris plant by using one of these methods.  
 There is another way, using the pandas `groupby` function that I will use to split the iris data set into subset groups by their class or species of iris plant.
 The `groupby` function can be used to group the data by a `Series` of columns. A `groupby` operation involves some combination of splitting the data into groups of observations based on some criteria and then applying a function to each group independently. 
 I can then look at the characteristics and statistics of each subset group.
 
 `GroupBy` objects are returned by `groupby` calls. Descriptive statistics and computations can be applied to these `GroupBy` objects.
+
+
+##### The first 3 rows of each Class in the iris data set:
+<img src="images/groupby_class_head.png" height="200" alt="groupby_class_head" />
+
+##### The last 3 rows of each Class in the iris data set:
+<img src="images/groupby_class_tail.png" height="200" alt="groupby_class_tail" />
+
 
 The statistics at the class level show that the average petal length for a Setosa is much smaller at 1.464 cm than the other two classes. The average petal length for the Versicolor is 4.26 while the iris Virginica has the largest average petal length of 5.552 centimetres which is almost four times greater than the petal length of the Iris Setosa.
 The standard deviation of the setosa petal length is quite small compared to the standard deviation of the other two species. The petal measurements of the iris setosa is much less variable than that of the other two species. 
@@ -324,10 +337,14 @@ The average sepal width of the setosa however is actually larger than the averag
 
 From the summary statistics of the sepal and petal measurements by class type it would seem that the iris setosa is very different from the other two species, the versicolor and the virginica.
 
-- insert table here or image of the describe function output.
+##### The summary statistics for each Class of iris plant in the data set:
+<img src="images/groupby_describe.png" height="300" alt="groupby_describe" />
 
 Table II in Fisher's paper is entitled *Observed means for two species and their difference (cm.)*
 This table displays the means for each of the 4 measurements for the Iris-Versicolor and Iris-Setosa species. It also shows the differences between the Versicolor means and the Setosa means for each of the 4 measurement variables.
+
+##### The difference in means between iris species:
+<img src="images/iris_diff_means.png" height="300" alt="iris_diff_means" />
 
 
 ### Correlation between variables.
@@ -336,6 +353,10 @@ The correlation statistics are computed from  pairs of arguments.
 The correlation of the measurements can be got using the `corr` method on the DataFrame. If there is a strong positive relationship beytween the variables, the value of the correlation coefficient *r* will be close to 1, while a strong negative relationship will have a correlation coefficient *r* close to -1. A vlaue of *r* close to zero would indicate that there is no relationship between the variables.
 
 A scatter plot is used to visualise the relationship between two variables. It is a graph of the ordered pairs of two variables. One variable is plotted on the x-axis while the other variable is plotted on the y-axis.
+
+##### The correlation coefficients between measurement variables:
+<img src="images/iris_grouped_corr.png" height="300" alt="correlation" />
+
 
 ### Visualising the Iris data set by class of iris.
 
@@ -359,6 +380,9 @@ The function `relplot()` is used to visualize many different statistical relatio
 
 
 #### include plots here 
+
+##### The scatter plots between measurement variables:
+<img src="images/sns_scatterplots.png" height="300" alt="scatter plots" />
 
 The `DataFrame` method `duplicated` can be used to see if any of the rows in the data set are duplicates of another row. I am just using it to see if there are any individual observations that have the exact same measurements as another observation.
 
