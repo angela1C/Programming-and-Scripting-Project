@@ -322,10 +322,10 @@ I can then look at the characteristics and statistics of each subset group.
 
 
 ##### The first 3 rows of each Class in the iris data set:
-<img src="images/groupby_class_head.png" height="200" alt="groupby_class_head" />
+<img src="images/groupby_class_head.png" width="400" alt="groupby_class_head" />
 
 ##### The last 3 rows of each Class in the iris data set:
-<img src="images/groupby_class_tail.png" height="200" alt="groupby_class_tail" />
+<img src="images/groupby_class_tail.png" width="400" alt="groupby_class_tail" />
 
 
 The statistics at the class level show that the average petal length for a Setosa is much smaller at 1.464 cm than the other two classes. The average petal length for the Versicolor is 4.26 while the iris Virginica has the largest average petal length of 5.552 centimetres which is almost four times greater than the petal length of the Iris Setosa.
@@ -338,13 +338,13 @@ The average sepal width of the setosa however is actually larger than the averag
 From the summary statistics of the sepal and petal measurements by class type it would seem that the iris setosa is very different from the other two species, the versicolor and the virginica.
 
 ##### The summary statistics for each Class of iris plant in the data set:
-<img src="images/groupby_describe.png" height="300" alt="groupby_describe" />
+<img src="images/groupby_describe.png" width="400" alt="groupby_describe" />
 
 Table II in Fisher's paper is entitled *Observed means for two species and their difference (cm.)*
 This table displays the means for each of the 4 measurements for the Iris-Versicolor and Iris-Setosa species. It also shows the differences between the Versicolor means and the Setosa means for each of the 4 measurement variables.
 
 ##### The difference in means between iris species:
-<img src="images/iris_diff_means.png" height="300" alt="iris_diff_means" />
+<img src="images/iris_diff_means.png" height="200" alt="iris_diff_means" />
 
 
 ### Correlation between variables.
@@ -355,7 +355,7 @@ The correlation of the measurements can be got using the `corr` method on the Da
 A scatter plot is used to visualise the relationship between two variables. It is a graph of the ordered pairs of two variables. One variable is plotted on the x-axis while the other variable is plotted on the y-axis.
 
 ##### The correlation coefficients between measurement variables:
-<img src="images/iris_grouped_corr.png" height="300" alt="correlation" />
+<img src="images/iris_grouped_corr.png" width="400" alt="correlation" />
 
 
 ### Visualising the Iris data set by class of iris.
@@ -388,10 +388,10 @@ The `DataFrame` method `duplicated` can be used to see if any of the rows in the
 
 There are three observations which appear to have the same measurements as other observations in the dataset as follows. It is possible that these values may have been rounded at some stage when or since the dataset was put together in 1936.
 
-     Sepal_Length  Sepal_Width  Petal_length  Petal_Width         Species
-34            4.9          3.1           1.5          0.1     Iris-setosa
-37            4.9          3.1           1.5          0.1     Iris-setosa
-142           5.8          2.7           5.1          1.9  Iris-virginica
+index
+34   Iris-setosa
+37   Iris-setosa
+142  Iris-virginica
 
 
 
@@ -426,5 +426,11 @@ There are three observations which appear to have the same measurements as other
 - Python for Data Analysis - Wes McKinney
 Data Wrangling with Pandas, NumPy and IPython
 
-For this project, I am mainly working through the pandas documentation at - [https://pandas.pydata.org](https://pandas.pydata.org). I am also using the `seaborn` library for plotting and hope to explore some of the other python libraries.
+For this project, I am mainly working through the python documentation as follows 
+- [Python 3 documentation](https://docs.python.org/3/index.html)    
+- [Pandas.pydata documentation](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html)    
+- [Matplotlib documentation](https://matplotlib.org/index.html)    
+- [Seaborn.pydata documentaion](https://seaborn.pydata.org/index.html)    
+
+I hope to explore some of the other python libraries.
 I am also reading through the `Python for Data Analysis` book by Wes McKinney, who is the creator of the Python Pandas project.
