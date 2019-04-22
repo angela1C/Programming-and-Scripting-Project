@@ -1,15 +1,7 @@
 # Project Iris
-# This is from the Jupyter notebook I have been working on which I have copied in here.
-# I am deleting out background to the data set in this python script as this will be in the README file. 
-# I am deleting out any of my analysis as this is going into the readme file also.
-# I am currently looking at the groupby statistics at line 162.
-# I need to look at the results of the group by statistics in the readme.
-# anything below line 162 still needs to be edited and revised. 
-# I will move comments into the readme for the sections below this at a later stage.
+
 # will look at the plotting and visualising by species next
 # Then will look at some anaysis that other people may have done - particularly in the machine learning side.
-# I will keep working on the script here and the readme in tandem with the jupyter notebook. 
-# I find it easier to work on the Jupyter notebook and then copy into the script here,
 
 # 1. IMPORT PYTHON LIBRARIES
 
@@ -31,11 +23,8 @@ import seaborn as sns
 csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
 # I have also saved the csv file to the folder or repository and can read it in from there in case for some reason the url is not available.
 
-# As the data does not have any column names, I can specify header = None to avoid reading the first row of data as a header or column name
 # Create a list of column names `col_names` using the iris attribute information available at the UCI machine learning repository.
-# When the column names are passed in as a parameter to read_csv, then it is not necessary to include 'header = none'
-
-# using the iris data set attribute information as the column names, create a list of column names to use
+# passing the column names in as a parameter to read_csv
 col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Class']
 
 iris =  pd.read_csv(csv_url, names = col_names)
@@ -53,6 +42,7 @@ print(iris.tail(10))
 # 3. EXPLORING AND INVESTIGATING THE IRIS DATA SET 
 
 # 3.1 EXPLORING USING ATTRIBUTES OF THE IRIS DATA FRAME
+
 # First looking at the attributes of the iris DataFrame created from importing the iris data set above.
 
 # Get the column labels of the iris DataFrame.
@@ -121,10 +111,9 @@ iris.notnull().sum()
 # iris.notna().sum()
 iris.count()
 
-# Make a histogram of the DataFrame. A `histogram` is a representation of the distribution of data.
-# This function calls :meth:`matplotlib.pyplot.hist`, on each series in the DataFrame, resulting in one histogram per column.
+# Make a histogram of the DataFrame. 
 # A histogram will be produced for each of the four numeric columns in the iris data set.
-# The number of bins can be specified. For now I go with the default settings.
+# The number of bins can be specified. 
 
 # DataFrame.hist() plots the histograms of the columns on multiple subplots:
 print("Histogram of the distribution of the iris data. Make sure to close the plot to continue. ") 
@@ -196,7 +185,7 @@ iris.groupby("Class").min()
 # by taking the differences between the mimimum and the maximum values
 
 iris_ranges = iris_grouped.max() - iris_grouped.min()
-iris_ranges
+print(iris_ranges)
 
 # sorting the range of values in ascending order, first by petal lengths, then petal widths and then by sepal lengths.
 iris_ranges.sort_values(["Petal_Length","Petal_Width","Sepal_Length"])
@@ -225,17 +214,7 @@ iris_grouped.median()
 
 # Now instead of looking at the calculations manually I will try adding a column that shows the differences in means between the three species.
 # Having used groupby to the get the summary statistics by species, I will add a column to the DataFrame to calculate the differences in means.
-# 
-# In the original paper by R.A. Fisher,  'THE USE OF MULTIPLE MEASUREMENTS IN TAXONOMIC PROBLEMS' which is available online by The Annals of Human Genetics, Fisher shows a table of the observed means and differences in the means between the iris versicolor and the iris setosa in centimetres.
-# This is Table II *Observed means for two species and their difference (cm.)*.
-# This table displays the means for each of the 4 measurements for the Iris-Versicolor and Iris-Setosa species. It also shows the differences between the Versicolor means and the Setosa means for each of the 4 measurement variables.
-# 
-# This table illustrates the observed means and their differences in centimetres. He shows that the length of the Versicolor is on average  2.8 cm's approximately greater than that of the setosa while the sepal length and petal width between these two species vary by approximately one centimetre at 0.93 cm and 1.08 centimetres respectively. On the other hand, the sepal width of the setosa is 0.66 cm larger than that of the versicolor.
-# 
-# 
-# I will try and get the same information in Table II of Fisher's paper.
 
-# Fisher's table 2 shows the difference in means for the setosa and versicolor species
 # use groupby with "Class" variable and then get the mean of each class for each measurement variable.
 
 # create a dataframe from grouping the iris dataframe by class and calculating the means for each class
@@ -259,25 +238,8 @@ means['diff (Virginica - Setosa)'] = abs(means['Iris-virginica'] - means['Iris-s
 means
 
 
-# ### differences in average measurements between species
-# ####  Sepal measurements
-# The virginica has the highest average Sepal Length while the setosa has the smallest average sepal length.
-# The difference in average sepal lengths is therefore greatest between these two species.
-# 
-# The setosa has the highest average sepal width and that of the versicolor is the smallest, but the differences are not as marked as the differences in sepal lengths between virginica and setosa.
-# 
-# #### Petal measurements
-# The virginica has a much longer average petal length than the setosa.
-# It would be better to visualise them.
+# differences in average measurements between species
 
-# Fisher's table II looked at the differences between the Iris-versicolor and the Iris-setosa.In his paper he mentions that these two species were found growing together in the same colony.
-# The sample of the third species - the Iris Virginica - differs from the setosa and the versicolor in that the virginica sample was from a different natural colony to the other two samples. 
-# The difference of means table above shows the greatest difference in average measurements between the petal lengths, sepal lengths and petal widths of the iris setosa and the iris virginica. The averages sizes of the sepal widths varied the most between the versicolor and the setosa but not by as much.
-
-# ### Visualising the differences
-# A boxplot would be a suitable graph to show the differences between the distribution of the measurements of the iris data set. 
-# A boxplot is used to show distributions with respect to categories and allow  visual comparison between the variables or across levels of a categorical variable. The box shows the quartiles of the data set while the whiskers extend to show the rest of the distribution. It also shows the outliers.
-# The boxplot is suitable for comparing the distribution of the iris petal or sepal measurements and grouping them by the class or species type.
 # Below I am plotting the boxplots for each of the four measurements against the iris species.
 
 # get information on the boxplot in the seaborn package
@@ -302,10 +264,6 @@ f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
 
 plt.show()
 
-
-# The boxplots show that the iris setosa has a much smaller range of petal size than the other two species. There is no overlap at all between the petal lengths of the setosa and the other two species, while there is a small overlap between the versicolor and the virginica. 
-
-# I now want to look at the range of the variables. 
 # The pandas describe function shows the minimum and maximum values for the various measurements.
 # I can use these to calculate the range of values for each measurement.
 
@@ -317,14 +275,6 @@ iris_ranges.sort_values(["Petal_Length","Petal_Width","Sepal_Length"])
 
 # The iris setosa has the smallest range of values for the petal lengths, petal widths and sepal lengths. However the sepal widths of the setosa have a wider range of values than the other two species. This corresponds to the boxplots above. 
 
-# ### where I am!
-# I am currently looking at some plots. Have just looked at the differences between the boxplots for sepal and petal measurements between the species of iris plant.
-# 
-# I will look at the correlation between the variables.
-# I am copying some of the comments and explanations back and forth between by readme file in Visual Studio for the project submission.
-# The differences between Petal lengths of the virginica and setosa is quite abvious in the box plot, as is the difference between the petal lengths.
-# 
-# The boxplot also show the outliers.
 
 iris_std = iris.groupby("Class").std().T
 iris_std
@@ -349,14 +299,3 @@ sns.scatterplot(x="Petal_Length", y="Sepal_Length", hue = "Class",data=iris, ax=
 sns.scatterplot(x="Petal_Width", y="Sepal_Width", hue="Class", data=iris, ax=axes[1])
 plt.show()
 
-
-# #### Filtering the data set
-# Looking at some other ways to subset and filter the iris data set
-
-## Here I am subsetting the data to meet a given criteria su
-# http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-with-isin
-values =  {'Class': ['Iris-versicolor', 'Iris-virginica']}
-row_mask = iris.isin(values).any(1)
-iris[row_mask].head()
-
-iris_grouped.mean()
