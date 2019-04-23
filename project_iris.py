@@ -18,6 +18,7 @@ import seaborn as sns
 
 # 2. LOADING / READING IN THE IRIS DATA SET
 
+
 # Create a variable `csv_url` and pass to it the url where the data set is available 
 # at 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'. 
 csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
@@ -46,35 +47,36 @@ print(iris.tail(10))
 # First looking at the attributes of the iris DataFrame created from importing the iris data set above.
 
 # Get the column labels of the iris DataFrame.
-print("The column labels of the iris DataFrame:")
-print(iris.columns)
+print("The column labels of the iris DataFrame are: ", *iris.columns, sep = "   ")
 
 # the number of axes / array dimensions of the iris DataFrame
-print("The dimensions of the iris dataframe")
-print(iris.ndim)
-# Look at the shape of the iris DataFrame - this shows the number of rows and columns
+print(f"The iris dataframe has {iris.ndim} dimensions")
 
-print("The shape of the iris dataframe")
-print(iris.shape)
+# Look at the shape of the iris DataFrame as this shows the number of rows and columns in the table or matrix of data
+# This will show how many rows (containing observations) and columns (containing features/variables)
+print(f"The Iris data set has {iris.shape[0]} rows and {iris.shape[1]} columns")
+
 # the number of elements in the iris object.
-
 print("The number of elements in the iris dataframe")
 print(iris.size)
 
 # The DataFrame has an index which was automatically assigned when the DataFrame was created
 # on reading in the csv file. The index is a range from 0 to 150
-print("the index of the dataframe")
-print(iris.index)
+print(f"The index of the iris DataFrame begins at {iris.index[0]} and ends at {iris.index[1]}")
+print("This index was automatically assigned when the DataFrame was created above")
 
 # the dtypes (data types) of the iris DataFrame
-print("the data types of iris dataframe:")
+print(f"The data types of iris dataframe are as follows:")
 print(iris.dtypes)
 
 # Return the ftypes (indication of sparse/dense and dtype) in the iris DataFrame.
 print(iris.ftypes)
 
-# return a a list representing the axes of the iris DataFrame.
+# pandas.DaraFrame.axes return a a list representing the axes of the iris DataFrame.
+# this will show the row axis labels and the column axis labels in that order
 print(iris.axes)
+print("The row axis labels of the iris DataFrame are  ", *iris.axes[0])
+print("The column axis labels of the iris DataFrame are as follows:\n ",*iris.axes[1])
 
 # **************** **************** **************** **************** ****************
 
@@ -130,7 +132,8 @@ iris.nunique()
 # Using the `unique()` method to show how many different class or species of Iris flower is in the data set.
 
 iris['Class'].unique()
-
+species_type =iris['Class'].unique()
+print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
 
 # 4. EXPLORING IRIS DATA SET BY SPECIES
 

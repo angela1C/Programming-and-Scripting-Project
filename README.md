@@ -14,6 +14,15 @@ The next part outlines the tools used in preparing and executing this project.
 The Iris data set is then analysed using the python programming language.
 The first part of my analysis looks at an overview of the Fisher Iris data set including some summary statistics that describe the data at a high level and some basic plots that provide an overall picture of the Fisher Iris data set. 
 The next part of the analysis looks more closely at the species of iris plant when analysing the data set.  
+Summary results are then provided.
+
+## 
+(The purpose of the project is to investigate the Fisher Iris data set using python code. My main aim in the project is therefore to learn python programming using the iris data set as the object to work on. I intend to use the python documentation to do this. 
+A web search on the iris data set will return many pages. 
+)
+
+
+## (look at a little bit about machine learning) 
 
 ## Problem Statement <a name="problem-statement"></a>
 The project should achieve the following goals:
@@ -32,21 +41,28 @@ I will use a Task List as described on the GitHub Flavoured Markdown Syntax chea
 
 Project Task List
 
-
-- [x] Research Background information about the Iris data set
+### content tasks
+- [x] Research Background information about the Iris data set and summarise it
 - [x] List all the references used 
 - [x] Download the Iris data set  
 - [x] Investigate the Iris data set using python code
 - [x] Summarise the Iris data set - provide statistics such as means, minimum and maximum values
-- [ ] Include tables and graphics
-- [ ] Clearly document how to run the code used to investigate the Iris data set  
-- [ ] Clearly document what the python code used actually does
-- [ ] Look at examples of interesting analyses pursued by other people on the Iris data set 
+- [ ] some information on Edgar Anderson and why he collected the data in the first place.
+- [ ] a little bit on the linear disciminant function
+- [ ] more plots - looking at seaborn library at the moment
+- [ ] consider the machine learning aspect of the iris data set
+- [ ] Include examples of interesting analyses that others have pursued based on the data set.
+- [ ] better comments in the python script
+- [ ] look at the print output of the python script
+
+### organisation and layout tasks
+- [ ] review the layout of the readme
+- [ ] maybe move all the plots out of the main python script as they slow it down
 - [ ] Use headings as links, maybe create a table of contents
 - [ ] keep the jupyter notebook in line with the python script and readme document.
 - [x] get links to images working
 - [ ] Ensure the project is well organised and contain detailed explanations
-- [ ] Include examples of interesting analyses that others have pursued based on the data set.
+
 
 ## Table of Contents
 
@@ -64,12 +80,16 @@ Project Task List
 ## 1. Background information about the dataset 
 <a name="loading"></a> 
 
+
 Fisher's Iris data set is a famous database consisting of the measurements of parts of 150 iris flowers. It is available from the UCI Machine Learning Repository where it is listed as a multivariate data set with a default machine learning task of classification. The data set consists of 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher in 1936. 
 http://archive.ics.uci.edu/ml/datasets/Iris.
 
+[The UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/about.html)
+>The UCI Machine Learning Repository is a collection of databases, domain theories, and data generators that are used by the machine learning community for the empirical analysis of machine learning algorithms. 
+
 The data set includes 50 plants each of three classes of iris plant, where each class is a different type or species of iris plant.
 The three classes are Iris Setosa, Iris Versicolor and Iris Virginica. 
-Four flower measurements are given for each observation in the data set, which are the lengths and widths of the petals and the sepals of the flowers in the sample.
+Four flower measurements are given for each observation in the data set, which are the lengths and widths of the petals and the sepals of the flowers in the sample. Each of the measurements is provided in centimetres.
 
 
  Iris Setosa,   Iris Versicolor and Iris Virginica
@@ -85,7 +105,20 @@ According to the [Iris Data Set Information](https://archive.ics.uci.edu/ml/data
 
 >This is perhaps the best known database to be found in the pattern recognition literature. Fisher's paper is a classic in the field and is referenced frequently to this day. 
 
-#### Now a little bit about Fisher and the Iris data set:
+
+#### (iris data set and machine learning)
+The iris data set is a relatively small data set containing only 150 observations. Each observation in the data set represents one instance of an iris plant or flower. Each observation belongs to one class of three possible classes and this information is provided in the data set.  
+It can be considered a multi-class classification problem as there are multiple classes in the data set
+
+All the labels are provided in the data set. These labels are the species or class of iris plant that each observation belongs to. 
+There are many machine learning algorithms which can be split into supervised or unsupervised learning.
+
+Statistical learning is a set of tools for modelling and understanding complex data sets. Linear regression is used for predicting quantitative values such as house prices. Fisher developed linear discriminant analysis in 1936 to predict qualitative values such as which class of iris each observation belonged to.
+
+##### Now a little bit about Fisher and the Iris data set. I will come back to this
+##### Will also include a bit about Edgar Anderson, the American botanist who collected the data in the first place.
+and why he did so. I think the reason Fisher and Anderson looked at the petal and sepal measurements as a way to classify the iris plants is relevant. From the description of the iris flowers, including features such as their overall height and leaf type as well as colour, it would seem that the different species could be easily separated. Yet they focused on only the petal and sepal lengths and widths. 
+
 Note that this information is primarily gathered from following the web links at the [Iris flower data set wikipedia wiki](https://en.wikipedia.org/wiki/Iris_flower_data_set#cite_note-5) and the [UCI Machine Learning Repository - Iris Data Set](https://archive.ics.uci.edu/ml/datasets/iris) pages which both provide references to the original works by R.A. Fisher and Edgar Anderson. The Iris flower data set or Fisher Iris data set is often called Anderson's Iris data set as the data was collected by Edgar Anderson.
 
 [Ronald Fisher - wiki](https://en.wikipedia.org/wiki/Ronald_Fisher),
@@ -103,10 +136,14 @@ Based on the combination of the four measurement features of the sample of plant
 
 Linear disciminant analysis is a popular classification technique for classification where there are multiple classes. 
 
+
 [Linear Disciminant Analysis](https://en.wikipedia.org/wiki/Linear_discriminant_analysis)
 >Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition and machine learning to find a linear combination of features that characterizes or separates two or more classes of objects or events. The resulting combination may be used as a linear classifier, or, more commonly, for dimensionality reduction before later classification.
 
 >Based on Fisher's linear discriminant model, this data set became a typical test case for many statistical classification techniques in machine learning such as support vector machines. [Use of the Iris Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set).
+
+The Fisher Iris data set is still widely used in learning classification methods.
+
 
 ## How to run the python code
 
@@ -130,7 +167,7 @@ The `pandas` library is the main python library being used in this project. Acco
 In addition to `pandas`, the `seaborn` library is also used for plotting which requires `matplotlib.pyplot` for some functions.
 
 [seaborn.pydata.org](https://seaborn.pydata.org/index.html)
->Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics
+>Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. 
 
 [matplotlib.org](https://matplotlib.org)
 >Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
@@ -208,8 +245,11 @@ Having loaded the iris data set, the resulting `iris` DataFrame can be viewed us
 
 The first part of my analysis looks at an overview of the Fisher Iris data set including some summary statistics that describe the data at a high level and some basic plots that provide an overall picture of the Fisher Iris data set. 
 
-According to the Iris data set information on the UCI Machine Learning Repository where the data set is stored, Fishers Iris data set is well known in the pattern recognition literature because one of the three Iris species or classes in the data set is linearly separable from the other two classes while the other two species of iris plant are not linearly separabel from each other. 
-Therefore, after doing a summary overview of the data set as a whole, I will look at the data as the iris species / class level.
+As mentioned above, Fishers Iris data set is well known in the pattern recognition field because one class of the three iris plants in the data set are linearly separable from the other two classes. The other two classes are not linearly separable from each other.
+
+Therefore, having looked at the data set as a whole, I will look more closely at the data at the iris species / class level and see are there clear differences visible in the data.
+
+(As this project is more about learning python programming than learning machine learning, I will see if these differences are obvious using some python code.)
 
 The `pandas` library has many functions that can be used to explore the Iris data set. Having imported the iris data set from a csv file into a pandas `DataFrame`, all the attributes and methods of `DataFrame` objects can be used on the iris DataFrame object.
 
@@ -287,10 +327,23 @@ Looking at a basic boxplot of the iris dataset:
 
 <img src="images/iris_boxplot.png" width="500" alt="iris-boxplot" />
 
-Interpreting the boxplot.
+Interpreting the boxplot. the boxplot is a useful plot as it show various statistics in one go, including the median, quantiles, interquartile range, outliers etc.
 The length of the box is the interquartile range and measures the variability in the data set. The interquartile range (IQR) is the middle 50% of the data and can show the spread or variation of the data. The whiskers show if the data is skewed on one direction or the other. The median is the line through the box. (horizontal line in the plot above)
 There are three classes or species of iris flower in this data set, the Iris Setosa, the Iris Versicolor and the Iris Virginica.
 It is possible to look at the summary statistics as the class or species level.
+
+### also include some of the scatter plots here. 
+
+A scatter plot is a useful plot that visually shows how the different variables or features in the data set correlate with one another. 
+
+Having looked at the basic statistical properties of the iris data set and having pictured the data gives a better understanding of the data and what can be done with it. The iris data set is widely used for demonstrating machine learning so I will look a little bit at this. As mentioned earlier, one class is linearly separable from the other two classes. A linearly separable data set is one where the observations or data points can be separated by a straight line drawn through the data.
+I will look at the pairwise scatter plots for this as this concept of linear separation is more applicable to data with two classes. The iris data set is a multi-class data set as there are three classes to which the observations could belong to.
+
+Can see on the scatter plots that the setosa is clearly separable from the other two species when the sepal lengths are plotted against the sepal width. However it is not so simple to separate to separate the other two classes.
+When the petal lengths are plotted against the petal widths, again the setosas are clearly identifiable. now it lookes a nit easier to separate the other two classes.
+
+### insert bit about machine learning here.
+
 
 
 
@@ -349,6 +402,7 @@ This table displays the means for each of the 4 measurements for the Iris-Versic
 
 ### Correlation between variables.
 Correlation is a statistical method used to determine whether a linear relationship between variables exists. It shows if one variable tends to occur with large or small values of another variable. It calculates a number *r* between -1 and + 1 where the number (the correlation coefficient) indicates the strength of the relationship and the sign indicates whether that relationship is positive or negative. The correlation coefficient does not depend on the units of measurement or on which variable is on the x or y axis. 
+(In the case of the Iris data set, the measurements are all in the same units anyway as they are provided in centimetres.)
 The correlation statistics are computed from  pairs of arguments.
 The correlation of the measurements can be got using the `corr` method on the DataFrame. If there is a strong positive relationship beytween the variables, the value of the correlation coefficient *r* will be close to 1, while a strong negative relationship will have a correlation coefficient *r* close to -1. A vlaue of *r* close to zero would indicate that there is no relationship between the variables.
 
@@ -363,7 +417,9 @@ A scatter plot is used to visualise the relationship between two variables. It i
 The `matplotlib` package can be used to create a graph or plot of the Iris Data set. The `pandas` library also has some built in methods to create visualisations from DataFrame and Series objects which are based on the `matplotlib` library.
 The `seaborn` library is used for making statistical graphics in Python. It is built on top of matplotlib and closely integrated with pandas data structures. It provides a high-level interface for creating nice looking and informative plots. 
 It's dataset-oriented plotting functions operate on DataFrames such as the `iris` dataframe created from importing the csv data.
-
+[pandas-visualisation](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#visualization)  
+[matplotlib -pyplot](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py)
+[seaborn](https://seaborn.pydata.org/introduction.html#introduction)
 I will use `seaborn` to create a facetted scatter plot. The iris measurement variables determine the position of each point on the axes. 
 - A `scatter plot` can be used to visualize relationships between numerical variables such as the petal measurements and the sepal measurements in the iris data set.    
 - A `catplot()` can capture the relationship between a numeric variable and one (or more) categorical variables, such as the class or species of iris plant.   
@@ -374,12 +430,8 @@ It's `jointplot()` function focusses on a single relationship in the data set, w
 
 The function `relplot()` is used to visualize many different statistical relationships.
 
-[pandas-visualisation](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#visualization)  
-[matplotlib -pyplot](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py)
-[seaborn](https://seaborn.pydata.org/introduction.html#introduction)
 
 
-#### include plots here 
 
 ##### The scatter plots between measurement variables:
 <img src="images/sns_scatterplots.png" height="300" alt="scatter plots" />
@@ -393,7 +445,12 @@ index
 37   Iris-setosa
 142  Iris-virginica
 
+## some machine learning.
+Machine learning is about learning from data. The data set consists of 4 fields or variables. Ech of the rows is called an observation or a data point. The aim would be to predict the class label - which species of iris plant. Each observation consists of a 4 dimensional array.
+The iris dataset appears in many text books and tutorials related to statistical and machine learning. The machine learning task that is generally applied to the iris data set is classification. (as per the UCI Archive page). The objective of classification would be to classify a new flower (from outside the data set) to the correct class to which it belongs. 
 
+At first glance, the iris flowers would seem quite similar. Why not use colour as a way to predict the class?
+WE are essentailly using the domain knowledge of the biologists who determined this. Anderson and Fisher
 
 
 ## 10. References
