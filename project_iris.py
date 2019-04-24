@@ -46,7 +46,7 @@ print(iris.tail(10))
 
 # First looking at the attributes of the iris DataFrame created from importing the iris data set above.
 
-# Get the column labels of the iris DataFrame.
+# Get the column labels of the iris DataFrame using  'pandas.DataFrame.columns'
 print("The column labels of the iris DataFrame are: ", *iris.columns, sep = "   ")
 
 # the number of axes / array dimensions of the iris DataFrame
@@ -72,7 +72,7 @@ print(iris.dtypes)
 # Return the ftypes (indication of sparse/dense and dtype) in the iris DataFrame.
 print(iris.ftypes)
 
-# pandas.DaraFrame.axes return a a list representing the axes of the iris DataFrame.
+# pandas.DataFrame.axes return a a list representing the axes of the iris DataFrame.
 # this will show the row axis labels and the column axis labels in that order
 print(iris.axes)
 print("The row axis labels of the iris DataFrame are  ", *iris.axes[0])
@@ -134,6 +134,13 @@ iris.nunique()
 iris['Class'].unique()
 species_type =iris['Class'].unique()
 print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
+
+
+# pandas.DataFrame.plot.scatter
+# Create a scatter plot with varying marker point size and color. 
+# DataFrame.plot.scatter(x, y, s=None, c=None, **kwds)[source]
+
+
 
 # 4. EXPLORING IRIS DATA SET BY SPECIES
 

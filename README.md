@@ -1,7 +1,21 @@
 ##### pands-project 
 Project 2019 for Programming and Scripting Module
 
-# Introduction to this project. <a name="introduction"></a>
+
+# Table of Contents
+
+1. [Introduction to the project](#introduction) 
+2. [Background information about the Iris data set](#background) 
+3. [python libraries and other tools](#pythonlibraries)
+4. [Download the Iris data set using python code](#loading)
+5. [Exploring the data set -summary overview](#exploring)
+6. [Exploring the data set in more detail](#detail)
+6. [Summarise the data set](#summarise)
+7. [conclusions](#conclusions)
+10. [References](#references)
+
+
+# 1. Introduction to the project. <a name="introduction"></a>
 
 This repository contains my submission for the class project for the Programming and Scripting Module at GMIT as part of the Higher Diploma in Computing and Data Analytics.   
 The pdf file containing the problem set instructions is available by clicking on the following link.  [Programming and Scripting Project 2019](https://github.com/ianmcloughlin/project-pands/raw/master/project.pdf)  
@@ -9,20 +23,22 @@ The pdf file containing the problem set instructions is available by clicking on
 The project concerns the well-known Fisher's Iris data set. 
 It entails researching the data set, and then writing documentation and code in the Python programming language based on that research.
 
-The first part of this document provides some background information on the Fisher Iris data set.  
-The next part outlines the tools used in preparing and executing this project.  
-The Iris data set is then analysed using the python programming language.
-The first part of my analysis looks at an overview of the Fisher Iris data set including some summary statistics that describe the data at a high level and some basic plots that provide an overall picture of the Fisher Iris data set. 
+- The first part of this document is the introduction to the project and contains the problem statement and requirements of the project.
+- The second part outlines some background information about Fisher's Iris data set, including a little bit about Fisher whom the data set is named after. Why the data set was collected and how.
+- The next part outlines the tools used in preparing and executing this project and what is required to run the code.
+- The iris data set is loaded into python in the script.
+- The Iris data set is then investigated using the python programming language. Using python to show a high level overview of the data describe it using some statistics. Explain the code used to produce these summary statistics.
+- Show some basic plots that provide an overall picture of the Fisher Iris data set. 
+-  look  more closely at the data with some more 
 The next part of the analysis looks more closely at the species of iris plant when analysing the data set.  
 Summary results are then provided.
 
 ## 
-(The purpose of the project is to investigate the Fisher Iris data set using python code. My main aim in the project is therefore to learn python programming using the iris data set as the object to work on. I intend to use the python documentation to do this. 
-A web search on the iris data set will return many pages. 
-)
+The purpose of the project is to investigate the Fisher Iris data set using python code. My main aim in the project is therefore to learn python programming by applying it to the iris data set. 
+I intend to use the python documentation to do this and to build up my knowledge of python and its relevant packages as I go along.
+A web search on the iris data set will return many pages. I will take a look at some of these. Many of these apply machine learning to the iris data set. I will have a little look at this and why the iris dataset is considered such an important database in the field of statistical and machine learning. There is much reference to the fact that one class is linearly separable from the other two classes so I will look at this in the code.
 
 
-## (look at a little bit about machine learning) 
 
 ## Problem Statement <a name="problem-statement"></a>
 The project should achieve the following goals:
@@ -35,49 +51,46 @@ The project should achieve the following goals:
 5. Summarise the investigations.
 6. Include supporting tables and graphics.
 
-#### My project plan
+##### My project plan
 
-I will use a Task List as described on the GitHub Flavoured Markdown Syntax cheatsheet.
+I will use a Task List as described on the GitHub Flavoured Markdown Syntax cheatsheet. I will remove this for the submission once the tasks have been completed. The tasks should align with the goals and also the table of contents.
 
 Project Task List
 
-### content tasks
+#### content tasks
 - [x] Research Background information about the Iris data set and summarise it
 - [x] List all the references used 
 - [x] Download the Iris data set  
 - [x] Investigate the Iris data set using python code
 - [x] Summarise the Iris data set - provide statistics such as means, minimum and maximum values
+- [ ] summarise the research a bit better so it not too long or irrelevant
 - [ ] some information on Edgar Anderson and why he collected the data in the first place.
 - [ ] a little bit on the linear disciminant function
-- [ ] more plots - looking at seaborn library at the moment
+- [ ] show how the linearly separable the data appears to be as noted in the research
+- [ ] review the plots and highlight the important points
+- [ ] more plots - looking at seaborn library at the moment. include the images
 - [ ] consider the machine learning aspect of the iris data set
 - [ ] Include examples of interesting analyses that others have pursued based on the data set.
-- [ ] better comments in the python script
+- [ ] look at other python packages outside of pandas, matplotlib and seaborn such as scikit learn 
+- [ ] Review comments in the python script and make sure they are clear
 - [ ] look at the print output of the python script
+- [ ] Note what I learned from the project, the knowledge and skills gained from completing it and how I went about it.
+- [ ] Note how the code and the overall project achieves the goals of the project as per the plan
+- [ ] look at how the code can be tested to do as you say it does and produce the correct outputs
+- [ ] show the troubleshooting startegies and techniques used to solve problems and document it
+- [ ] lessons I have learned from working on this project. Careful closing out of Jupyter notebooks!!
+- [ ] 
 
-### organisation and layout tasks
+#### organisation and presentation tasks
 - [ ] review the layout of the readme
-- [ ] maybe move all the plots out of the main python script as they slow it down
-- [ ] Use headings as links, maybe create a table of contents
+- [ ] maybe move all the plots out of the main python script as they slow down running the script
+- [ ] table of contents. numbering
 - [ ] keep the jupyter notebook in line with the python script and readme document.
 - [x] get links to images working
-- [ ] Ensure the project is well organised and contain detailed explanations
+- [ ] Ensure the project is well organised and contain detailed explanations throughout
 
 
-## Table of Contents
-
-1. [Introduction](#introduction) 
-2. [Background information about the Iris data set](#background) 
-3. [python libraries](#pythonlibraries)
-4. [Download the Iris data set using python code](#loading)
-5. [Exploring the data set](#exploring)
-6. [Summarise the data set](#summarise)
-7. [conclusions](#conclusions)
-8. [Terms uses](terms.md)
-10. [References](#references)
-
-
-## 1. Background information about the dataset 
+## 2. Background information about the dataset 
 <a name="loading"></a> 
 
 
@@ -108,16 +121,17 @@ According to the [Iris Data Set Information](https://archive.ics.uci.edu/ml/data
 
 #### (iris data set and machine learning)
 The iris data set is a relatively small data set containing only 150 observations. Each observation in the data set represents one instance of an iris plant or flower. Each observation belongs to one class of three possible classes and this information is provided in the data set.  
-It can be considered a multi-class classification problem as there are multiple classes in the data set
+It can be considered a multi-class classification problem as there are multiple classes in the data set and not just two. 
 
 All the labels are provided in the data set. These labels are the species or class of iris plant that each observation belongs to. 
 There are many machine learning algorithms which can be split into supervised or unsupervised learning.
 
-Statistical learning is a set of tools for modelling and understanding complex data sets. Linear regression is used for predicting quantitative values such as house prices. Fisher developed linear discriminant analysis in 1936 to predict qualitative values such as which class of iris each observation belonged to.
+Machine learning gives 'computers the ability to learn without being explicitly programmed' - definition attributed to Arthur Samuel.
+Statistical learning is a set of tools for modelling and understanding complex data sets. Linear regression is used for predicting quantitative values such as house prices. Fisher developed linear discriminant analysis in 1936 to predict qualitative values such as which category or class of iris each observation belonged to.
 
 ##### Now a little bit about Fisher and the Iris data set. I will come back to this
 ##### Will also include a bit about Edgar Anderson, the American botanist who collected the data in the first place.
-and why he did so. I think the reason Fisher and Anderson looked at the petal and sepal measurements as a way to classify the iris plants is relevant. From the description of the iris flowers, including features such as their overall height and leaf type as well as colour, it would seem that the different species could be easily separated. Yet they focused on only the petal and sepal lengths and widths. 
+and why he did so. I think the reason Fisher and Anderson looked at the petal and sepal measurements as a way to classify the iris plants is relevant. From the description of the iris flowers, including features such as their overall height and leaf type as well as colour, it would seem that the different species could be easily separated. Yet they focused on only the petal and sepal lengths and widths, or more like a combination of the measurements.
 
 Note that this information is primarily gathered from following the web links at the [Iris flower data set wikipedia wiki](https://en.wikipedia.org/wiki/Iris_flower_data_set#cite_note-5) and the [UCI Machine Learning Repository - Iris Data Set](https://archive.ics.uci.edu/ml/datasets/iris) pages which both provide references to the original works by R.A. Fisher and Edgar Anderson. The Iris flower data set or Fisher Iris data set is often called Anderson's Iris data set as the data was collected by Edgar Anderson.
 
@@ -128,14 +142,19 @@ Fisher also developed the ANOVA method (Analysis of Variance) which he used to a
 
 In 1936 Fisher introduced the Iris flower data set as an example of discriminant analysis. 
 The two species Iris Setosa and Iris Versicolor were found growing together in the same colony in the Gaspé Pensinsula in Canada. The sample of the third species - the Iris Virginica differs from the other two samples as they were not taken from the same natural colony. 
+[Edgar Anderson](include_link)
+While Fisher used the iris data set as an example of statistical methods of classification, the iris data itself was actually collected by Edgar Anderson, an american botanist and geneticist. Anderson was interested in the variation in plant species and in evolution in general. He had observed in his work that there was a lot of genetic variation within most populations of plants. He was interested in species and the variation within a species or a group of species. He set out to find a few easily recognisable, well-differentiated species.
+Anderson chose the Iris Versicolor (also known as the northern blue flags) because they were a 'comparatively simple, stable and well marked group. 
+#### provide the reference to this and a bit more information on this point.
+Iris versicolor and iris virginica were chosen as they usually grow in colonies containing many individual plants
+
 According to Fisher's paper, [The Use of Multiple Measurements in Taxonomic Problems by R.A Fisher](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1469-1809.1936.tb02137.x):
 >When two or more populations have been measured in several characters, xl, ...,x8, special interest attaches to certain linear functions of the measurements by which the populations are best discriminated.
 
 Fisher considered the question of what linear function of the four measurements would maximise the ratio of the difference  between the specific means to the standard deviation between species.
-Based on the combination of the four measurement features of the sample of plants in the iris datas set, Fisher developed a linear discriminant model to discrimiante or distinguish the iris species from each other. 
+Based on the combination of the four measurement features of the sample of plants in the iris datas set, Fisher developed a linear discriminant model to discriminate or distinguish the iris species from each other. 
 
 Linear disciminant analysis is a popular classification technique for classification where there are multiple classes. 
-
 
 [Linear Disciminant Analysis](https://en.wikipedia.org/wiki/Linear_discriminant_analysis)
 >Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition and machine learning to find a linear combination of features that characterizes or separates two or more classes of objects or events. The resulting combination may be used as a linear classifier, or, more commonly, for dimensionality reduction before later classification.
@@ -144,8 +163,9 @@ Linear disciminant analysis is a popular classification technique for classifica
 
 The Fisher Iris data set is still widely used in learning classification methods.
 
+## Python and other software used in this project
 
-## How to run the python code
+### How to run the python code
 
 The purpose of this project is to investigate the Fisher Iris data set described above using python code.
 Python is a high level interpreted general purpose programming language. The python interpreter and its extensive standard library are freely available to all. Along with the python standard library, there are many libraries that enhance the usage of python and make it a powerful tool for performing data analytics and machine learning.
@@ -180,13 +200,15 @@ For example `help(pd)` or `help(pd.DataFrame.describe)`
 ### Getting help in python
 To get help on any python command, I can use the python help function as outlined in the [Python help command document](https://docs.python.org/3/library/pdb.html?highlight=help#pdbcommand-help) with the command in parentheses.  
 For example, `help(pd)` will show help on the python `pandas` package while `help(pd.DataFrame.describe())` provides help on the `describe` function of the pandas DataFrame.    
-The documentation pages for each of the python packages used in this project provided details of all the commands for that package.
+The documentation pages for each of the python packages that are used in this project provided details of all the commands for that package. I found these resources quite valuable for this project and referred to them extensively over the course of this project, when looking for a function to do something in particular but also for getting a start with the packages as the documentation pages seem to list everything that the packages can do.
+
  
 -[Pandas.pydata documentation](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html)  
 -[Matplotlib documentation](https://matplotlib.org/index.html)  
--[Seaborn.pydata documentaion](https://seaborn.pydata.org/index.html)  
+-[Seaborn.pydata documentation](https://seaborn.pydata.org/index.html)  
 -[Python 3 documentation](https://docs.python.org/3/index.html)  
 
+### GitHub and Git
 
 ## 3. Download the dataset and investigate it using Python code
 <a name="loading"></a>
@@ -446,11 +468,16 @@ index
 142  Iris-virginica
 
 ## some machine learning.
-Machine learning is about learning from data. The data set consists of 4 fields or variables. Ech of the rows is called an observation or a data point. The aim would be to predict the class label - which species of iris plant. Each observation consists of a 4 dimensional array.
-The iris dataset appears in many text books and tutorials related to statistical and machine learning. The machine learning task that is generally applied to the iris data set is classification. (as per the UCI Archive page). The objective of classification would be to classify a new flower (from outside the data set) to the correct class to which it belongs. 
+Machine learning is about learning from data. It is often associated with artificial intelligence but it is also used in  areas such as image and voice recognition, natural language processing and many other areas. Machine learning uses some algorithm to solve the problems. An algorithm takes an inputs and produces some outputs. An algorithm applied to the Iris data set might take in the features of some observations and output the class to which the observation is more likely  to belong to. Some classification algorithms are based on nearest neighbour, where an observation might be assigned to a class based on its proximity to another observation.
 
-At first glance, the iris flowers would seem quite similar. Why not use colour as a way to predict the class?
-WE are essentailly using the domain knowledge of the biologists who determined this. Anderson and Fisher
+The iris data set consists of 4 fields or variables. Each of the rows is called an observation or a data point. The aim of a machine learning or classification algorithm would be to predict the class label of the observation, i.e. which species of iris plant the observation belongs to. Each observation in the iris data set consists of a 4 dimensional array of numerical measurement data.
+
+The iris dataset appears in many text books and tutorials related to statistical and machine learning. The machine learning task that is generally applied to the iris data set is classification. (as per the UCI Archive page). The objective of classification would be to classify a new flower (from outside the data set) to the correct class or species to which it belongs. 
+
+At a quick first glance, the iris flowers would seem quite similar. Why not use colour or other features of the plants to categorise as a way to predict the class? 
+We are essentially using the domain knowledge of the experts in the field - the biologists or botanists who determined this in the first place - Anderson and Fisher. 
+Some domain knowledge is important in machine learning. There must be some way to make sense of the data and to give it some context.
+
 
 
 ## 10. References
