@@ -6,15 +6,16 @@
 # 1. IMPORT PYTHON LIBRARIES
 
 # In order to use python libraries that are not part of the standard python library, they first need to be imported.
-# Here I import the pandas library, the matplotlib pyplot library and the seaborn library.
+# Here I import the pandas library, the matplotlib pyplot library and the seaborn library as pd, plt and sns. 
+# This seems to be the conventional way to import the packages.
+
 print("First importing the python libraries")
 import pandas as pd  
 import matplotlib.pyplot as plt 
 import seaborn as sns
 
-# help can be obtained using the python help function
+# help can be obtained using the python help function.
 # help(pd) or help(pd.DataFrame.describe())
-
 
 # 2. LOADING / READING IN THE IRIS DATA SET
 
@@ -38,6 +39,10 @@ print(iris.head(10))
 # using the pandas DataFrame method tail to return the last rows of the DataFrame and check that the file was correctly loaded
 print("The last 10 rows of the iris dataframe:")
 print(iris.tail(10))
+
+# check the data types to ensure they have been correctly inferred by read_csv
+print(iris.dtypes)
+
 
 
 # 3. EXPLORING AND INVESTIGATING THE IRIS DATA SET 

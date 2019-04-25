@@ -40,7 +40,7 @@ A web search on the iris data set will return many pages. I will take a look at 
 
 
 
-## Problem Statement <a name="problem-statement"></a>
+### Problem Statement <a name="problem-statement"></a>
 The project should achieve the following goals:
 
 1. Research background information about the data set and summarise it.    
@@ -113,6 +113,17 @@ Four flower measurements are given for each observation in the data set, which a
 </p>
 
 See [iris_flower_description](iris flowers description.md) for more details.
+The following attribute information is provided with the data set on the UCI Archive page.  
+  
+ Attribute Information:
+   1. sepal length in cm
+   2. sepal width in cm
+   3. petal length in cm
+   4. petal width in cm
+   5. class: 
+      - Iris Setosa  
+      - Iris Versicolor  
+      - Iris Virginica  
 
 According to the [Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris) on the UCI Machine Learning Repository, Fisher's iris dataset is possibly the best known database to be found in the pattern recognition literature and it is still relevant today. One class is linearly separable from the other two classes, which are not linearly separable from each other. The predicted attribute of the data set is the class of iris plant to which each observation belongs. 
 
@@ -184,6 +195,8 @@ The `pandas` library is the main python library being used in this project. Acco
 
 > `pandas` is a `Python` package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. 
 
+According to [pandas.pydata.org](https://pandas.pydata.org/index.html),`pandas` provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. `pandas` is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type.  This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column. 
+
 In addition to `pandas`, the `seaborn` library is also used for plotting which requires `matplotlib.pyplot` for some functions.
 
 [seaborn.pydata.org](https://seaborn.pydata.org/index.html)
@@ -192,7 +205,16 @@ In addition to `pandas`, the `seaborn` library is also used for plotting which r
 [matplotlib.org](https://matplotlib.org)
 >Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
 
-The pandas library is imported in the script using `import pandas as pd`. Therefore wherever `pd` is used in the script, it is referring to the pandas library. Similarly, the `seaborn` library is imported as `sn` and thereafter referred to using `sn` 
+The libraries must first be imported before they can be used by the script as they are not part of the Python standard library. 
+I do this at the very beginning of the script. 
+
+The pandas library is imported at the very start of the script using `import pandas as pd`. Therefore wherever `pd` is used in the script, it is referring to the pandas library. Similarly, the `seaborn` library is imported as `sn` and thereafter referred to using `sn`. These are the names that are used by convention. Once these packages are loaded, all of the available functions can be used by the script.
+
+```python
+import pandas as pd  
+import matplotlib.pyplot as plt 
+import seaborn as sns
+```
 
 Help can be obtained using the python help function
 For example `help(pd)` or `help(pd.DataFrame.describe)`
@@ -212,42 +234,25 @@ The documentation pages for each of the python packages that are used in this pr
 
 ## 3. Download the dataset and investigate it using Python code
 <a name="loading"></a>
-The Iris Data Set is available from the UC Irvine Machine Learning Repository at http://archive.ics.uci.edu/ml/datasets/Iris in csv format.
 
-According to [pandas.pydata.org](https://pandas.pydata.org/index.html),the python `pandas` open source library provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. `pandas` is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type.  This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column. 
+The Iris Data Set is available from the UC Irvine Machine Learning Repository at http://archive.ics.uci.edu/ml/datasets/Iris in csv format as described above in section 2. 
+I am using the python `pandas` library to import the csv file.`pandas` is designed for working with data that is in a tabular format containing an ordered collection of columns. Each column can have a different value type which makes it suitable for exploring a structured tabular dataset such as Iris which contains several numerical columns for the measurements and one categorical column for the class. 
 
-Using `pandas`, tabular data can be imported as a `DataFrame` object. According to the [pandas docs - DataFrame](http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame)
->A `DataFrame` is a two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). Arithmetic operations align on both row and column labels. 
-A pandas `DataFrame` represents a rectangular table of data containing an ordered collection of columns and each column can have a different value type.
+Using `pandas`, tabular data can be imported as a `DataFrame` object. A pandas `DataFrame` represents a rectangular table of data containing an ordered collection of columns and each column can have a different value type. 
 
-The pandas `read_csv`function loads delimited data from a file, URL or file-like object using a comma as the default delimiter and  creates a DataFrame. When a pandas `DataFrame`  object is created, it has many attributes and methods available that can be used on that object.
+The pandas `read_csv`function loads delimited data from a file, URL or file-like object using the comma as the default delimiter and  creates a `DataFrame` object. When a pandas `DataFrame`  object is created, it has many attributes and methods available that can be used on that object.
 
 The Iris data set can be read in directly from the url at [https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data] (https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data)or alternatively it can be saved locally and read in by specifiying the file path.   
-In the script, I will download the csv file into python as part of the script. (I haved also saved the csv file containing the Iris data set into this project's repository for convenience). 
+In the script, I will download the csv file into python as part of the script. The csv file containing the Iris data set is also saved into this project's repository for convenience. 
 
-The csv file can be inspected on the command line using the `cat` command which prints the raw contents of the file to the screen or the `head` command  which prints just the first 10 rows to the screen. The file has 4 numerical columns and 1 descriptive string column. 
-The data set itself at the UCI Machine Learning repository does not have the attribute information included in the csv file. However this information can be found under the section [Iris Data Set: Attribute Information](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names)
+The raw csv file at the UCI Machine Learning repository does not have the attribute information included in the csv file itself. However this information can be found under the section [Iris Data Set: Attribute Information](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names) and provides the attribute information consisting of the 4 measurement attributes (sepal length in cm, sepal width in cm, petal length in cm, petal width in cm) and the three classes (Iris Setosa, Iris Versicolor and Iris Virginica).   
+ `read_csv` has various options for specifying what column names to use. [pandas-csv-text-files](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files). Often the first row of a csv file would contain the column names. If column names are not passed to `read_csv`, by default it looks to the first row of the data and infers the row names from this row. You could specify the row number to use as column names. In the script I use the `names` argument to specify the names to use as column names.  
 
- Attribute Information:
-   1. sepal length in cm
-   2. sepal width in cm
-   3. petal length in cm
-   4. petal width in cm
-   5. class: 
-      - Iris Setosa  
-      - Iris Versicolor  
-      - Iris Virginica  
-
-The `pandas.read_csv` function performs type inference. The data types for each column will be inferred by the `read_csv` function. 
-A `DataFrame` has both a row and a column index.  When csv data is imported into python using `pandas.read_csv`, an index is added to the `DataFrame` by default if none is provided. This is a range of numbers beginning at 0 for the first observation.
-
+The data types for each column will be inferred by the `read_csv` function if not explicitly provided to `read_csv`. 
+`index` (row labels) and `columns` (column labels) could be provided as optional arguments to `read_csv`, otherwise they will be constructed from the input data. 
 The raw csv file does not contain any headers. Column names can be added to the DataFrame.   
 
-The `pandas` library must first be imported before it can be used as it not part of the Python standard library. 
-At the beginning of the script, I import the `pandas` library using `import pandas as pd`, along with any other libraries to be used in this project.
-This imports the `pandas` library and allow all of its functions to be used by the script.
-
-My code for reading in the data set does the following:
+My code for reading in the Iris data set does the following:
 
 1. Create `csv_url` and pass to it the url where the data set is available 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'. 
 2. Create a list of column names `col_names` using the iris attribute information. 
@@ -261,7 +266,15 @@ There are other parameters which can be set for the `read_csv` function and thes
       iris =  pd.read_csv(csv_url, names = col_names)
 ```
 
-Having loaded the iris data set, the resulting `iris` DataFrame can be viewed using the DataFrame methods `head` and `tail` to see the first rows and the last rows respectively. 
+Having loaded the iris data set, the resulting `iris` DataFrame can be viewed using the DataFrame methods `head()` and `tail()` to see the first 5 rows and the last 5 rows respectively. The data types can be checked to ensure they were correctly inferred using `dtypes`.
+Use the `print` function with these to print the results to the screen.
+
+```python
+print(iris.head())
+print(iris.tail())
+print(iris.dtypes)
+```
+
 
 ## Exploring the dataset - summary results
 
