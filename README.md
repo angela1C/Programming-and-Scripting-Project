@@ -343,7 +343,7 @@ print("The row axis labels of the iris DataFrame are  ", *iris.axes[0])
 print("The column axis labels of the iris DataFrame are as follows:\n ",*iris.axes[1])
 ```
 
-##### Attributes of the iris DataFrame 
+#### Attributes of the iris DataFrame 
 
 ### This is the print output of the above code:
 ```
@@ -377,7 +377,7 @@ The column axis labels of the iris DataFrame are as follows:
   Sepal_Length Sepal_Width Petal_Length Petal_Width Class
 ```
  
-## Next using the DataFrame methods to investigate the Iris data set.
+#### Next using the DataFrame methods to investigate the Iris data set.
 
 The `head` and `tail` methods are very useful to take a quick look at the observations at the top and bottom rows of the dataframe. The number of rows to display can be specified as an argument. 
 ```python
@@ -414,8 +414,6 @@ Note that the summary statistics below are for the data set as a whole. Later I 
 ```python
 print("The number of null or missing values in the iris dataframe for each column: ")
 print(iris.isnull().sum())
-print("Here are some summary statistics for the iris DataFrame: \n ")
-print(iris.describe())
 print(f"A concise summary of the iris DataFrame: \n")
 iris.info()
 print(f"\n The number of non-NA cells for each column or row are: \n {iris.count()}")
@@ -424,10 +422,53 @@ species_type =iris['Class'].unique()
 print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
 # count the number of distinct observations for each column 
 iris.nunique()
+print("Here are some summary statistics for the iris DataFrame: \n ")
+print(iris.describe())
 ```
 
+```
+The number of null or missing values in the iris dataframe for each column: 
+Sepal_Length    0  
+Sepal_Width     0  
+Petal_Length    0  
+Petal_Width     0  
+Class           0  
+dtype: int64
 
+A concise summary of the iris DataFrame: 
 
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 5 columns):
+Sepal_Length    150 non-null float64
+Sepal_Width     150 non-null float64
+Petal_Length    150 non-null float64
+Petal_Width     150 non-null float64
+Class           150 non-null object
+dtypes: float64(4), object(1)
+memory usage: 5.9+ KB
+
+ The number of non-NA cells for each column or row are: 
+ Sepal_Length    150
+Sepal_Width     150
+Petal_Length    150
+Petal_Width     150
+Class           150
+dtype: int64
+  
+Checking to see if there are missing values. 
+ Sepal_Length    0
+Sepal_Width     0
+Petal_Length    0
+Petal_Width     0
+Class           0
+dtype: int64
+  
+The following are the three class or species types of iris in the data set 
+ Iris-setosa Iris-versicolor Iris-virginica
+Here are some summary statistics for the iris DataFrame: 
+  
+```
 <img src="images/iris_describe.png" height="300" alt="iris-describe" />
 
 - The initial exploration of the Iris DataFrame shows that there are 150 rows and 5 columns of data. 
@@ -441,35 +482,16 @@ Each row corresponds to an individual observation of an iris plant.
 - The widths of the petals vary from 0.1 cm to 2.5 cm.  
 - The shortest sepal in the data set is 4.3 cm while the longest sepal is 7.9 cm. 
 - The narrowest sepal is 2cm while the widest sepal is 4.4 centimetres.  
-
-
 - There are 50 observations in each class.
 
+### Visualising the Iris data set
+A picture tells a thousand words! So now I am going to look at some visual summaries of the iris data set.
+This will show how variables in the iris data set relates to each other show trends and patterns that may indicate relationships between the variables.
 
-
-### come back to this section below!
-As mentioned above, Fishers Iris data set is well known in the pattern recognition field because one class of the three iris plants in the data set are linearly separable from the other two classes. The other two classes are not linearly separable from each other.
-Therefore, having looked at the data set as a whole, I will look more closely at the data at the iris species / class level and see are there clear differences visible in the data.
-(As this project is more about learning python programming than learning machine learning, I will see if these differences are obvious using some python code.)
-
-
-
-### Summary results of the Fisher Iris data set. 
-
-
-
-##### Using `DataFrame` methods to explore the iris data set.
-
-Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Problems` shows the four measurement for each of the three Iris Species. 
-- Sepal length
-- Sepal width
-- Petal length
-- Petal Width  
-<img src="images/IrisTable1.png" height="400" alt="Fisher Table I">  
-
-The equivalent data is shown in the iris DataFrame resulting from reading in the csv file, although the layout is slightly different.
-
-
+The `matplotlib` package can be used to create a graph or plot of the Iris Data set. The `pandas` library also has some built in methods to create visualisations from DataFrame and Series objects which are based on the `matplotlib` library.
+- [pandas-visualisation](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#visualization)    
+- [matplotlib -pyplot](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py)  
+  
 A `histogram`is a representation of the distribution of data. It charts the data using rectangular bars that are adjacent to each other and display either the frequency or relative frequency of the measurements on the interval or ratio scale.
  The pandas `hist` function calls `matplotlib.pyplot.hist` on each numerical series in the DataFrame, resulting in one histogram per column.
 
@@ -491,6 +513,49 @@ It is possible to look at the summary statistics as the class or species level.
 ### also include some of the scatter plots here. 
 
 A scatter plot is a useful plot that visually shows how the different variables or features in the data set correlate with one another. 
+
+
+#### using seaborn
+
+The [seaborn](https://seaborn.pydata.org/introduction.html#introduction) library is used for making statistical graphics in Python. It is built on top of `matplotlib` and closely integrated with `pandas` data structures. It provides a high-level interface for creating nice looking and informative plots. It has many useful features for examining relationships between multiple variables such as those  in the Iris dataset. It's dataset-oriented plotting functions operate on DataFrames such as the `iris` DataFrame here.
+The `seaborn` documentation section called [Visualising dataset structure](http://seaborn.pydata.org/introduction.html#visualizing-dataset-structure) actually illustrates some of the `seaborn` plotting functions using the iris data set which is built into the seabron library.
+
+
+I will use `seaborn` to create a facetted scatter plot. The Iris measurement variables determine the position of each point on the axes. 
+- A `scatter plot` can be used to visualize relationships between numerical variables such as the petal measurements and the sepal measurements in the iris data set.    
+- A `catplot()` can capture the relationship between a numeric variable and one (or more) categorical variables, such as the class or species of iris plant.   
+
+The `seaborn` library has several ways to visualise a relationship between categorical data. The boxplot is a categorical distribution plot which shows the three quartile values of the distribution as well as any extreme values or outliers.  
+The appearance of the plot can be changed by setting the figure aesthetics including the theme and the colour palette.
+In the boxplot below, the columns containing the categorical variable `Class` and the petal and sepal length measurement variables are passed in as the x and y parameters to the boxplot. Four plots are being plotted on a 2 by 2 grid. I am also specifying that the y axis should not be shared between plots and setting the figure size.
+The appearance of the plot can be changed by setting the figure aesthetics including the theme and the colour palette.
+By setting the `hue` to 'Class' so that the points will be coloured on the plot according to their Class/species type. 
+
+```python
+sns.set(style="ticks", palette="pastel")
+f, axes = plt.subplots(2, 2, sharey=False, figsize=(12, 8))
+f, axes = plt.subplots(2, 2, sharey=False, figsize=(12, 8))
+sns.boxplot(x="Class", y="Petal_Length",data=iris, ax = axes[0,0])
+sns.boxplot(x="Class", y="Sepal_Length", data=iris, ax=axes[0,1])
+sns.boxplot(x="Class", y="Petal_Width",hue = "Class",data=iris, ax=axes[1,0])
+sns.boxplot(x="Class", y="Sepal_Width", data=iris, ax=axes[1,1])
+# adding a title to the plot
+f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
+plt.show()
+
+```
+
+
+<img src="images/Boxplot1.png" width="500" alt="iris boxplot" />
+
+
+
+## Exploring the Iris data set in more detail
+
+As mentioned above, Fishers Iris data set is well known in the pattern recognition field because one class of the three iris plants in the data set are linearly separable from the other two classes. The other two classes are not linearly separable from each other.
+Therefore, having looked at the data set as a whole, I will look more closely at the data at the iris species / class level and see are there clear differences visible in the data.
+
+
 
 Having looked at the basic statistical properties of the iris data set and having pictured the data gives a better understanding of the data and what can be done with it. The iris data set is widely used for demonstrating machine learning so I will look a little bit at this. As mentioned earlier, one class is linearly separable from the other two classes. A linearly separable data set is one where the observations or data points can be separated by a straight line drawn through the data.
 I will look at the pairwise scatter plots for this as this concept of linear separation is more applicable to data with two classes. The iris data set is a multi-class data set as there are three classes to which the observations could belong to.
@@ -570,11 +635,9 @@ A scatter plot is used to visualise the relationship between two variables. It i
 
 ### Visualising the Iris data set by class of iris.
 
-The `matplotlib` package can be used to create a graph or plot of the Iris Data set. The `pandas` library also has some built in methods to create visualisations from DataFrame and Series objects which are based on the `matplotlib` library.
 The `seaborn` library is used for making statistical graphics in Python. It is built on top of matplotlib and closely integrated with pandas data structures. It provides a high-level interface for creating nice looking and informative plots. 
 It's dataset-oriented plotting functions operate on DataFrames such as the `iris` dataframe created from importing the csv data.
-[pandas-visualisation](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#visualization)  
-[matplotlib -pyplot](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py)
+
 [seaborn](https://seaborn.pydata.org/introduction.html#introduction)
 I will use `seaborn` to create a facetted scatter plot. The iris measurement variables determine the position of each point on the axes. 
 - A `scatter plot` can be used to visualize relationships between numerical variables such as the petal measurements and the sepal measurements in the iris data set.    
@@ -611,6 +674,18 @@ The iris dataset appears in many text books and tutorials related to statistical
 At a quick first glance, the iris flowers would seem quite similar. Why not use colour or other features of the plants to categorise as a way to predict the class? 
 We are essentially using the domain knowledge of the experts in the field - the biologists or botanists who determined this in the first place - Anderson and Fisher. 
 Some domain knowledge is important in machine learning. There must be some way to make sense of the data and to give it some context.
+
+### Summary results of the Fisher Iris data set. 
+
+
+Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Problems` shows the four measurement for each of the three Iris Species. 
+- Sepal length
+- Sepal width
+- Petal length
+- Petal Width  
+<img src="images/IrisTable1.png" height="400" alt="Fisher Table I">  
+
+The equivalent data is shown in the iris DataFrame resulting from reading in the csv file, although the layout is slightly different.
 
 
 
