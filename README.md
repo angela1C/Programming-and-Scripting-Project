@@ -6,7 +6,7 @@ Project 2019 for Programming and Scripting Module
 
 1. [Introduction to the project](#introduction) 
 2. [Background information about the Iris data set](#background) 
-3. [python libraries and other tools](#pythonlibraries)
+3. [python libraries and other software tools](#pythonlibraries)
 4. [Download the Iris data set using python code](#loading)
 5. [Exploring the data set -summary overview](#exploring)
 6. [Exploring the data set in more detail](#detail)
@@ -174,14 +174,43 @@ Linear disciminant analysis is a popular classification technique for classifica
 
 The Fisher Iris data set is still widely used in learning classification methods.
 
-## Python and other software used in this project
-
-### How to run the python code
+## 3. Python and other software tools used in this project
 
 The purpose of this project is to investigate the Fisher Iris data set described above using python code.
-Python is a high level interpreted general purpose programming language. The python interpreter and its extensive standard library are freely available to all. Along with the python standard library, there are many libraries that enhance the usage of python and make it a powerful tool for performing data analytics and machine learning.
-Make sure you have Python 3 installed. If not go to https://www.python.org/downloads/ and follow the instructions.
+Python is a high level interpreted general purpose programming language. The python interpreter and its extensive standard library are freely available to all. Along with the python standard library, there are many libraries that enhance the usage of python and make it a powerful tool for performing data analytics and machine learning.  
 
+
+### How to download this repository.
+1. Go to the URL for the repository on GitHub at [https://github.com/angela1C/pands-project.git](https://github.com/angela1C/pands-project.git).
+2. Click the green `Clone or download` button
+   
+## Python 3
+To be able to run this script, you need to have Python 3 installed. You can check this on the command line using `python -V`.
+If you do not have Python 3 installed go to https://www.python.org/downloads/ and follow the instructions there.
+
+Python comes with a library of standard modules that can perform a wide range of tasks. These modules can be imported using the `import` function. In addition to the standard modules, there are many third-party packages which enhance it's functionality and I use some of these packages in this project outlined below, in  particular the [pandas](https://pandas.pydata.org/about.html) package which provides data structures and data analysis tools for the Python programming langauge. 
+  
+These packages can be also be imported but they first need to be installed on your system. See [Installing Packages](https://packaging.python.org/tutorials/installing-packages/#requirements-for-installing-packages) of the [Python Documentation](https://docs.python.org/3/index.html).
+`pip` is the package installer for Python and can be used to install packages from the [PyPI](https://pypi.org) repository of software for the Python programming language.
+
+[pandas installation instructions](https://pandas.pydata.org/pandas-docs/stable/install.html) recommend installing the package as part of the Anaconda distribution, a cross platform distribution for data analysis and scientific computing using `conda install pandas`.
+The `seaborn` package can be installed using `pip install seaborn` or `conda install seaborn`. [seaborn installation instructions](https://seaborn.pydata.org/installing.html)
+ 
+The `pandas` library is the main python library being used in this project. According to the [pandas package overview ](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html)  
+
+> `pandas` is a `Python` package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. 
+`pandas` provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language.[pandas.pydata.org](https://pandas.pydata.org/index.html)
+
+`pandas` is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type.  This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column. 
+
+The `seaborn` library is also used for plotting (which requires `matplotlib.pyplot` for some functions??)
+
+>Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. [seaborn.pydata.org](https://seaborn.pydata.org/index.html)
+
+[matplotlib.org](https://matplotlib.org)
+>Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
+
+### How to run the python code
 To run the python script, first navigate to the folder downloaded from this repository.
 
 At the command line enter python <program_name> for example: $ python project_iris.py
@@ -189,26 +218,17 @@ At the command line enter python <program_name> for example: $ python project_ir
 The python program can also be run inside the environment of an iPython session using the `%run` command.
  `% run project_iris.py`
 
+ Python comes with a library of standard modules but there are many other packages that can be used.
+
+ https://docs.python.org/3/installing/index.html#installing-index
+
 ### Loading python libraries
 
-The `pandas` library is the main python library being used in this project. According to the [pandas package overview ](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html)  
 
-> `pandas` is a `Python` package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. 
+The libraries mentioned above must first be imported before they can be used by the script as they are not part of the Python standard library. 
 
-According to [pandas.pydata.org](https://pandas.pydata.org/index.html),`pandas` provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. `pandas` is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type.  This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column. 
-
-In addition to `pandas`, the `seaborn` library is also used for plotting which requires `matplotlib.pyplot` for some functions.
-
-[seaborn.pydata.org](https://seaborn.pydata.org/index.html)
->Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. 
-
-[matplotlib.org](https://matplotlib.org)
->Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
-
-The libraries must first be imported before they can be used by the script as they are not part of the Python standard library. 
-I do this at the very beginning of the script. 
-
-The pandas library is imported at the very start of the script using `import pandas as pd`. Therefore wherever `pd` is used in the script, it is referring to the pandas library. Similarly, the `seaborn` library is imported as `sn` and thereafter referred to using `sn`. These are the names that are used by convention. Once these packages are loaded, all of the available functions can be used by the script.
+The pandas library is imported at the very start of the script using `import pandas as pd` where `pd` is a shorter alias name that is used by convention to save having to write `pandas` each time it is used.
+ Therefore, wherever `pd` is used in the script, it is referring to the pandas library. Similarly, the `seaborn` library is imported using the alias `sn` and thereafter referred to using `sn`. Once these packages are loaded, all of the available functions can be used by the script.
 
 ```python
 import pandas as pd  
@@ -216,7 +236,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-Help can be obtained using the python help function
+Help can be obtained within python using the python help function 
 For example `help(pd)` or `help(pd.DataFrame.describe)`
 
 ### Getting help in python
