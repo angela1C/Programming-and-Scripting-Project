@@ -310,12 +310,13 @@ As Python is an object oriented language, everything in it is an object where an
 
 I use first look at the meta-data of the Iris DataFrame using the attributes of the Iris DataFrame object.
 
+- The `ndim` attribute shows the number of axes / array dimensions of the Iris data set.
 - The `shape` attributes gives the axis dimensions of the object - the number or rows and columns in the table of data.
 This will show how many rows (containing observations) and columns (containing features/variables) in the Iris Data set.
 
 - The `index` attribute shows the index which was automatically assigned when the dataFrame was created on reading in the csv file.
 
-- The `ndim` attribute shows the number of axes / array dimensions of the Iris data set.
+
 
 - The `size` attribute shows the number of elements in the DataFrame.
 - The `columns` attribute shows the column labels of the DataFrame.
@@ -330,11 +331,11 @@ The following is the python code used in the script. I have included print state
 print("The column labels of the iris DataFrame are: ", *iris.columns, sep = "   ")
 print("The column labels of the iris DataFrame are: ", *iris.columns, sep = "   ")
 print(f" The index of the dataframe is: ", iris.index)
-print("The iris index for the rows are ",*iris.index)
+print("The index for the rows are ",*iris.index)
 print("This index was automatically assigned when the DataFrame was created above")
-print(f"The iris dataframe has {iris.ndim} dimensions")
-print(f"The Iris data set has {iris.shape[0]} rows and {iris.shape[1]} columns")
-print(f"The Iris DataFrame has {iris.size} elements in total")
+print(f"The iris DataFrame has {iris.ndim} dimensions")
+print(f"The iris data set has {iris.shape[0]} rows and {iris.shape[1]} columns")
+print(f"The iris DataFrame has {iris.size} elements in total")
 print(f"The data types of iris dataframe are as follows:")
 print(iris.dtypes)
 print(iris.axes)
@@ -343,6 +344,33 @@ print("The column axis labels of the iris DataFrame are as follows:\n ",*iris.ax
 ```
 
 ##### Attributes of the iris DataFrame 
+
+The iris dataframe has 2 dimensions.
+The Iris data set consists of 150 rows and 5 columns corresponding to the rows and columns of the csv file.
+There are 750  elements in total.
+The column labels of the iris DataFrame are as specified when reading in the csv file:    Sepal_Length   Sepal_Width   Petal_Length   Petal_Width   Class
+The index of the DataFrame is:  RangeIndex(start=0, stop=150, step=1)
+The index for the rows are  0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149
+This index was automatically assigned when the DataFrame was created above
+The data types of iris DataFrame are as follows:
+Sepal_Length    float64
+Sepal_Width     float64
+Petal_Length    float64
+Petal_Width     float64
+Class            object
+dtype: object
+[RangeIndex(start=0, stop=150, step=1), Index(['Sepal_Length', 'Sepal_Width', 'Petal_Length', 'Petal_Width', 'Class'], dtype='object')]
+The row axis labels of the iris DataFrame is a range from  0 1 2 ... 147 148 149
+The column axis labels of the iris DataFrame are as follows:
+  Sepal_Length Sepal_Width Petal_Length Petal_Width Class
+
+
+
+
+
+
+
+
   
 - The iris DataFrame has two dimensions.  (`ndim`)
 - It consists of 150 rows and 5 columns corresponding to the 150 rows of observations in the csv data and the five columns of data.(`shape`) 
@@ -352,7 +380,21 @@ print("The column axis labels of the iris DataFrame are as follows:\n ",*iris.ax
 - The dataframe is assigned a range index by default on reading in the data set. This index starts at 0 for the first row of observations and goes up to 149 for the last row of observations. The index can be changed if desired.   (`index`)
 - The datatypes of the numeric measurement columns are floats.   (`dtypes`)
 
-
+### This is the print output of the above code:
+The iris dataframe has 2 dimensions
+The Iris data set has 150 rows and 5 columns
+The Iris DataFrame has 750 elements in total
+The column labels of the iris DataFrame are:    Sepal_Length   Sepal_Width   Petal_Length   Petal_Width   Class
+ The index of the dataframe is:  RangeIndex(start=0, stop=150, step=1)
+The index for the rows are  0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149
+This index was automatically assigned when the DataFrame was created above
+The data types of iris dataframe are as follows:
+Sepal_Length    float64
+Sepal_Width     float64
+Petal_Length    float64
+Petal_Width     float64
+Class            object
+dtype: object
 
 ## Next using the DataFrame methods to investigate the Iris data set.
 

@@ -11,7 +11,7 @@
 # Here I import the pandas library, the matplotlib pyplot library and the seaborn library using short name aliases pd, plt and sns. 
 # This seems to be the conventional way to import these particular packages.
 
-print("First importing the python libraries")
+print("First importing the python libraries...")
 import pandas as pd  
 import matplotlib.pyplot as plt 
 import seaborn as sns
@@ -53,24 +53,30 @@ print(iris.dtypes)
 # First looking at the attributes of the iris DataFrame created from importing the iris data set above.
 
 # Getting the number of axes / array dimensions of the iris DataFrame using ndim attribute
-print(f"The iris dataframe has {iris.ndim} dimensions")
+print(f"The iris dataframe has {iris.ndim} dimensions.")
 
 # Look at the shape of the iris DataFrame as this shows the number of rows and columns in the table or matrix of data
 # This will show how many rows (containing observations) and columns (containing features/variables)
-print(f"The Iris data set has {iris.shape[0]} rows and {iris.shape[1]} columns")
+print(f"The Iris data set consists of {iris.shape[0]} rows and {iris.shape[1]} columns corresponding to the rows and columns of the csv file.")
 
 # the number of elements in the iris object.
-print(f"The Iris DataFrame has {iris.size} elements in total")
+print(f"There are {iris.size}  elements in total.")
 
 # The DataFrame has both a row and a column index which were automatically assigned when the DataFrame was created.
 # Get the column labels of the iris DataFrame using  'pandas.DataFrame.columns'
-print("The column labels of the iris DataFrame are: ", *iris.columns, sep = "   ")
+print("The column labels of the iris DataFrame are as specified when reading in the csv file: ", *iris.columns, sep = "   ")
 
 # the row index 
-print(f" The index of the dataframe is: ", iris.index)
+print(f"The index of the DataFrame is: ", iris.index)
 print("The index for the rows are ",*iris.index)
-print("This index was automatically assigned when the DataFrame was created above")
+print("This index was automatically assigned when the DataFrame was created above.")
 
 # the dtypes (data types) of the iris DataFrame
-print(f"The data types of iris dataframe are as follows:")
+print(f"The data types of iris DataFrame are as follows:")
 print(iris.dtypes)
+
+# pandas.DataFrame.axes return a a list representing the axes of the iris DataFrame which shows the row axis labels and the column axis labels in that order. This returns the same information as the index and columns attribute
+print(iris.axes)
+#print("The row axis labels of the iris DataFrame are  ", *iris.axes[0])
+print("The row axis labels of the iris DataFrame is a range from ", *iris.axes[0][[0]], *iris.axes[0][[1]], *iris.axes[0][[2]],"..." , *iris.axes[0][[-3]],*iris.axes[0][[-2]], *iris.axes[0][[-1]] )
+print("The column axis labels of the iris DataFrame are as follows:\n ",*iris.axes[1])
