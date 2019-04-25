@@ -1,13 +1,14 @@
-# Project Iris
+# project_iris.py
+# Angela Carpenter
+# This script contains my script
 
-# will look at the plotting and visualising by species next
-# Then will look at some anaysis that other people may have done - particularly in the machine learning side.
+
 
 # 1. IMPORT PYTHON LIBRARIES
 
 # In order to use python libraries that are not part of the standard python library, they first need to be imported.
-# Here I import the pandas library, the matplotlib pyplot library and the seaborn library as pd, plt and sns. 
-# This seems to be the conventional way to import the packages.
+# Here I import the pandas library, the matplotlib pyplot library and the seaborn library using short name aliases pd, plt and sns. 
+# This seems to be the conventional way to import these particular packages.
 
 print("First importing the python libraries")
 import pandas as pd  
@@ -17,19 +18,20 @@ import seaborn as sns
 # help can be obtained using the python help function.
 # help(pd) or help(pd.DataFrame.describe())
 
-# 2. LOADING / READING IN THE IRIS DATA SET
+# 2. LOADING / READING IN THE IRIS DATA SET INTO PYTHON
 
 
-# Create a variable `csv_url` and pass to it the url where the data set is available 
-# at 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'. 
+# Create a variable `csv_url` and pass to it the url where the data set is available at 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'. 
 csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
 # I have also saved the csv file to the folder or repository and can read it in from there in case for some reason the url is not available.
 
 # Create a list of column names `col_names` using the iris attribute information available at the UCI machine learning repository.
-# passing the column names in as a parameter to read_csv
+# passing the column names to the names parameter of read_csv
 col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Class']
 
 iris =  pd.read_csv(csv_url, names = col_names)
+
+# to read the csv file from a csv file in the same folder as this script.
 # iris = pd.read_csv('iris_data.csv', names = col_names)
 
 # using the pandas DataFrame method head to return the first rows of the DataFrame and check that the file was correctly loaded
@@ -43,18 +45,13 @@ print(iris.tail(10))
 # check the data types to ensure they have been correctly inferred by read_csv
 print(iris.dtypes)
 
-
-
 # 3. EXPLORING AND INVESTIGATING THE IRIS DATA SET 
 
-# 3.1 EXPLORING USING ATTRIBUTES OF THE IRIS DATA FRAME
+# Having imported the iris data set from a csv file into a pandas `DataFrame`, all the attributes and methods of `DataFrame` objects can be used on the iris DataFrame object.
 
 # First looking at the attributes of the iris DataFrame created from importing the iris data set above.
 
-# Get the column labels of the iris DataFrame using  'pandas.DataFrame.columns'
-print("The column labels of the iris DataFrame are: ", *iris.columns, sep = "   ")
-
-# the number of axes / array dimensions of the iris DataFrame
+# Getting the number of axes / array dimensions of the iris DataFrame using ndim attribute
 print(f"The iris dataframe has {iris.ndim} dimensions")
 
 # Look at the shape of the iris DataFrame as this shows the number of rows and columns in the table or matrix of data
@@ -62,12 +59,15 @@ print(f"The iris dataframe has {iris.ndim} dimensions")
 print(f"The Iris data set has {iris.shape[0]} rows and {iris.shape[1]} columns")
 
 # the number of elements in the iris object.
-print("The number of elements in the iris dataframe")
-print(iris.size)
+print(f"The Iris DataFrame has {iris.size} elements in total")
 
-# The DataFrame has an index which was automatically assigned when the DataFrame was created
-# on reading in the csv file. The index is a range from 0 to 150
-print(f"The index of the iris DataFrame begins at {iris.index[0]} and ends at {iris.index[1]}")
+# The DataFrame has both a row and a column index which were automatically assigned when the DataFrame was created.
+# Get the column labels of the iris DataFrame using  'pandas.DataFrame.columns'
+print("The column labels of the iris DataFrame are: ", *iris.columns, sep = "   ")
+
+# the row index 
+print(f" The index of the dataframe is: ", iris.index)
+print("The index for the rows are ",*iris.index)
 print("This index was automatically assigned when the DataFrame was created above")
 
 # the dtypes (data types) of the iris DataFrame
@@ -77,15 +77,12 @@ print(iris.dtypes)
 # Return the ftypes (indication of sparse/dense and dtype) in the iris DataFrame.
 print(iris.ftypes)
 
-# pandas.DataFrame.axes return a a list representing the axes of the iris DataFrame.
-# this will show the row axis labels and the column axis labels in that order
+# pandas.DataFrame.axes return a a list representing the axes of the iris DataFrame which shows the row axis labels and the column axis labels in that order. This returns the same information as the index and columns attribute
 print(iris.axes)
 print("The row axis labels of the iris DataFrame are  ", *iris.axes[0])
 print("The column axis labels of the iris DataFrame are as follows:\n ",*iris.axes[1])
 
-# **************** **************** **************** **************** ****************
-
-# 3.2 USING DATAFRAME METHODS TO EXPLORE THE IRIS DATAFRAME
+# Now using DataFrame methods to explore the Iris DataFrame
 
 # Look at the first ten observations in the DataFrame
 print(iris.head(10))
