@@ -296,7 +296,7 @@ print(iris.dtypes)
 
 ## 4. Investigating the Iris dataset in Python.
 
-# http://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dsintro 
+#### http://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dsintro 
 
 The first part of my analysis looks at an overview of the Fisher Iris data set including some summary statistics that describe the data at a high level and some basic plots that provide an overall picture of the Fisher Iris data set. 
 
@@ -347,9 +347,9 @@ print("The column axis labels of the iris DataFrame are as follows:\n ",*iris.ax
 
 ### This is the print output of the above code:
 ```
-TThe iris dataframe has 2 dimensions.
+TThe iris DataFrame has 2 dimensions.
 
-The Iris data set consists of 150 rows and 5 columns corresponding to the rows and columns of the csv file.
+The Iris DataFrame set consists of 150 rows and 5 columns corresponding to the rows and columns of the csv file.
 
 There are 750  elements in total.
 
@@ -358,6 +358,7 @@ The column labels of the iris DataFrame are as specified when reading in the csv
 
  The index of the DataFrame is: 
  RangeIndex(start=0, stop=150, step=1)
+
 This index was automatically assigned when the DataFrame was created above.
 
 The data types of iris DataFrame are as follows:
@@ -376,20 +377,9 @@ The column axis labels of the iris DataFrame are as follows:
   Sepal_Length Sepal_Width Petal_Length Petal_Width Class
 ```
  
-- The iris DataFrame has two dimensions.  (`ndim`)
-- It consists of 150 rows and 5 columns corresponding to the 150 rows of observations in the csv data and the five columns of data.(`shape`) 
-- The columns on the dataset contain the column names that were specified when reading in the csv file. (`columns`)
-'Sepal_Length', 'Sepal_Width', 'Petal_Length', 'Petal_Width','Species'. (If the csv data set had contained a row of column names at the top of the file, then this could have been used to set the column names.)  
-- There are 750 elements in total in the iris dataframe.  (`size`)
-- The dataframe is assigned a range index by default on reading in the data set. This index starts at 0 for the first row of observations and goes up to 149 for the last row of observations. The index can be changed if desired.   (`index`)
-- The datatypes of the numeric measurement columns are floats.   (`dtypes`)
-
-\n
-
 ## Next using the DataFrame methods to investigate the Iris data set.
 
-The `head` and `tail` methods are very useful to take a quick look at the observations at the top and bottom rows of the dataframe. The number of rows to display can be specified as an argument. The rows at the top belong to the setosa class. The rows at the bottom belong to the virginica class. This is just the way the observations are ordered in the csv data set. 
-
+The `head` and `tail` methods are very useful to take a quick look at the observations at the top and bottom rows of the dataframe. The number of rows to display can be specified as an argument. 
 ```python
 print("The first 10 rows of the iris dataframe:")
 print(iris.head(10))
@@ -402,14 +392,64 @@ print(iris.tail(10))
 ##### The bottom of the iris data set:
 <img src="images/iris_tail.png" height="200" alt="iris-tail" />
 
+The rows at the top belong to the setosa class. The rows at the bottom belong to the virginica class. This is just the way the observations are ordered in the csv data set. 
+
+The data can be checked for any missing values using the `isnull()` method while `notnull()` returns the opposite.
+`isnull()` returns a `True` or `False` boolean value for each observation. Boolean values are coerced to a 1 for True and 0 for False so the `sum` function can be used to count the number of `True` values in the data set, rather than printing all the `True` and `False` values.
+The Fisher Iris data set is a small complete data set with no missing values.  
+
+`pandas` objects have a set of common mathematical and statistical methods. Most of these methods produce a single value such as the mean or the max or standard deviation.  Multiple summary statistics can be obtained in one go using the `describe()` method.
+By default, the descriptive statistics on `pandas` objects excludes missing value. 
+
+Note that the summary statistics below are for the data set as a whole. Later I look at the descriptive statistics by class or species of iris plant.
+
+- The pandas `describe` function shows the count number of the non-NA/null observations in the dataset.  
+- The `max` shows the maximum of the values and the `min` shows the minimum of the values. 
+- The `mean` shows the mean or average of the values (the sum of data values divided by total number of values), the `std` shows the standard deviation (a measure of the dispersion or spread of the data) of the observations. 
+- The `describe` function also shows the 25th, 50th and 75th percentiles. The 25th percentile shows the percentage of values falling below that percentile. The 50th percentile shows the same information as the median would, that is where 50% of the values fall above and 50% fall below the value.
+- The various statistics that are generated from the `describe` function can also be obtained on their own. For example the mean could be obtained using `iris.mean()`, minimum with `.min()` etc.
 
 
 
-### come back to this!
+```python
+print("The number of null or missing values in the iris dataframe for each column: ")
+print(iris.isnull().sum())
+print("Here are some summary statistics for the iris DataFrame: \n ")
+print(iris.describe())
+print(f"A concise summary of the iris DataFrame: \n")
+iris.info()
+print(f"\n The number of non-NA cells for each column or row are: \n {iris.count()}")
+# Using the `unique()` method on the 'Class' column to show how many different class or species of Iris flower is in the data set.
+species_type =iris['Class'].unique()
+print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
+# count the number of distinct observations for each column 
+iris.nunique()
+```
+
+
+
+<img src="images/iris_describe.png" height="300" alt="iris-describe" />
+
+- The initial exploration of the Iris DataFrame shows that there are 150 rows and 5 columns of data. 
+Each row corresponds to an individual observation of an iris plant. 
+- The columns show the individual measurements (in centimetres) of the length of the sepal, the length of the petal, the width of the sepal and the width of the petal.
+
+- The mean of the Sepal length is greater than the mean of the other three measurements.   
+- The measurements of the petal width has the lowest average measurements.   
+- The standard deviation in the petal lengths shows the highest variability of the four measurements at 1.76 while the standard deviations of the petal width is approx 0.43.  
+- The shortest petal in the data set is 1 cm while the longest petal is 6.9 cm.  
+- The widths of the petals vary from 0.1 cm to 2.5 cm.  
+- The shortest sepal in the data set is 4.3 cm while the longest sepal is 7.9 cm. 
+- The narrowest sepal is 2cm while the widest sepal is 4.4 centimetres.  
+
+
+- There are 50 observations in each class.
+
+
+
+### come back to this section below!
 As mentioned above, Fishers Iris data set is well known in the pattern recognition field because one class of the three iris plants in the data set are linearly separable from the other two classes. The other two classes are not linearly separable from each other.
-
 Therefore, having looked at the data set as a whole, I will look more closely at the data at the iris species / class level and see are there clear differences visible in the data.
-
 (As this project is more about learning python programming than learning machine learning, I will see if these differences are obvious using some python code.)
 
 
@@ -425,39 +465,10 @@ Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Probl
 - Sepal width
 - Petal length
 - Petal Width  
-<img src="images/IrisTable1.png" width="400" alt="Fisher Table I">  
+<img src="images/IrisTable1.png" height="400" alt="Fisher Table I">  
 
 The equivalent data is shown in the iris DataFrame resulting from reading in the csv file, although the layout is slightly different.
 
-
-- `pandas` objects have a set of common mathematical and statistical methods. Most of these methods produce a single value such as the mean or the max or standard deviation.  Multiple summary statistics can be obtained in one go using pandas.descibe().
-
-- Using the `describe` method to produce some quick summary statistics produces the following table. These statistics are for the data set as a whole. (Later I look at the descriptive statistics by class or species of iris plant).
-
-The pandas `describe` function shows the count number of the non-NA/null observations in the dataset. There are 50 observations in each class. The `max` shows the maximum of the values and the `min` shows the minimum of the values. 
-The `mean` shows the mean or average  of the values (the sum of data values divided by total number of values), the `std` shows the standard deviation (a measure of the dispersion or spread of the data) of the observations. The `describe` function also shows the 25th, 50th and 75th percentiles. The 25th percentile shows the percentage of values falling below that percentile. The 50th percentile shows the same information as the median would, that is where 50% of the values fall above and 50% fall below the value.
-
-- The various statistics that are generated from the `describe` function can also be obtained on their own. For example the mean could be obtained using `iris.mean()`, minimum with `.min()` etc.
-
-<img src="images/iris_describe.png" height="300" alt="iris-describe" />
-
-- The initial exploration of the Iris DataFrame shows that there are 150 rows and 5 columns of data. 
-Each row corresponds to an individual observation of an iris plant. 
-- The columns show the individual measurements (in centimetres) of the length of the sepal, the length of the petal, the width of the sepal and the width of the petal.
-
-- The mean of the Sepal length is greater than the mean of the other three measurements.   
-- The measurements of the petal width has the lowest average measurements.   
-- The standard deviation in the petal lengths shows the highest variability of the four measurements at 1.76 while the standard deviations of the petal width is approx 0.43.  
-
-- The shortest petal in the data set is 1 cm while the longest petal is 6.9 cm.  
-- The widths of the petals vary from 0.1 cm to 2.5 cm.  
-- The shortest sepal in the data set is 4.3 cm while the longest sepal is 7.9 cm. The narrowest sepal is 2cm while the widest sepal is 4.4 centimetres.  
-
-
-The data can be checked for any missing values. By default, the descriptive statistics on `pandas` objects exclude missing value.  
-The Fisher Iris data set is a small data set and it does not have any missing values.
-`pandas.isnull` can be used to check for missing data. It returns a True or False boolean value for each observation. Boolean values are coerced to a 1 for True and 0 for False so the `sum` function can be used to count the number of `True` values in the data set, rather than printing all the `True` and `False` values.
-`notnull()` returns the opposite of `isnull` while `notna` is the opposite of `isna`.
 
 A `histogram`is a representation of the distribution of data. It charts the data using rectangular bars that are adjacent to each other and display either the frequency or relative frequency of the measurements on the interval or ratio scale.
  The pandas `hist` function calls `matplotlib.pyplot.hist` on each numerical series in the DataFrame, resulting in one histogram per column.

@@ -59,9 +59,9 @@ print(f"The iris DataFrame has {iris.ndim} dimensions")
 print(f"The Iris data set consists of {iris.shape[0]} rows and {iris.shape[1]} columns corresponding to the rows and columns of the csv file.")
 
 # the number of elements in the iris object.
-print(f"There are {iris.size}  elements in total")
+print(f"There are {iris.size}  elements in total.")
 # the number of elements in the iris object.
-print(f"The iris DataFrame has {iris.size} elements in total")
+print(f"The iris DataFrame has {iris.size} elements in total.")
 
 # The DataFrame has both a row and a column index which were automatically assigned when the DataFrame was created.
 # Get the column labels of the iris DataFrame using  'pandas.DataFrame.columns'
@@ -70,7 +70,7 @@ print("The column labels of the iris DataFrame are: ", *iris.columns, sep = "   
 # the row index 
 print(f" The index of the DataFrame is: ", iris.index)
 print("The index for the rows are ",*iris.index)
-print("This index was automatically assigned when the DataFrame was created above")
+print("This index was automatically assigned when the DataFrame was created above.")
 
 # the dtypes (data types) of the iris DataFrame
 print(f"The data types of iris DataFrame are as follows:")
@@ -85,38 +85,44 @@ print(iris.axes)
 print("The row axis labels of the iris DataFrame is a range from ", *iris.axes[0][[0]], *iris.axes[0][[1]], *iris.axes[0][[2]],"..." , *iris.axes[0][[-3]],*iris.axes[0][[-2]], *iris.axes[0][[-1]] )
 print("The column axis labels of the iris DataFrame are as follows:\n ",*iris.axes[1])
 
-# Now using DataFrame methods to explore the Iris DataFrame
+# Now using some of the DataFrame methods to explore the Iris DataFrame
 
-# Look at the first ten observations in the DataFrame
+# Look at the first ten observations in the DataFrame. 
 print(iris.head(10))
 
 # Look at the last ten observations in the DataFrame
 print(iris.tail(10))
 
 # It is possible to check for missing values in the DataFrame using the panda's `isnull()` method.
-# This shows that there are no missing values which is as expected for this well known data set consisting of 150 instances of 5 attributes.
-print("The number of null or missing values in the iris dataframe: ")
+# This shows that there are no missing values which is as expected for this particular data set.
+# Detect missing values in the DataFrame. Sum the values instead of printing the boolean values as True = 1.
+print("The number of null or missing values in the iris dataframe for each column: ")
 print(iris.isnull().sum())
 
+####   ####   ####   ####   ####   ####
+
 # look at the summary statistics of the DataFrame
-print("summary statistics for the iris dataframe")
+print("Here are some summary statistics for the iris DataFrame: \n ")
 print(iris.describe())
 
+
 # Print a concise summary of the iris DataFrame.
-print(iris.info())
+print(f"A concise summary of the iris DataFrame: \n")
+iris.info()
 
 # Count non-NA cells for each column or row.
-print(iris.count())
+print(f"\n The number of non-NA cells for each column or row are: \n {iris.count()}")
 
-# It is possible to check for missing values in the DataFrame using the panda's isnull() and isna() methods.
-# There should be no missing values in this DataFrame as there are no missing values in the csv file from which it is created. 
+# Using the `unique()` method on the 'Class' column to show how many different class or species of Iris flower is in the data set.
 
-# Detect missing values in the DataFrame. Sum the values instead of printing the boolean values as True = 1.
-# iris.isna().sum()
-iris.isnull().sum()
-iris.notnull().sum()
-# iris.notna().sum()
-iris.count()
+iris['Class'].unique()
+species_type =iris['Class'].unique()
+print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
+
+# count the number of distinct observations for each column 
+iris.nunique()
+
+##### 
 
 # Make a histogram of the DataFrame. 
 # A histogram will be produced for each of the four numeric columns in the iris data set.
@@ -131,14 +137,6 @@ print("Boxplot the distribution of the iris data. Make sure to close the plot to
 iris.plot.box(figsize=(12,8))
 plt.show()
 
-# count distinct observations.
-iris.nunique()
-
-# Using the `unique()` method to show how many different class or species of Iris flower is in the data set.
-
-iris['Class'].unique()
-species_type =iris['Class'].unique()
-print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
 
 
 # pandas.DataFrame.plot.scatter
