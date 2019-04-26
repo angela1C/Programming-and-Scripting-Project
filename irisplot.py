@@ -29,13 +29,61 @@ ax3 = iris.plot.scatter(x = 'Sepal_Length', y='Sepal_Width', c= 'Red')
 plt.show()
 
 
-# instead use the seaborn library to do a scatter plot and colour code each iris plant species/class
-# seaborn has been imported as sns above
+# Histograms can be drawn by using the DataFrame.plot.hist() and Series.plot.hist() methods.
+# A histogram can be stacked using stacked=True. Bin size can be changed using the bins keyword.
+# DataFrame.hist() plots the histograms of the columns on multiple subplots:
+# plt.figure()
+# iris['Sepal_Length'].hist()
+# plt.show()
 
-#set a white grid for the figure
-sns.set_style("whitegrid")
-# using a facet grid and setting hue = Class which means the points will be coloured on the plot according to their Class/species.
-sns.FacetGrid(iris, hue="Class",size = 4).map
 
-# could see that 
+# plt.figure()
+# iris['Sepal_Length'].diff().hist()
+# plt.show()
 
+print("Histogram of the distribution of the iris data. Make sure to close the plot to continue. ") 
+iris.hist(alpha=0.8, bins=30, figsize=(12,8))
+plt.show()
+
+
+# Make a histogram of the DataFrame for each of the four numeric columns in the iris data set.
+# The number of bins can be specified. 
+
+# DataFrame.hist() plots the histograms of the columns on multiple subplots:
+print("Histogram of the distribution of the iris data. Make sure to close the plot to continue. ") 
+iris.hist(alpha=0.8, bins=30, figsize=(12,8))
+plt.show()
+
+# Boxplot can be drawn using DataFrame.plot.box(), or DataFrame.boxplot() 
+# This is used to visualize the distribution of values within each column.
+
+print("Boxplot the distribution of the iris data. Make sure to close the plot to continue. ") 
+iris.plot.box(figsize=(12,8))
+plt.show()
+
+# Now instead of using just pandas I am using the seaborn package to do some visualisations.
+# get_ipython().run_line_magic('pinfo', 'sns.boxplot')
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+
+# The appearance of the plot can be changed by setting the figure aesthetics.
+# set the theme. (The default theme is called darkgrid). Set the color palette.
+sns.set(style="ticks", palette="pastel")
+
+# plotting 4 plots on a 2 by 2 grid, do not want to share the y axis between plots. Setting the figure size 
+f, axes = plt.subplots(2, 2, sharey=False, figsize=(12, 8))
+# pass a panda Series as the x and y parameters to the boxplot. 
+# Using the Class column (categorical) and one of the sepal or petal measurements (numerical) for each subplot
+
+# setting the hue = Class so that the points will be coloured on the plot according to their Class/species type.
+sns.boxplot(x="Class", y="Sepal_Length", data=iris, ax=axes[0,1])
+sns.boxplot(x="Class", y="Sepal_Width", data=iris, ax=axes[1,1])
+sns.boxplot(x="Class", y="Petal_Length",data=iris, ax = axes[0,0])
+
+sns.boxplot(x="Class", y="Petal_Width",hue = "Class",data=iris, ax=axes[1,0])
+
+# adding a title to the plot
+f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
+plt.show()
