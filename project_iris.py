@@ -181,7 +181,7 @@ values =  {'Class': ['Iris-versicolor', 'Iris-virginica']}
 row_mask = iris.isin(values).any(1)
 # print(iris[row_mask].head())
 
-# I AM HERE! ready to go ahead and review the group by section and look at plots by each class
+
 """
 next looking at the group by stats. then look at the group by plots.
 then some machine learning and review of other peoples code.
@@ -198,6 +198,16 @@ iris_grouped = iris.groupby("Class")
 iris.groupby("Class").count()
 print("The number of observations for each variable for each Iris species in the data set are as follows: \n \n",iris.groupby("Class").count())
 
+`The number of observations for each variable for each Iris species in the data set are as follows: 
+ 
+                  Sepal_Length  Sepal_Width  Petal_Length  Petal_Width
+Class                                                                
+Iris-setosa                50           50            50           50
+Iris-versicolor            50           50            50           50
+Iris-virginica             50           50            50           50
+``
+
+```
 # Groupby Class of Iris plant and return the mean of the remaining columns in each group.
 
 print("The mean or average measurement for each group of Iris Species in the dataset is \n",iris.groupby('Class').mean())

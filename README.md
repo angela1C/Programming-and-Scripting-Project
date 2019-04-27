@@ -4,21 +4,20 @@ Project 2019 for Programming and Scripting Module
 
 # Table of Contents
 
-1. [Introduction to the project](#introduction) 
-2. [Background information about the Iris data set](#background) 
-3. [python libraries and other software tools](#pythonlibraries)
-4. [Download the Iris data set using python code](#loading)
+1. [Introduction to the project](#1.-introduction-to-the-project.) 
+2. [Background Information about the Iris Data Set](#2.-background-information-about-the-fisher-iris-dataset) 
+3. [Python and other software tools used in this project](#3.-python-and-other-software-tools-used-in-this-project)
+4. [Download the Iris data set using python code](#3.-download-the-fisher-iris-data-set-and-investigate-it-using-python-code.)
 5. [Exploring the data set -summary overview](#exploring)
 6. [Exploring the data set in more detail](#detail)
 6. [Summarise the data set](#summarise)
 7. [conclusions](#conclusions)
 10. [References](#references)
 
-
-# 1. Introduction to the project. <a name="introduction"></a>
+# 1. Introduction to the project.
 
 This repository contains my submission for the class project for the Programming and Scripting Module at GMIT as part of the Higher Diploma in Computing and Data Analytics.   
-The pdf file containing the problem set instructions is available by clicking on the following link.  [Programming and Scripting Project 2019](https://github.com/ianmcloughlin/project-pands/raw/master/project.pdf)  
+The instructions are contained in the [Programming and Scripting Project 2019](https://github.com/ianmcloughlin/project-pands/raw/master/project.pdf) pdf file.
 
 The project concerns the well-known Fisher's Iris data set. 
 It entails researching the data set, and then writing documentation and code in the Python programming language based on that research.
@@ -33,7 +32,7 @@ It entails researching the data set, and then writing documentation and code in 
 The next part of the analysis looks more closely at the species of iris plant when analysing the data set.  
 Summary results are then provided.
 
-## 
+
 The purpose of the project is to investigate the Fisher Iris data set using python code. My main aim in the project is therefore to learn python programming by applying it to the iris data set. 
 I intend to use the python documentation to do this and to build up my knowledge of python and its relevant packages as I go along.
 A web search on the iris data set will return many pages. I will take a look at some of these. Many of these apply machine learning to the iris data set. I will have a little look at this and why the iris dataset is considered such an important database in the field of statistical and machine learning. There is much reference to the fact that one class is linearly separable from the other two classes so I will look at this in the code, particularly using the plots.
@@ -92,14 +91,15 @@ Project Task List
 - [ ] Ensure the project is well organised and contain detailed explanations throughout
 
 
-## 2. Background information about the dataset 
-<a name="loading"></a> 
+# 2. Background Information about the Fisher Iris dataset 
+
 
 >This is perhaps the best known database to be found in the pattern recognition literature. Fisher's paper is a classic in the field and is referenced frequently to this day. 
 
+The data set is available from [The UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/about.html) which is a collection of databases, domain theories, and data generators that are used by the machine learning community for the empirical analysis of machine learning algorithms.  
 According to the [Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris) on the UCI Machine Learning Repository, Fisher's Iris dataset is possibly the best known database to be found in the pattern recognition literature and it is still relevant today. One class is linearly separable from the other two classes, which are not linearly separable from each other. The predicted attribute of the data set is the class of iris plant to which each observation belongs.     
-[The UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/about.html) *is a collection of databases, domain theories, and data generators that are used by the machine learning community for the empirical analysis of machine learning algorithms.*  
-The data set is available from the UCI Machine Learning Repository where it is listed as a multivariate data set with a default machine learning task of classification. The data set consists of 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher in 1936.     
+
+The Iris data set is listed as a multivariate data set with a default machine learning task of classification. The data set consists of 150 instances with 5 attributes. The data set was donated in 1988 by Michael Marshall but the data set was created by R.A. Fisher in 1936.     
 Fisher's Iris data set consists of the measurements of the sepals and petals of 150 Iris flowers.
 It includes 50 plants each of three classes of Iris plant, where each class is a different type or species of Iris plant.
 The three classes in the data set are  the Iris Setosa,the  Iris Versicolor and the Iris Virginica. 
@@ -114,7 +114,6 @@ http://archive.ics.uci.edu/ml/datasets/Iris.
   <img src="images/iris_virginica.png" height="200" alt ="iris virginica" /> 
 </p>
 
-See [iris_flower_description](iris flowers description.md) for more details.
 The following attribute information is provided with the data set on the UCI Archive page.  
   
  Attribute Information:
@@ -141,50 +140,50 @@ According to Fisher's paper, [The Use of Multiple Measurements in Taxonomic Prob
 Fisher then considered the question of what linear function of the four measurements would maximise the ratio of the difference between the specific means to the standard deviation between species.  Based on the combination of the four measurement features of the sample of plants in the iris datas set, Fisher developed a linear discriminant model to discriminate or distinguish the Iris species from each other. 
 
 Discriminant analysis is a method used in statistics for classification when the dependent variable is categorical. Discriminant analysis looks for the best linear combination of independent variables that will discriminate between the categories of the dependent variables and to see if significant differences exists among the groups of predictor variables. 
-It is a popular technique in statistics when there are more than two responses classes and is considered more stable than logistic regression (another statistical method for classifying qualitative or categorical variables) when the predictor classes are well separated. (also considered better when the sample size is small and the predictors are approximately normally distributed.).
+It is a popular technique in statistics when there are more than two responses classes and is considered more stable than logistic regression (another popular statistical method for classifying qualitative or categorical variables) when the predictor classes are well separated. ~~(also considered better when the sample size is small and the predictors are approximately normally distributed.).~~
 The distribution of the predictor variables are modelled separately in each of the response classes or dependent variables.
 
->Based on Fisher's linear discriminant model, this data set became a typical test case for many statistical classification techniques in machine learning such as support vector machines. [Use of the Iris Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set).
+According to the [uses of the Iris Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set) on Wikipedia:
+>Based on Fisher's linear discriminant model, this data set became a typical test case for many statistical classification techniques in machine learning such as support vector machines. 
 
-Fisher also developed the ANOVA method (Analysis of Variance) which he used to analyse data from crop experiments. He pioneered the principles of the design of experiments and the statistics of small samples and the analysis of real data.
+Fisher also developed the **ANOVA** method (Analysis of Variance) which he used to analyse data from crop experiments. He pioneered the principles of the design of experiments and the statistics of small samples and the analysis of real data.
 
-While Fisher used the Iris data set as an example of statistical methods of classification, the Iris data itself was actually collected by Edgar Anderson, an American botanist and geneticist. The Iris flower data set or Fisher Iris data set is often called Anderson's Iris data set. 
-[Edgar Anderson](https://en.wikipedia.org/wiki/Edgar_Anderson). Andersons research was focused on developing techniques to quantify geographic variation in Iris versicolor. The data set was used by Fisher as an example with which to demonstrate statistical methods of classification
+While Fisher used the Iris data set as an example to demonstrate statistical methods of classification, the Iris data itself was actually collected by Edgar Anderson, an American botanist and geneticist. Fishers's Iris data set is therefore often known as Anderson's Iris data set.   
 
-Anderson was interested in the variation in plant species or a group of species, and in evolution in general. Andersons's interest in the iris plants was for morphological reason and he was trying to find out how one species of Iris could have evolved from another species.
+[Edgar Anderson](https://en.wikipedia.org/wiki/Edgar_Anderson)'s research focused on developing techniques to quantify geographic variation in Iris versicolor. 
 
-Earlier he had observed that there was a lot of genetic variation within most populations of plants and set out to find a few easily recognisable, well-differentiated species. Anderson chose the Iris Versicolor as he had believed the Iris Versicolor was clearly defined but then he discovered that the Versicolor was actually two species which he could tell apart after some preliminary analysis. Anderson then set out to find how one species could have evolved from another and collected a very large sample to analyse.... He had to find a third species that would provide an alternate parent for one of those studied and came across the Iris Setosa, native to Alaska. His research indicated that the Iris Versicolor of northeastern North America had arisen as an amphiploid, one parent being Iris Virginica of the Mississippi Valley and the Southeast Coast and the other being the I Setosa of the Yukon Valley Alaska...  
-Note that this data set was not the same 1936 data set known as Fishers Iris Data Set or Andersons Iris Data set.
+Anderson was particularly interested in the variation in plant species or a group of species, and in evolution in general. Andersons's interest in the iris plants was for morphological reason and he was trying to find out how one species of Iris could have evolved from another species.
+
+Anderson had previously observed that there was a lot of genetic variation within most populations of plants. In 1929 set out to find a few easily recognisable, well-differentiated species to research. He chose the Iris Versicolor as he had previously believed it to be clearly defined until he subsequently discovered that it was actually two species which he was able to tell apart after some preliminary analysis. Anderson then set out to find how one species could have evolved from another and collected a very large samples of iris flowers to analyse. This led had to find a third species that would provide an alternate parent for one of those studied and came across the Iris Setosa, native to Alaska. His research indicated that the Iris Versicolor of northeastern North America had arisen as an amphiploid, one parent being Iris Virginica of the Mississippi Valley and the Southeast Coast and the other being the I Setosa of the Yukon Valley Alaska...  
+Note that this data set preceded the 1936 data set known as Fishers Iris Data Set or Andersons Iris Data set.
   
-From further study he showed that the variation with respect to leaves, stems and other vegetative charactersitics was due largely to phenotypic modification but that reproductive charactersitics were remarkably constant for a genotype and exhibited a large amount of genotypic variation within populations.
+From further study he showed that the variation with respect to leaves, stems and other vegetative charactersitics was due largely to phenotypic modification but that reproductive characteristics were remarkably constant for a genotype and exhibited a large amount of genotypic variation within populations.
 [Biographical Memoir of Edgar Anderson by G Ledyard Stebbins](nasonline.org)
 
 In the 1936 Iris data set, the two species Iris Setosa and Iris Versicolor were found growing together in the same colony in the Gaspé Pensinsula in Canada. The sample of the third species - the Iris Virginica differs from the other two samples as they were not taken from the same natural colony. 
 
-
+---
 ### The Iris data set and machine learning
-The Iris dataset appears in many text books and tutorials related to statistical and machine learning. The machine learning task that is generally applied to the Iris data set is classification, as per the UCI Archive page. The objective of classification would be to classify a new Iris instance of an Iris flower (from outside the data set) to the correct class or species to which it belongs. The Iris data set is a multi-variate data set as it contains multiple classes and it therefore is a multi-class classification problem.  
-The Iris data set is a relatively small data set containing only 150 observations.  
-It consists of 4 fields or variables. Each of the rows is called an observation or a data point. The aim of a machine learning or classification algorithm would be to predict the class label of the observation, i.e. which species of Iris plant the observation belongs to. Each observation in the Iris data set consists of a four numerical measurements and a categorical class of iris sepcies to which it belongs.  
+The Iris dataset appears in many text books and tutorials related to statistical and machine learning. Machine learning is about learning from data and while it is often associated with artificial intelligence, it is also used in  areas such as image and voice recognition, natural language processing and many other areas.   
+Machine learning uses some algorithm or other to solve the classification or prediction problem. An algorithm takes inputs and produces some outputs. An algorithm applied to the Iris data set might take in the features of some observations and output the class to which the observation is more likely to belong to.   
+As listed on the [UCI Machine Learning Repository -Iris Data Set Information](https://archive.ics.uci.edu/ml/datasets/iris) page, the machine learning task that is generally applied to the Iris data set is classification. The objective of classification would be to classify a new instance of an Iris flower (from outside the data set) to the correct class or species to which it belongs. A machine learning or classification algorithm would try to predict the class label of the observation, i.e. which species of Iris plant an observation belongs to.  ~~Some classification algorithms are based on nearest neighbour, where an observation might be assigned to a class based on its proximity to another observation.~~
+  
+The Iris data set is a relatively small multi-variate data set containing only 150 rows and 5 fields or variables in columns. Each observation in the Iris data set consists of four numerical measurements and a single categorical class of iris species to which it belongs and represents one instance of an iris plant or flower.
+Each of the rows is an observation or a data point while each column holds a variable or field. It contains more than two possible classes and therefore is considered a multi-class classification problem.  
   
 Statistical learning is a set of tools for modelling and understanding complex data sets. Machine learning gives *'computers the ability to learn without being explicitly programmed'* (definition attributed to Arthur Samuel).  
   
-Machine learning is about learning from data and is often associated with artificial intelligence but it is also used in  areas such as image and voice recognition, natural language processing and many other areas. Machine learning uses some algorithm to solve the problems. An algorithm takes an inputs and produces some outputs. An algorithm applied to the Iris data set might take in the features of some observations and output the class to which the observation is more likely  to belong to. Some classification algorithms are based on nearest neighbour, where an observation might be assigned to a class based on its proximity to another observation.
+At a quick first glance, the Iris flowers would seem quite similar and hard to tell apart. However a closer look at the overall plant's description including features such as plant height and leaf type as well as colour, would make them seem a bit easier to distinguish from each other which makes me wonder why only the petal and sepal measurements of the flower are used and not other features of the plants.
+As experts in their fields, Fisher and Anderson looked specifically at the petal and sepal measurements or possible a combiniation of the measurements as a way to classify the Iris plants which shows how important it is in machine learning to have some background knowledge of the data from an expert in a field, such as the biologists and botanists Fisher and Anderson in the case of the Iris data set.
 
-At a quick first glance, the Iris flowers would seem quite similar and hard to tell apart. However looking closer at the plant's description as a whole including features such as their overall height and leaf type as well as colour it would make them seem a bit easier to distinguish from each other so why did they not use these features to predict the class of plant.
-Fisher and Anderson looked at the petal and sepal measurements as a way to classify the Iris plants.  They focused on only the petal and sepal lengths and widths or a combination of these measurements. 
-I guess that this was their domain of expertise and this shows how it is important in machine learning to have some background knowledge of the data from an expert in a field, such as the biologists and botanists Fisher and Anderson in the case of the Iris data set.
-
- Each observation in the  Iris data set represents one instance of an iris plant or flower. Each observation belongs to one class of three possible classes and these labels are provided in the data set. This is an example of supervised learning.
-In supervised learning, to predict a binary outcome from a data set there are many tools including logistic regression, linear discriminant analysis, classification trees, support vector machines, and more) 
-It is also clearer in how to assess the quality of the results obtained whereas unsupervised learning is often much more challenging
-
-Unsupervised learning tends to be more subjective as there is no simple goal for the analysis, such as prediction of a response. Unsupervised learning is often performed as part of an exploratory data analysis. 
-It is possible to check results from supervised learning and how well a model predicts the response variable on observations not included in fitting the model. This is not the case is unsupervised learning and there is no way to check. 
+Each observation in the  Iris data set represents one instance of an iris plant or flower. Each observation belongs to one class of three possible classes and these labels are provided in the data set. This is an example of **supervised learning**.
+There are many tools or algoritms in supervised learning that can be used to predict an outcome from a data set such as logistic regression, linear discriminant analysis, classification trees, support vector machines and many more.  
+**Unsupervised learning** tends to be more subjective as there is no simple goal for the analysis, such as prediction of a response. Unsupervised learning is often performed as part of an exploratory data analysis. 
+It is possible to check results from supervised learning and how well a model predicts the response variable on observations not included in fitting the model. This is not the case is unsupervised learning and it is not so clear how to assess the results obtained compared to supervised learning.
 
 The Fisher Iris data set is still widely used in learning classification methods.
 
-## 3. Python and other software tools used in this project
+# 3. Python and other software tools used in this project
 
 The purpose of this project is to investigate the Fisher Iris data set described above using python code.
 Python is a high level interpreted general purpose programming language. The python interpreter and its extensive standard library are freely available to all. Along with the python standard library, there are many libraries that enhance the usage of python and make it a powerful tool for performing data analytics and machine learning.  
@@ -255,8 +254,7 @@ I used `ipython` to check the code as I was going along....
 
 ### GitHub and Git
 
-## 3. Download the Iris data set and investigate it using Python code.
-<a name="loading"></a>
+# 3. Download the Fisher Iris Data set and investigate it using Python code.
 
 The Iris Data Set is available from the UC Irvine Machine Learning Repository at http://archive.ics.uci.edu/ml/datasets/Iris in csv format as described above in section 2. 
 I am using the python `pandas` library to import the csv file. 
@@ -321,8 +319,6 @@ I use first look at the meta-data of the Iris DataFrame using the attributes of 
 This will show how many rows (containing observations) and columns (containing features/variables) in the Iris Data set.
 
 - The `index` attribute shows the index which was automatically assigned when the dataFrame was created on reading in the csv file.
-
-
 
 - The `size` attribute shows the number of elements in the DataFrame.
 - The `columns` attribute shows the column labels of the DataFrame.
@@ -707,6 +703,7 @@ The equivalent data is shown in the iris DataFrame resulting from reading in the
 - can format code in markdown by specifying the langauge
 - inserting images into markdown file, resizing images
 - using links in markdown
+- preview markdown documents
 
 ## 10. References
 <a name="references"></a>
