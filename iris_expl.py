@@ -1,3 +1,7 @@
+# This was my initial python script for the project but the main script is now project_iris.py
+# I am tidying up the main script for the project submission
+# I will place code that I am removing from the main script into this file if I eve need to refer back to it.
+
 # first importing the following libraries
 import numpy as np 
 import pandas as pd  
@@ -8,13 +12,6 @@ import seaborn as sns
 
 # save url to data and reference the link 
 #csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
-
-# As the data does not have any column names, specify header = None to avoid reading the 
-# first row of data as a header or column name
-
-#iris_data = pd.read_csv(csv_url, header = None)
-
-iris = pd.read_csv('iris_data.csv', header =  None)
 
 # using the attribute information as the column names
 col_names = ['Sepal_Length_cm','Sepal_Width_cm','Petal_Length_cm','Petal_Width_cm','Class']
@@ -33,10 +30,11 @@ print(iris.tail(10))
 # look at the complete DataFrame
 print(iris) 
 
-# The DataFrame has an index which was automatically assigned when the DataFrame was created
-# on reading in the csv file. The index is a range from 0 to 150
+# The DataFrame has an index which was automatically assigned when the DataFrame was created on reading in the csv file. 
+# The index here is a range from 0 to 150
 print(iris.index)
 
+# the shape of the data
 print(iris.shape)
 # see the column names of the Data Frame
 print(iris.columns)
@@ -138,12 +136,24 @@ iris_virginica = iris[iris['Class'] == "Iris-virginica"]
 iris_virginica.head()
 
 
-
+# subsetting the data to meet a given criteria using the isin operator and boolean masks. only selecting where class is iris-versicolor or Iris-virginica
 # Here subsetting the data to meet a given criteria.
 # http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-with-isin
 values =  {'Class': ['Iris-versicolor', 'Iris-virginica']}
 row_mask = iris.isin(values).any(1)
 iris[row_mask]
+
+# select from the iris DataFrame only the rows where the Class equals the string "Iris-setosa"
+iris_setosa = iris[iris['Class'] == "Iris-setosa"]
+print("Selecting from the iris dataframe only those rows containing the Class Iris-setosa")
+print(iris_setosa.head())
+
+# subsetting the data to meet a given criteria.
+
+values =  {'Class': ['Iris-versicolor', 'Iris-virginica']}
+row_mask = iris.isin(values).any(1)
+print(" subsetting the dataframe using Boolean masks")
+print(iris[row_mask].head())
 
 # GROUPBY
 # can use the groupby functions to look at statistics at the species level

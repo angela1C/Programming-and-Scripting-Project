@@ -70,11 +70,11 @@ Project Task List
 - [ ] show how the linearly separable the data appears to be as noted in the research
 - [ ] review the plots and highlight the important points
 - [x] more plots - looking at seaborn library at the moment. include the images
-- [ ] consider the machine learning aspect of the iris data set
+- [x] consider the machine learning aspect of the iris data set
 - [ ] Include examples of interesting analyses that others have pursued based on the data set.
 - [ ] look at other python packages outside of pandas, matplotlib and seaborn such as scikit learn 
 - [ ] Review comments in the python script and make sure they are clear
-- [ ] look at the print output of the python script
+- [x] look at the print output of the python script
 - [ ] Note what I learned from the project, the knowledge and skills gained from completing it and how I went about it.
 - [ ] Note how the code and the overall project achieves the goals of the project as per the plan
 - [ ] look at how the code can be tested to do as you say it does and produce the correct outputs
@@ -208,13 +208,10 @@ The `pandas` library is the main python library being used in this project. Acco
 
 > `pandas` is a `Python` package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.  
 
-`pandas` provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language.[pandas.pydata.org](https://pandas.pydata.org/index.html)
+[pandas](https://pandas.pydata.org/index.html) provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. It is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type.  This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column. 
 
-`pandas` is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type.  This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column. 
-
-The `seaborn` library is also used for plotting (which requires `matplotlib.pyplot` for some functions??)
-
->Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. [seaborn.pydata.org](https://seaborn.pydata.org/index.html)
+The [seaborn](https://seaborn.pydata.org/index.html)
+> is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. 
 
 [matplotlib.org](https://matplotlib.org)
 >Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
@@ -556,43 +553,70 @@ It is possible to look at the summary statistics as the class or species level.
 
 ## Exploring the Iris data set in more detail
 
-As mentioned above, Fishers Iris data set is well known in the pattern recognition field because one class of the three iris plants in the data set are linearly separable from the other two classes. The other two classes are not linearly separable from each other.
+As mentioned above, Fishers Iris data set is well known in the pattern recognition field because one class of the three Iris plants in the data set are linearly separable from the other two classes. The other two classes are not linearly separable from each other.
 Therefore, having looked at the data set as a whole, I will look more closely at the data at the iris species / class level and see are there clear differences visible in the data.
 
+I will now look at the different classes  of Iris on their own and see what the data shows. To do so, I will need to be able to separate the observations into three groups based on their known class. 
 
 
-Having looked at the basic statistical properties of the iris data set and having pictured the data gives a better understanding of the data and what can be done with it. The iris data set is widely used for demonstrating machine learning so I will look a little bit at this. As mentioned earlier, one class is linearly separable from the other two classes. A linearly separable data set is one where the observations or data points can be separated by a straight line drawn through the data.
-I will look at the pairwise scatter plots for this as this concept of linear separation is more applicable to data with two classes. The iris data set is a multi-class data set as there are three classes to which the observations could belong to.
+There are several ways of selecting data from the DataFrame that is detailed on  the [Indexing and selecting data](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-and-selecting-data) section of the the pandas documentation.
 
-Can see on the scatter plots that the setosa is clearly separable from the other two species when the sepal lengths are plotted against the sepal width. However it is not so simple to separate to separate the other two classes.
-When the petal lengths are plotted against the petal widths, again the setosas are clearly identifiable. now it lookes a nit easier to separate the other two classes.
-
-
-### Summary results of the Fisher Iris data set by species or class or iris plant.
-As mentioned earlier, Fisher's iris dataset is a well known data set in pattern recognition literature. One class / species of the three iris classes is linearly separable from the other two classes, which are not linearly separable from each other. 
-Therefore I will now look at the different classes on their own. To do so, I will need to be able to separate the observations into three groups based on their known class. 
-
-There are several ways of selecting data from the DataFrame that is detailed on the pandas documentation [Indexing and selecting data](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-and-selecting-data).
-
-Indexing with square brackets will return a `Series` corresponding to the column name. A column of data can be retrieved from the Iris DataFrame using dict-like notation or by attribute such as `iris.Petal_Width`. The rows of the iris DataFrame can be retrieved by position name or by using the `loc` attribute.  
-The index operators can be used to select a subset or rows and columns using the `loc` attribute for axis labels or `iloc` attribute for integers.  The index for the iris DataFrame is a range of integers from 0 to 150. An index into the dataframe can used to retrieve one or more columns, either with a single value or a sequence of values for the index.
-
-[Boolean Indexing](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#boolean-index) could be used to select rows from the `iris` DataFrame by filtering the data for rows that correspond to a a particular class or species of the iris plant.  
+Columns can be selected by name using square brackets. `iris["Sepal_Length"]` will return the column 'Sepal_Length' of the `iris` DataFrame. A column of data can also be retrieved from the Iris DataFrame using dict-like notation or by attribute such as `iris.Petal_Width`.  Index operators can be used to select a subset or rows and columns using the `loc` attribute for axis labels or `iloc` attribute for integers. An index into the dataframe can used to retrieve one or more columns, either with a single value or a sequence of values for the index.  
+[Boolean Indexing](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#boolean-index) can be used to select rows from the `iris` DataFrame by filtering the data for rows that correspond to a a particular class or species of the iris plant, for example:
 
 ```python
       # select from the iris DataFrame only the rows where the Class equals the string "Iris-setosa"
-      iris_setosa = iris[iris['Class'] == "Iris-setosa"]
-      iris_setosa.head()
+      iris_setosa = iris[iris['Class'] == "Iris-setosa"]      
+```
+```python
+# subsetting to meet criteria using `isin` operator and boolean masks. Select columns where class is iris-versicolor or Iris-virginica
+values =  {'Class': ['Iris-versicolor', 'Iris-virginica']}
+row_mask = iris.isin(values).any(1)
+iris[row_mask].head()
+```
+
+Subsets of the iris data for each Class of Iris plant can be obtained by using one of these methods above. Another way 
+is by using the pandas `groupby` function and this is the method I use in the script to split the Iris data set into subset groups by their class/species of Iris plant.  
+`groupby` allows the data to be easily sliced and diced and then to look at the characteristics and statistics of each subset group or to apply functions to each group. 
+
+The `groupby` function can be used to group the data by a `Series` of columns. A `groupby` operation involves three steps.
+First splitting the data into groups of observations based on some criteria, secondly applying a function to each group independently and thirdly the results are combined into a result object.
+
+Here is the code I use in the script to calculate group statistics for each species or class of iris plant in the dataset.
+I wrapped the functions in print statements to make it easier to understand the output of the code when the full python script is run.
+
+```python
+print("using groupby to split the iris dataframe by Class of iris species")
+iris_grouped = iris.groupby("Class")
+iris.groupby("Class").count()
+print("The number of observations for each variable for each Iris species in the data set are as follows: \n \n",iris.groupby("Class").count())
+print("The mean or average measurement for each group of Iris Species in the dataset is \n",iris.groupby('Class').mean())
+print("the first observation in each Class of Iris plant in the Iris dataset are: \n  \n",iris.groupby("Class").first())
+print("the last observation in each Class of Iris plant in the Iris dataset are: \n  \n",iris.groupby("Class").last())
+print("The first three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").head(3))
+print("The last three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").tail(3))
+print("The maximum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").max())
+iris.groupby("Class").min()print("The minimum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").min())
+```
+
+Summary statistics for each Class of iris plant in the dataset can be obtained using the `describe` method on the `GroupBy`object.  
+(The results can be transposed to make them easier to read.)  
+  
+```python
+print(iris.groupby("Class").describe())
 ```
 
 
 
-I could create subsets of the iris DataFrame for each class or species of Iris plant by using one of these methods.  
-There is another way, using the pandas `groupby` function that I will use to split the iris data set into subset groups by their class or species of iris plant.
-The `groupby` function can be used to group the data by a `Series` of columns. A `groupby` operation involves some combination of splitting the data into groups of observations based on some criteria and then applying a function to each group independently. 
-I can then look at the characteristics and statistics of each subset group.
+[Having looked at the basic statistical properties of the iris data set and having pictured the data gives a better understanding of the data and what can be done with it. The iris data set is widely used for demonstrating machine learning so I will look a little bit at this. As mentioned earlier, one class is linearly separable from the other two classes. A linearly separable data set is one where the observations or data points can be separated by a straight line drawn through the data.
+I will look at the pairwise scatter plots for this as this concept of linear separation is more applicable to data with two classes. The iris data set is a multi-class data set as there are three classes to which the observations could belong to.
 
-`GroupBy` objects are returned by `groupby` calls. Descriptive statistics and computations can be applied to these `GroupBy` objects.
+Can see on the scatter plots that the setosa is clearly separable from the other two species when the sepal lengths are plotted against the sepal width. However it is not so simple to separate to separate the other two classes.
+When the petal lengths are plotted against the petal widths, again the setosas are clearly identifiable. now it lookes a nit easier to separate the other two classes.]
+
+
+### Summary results of the Fisher Iris data set by species or class or iris plant.
+
 
 
 ##### The first 3 rows of each Class in the iris data set:
@@ -677,7 +701,12 @@ Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Probl
 
 The equivalent data is shown in the iris DataFrame resulting from reading in the csv file, although the layout is slightly different.
 
+## What I have learned from the project.
 
+#### markdown. 
+- can format code in markdown by specifying the langauge
+- inserting images into markdown file, resizing images
+- using links in markdown
 
 ## 10. References
 <a name="references"></a>

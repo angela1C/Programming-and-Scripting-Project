@@ -161,28 +161,33 @@ sns.boxplot(x="Class", y="Petal_Width",hue = "Class",data=iris, ax=axes[1,0])
 f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
 plt.show()
 
-# I AM HERE!
 
 
 # 4. EXPLORING IRIS DATA SET BY SPECIES
+# There are many ways to filter the data
 
-## Here I am subsetting the data to meet a given criteria su
-# http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-with-isin
+
+# subsetting the data to meet a given criteria using the isin operator and boolean masks. only selecting where class is iris-versicolor or Iris-virginica
 values =  {'Class': ['Iris-versicolor', 'Iris-virginica']}
 row_mask = iris.isin(values).any(1)
 iris[row_mask].head()
 
 # select from the iris DataFrame only the rows where the Class equals the string "Iris-setosa"
 iris_setosa = iris[iris['Class'] == "Iris-setosa"]
-print("Selecting from the iris dataframe only those rows containing the Class Iris-setosa")
-print(iris_setosa.head())
+# print(iris_setosa.head())
 
-# subsetting the data to meet a given criteria.
-# http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-with-isin
+# Using boolean masks to subset the data to meet a given criteria.
 values =  {'Class': ['Iris-versicolor', 'Iris-virginica']}
 row_mask = iris.isin(values).any(1)
-print(" subsetting the dataframe using Boolean masks")
-print(iris[row_mask].head())
+# print(iris[row_mask].head())
+
+# I AM HERE! ready to go ahead and review the group by section and look at plots by each class
+"""
+next looking at the group by stats. then look at the group by plots.
+then some machine learning and review of other peoples code.
+
+"""
+
 # GROUP BY 
 
 print("using groupby to split the iris dataframe by Class of iris species")
@@ -190,28 +195,36 @@ print("using groupby to split the iris dataframe by Class of iris species")
 iris_grouped = iris.groupby("Class")
 
 # Compute count of group, excluding missing values.
-print(iris.groupby("Class").count())
+iris.groupby("Class").count()
+print("The number of observations for each variable for each Iris species in the data set are as follows: \n \n",iris.groupby("Class").count())
 
-# Groupby Class and return the mean of the remaining columns in each group.
-print(iris.groupby('Class').mean())
+# Groupby Class of Iris plant and return the mean of the remaining columns in each group.
 
-# Group by class and then return the first observations in each group
+print("The mean or average measurement for each group of Iris Species in the dataset is \n",iris.groupby('Class').mean())
+iris.groupby('Class').mean()
+# Group by Class of Iris plant and then return the first observations in each group
 iris.groupby("Class").first()
+print("the first observation in each Class of Iris plant in the Iris dataset are: \n  \n",iris.groupby("Class").first())
 
-# Group by class and then return the last observations in each group
+# Group by Class of Iris and then return the last observations in each group
+print("the last observation in each Class of Iris plant in the Iris dataset are: \n  \n",iris.groupby("Class").last())
 iris.groupby("Class").last()
 
-# get the first 3 rows in each group
+# get the first 3 rows in each group 
 iris.groupby("Class").head(3)
+print("The first three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").head(3))
 
 # get the last 3 rows in each group
 iris.groupby("Class").tail(3)
+print("The last three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").tail(3))
 
 # get max of group values
 iris.groupby("Class").max()
+print("The maximum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").max())
 
 # get min of group values
 iris.groupby("Class").min()
+print("The minimum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").min())
 
 # There does not seem to be a range function to see the range of values so I am going to calculate these ranges here.
 # by taking the differences between the mimimum and the maximum values
@@ -234,8 +247,9 @@ print(iris_grouped.mean())
 
 # Can look at the summary statistics for each class of Iris in the data set.
 # I transposed the results to make it easier to read.
-print(iris_grouped.describe())
-print(iris_grouped.describe().T)
+print(iris.groupby("Class").describe())
+# print(iris_grouped.describe())
+# print(iris_grouped.describe().T)
 
 
 # Using the mean function to see the average measurements by species.
