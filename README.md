@@ -14,6 +14,7 @@ Project 2019 for Programming and Scripting Module
 7. [conclusions](#conclusions)
 10. [References](#references)
 
+<a name="1.-introduction-to-the-project."></a>
 # 1. Introduction to the project.
 
 This repository contains my submission for the class project for the Programming and Scripting Module at GMIT as part of the Higher Diploma in Computing and Data Analytics.   
@@ -90,7 +91,7 @@ Project Task List
 - [x] get links to images working
 - [ ] Ensure the project is well organised and contain detailed explanations throughout
 
-
+<a name="2.-background-information-about-the-fisher-iris-dataset"></a>
 # 2. Background Information about the Fisher Iris dataset 
 
 
@@ -183,6 +184,8 @@ It is possible to check results from supervised learning and how well a model pr
 
 The Fisher Iris data set is still widely used in learning classification methods.
 
+
+<a name="3.-python-and-other-software-tools-used-in-this-project."></a>
 # 3. Python and other software tools used in this project
 
 The purpose of this project is to investigate the Fisher Iris data set described above using python code.
@@ -211,6 +214,8 @@ The `pandas` library is the main python library being used in this project. Acco
 
 The [seaborn](https://seaborn.pydata.org/index.html)
 > is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. 
+
+The [seaborn](https://seaborn.pydata.org/introduction.html#introduction) library is used for making statistical graphics in Python. It is built on top of `matplotlib` and closely integrated with `pandas` data structures. It provides a high-level interface for creating nice looking and informative plots. It has many useful features for examining relationships between multiple variables such as those in the Iris dataset. 
 
 [matplotlib.org](https://matplotlib.org)
 >Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
@@ -298,7 +303,7 @@ print(iris.dtypes)
 ```
 
 
-## 4. Investigating the Iris dataset in Python.
+# 4. Investigating the Iris dataset in Python.
 
 #### http://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dsintro 
 
@@ -317,12 +322,9 @@ I use first look at the meta-data of the Iris DataFrame using the attributes of 
 - The `ndim` attribute shows the number of axes / array dimensions of the Iris data set.
 - The `shape` attributes gives the axis dimensions of the object - the number or rows and columns in the table of data.
 This will show how many rows (containing observations) and columns (containing features/variables) in the Iris Data set.
-
 - The `index` attribute shows the index which was automatically assigned when the dataFrame was created on reading in the csv file.
-
 - The `size` attribute shows the number of elements in the DataFrame.
-- The `columns` attribute shows the column labels of the DataFrame.
- 
+- The `columns` attribute shows the column labels of the DataFrame. 
 - The `axes` attribute returns a a list representing the axes of the DataFrame and will show the row axis labels first and then the column axis labels. This essentially shows same information as the `index` and `columns` attributes.
 - The `dtypes` attribute shows the data types of the DataFrame. These were inferred by `read_csv`.
 
@@ -378,8 +380,8 @@ dtype: object
 The column axis labels of the iris DataFrame are as follows:
   Sepal_Length Sepal_Width Petal_Length Petal_Width Class
 ```
- 
-#### Next using the DataFrame methods to investigate the Iris data set.
+ ---
+#### Investigating the Iris dataset using some DataFrame methods 
 
 The `head` and `tail` methods are very useful to take a quick look at the observations at the top and bottom rows of the dataframe. The number of rows to display can be specified as an argument. 
 ```python
@@ -388,13 +390,13 @@ print(iris.head(10))
 print("The last 10 rows of the iris dataframe:")
 print(iris.tail(10))
 ```
-##### The top of the iris data set:
+###### The top of the iris data set:
 <img src="images/iris_head.png" height="200" alt="iris-head" />
 
-##### The bottom of the iris data set:
+###### The bottom of the iris data set:
 <img src="images/iris_tail.png" height="200" alt="iris-tail" />
 
-The rows at the top belong to the setosa class. The rows at the bottom belong to the virginica class. This is just the way the observations are ordered in the csv data set. 
+The rows at the top belong to the Iris Setosa class. The rows at the bottom belong to the Iris Virginica class. This is just the way the observations are ordered in the csv data set from which the dataframe is created.
 
 The data can be checked for any missing values using the `isnull()` method while `notnull()` returns the opposite.
 `isnull()` returns a `True` or `False` boolean value for each observation. Boolean values are coerced to a 1 for True and 0 for False so the `sum` function can be used to count the number of `True` values in the data set, rather than printing all the `True` and `False` values.
@@ -404,14 +406,14 @@ The Fisher Iris data set is a small complete data set with no missing values.
 By default, the descriptive statistics on `pandas` objects excludes missing value. 
 
 Note that the summary statistics below are for the data set as a whole. Later I look at the descriptive statistics by class or species of iris plant.
+ 
+The pandas `describe` function shows the following:
 
-- The pandas `describe` function shows the count number of the non-NA/null observations in the dataset.  
+- The `count` or number of the non-NA/null observations in the dataset.  
 - The `max` shows the maximum of the values and the `min` shows the minimum of the values. 
 - The `mean` shows the mean or average of the values (the sum of data values divided by total number of values), the `std` shows the standard deviation (a measure of the dispersion or spread of the data) of the observations. 
 - The `describe` function also shows the 25th, 50th and 75th percentiles. The 25th percentile shows the percentage of values falling below that percentile. The 50th percentile shows the same information as the median would, that is where 50% of the values fall above and 50% fall below the value.
 - The various statistics that are generated from the `describe` function can also be obtained on their own. For example the mean could be obtained using `iris.mean()`, minimum with `.min()` etc.
-
-
 
 ```python
 print("The number of null or missing values in the iris dataframe for each column: ")
@@ -429,7 +431,7 @@ print(iris.describe())
 ```
 
 ```
-The number of null or missing values in the iris dataframe for each column: 
+The number of null or missing values in the Iris dataframe for each column: 
 Sepal_Length    0  
 Sepal_Width     0  
 Petal_Length    0  
@@ -487,38 +489,38 @@ Each row corresponds to an individual observation of an iris plant.
 - There are 50 observations in each class.
 
 ### Visualising the Iris data set
-A picture tells a thousand words! So now I am going to look at some visual summaries of the iris data set.
-This will show how variables in the iris data set relates to each other show trends and patterns that may indicate relationships between the variables.
+A picture tells a thousand words! Therefore I now look at some visual summaries of the Iris data set using some plots.
+Plots can show how variables in the Iris data set relate to each other and trends and patterns that may indicate relationships between the variables.
+In particular I am looking at how **linearly separable** the three different classes of Iris appear as this seems to be a key reason for the Iris data set being so widely used. 
 
 The `matplotlib` package can be used to create a graph or plot of the Iris Data set. The `pandas` library also has some built in methods to create visualisations from DataFrame and Series objects which are based on the `matplotlib` library.
 - [pandas-visualisation](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#visualization)    
 - [matplotlib -pyplot](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py)  
   
-A `histogram`is a representation of the distribution of data. It charts the data using rectangular bars that are adjacent to each other and display either the frequency or relative frequency of the measurements on the interval or ratio scale.
- The pandas `hist` function calls `matplotlib.pyplot.hist` on each numerical series in the DataFrame, resulting in one histogram per column.
+A `histogram` is a representation of the distribution of data. It charts the data using adjacent rectangular bars and display either the frequency or relative frequency of the measurements on the interval or ratio scale.
+The pandas `hist` function calls `matplotlib.pyplot.hist` on each numerical series in the DataFrame, resulting in one histogram per column.
 
 The histograms here show the distribution of each of the the measurements attributes across the iris data set. 
 
-<img src="images/iris_histogram.png" width="600" alt="iris-histogram" />
+<img src="images/IrisHistograms.png" width="600" alt="iris-histogram" />
 
 The histogram for the petal lengths show a clear group of observations having petal lengths that are much smaller than the rest of the observations. Similarly with the petal widths. The sepal lengths show quite a bit of variation with a number of peaks while sepal widths seem to be centred around 3 cms but with a few smaller peaks at both sides of 3 cms.  
-  
-Looking at a basic boxplot of the iris dataset:
 
-<img src="images/iris_boxplot.png" width="500" alt="iris-boxplot" />
+A `boxplot` is a useful plot as it shows various statistics in one go, including the median, quantiles, interquartile range, outliers etc. The length of the box is the interquartile range and measures the variability in the data set. The interquartile range (IQR) is the middle 50% of the data and can show the spread or variation of the data. The whiskers show if the data is skewed in one direction or the other. The median is the line through the box. (horizontal line in the plot above)  
 
-#### Interpreting the boxplot.
-The boxplot is a useful plot as it shows various statistics in one go, including the median, quantiles, interquartile range, outliers etc. The length of the box is the interquartile range and measures the variability in the data set. The interquartile range (IQR) is the middle 50% of the data and can show the spread or variation of the data. The whiskers show if the data is skewed in one direction or the other. The median is the line through the box. (horizontal line in the plot above)
+<img src="images/irisbox.png" width="400" alt="iris-boxplot"/>
+
+The boxplot of the petal and sepal measurements for the dataset as a whole are not very informative. It is more useful to look at the boxplots by Iris Class.
 
 #### using seaborn
 
-The [seaborn](https://seaborn.pydata.org/introduction.html#introduction) library is used for making statistical graphics in Python. It is built on top of `matplotlib` and closely integrated with `pandas` data structures. It provides a high-level interface for creating nice looking and informative plots. It has many useful features for examining relationships between multiple variables such as those  in the Iris dataset. It's dataset-oriented plotting functions operate on DataFrames such as the `iris` DataFrame here.
-The `seaborn` documentation section called [Visualising dataset structure](http://seaborn.pydata.org/introduction.html#visualizing-dataset-structure) actually illustrates some of the `seaborn` plotting functions using the iris data set which is built into the seabron library.
-  
-The `seaborn` library has several ways to visualise a relationship between categorical data. A `catplot()` can capture the relationship between a numeric variable and one (or more) categorical variables, such as the class or species of iris plant.   
-The boxplot is a type of categorical distribution plot which shows the three quartile values of the distribution as well as any extreme values or outliers.  
-The appearance of the plot can be changed by setting the figure aesthetics including the theme and the colour palette.
-In the boxplot below, the columns containing the categorical variable `Class` and the petal and sepal length measurement variables are passed in as the x and y parameters to the boxplot. Four plots are being plotted on a 2 by 2 grid. I am also specifying that the y axis should not be shared between plots and setting the figure size.
+The [seaborn](https://seaborn.pydata.org/introduction.html#introduction) is very suitable for plotting a dataset such as the Iris dataset.
+Some of it's plotting functions are actually illustrated in the [visualising dataset structure](http://seaborn.pydata.org/introduction.html#visualizing-dataset-structure) of the documentation pages using the Iris dataset which is also built into the `seaborn` library.     
+
+The `seaborn` library has several methods for visualising a relationship between categorical data. It's `catplot()` can capture the relationship between a numeric variable and one (or more) categorical variables, such as the class or species of iris plant.     
+The **boxplot** is a type of categorical distribution plot which shows the three quartile values of the distribution as well as any extreme values or outliers.    
+In the boxplot below, the columns containing the categorical variable `Class` and the petal and sepal length measurement variables are passed in as the x and y parameters to the boxplot. Four plots are being plotted on a 2 by 2 grid. 
+I am also specifying that the y axis should not be shared between plots and setting the figure size.
 The appearance of the plot can be changed by setting the figure aesthetics including the theme and the colour palette.
 By setting the `hue` to 'Class' so that the points will be coloured on the plot according to their Class/species type. 
 
@@ -535,8 +537,10 @@ f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
 plt.show()
 
 ```
-<img src="images/Boxplot1.png" width="500" alt="iris boxplot" />  
+<img src="images/irisBoxbyClass.png" width="500" alt="iris boxplot" />  
   
+The boxplot is a very useful plot for showing the differences in the distributions of the measurements across the three iris species in the dataset. The Iris Setosa stands out from the other two classes, particularly in the petal measurements.
+
 A `scatter plot` can be used to visualize relationships between numerical variables such as the petal measurements and the sepal measurements in the iris data set.  A scatter plot is a useful plot that visually shows how the different variables or features in the data set correlate with one another. 
 
 <img src="images/Scatter1.png" width="500" alt="iris scatter" />  
@@ -594,6 +598,21 @@ print("The last three rows for each Class of Iris plant in the Iris dataset are:
 print("The maximum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").max())
 iris.groupby("Class").min()print("The minimum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").min())
 ```
+
+The number of observations for each variable for each Iris species in the data set are as follows: 
+``` 
+                    Sepal_Length  Sepal_Width  Petal_Length  Petal_Width
+Class                                                                
+Iris-setosa                50           50            50           50
+Iris-versicolor            50           50            50           50
+Iris-virginica             50           50            50           50
+```
+
+
+
+
+
+
 
 Summary statistics for each Class of iris plant in the dataset can be obtained using the `describe` method on the `GroupBy`object.  
 (The results can be transposed to make them easier to read.)  
@@ -687,15 +706,11 @@ index
 
 ### Summary results of the Fisher Iris data set. 
 
-
 Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Problems` shows the four measurement for each of the three Iris Species. 
-- Sepal length
-- Sepal width
-- Petal length
-- Petal Width  
+
 <img src="images/IrisTable1.png" height="400" alt="Fisher Table I">  
 
-The equivalent data is shown in the iris DataFrame resulting from reading in the csv file, although the layout is slightly different.
+The equivalent data can be obtained using python code and is made particularly easy by the `pandas` library. 
 
 ## What I have learned from the project.
 

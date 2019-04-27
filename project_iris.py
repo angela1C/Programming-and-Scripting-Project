@@ -13,6 +13,13 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 import seaborn as sns
 
+# I want to save my plots to a pdf file instead of to the screen
+# https://stackoverflow.com/a/11329151
+
+from matplotlib.backends.backend_pdf import PdfPages
+pp= PdfPages("iris_plots.pdf")
+
+
 # help can be obtained using the python help function.
 # help(pd) or help(pd.DataFrame.describe())
 
@@ -119,28 +126,33 @@ print(iris.describe())
 
 ####   ####   ####   ####   ####   ####
 
+# VISUALISATIONS OF THE IRIS DATA SET
+
 # Make a histogram of the DataFrame for each of the four numeric columns in the iris data set.
 # The number of bins can be specified. 
 
-# DataFrame.hist() plots the histograms of the columns on multiple subplots:
+# pandas DataFrame.hist() plots the histograms of the columns on multiple subplots:
 print("Histogram of the distribution of the iris data. Make sure to close the plot to continue. ") 
+# iris.hist(alpha=0.8, bins=30, figsize=(12,8))
+
 iris.hist(alpha=0.8, bins=30, figsize=(12,8))
-plt.show()
+plt.suptitle("Histogram of the Iris petal and sepal measurements")
+plt.savefig("images/IrisHistograms.png")
 
 # Boxplot can be drawn using DataFrame.plot.box(), or DataFrame.boxplot() 
 # This is used to visualize the distribution of values within each column.
 
-print("Boxplot the distribution of the iris data. Make sure to close the plot to continue. ") 
-iris.plot.box(figsize=(12,8))
-plt.show()
+iris.plot.box(figsize=(6,4))
+plt.suptitle("Boxplots of the Iris petal and sepal measurements")
+# plt.show()
+# I am going to save the resulting plot to a file rather than printing it here
+# to print it to screen just uncomment the code in the line above:     plt.show()
+plt.savefig("images/irisbox.png")
 
-# Now instead of using just pandas I am using the seaborn package to do some visualisations.
-# get_ipython().run_line_magic('pinfo', 'sns.boxplot')
+# boxplot just showing the distribution of each measurement variable on its own is not very useful 
+# next look at boxplots by Class or species of iris plant using 'seaborn' 
 
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-
+# SEABORN PLOTS
 # The appearance of the plot can be changed by setting the figure aesthetics.
 # set the theme. (The default theme is called darkgrid). Set the color palette.
 sns.set(style="ticks", palette="pastel")
@@ -159,7 +171,8 @@ sns.boxplot(x="Class", y="Petal_Width",hue = "Class",data=iris, ax=axes[1,0])
 
 # adding a title to the plot
 f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
-plt.show()
+
+plt.savefig("images/irisBoxbyClass.png")
 
 
 
@@ -198,16 +211,6 @@ iris_grouped = iris.groupby("Class")
 iris.groupby("Class").count()
 print("The number of observations for each variable for each Iris species in the data set are as follows: \n \n",iris.groupby("Class").count())
 
-`The number of observations for each variable for each Iris species in the data set are as follows: 
- 
-                  Sepal_Length  Sepal_Width  Petal_Length  Petal_Width
-Class                                                                
-Iris-setosa                50           50            50           50
-Iris-versicolor            50           50            50           50
-Iris-virginica             50           50            50           50
-``
-
-```
 # Groupby Class of Iris plant and return the mean of the remaining columns in each group.
 
 print("The mean or average measurement for each group of Iris Species in the dataset is \n",iris.groupby('Class').mean())
@@ -325,10 +328,10 @@ iris_std['diff (Versicolor - Virginica)'] = abs(iris_std['Iris-versicolor'] - ir
 iris_std['diff (Virginica - Setosa)'] = abs(iris_std['Iris-virginica'] - iris_std['Iris-setosa'])
 
 # Now doing it for the standard deviations.
-iris_std
+# iris_std
 
-f, axes = plt.subplots(1, 2, sharey=True, figsize=(10, 4))
-sns.scatterplot(x="Petal_Length", y="Sepal_Length", hue = "Class",data=iris, ax=axes[0])
-sns.scatterplot(x="Petal_Width", y="Sepal_Width", hue="Class", data=iris, ax=axes[1])
-plt.show()
+# f, axes = plt.subplots(1, 2, sharey=True, figsize=(10, 4))
+# sns.scatterplot(x="Petal_Length", y="Sepal_Length", hue = "Class",data=iris, ax=axes[0])
+# sns.scatterplot(x="Petal_Width", y="Sepal_Width", hue="Class", data=iris, ax=axes[1])
+# plt.show()
 
