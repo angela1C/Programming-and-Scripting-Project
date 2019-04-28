@@ -247,7 +247,8 @@ Using `pandas`, tabular data can be imported as a `DataFrame` object. A pandas `
 
 The pandas `read_csv`function loads delimited data from a file, URL or file-like object using the comma as the default delimiter and  creates a `DataFrame` object. When a pandas `DataFrame`  object is created, it has many attributes and methods available that can be used on that object.
 
-The Iris data set can be read in directly from the url at [https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data] (https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data) or alternatively it can be saved locally and read in by specifiying the file path.   
+The Iris data set can be read in directly from the url at 
+[https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data) or alternatively it can be saved locally and read in by specifiying the file path.   
 In the script, I will download the csv file into python as part of the script. (The csv file containing the Iris data set is also saved into this project's repository for convenience.) 
 
 The raw csv file at the UCI Machine Learning repository does not have the attribute information included in the csv file itself. However this information can be found under the section [Iris Data Set: Attribute Information](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names) which provides the attribute information consisting of the 4 measurement attributes (sepal length in cm, sepal width in cm, petal length in cm, petal width in cm) and the three classes (Iris Setosa, Iris Versicolor and Iris Virginica).     
@@ -332,13 +333,11 @@ print("The column axis labels of the iris DataFrame are as follows:\n ",*iris.ax
 - There are 750  elements in total.  
 - The column labels of the iris DataFrame are as specified when reading in the csv file: 
    Sepal_Length   Sepal_Width   Petal_Length   Petal_Width   Class
-- The index of the DataFrame is:   
- RangeIndex(start=0, stop=150, step=1)  
- This index was automatically assigned when the DataFrame was created above.
+- The index of the DataFrame is:  RangeIndex(start=0, stop=150, step=1). This index was automatically assigned when the DataFrame was created above.
 
- The row axis labels of the iris DataFrame is a range from  0 1 2 ... 147 148 149 
+ - The row axis labels of the iris DataFrame is a range from  0 1 2 ... 147 148 149 
 
-The column axis labels of the iris DataFrame correspond to the column names as follows:
+- The column axis labels of the iris DataFrame correspond to the column names as follows:
   Sepal_Length, Sepal_Width, Petal_Length, Petal_Width, Class
 
 
@@ -401,6 +400,7 @@ The three classes or species types of iris in the data set are Iris-setosa, Iris
 Here are some summary statistics for the iris DataFrame: 
   
 <img src="images/irisdescribe.png" width="600" alt="iris-describe" />
+
 - The initial exploration of the Iris DataFrame shows that there are 150 rows and 5 columns of data. 
 Each row corresponds to an individual observation of an iris plant. 
 - The columns show the individual measurements (in centimetres) of the length of the sepal, the length of the petal, the width of the sepal and the width of the petal.
@@ -415,7 +415,7 @@ Each row corresponds to an individual observation of an iris plant.
 - There are 50 observations in each class.
 ---
 ## Visualising the Iris data set
-A picture tells a thousand words. Visualising the data was key to Edgar Anderson's reaching his conclusions, although he did not have the convenience of python to do so!. 
+A picture tells a thousand words. Visualising the data was key to Edgar Anderson's reaching his conclusions, although he did not have the convenience of a programming language such as python to do so!. 
 Fisher also visualised the iris dataset using histograms.  
 
 I will now look at some visual summaries of the Iris data set using some plots and see what it shows. Using python to do so is som much easier than the work that Anderson did by hand. 
@@ -430,7 +430,7 @@ The pandas `hist` function calls `matplotlib.pyplot.hist` on each numerical seri
 
 The histograms here show the distribution of each of the the measurements attributes across the iris data set. 
 
-<img src="images/IrisHistograms.png" width="600" alt="iris-histogram" />
+<img src="images/IrisHistograms.png" height="400" alt="iris-histogram" />
 
 The histogram for the petal lengths show a clear group of observations having petal lengths that are much smaller than the rest of the observations and similarly so with the petal widths. The sepal lengths show quite a bit of variation with a number of peaks while sepal widths seem to be centred around 3 cms but with a few smaller peaks at both sides of 3 cms.  
 
@@ -457,9 +457,9 @@ f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
 plt.show()
 
 ```
-<img src="images/irisBoxbyClass.png" width="500" alt="iris boxplot" />  
+<img src="images/irisBoxbyClass.png" height="400" alt="iris boxplot" />  
   
-The boxplot proves to be a very useful plot for clearly showing the differences in the distributions of the measurements across the three iris species in the dataset. The Iris Setosa stands out from the other two classes as having much smaller petals.
+The boxplot proves to be a very useful plot for clearly showing the differences in the distributions of the measurements across the three iris species in the dataset. The Iris Setosa stands out from the other two classes as having much smaller petals. There does not appear to be many outliers.
 
 ---
 The Iris data set can be separated into three subset groups based on their known class or species of Iris plant.
@@ -470,8 +470,8 @@ Columns can be selected by name using square brackets. For example, `iris["Sepal
 [Boolean Indexing](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#boolean-index) can be used to select rows from the Iris DataFrame by filtering the data for rows that correspond to a a particular class or species of the iris plant, for example:
 
 ```python
-      # select from the iris DataFrame only the rows where the Class equals the string "Iris-setosa"
-      iris_setosa = iris[iris['Class'] == "Iris-setosa"]      
+# select from the iris DataFrame only the rows where the Class equals the string "Iris-setosa"
+iris_setosa = iris[iris['Class'] == "Iris-setosa"]      
 ```
 ```python
 # subsetting to meet criteria using `isin` operator and boolean masks. Select columns where class is iris-versicolor or Iris-virginica
@@ -489,6 +489,7 @@ First splitting the data into groups of observations based on some criteria, sec
 
 Here is the code I use in the script to calculate group statistics for each species or class of iris plant in the dataset.
 I wrapped the functions in print statements to make it easier to understand the output of the code when the full python script is run.
+
 
 ```python
 print("using groupby to split the iris dataframe by Class of iris species")
@@ -549,7 +550,7 @@ If there is a strong positive relationship between the variables, the value of t
 ```python
 iris.groupby("Class").corr()
 ``` 
-<img src="images/iriscorrelations.png" width="500" alt="correlation" />
+<img src="images/iriscorrelations.png" width="600" alt="correlation" />
 
 
 The correlation matrix shows the following relationships between the measurement variables:
@@ -575,12 +576,18 @@ Much of modern statistical and machine learning is based upon the work of R.A Fi
 
 The pairwise grid of scatter plots shows how the Iris Setosa is clearly different in these features compared to the other two species. The plots also show how it is not so simple to separate to separate the other two classes from each other as there is a bit of overlap. This corresponds with Fisher's conclusions back in 1936.
 
-I don't think the Iris dataset really reflects the type of dataset that actually exists in the world today and that data scientists and machine learning analysts work with.
-The Iris dataset is quite small with only 150 observations. It's observations are also evenly divided into three classes which would indicate that they were probably selected to demonstrate the linear discriminant model, rather than being randomly selected from a larger population of iris flowers. It is useful for practicing and demonstrating classification algorithms. 
+I don't really think the Iris dataset reflects the type of dataset that actually exists in the world today and that data scientists and machine learning analysts work with.
+The Iris dataset is quite small with only 150 observations. It's observations are also evenly divided into three classes which would indicate that they were probably selected to demonstrate the linear discriminant model, rather than being randomly selected from a larger population of iris flowers. It is useful for practicing and demonstrating classification algorithms and is often called a 'toy' dataset.
 
 
 The statistics generated by the code in the script shows that the average petal length for an Iris Setosa is much smaller than the other two classes.
 The Iris Virginica has the largest average petal length which is almost four times greater than the petal length of the Iris Setosa. The average petal length for the Iris Versicolor is not very different to that of the Iris Versicolor. 
+
+The following image shows the frequency histogram that Fisher and while the plots in this project only show distributions for a single measurement variable at a time, it is interesting to see they look familiar!.
+
+
+<img src="images/FisherFreqDist.png" width="500" alt="correlation" />
+
 
 The standard deviations also show that the petal measurements of the Iris Setosa is much less variable than that of the other two species. 
 
@@ -597,16 +604,7 @@ The correlation matrix showed a strong relationship between sepal length and sep
 However the relationship between the petal lengths and sepal lengths is very strong for the Iris Virginica with Iris Versicolor being only a little bit weaker. 
 
 
-## What I have learned from the project.
-
-- using git and github 
-- python programming using pandas library
-- markdown techniques
-- can format code in markdown by specifying the langauge
-- inserting images into markdown file, resizing images
-- using links in markdown
-- preview markdown documents
-- using github 
+I have learned quite a bit from the project. Not only have I gained a better knowledge of the python programming language, but I have also gained an insight into the field of machine learning. I am getting more familiar with git and using GitHub. I have also learned a little bit about writing using markdown. Now I just need to get my table of content links to work!
 
 
 ## 10. References
