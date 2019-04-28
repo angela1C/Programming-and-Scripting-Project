@@ -1,3 +1,6 @@
+# I used this script for running and checking individual plots.
+# 
+# 
 # 1. IMPORT PYTHON LIBRARIES
 
 print("First importing the python libraries")

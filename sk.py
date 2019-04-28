@@ -1,3 +1,5 @@
+# This is a script copied from the scikit-learn tutorial
+
 import numpy as np
 from sklearn import datasets
 iris = datasets.load_iris()

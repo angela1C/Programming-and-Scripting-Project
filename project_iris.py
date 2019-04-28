@@ -8,7 +8,8 @@
 # Here I import the pandas library, the matplotlib pyplot library and the seaborn library using short name aliases pd, plt and sns. 
 # This seems to be the conventional way to import these particular packages.
 
-print("First importing the python libraries \n")
+print("First importing the python libraries: \n")
+print("pandas as pd, matplotlib.pyplot as plt and seaborn as sns \n")   
 import pandas as pd  
 import matplotlib.pyplot as plt 
 import seaborn as sns
@@ -33,7 +34,7 @@ iris =  pd.read_csv(csv_url, names = col_names)
 # iris = pd.read_csv('iris_data.csv', names = col_names)
 
 # using the pandas DataFrame method head to return the first rows of the DataFrame and check that the file was correctly loaded
-print("The first 10 rows of the iris dataframe:\n")
+print("The first 10 rows of the iris dataframe are shown here:\n")
 print(iris.head(10))
 
 # using the pandas DataFrame method tail to return the last rows of the DataFrame and check that the file was correctly loaded
@@ -41,6 +42,7 @@ print("The last 10 rows of the iris dataframe:\n")
 print(iris.tail(10))
 
 # check the data types to ensure they have been correctly inferred by read_csv
+print("The types of columns are: \n")
 print(iris.dtypes)
 
 # 3. EXPLORING AND INVESTIGATING THE IRIS DATA SET 
@@ -50,28 +52,26 @@ print(iris.dtypes)
 # First looking at the attributes of the iris DataFrame created from importing the iris data set above.
 
 # Getting the number of axes / array dimensions of the iris DataFrame using ndim attribute
-print(f"The iris DataFrame has {iris.ndim} dimensions.")
+print(f"The iris DataFrame has {iris.ndim} dimensions.\n")
 
 # Look at the shape of the iris DataFrame as this shows the number of rows and columns in the table or matrix of data
 # This will show how many rows (containing observations) and columns (containing features/variables)
-print(f"The Iris data set consists of {iris.shape[0]} rows and {iris.shape[1]} columns corresponding to the rows and columns of the csv file.")
+print(f"The Iris data set consists of {iris.shape[0]} rows and {iris.shape[1]} columns corresponding to the rows and columns of the csv file.\n")
 
 # the number of elements in the iris object.
-print(f"There are {iris.size}  elements in total.")
-# the number of elements in the iris object.
-print(f"The iris DataFrame has {iris.size} elements in total.")
+print(f"The iris DataFrame has {iris.size} elements in total.\n")
 
 # The DataFrame has both a row and a column index which were automatically assigned when the DataFrame was created.
 # Get the column labels of the iris DataFrame using  'pandas.DataFrame.columns'
-print("The column labels of the iris DataFrame are: ", *iris.columns, sep = "   ")
+print("The column labels of the iris DataFrame are: \n", *iris.columns, sep = "   ")
 
 # the row index 
 print(f" The index of the DataFrame is: ", iris.index)
 print("The index for the rows are ",*iris.index)
-print("This index was automatically assigned when the DataFrame was created above.")
+print("This index was automatically assigned when the DataFrame was created above.\n")
 
 # the dtypes (data types) of the iris DataFrame
-print(f"The data types of iris DataFrame are as follows:")
+print(f"The data types of iris DataFrame are as follows:\n")
 print(iris.dtypes)
 
 # Return the ftypes (indication of sparse/dense and dtype) in the iris DataFrame.
@@ -94,7 +94,7 @@ print(iris.tail(10))
 # It is possible to check for missing values in the DataFrame using the panda's `isnull()` method.
 # This shows that there are no missing values which is as expected for this particular data set.
 # Detect missing values in the DataFrame. Sum the values instead of printing the boolean values as True = 1.
-print("The number of null or missing values in the iris dataframe for each column: ")
+print("The number of null or missing values in the iris dataframe for each column: \n")
 print(iris.isnull().sum())
 
 # Print a concise summary of the iris DataFrame.
@@ -125,16 +125,17 @@ print(iris.describe())
 # The number of bins can be specified. 
 
 # pandas DataFrame.hist() plots the histograms of the columns on multiple subplots:
-print("Histogram of the distribution of the iris data. This plot is saved to a png file \n") 
+print("Histogram of the distribution of the iris data. This plot is saved to a png file 'IrisHistograms.png' in 'images' \n") 
 # iris.hist(alpha=0.8, bins=30, figsize=(12,8))
 
 iris.hist(alpha=0.8, bins=30, figsize=(12,8))
 plt.suptitle("Histogram of the Iris petal and sepal measurements")
+#plt.show()
 plt.savefig("images/IrisHistograms.png")
 
 # Boxplot can be drawn using DataFrame.plot.box(), or DataFrame.boxplot() 
 # This is used to visualize the distribution of values within each column.
-
+print("Boxplots of the distribution of the iris data. This plot is saved to a png file 'irisbox.png' in 'images' \n") 
 iris.plot.box(figsize=(6,4))
 plt.suptitle("Boxplots of the Iris petal and sepal measurements")
 # plt.show()
@@ -167,7 +168,8 @@ f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
 
 plt.savefig("images/irisBoxbyClass.png")
 
-
+print("The boxplots by species are saved to 'images/irisBoxbyClass.png' \n")
+# plt.show()
 
 # 4. EXPLORING IRIS DATA SET BY SPECIES
 # There are many ways to filter the data
@@ -190,7 +192,7 @@ row_mask = iris.isin(values).any(1)
 
 # GROUP BY 
 
-print("using groupby to split the iris dataframe by Class of iris species \n")
+print("Using pands groupby function to split the iris dataframe by Class of iris species \n")
 # Using groupby functions to look at statistics at the class / species level
 iris_grouped = iris.groupby("Class")
 
@@ -200,14 +202,14 @@ print("The number of observations for each variable for each Iris species in the
 
 # Groupby Class of Iris plant and return the mean of the remaining columns in each group.
 
-print("The mean or average measurement for each group of Iris Species in the dataset is \n",iris.groupby('Class').mean())
+print("The mean or average measurement for each group of Iris Species in the dataset is \n\n",iris.groupby('Class').mean())
 iris.groupby('Class').mean()
 # Group by Class of Iris plant and then return the first observations in each group
 iris.groupby("Class").first()
-print("the first observation in each Class of Iris plant in the Iris dataset are: \n  \n",iris.groupby("Class").first())
+print("The first observation in each Class of Iris plant in the Iris dataset are: \n  \n",iris.groupby("Class").first())
 
 # Group by Class of Iris and then return the last observations in each group
-print("the last observation in each Class of Iris plant in the Iris dataset are: \n  \n",iris.groupby("Class").last())
+print("The last observation in each Class of Iris plant in the Iris dataset are: \n  \n",iris.groupby("Class").last())
 iris.groupby("Class").last()
 
 # get the first 3 rows in each group 
@@ -230,9 +232,10 @@ print("The minimum value for each measurement for each Class of Iris plant in th
 # by taking the differences between the mimimum and the maximum values
 
 iris_ranges = iris_grouped.max() - iris_grouped.min()
-print(iris_ranges)
+print("The range of the values in the dataset are as follows: \n",iris_ranges)
 
 # sorting the range of values in ascending order, first by petal lengths, then petal widths and then by sepal lengths.
+print("The ranges sorted by petal length, petal width then sepal length \n")
 iris_ranges.sort_values(["Petal_Length","Petal_Width","Sepal_Length"])
 
 # get mean of group values
@@ -248,15 +251,15 @@ print(iris_grouped.mean())
 # Can look at the summary statistics for each class of Iris in the data set.
 # I transposed the results to make it easier to read.
 print("summary statistics for each Class of Iris in the data set \n")
-print(iris.groupby("Class").describe())
+print(iris.groupby("Class").describe().T)
 # print(iris_grouped.describe())
-# print(iris_grouped.describe().T)
-
+#print(iris_grouped.describe().T)
+ 
 
 # Using the mean function to see the average measurements by species.
 iris_means =iris_grouped.mean()
 iris_means
-
+# medians for each group
 iris_grouped.median()
 
 # Having used groupby to the get the summary statistics by species, I will add a column to the DataFrame to calculate the differences in means.
@@ -270,15 +273,15 @@ means.loc[:,'Class':'Iris-versicolor']
 # Instead of doing it for two species, I will do it for all the three species. 
 # add a new column for the difference in means between the Versicolor and Setosa species
 # I have changed the difference in means to show the absolute differences in means
-means['diff (Versicolor - Setosa)'] = abs(means['Iris-versicolor'] - means['Iris-setosa'])
+means['diff(Versicolor - Setosa)'] = abs(means['Iris-versicolor'] - means['Iris-setosa'])
 
 # add a new column for the difference in means between the Versicolor and Virginica species
-means['diff (Versicolor - Virginica)'] = abs(means['Iris-versicolor'] - means['Iris-virginica'])
+means['diff(Versicolor - Virginica)'] = abs(means['Iris-versicolor'] - means['Iris-virginica'])
 
 # add a new column for the difference in means between the Versicolor and Virginica species
-means['diff (Virginica - Setosa)'] = abs(means['Iris-virginica'] - means['Iris-setosa'])
+means['diff(Virginica - Setosa) '] = abs(means['Iris-virginica'] - means['Iris-setosa'])
 
-print("The differences in means between classes of Iris are \n")
+print("The differences in means between classes of Iris are shown in the last three columns \n")
 print(means)
 
 # differences in average measurements between species
@@ -300,25 +303,16 @@ iris_std
 # create a dataframe from grouping the iris dataframe by class and calculating the standard deviations for each class
 iris_std = iris.groupby("Class").std().T
 
-# add a new column for the difference in standard deviations between the Versicolor and Setosa species
-iris_std['diff (Versicolor - Setosa)'] = abs(iris_std['Iris-versicolor'] - iris_std['Iris-setosa'])
-
-# add a new column for the difference in standard deviations between the Versicolor and Virginica species
-iris_std['diff (Versicolor - Virginica)'] = abs(iris_std['Iris-versicolor'] - iris_std['Iris-virginica'])
-
-# add a new column for the difference in standard deviations between the Versicolor and Virginica species
-iris_std['diff (Virginica - Setosa)'] = abs(iris_std['Iris-virginica'] - iris_std['Iris-setosa'])
-
-print("The differences between the standard deviations for each class of iris species is as follows: \n")
+print("The standard deviations for each class of iris species is as follows: \n")
 print(iris_std)
 
 # PAIRWISE SCATTER PLOTS
 
-# SCATTER PLOTS OF THE IRIS DATA SET
+# SCATTER PLOTS OF THE IRIS DATA SET USING SEABORN
 sns.pairplot(iris, hue="Class")
 
 plt.savefig("images/irispairplots.png")
-
+print("The pairwise scatter plots of the iris dataset have been saved to 'images/irispairplots.png' \n")
 
 
 ## correlation matrix of the iris dataset
