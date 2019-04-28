@@ -130,7 +130,7 @@ He showed that the differences between the Iris Setosa and the Iris versicolor w
 Fisher concluded that there as there is some overlap between the distributions of the Iris Virginica and the Iris Versicolor and therefore they are not as easily distinguished from one another based solely on the four measurements.
 
 
->It will be  noticed, as was anticipated  above, that there is some overlap of the distributions of I. wirginicaand I. versicolor, so that a certain  diagnosis of these two species could not be based solely on these four measurements of a  single flower taken on a  plant growing  wild. It is not, however, impossible that in culture the measurements alone should afford a more complete discrimination.
+>It will be  noticed, as was anticipated  above, that there is some overlap of the distributions of I. Virginica and I. versicolor, so that a certain  diagnosis of these two species could not be based solely on these four measurements of a  single flower taken on a  plant growing  wild. It is not, however, impossible that in culture the measurements alone should afford a more complete discrimination.
 
 
 
@@ -138,7 +138,7 @@ Fisher concluded that there as there is some overlap between the distributions o
 ### The Iris data set and machine learning
 The Iris dataset appears in many text books and tutorials related to statistical and machine learning. Statistical learning is a set of tools for modelling and understanding complex data sets. Machine learning is about learning from data and while it is often associated with artificial intelligence, it is also used in  areas such as image and voice recognition, natural language processing and many other areas.  Machine learning is about learning some properties of a data set and then testing those properties against another data set.
 
-[scikit-learn](https://scikit-learn.org/stable/index.html) is a machine learning package in python that actually uses the Iris dataset in its demonstrations. Scikit learn provides some information about machine learning and outlines how in general a[machine learning problem](https://scikit-learn.org/stable/tutorial/basic/tutorial.html#machine-learning-the-problem-setting) 
+[scikit-learn](https://scikit-learn.org/stable/index.html) is a machine learning package in python that actually uses the Iris dataset in its demonstrations. Scikit learn provides some information about machine learning and outlines how in general a [machine learning problem](https://scikit-learn.org/stable/tutorial/basic/tutorial.html#machine-learning-the-problem-setting) 
 >considers a set of n samples of data and then tries to predict properties of unknown data. If each sample is more than a single number and, for instance, a multi-dimensional entry (aka multivariate data), it is said to have several attributes or features.
   
 The Iris data set is a relatively small multi-variate data set containing of only 150 rows and 5 fields or variables in columns. Each observation in the Iris data set consists of a four dimensional array of numerical measurements and a single categorical class of iris species to which it belongs and represents one instance of an iris plant or flower.
@@ -208,6 +208,8 @@ At the command line enter python <program_name> for example: $ python project_ir
 
 The python program can also be run inside the environment of an iPython session using the `%run` command.
  `% run project_iris.py`
+ I used `ipython` to run interactive code as I was developing the script.
+ 
 
 ### Loading python libraries
 
@@ -234,11 +236,7 @@ The documentation pages for each of the python packages that are used in this pr
 -[Python 3 documentation](https://docs.python.org/3/index.html)  
 
 
-### ipython
-I used `ipython` to check the code as I was going along....
-
-
-### GitHub and Git
+### GitHub and Git are used to manage the project.
 
 # 3. Download the Fisher Iris Data set and investigate it using Python code.
 
@@ -312,7 +310,6 @@ This will show how many rows (containing observations) and columns (containing f
 The following is the python code used in the script. I have included print statements in the script to make it easier to read the output when all commands are ran together in the script.
 
 ```python
-
 print("The column labels of the iris DataFrame are: ", *iris.columns, sep = "   ")
 print("The column labels of the iris DataFrame are: ", *iris.columns, sep = "   ")
 print(f" The index of the dataframe is: ", iris.index)
@@ -330,53 +327,38 @@ print("The column axis labels of the iris DataFrame are as follows:\n ",*iris.ax
 
 #### Attributes of the Iris DataFrame 
 
-### This is the print output of the above code:
-```
-TThe iris DataFrame has 2 dimensions.
-
-The Iris DataFrame set consists of 150 rows and 5 columns corresponding to the rows and columns of the csv file.
-
-There are 750  elements in total.
-
-The column labels of the iris DataFrame are as specified when reading in the csv file: 
+- The iris DataFrame has 2 dimensions. 
+- The Iris DataFrame set consists of 150 rows and 5 columns corresponding to the rows and columns of the iris csv file.  
+- There are 750  elements in total.  
+- The column labels of the iris DataFrame are as specified when reading in the csv file: 
    Sepal_Length   Sepal_Width   Petal_Length   Petal_Width   Class
-
- The index of the DataFrame is: 
- RangeIndex(start=0, stop=150, step=1)
-
-This index was automatically assigned when the DataFrame was created above.
-
-The data types of iris DataFrame are as follows:
-
-Sepal_Length    float64
-Sepal_Width     float64
-Petal_Length    float64
-Petal_Width     float64
-Class            object
-dtype: object
-[RangeIndex(start=0, stop=150, step=1), Index(['Sepal_Length', 'Sepal_Width', 'Petal_Length', 'Petal_Width', 'Class'], dtype='object')]
+- The index of the DataFrame is:   
+ RangeIndex(start=0, stop=150, step=1)  
+ This index was automatically assigned when the DataFrame was created above.
 
  The row axis labels of the iris DataFrame is a range from  0 1 2 ... 147 148 149 
 
-The column axis labels of the iris DataFrame are as follows:
-  Sepal_Length Sepal_Width Petal_Length Petal_Width Class
-```
- ---
+The column axis labels of the iris DataFrame correspond to the column names as follows:
+  Sepal_Length, Sepal_Width, Petal_Length, Petal_Width, Class
+
+
+---
 #### Investigating the Iris dataset using some DataFrame methods 
 
 The `head` and `tail` methods are very useful to take a quick look at the observations at the top and bottom rows of the dataframe. The number of rows to display can be specified as an argument. 
+
 ```python
-print("The first 10 rows of the iris dataframe:")
 print(iris.head(10))
-print("The last 10 rows of the iris dataframe:")
 print(iris.tail(10))
 ```
 ###### The top of the iris data set:
-<img src="images/iris_head.png" height="200" alt="iris-head" />
+
+<img src="images/irishead.png" width="600" alt="iris-head" />
 
 ###### The bottom of the iris data set:
-<img src="images/iris_tail.png" height="200" alt="iris-tail" />
 
+<img src="images/iristail.png" width="600" alt="iris-head" />
+  
 The rows at the top belong to the Iris Setosa class. The rows at the bottom belong to the Iris Virginica class. This is just the way the observations are ordered in the csv data set from which the dataframe is created.
 
 The data can be checked for any missing values using the `isnull()` method while `notnull()` returns the opposite.
@@ -411,51 +393,14 @@ print("Here are some summary statistics for the iris DataFrame: \n ")
 print(iris.describe())
 ```
 
-```
-The number of null or missing values in the Iris dataframe for each column: 
-Sepal_Length    0  
-Sepal_Width     0  
-Petal_Length    0  
-Petal_Width     0  
-Class           0  
-dtype: int64
+The code output shows that there are no null values, the RangeIndex has 150 entries from 0 to 149. The four measurement columns each consist of 150 non-null float64 numbers.
 
-A concise summary of the iris DataFrame: 
-
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 150 entries, 0 to 149
-Data columns (total 5 columns):
-Sepal_Length    150 non-null float64
-Sepal_Width     150 non-null float64
-Petal_Length    150 non-null float64
-Petal_Width     150 non-null float64
-Class           150 non-null object
-dtypes: float64(4), object(1)
-memory usage: 5.9+ KB
-
- The number of non-NA cells for each column or row are: 
- Sepal_Length    150
-Sepal_Width     150
-Petal_Length    150
-Petal_Width     150
-Class           150
-dtype: int64
   
-Checking to see if there are missing values. 
- Sepal_Length    0
-Sepal_Width     0
-Petal_Length    0
-Petal_Width     0
-Class           0
-dtype: int64
-  
-The following are the three class or species types of iris in the data set 
- Iris-setosa Iris-versicolor Iris-virginica
+The three classes or species types of iris in the data set are Iris-setosa, Iris-versicolor and Iris-virginica
+
 Here are some summary statistics for the iris DataFrame: 
   
-```
-<img src="images/iris_describe.png" height="300" alt="iris-describe" />
-
+<img src="images/irisdescribe.png" width="600" alt="iris-describe" />
 - The initial exploration of the Iris DataFrame shows that there are 150 rows and 5 columns of data. 
 Each row corresponds to an individual observation of an iris plant. 
 - The columns show the individual measurements (in centimetres) of the length of the sepal, the length of the petal, the width of the sepal and the width of the petal.
@@ -559,14 +504,6 @@ print("The maximum value for each measurement for each Class of Iris plant in th
 iris.groupby("Class").min()print("The minimum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").min())
 ```
 
-The number of observations for each variable for each Iris species in the data set are as follows: 
-``` 
-                    Sepal_Length  Sepal_Width  Petal_Length  Petal_Width
-Class                                                                
-Iris-setosa                50           50            50           50
-Iris-versicolor            50           50            50           50
-Iris-virginica             50           50            50           50
-```
 
 Summary statistics for each Class of iris plant in the dataset can be obtained using the `describe` method on the `GroupBy`object.  
 (The results can be transposed to make them easier to read.)  
@@ -574,11 +511,7 @@ Summary statistics for each Class of iris plant in the dataset can be obtained u
 ```python
 print(iris.groupby("Class").describe())
 ```
-##### The first 3 rows of each Class in the iris data set:
-<img src="images/groupby_class_head.png" width="400" alt="groupby_class_head" />
-
-##### The last 3 rows of each Class in the iris data set:
-<img src="images/groupby_class_tail.png" width="400" alt="groupby_class_tail" />
+<img src="images/irisdescribeClass.png" width="600" alt="iris-describe" />
 
 The statistics at the Iris species or class level show that the average petal length for an Iris Setosa is much smaller at 1.464 cm than the other two classes. The average petal length for the Versicolor is 4.26 while the Iris Virginica has the largest average petal length of 5.552 centimetres which is almost four times greater than the petal length of the Iris Setosa.
 The petal measurements of the Iris Setosa is much less variable than that of the other two species. 
@@ -602,51 +535,71 @@ sns.pairplot(iris, hue="Class")
 
 <img src="images/irispairplots.png" width="600" alt="iris scatter" />  
 
-The scatter plots in the pairwise grid of plots shows how the Iris Setosa is clearly different from the other two species. However it is not so simple to separate to separate the other two classes from each other as there is a bit of overlap.
+A linearly separable data set is one where the observations or data points can be separated by a straight line drawn through the data.   
+  
+The scatter plots in the pairwise grid of plots shows how the Iris Setosa is clearly different from the other two species. However they also show that it is not so simple a matter to separate the other two classes from each other as there is a bit of overlap in the data points.
 
 *Correlation* is a statistical method used to determine whether a linear relationship between variables exists and shows if one variable tends to occur with large or small values of another variable.  
 The correlation statistics are computed from  pairs of arguments.
-The correlation of the measurements can be got using the `corr` method on the Iris DataFrame. If there is a strong positive relationship between the variables, the value of the correlation coefficient  will be close to 1, while a strong negative relationship will have a correlation coefficient close to -1. A value close to zero would indicate that there is no relationship between the variables.
+The correlation of the measurements can be got using the `corr` method on the Iris DataFrame. 
+If there is a strong positive relationship between the variables, the value of the correlation coefficient  will be close to 1, while a strong negative relationship will have a correlation coefficient close to -1. A value close to zero would indicate that there is no relationship between the variables.
 
 ##### The correlation coefficients between measurement variables:
-<img src="images/iris_grouped_corr.png" width="500" alt="correlation" />
+
+```python
+iris.groupby("Class").corr()
+``` 
+<img src="images/iriscorrelations.png" width="500" alt="correlation" />
+
+
+The correlation matrix shows the following relationships between the measurement variables:
+- a high correlation between sepal length and sepal width for the Iris Setosa at almost 0.75 while the correlation between the sepal measurements is nearer to 0.5 for both the Iris Versicolor and almost the Iris Virginica.
+
+- a strong positive correlation between the petal length and petal widths for the Iris Versicolor only
+
+- a very strong relationship between the petal length and the sepal length for the Iris Virginica at over 0.86 
+- The Iris Versicolor also shows a strong correlation between the petal length and the sepal length at 0.75
 
 # Summary and conclusions
 For this project, I mainly worked through the python documentation manuals of the [Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html), [Matplotlib](https://matplotlib.org/index.html) and [Seaborn](https://seaborn.pydata.org/index.html) modules as well as  the [Python 3 documentation](https://docs.python.org/3/index.html). There are many resources freely available for learning how to use Python and applying it to analysing datasets such as the Iris dataset. The pandas library is quite intuitive and in a valuable tool in investigating and analysing multi-class multi-variates datasets such as the Iris dataset.
 
-I looked at some of the statistical properties of the Iris data set. Visualising the data gives a better understanding of the data and what can be done with it. 
+I looked at some of the statistical properties of the Iris data set in this project. Visualising the data gives a better understanding of the data and what can be done with it. It demonstrates some of the properties of the dataset which Fisher used in developing his linear discriminant model.
   
-The Iris data set is referenced quite a bit in machine learning and many resources on the internet use it to demonstrate their product or to teach machine learning methods.  
+The Iris data set is referenced quite a bit in machine learning and many resources on the internet use it to demonstrate their product or to teach machine learning methods.  [Kaggle](https://www.kaggle.com) hosts the Iris dataset and there are many demonstrations of various machine learning algorithms using the Iris dataset from many people. 
 
-I did not look too closely at using machine learning itself here but instead looked at the characteristics of the Iris dataset to see why and how this is the case. As I learn more about machine learning, I will look closer at using it in the future. From looking at various sources on the internet, including Kaggle, it does not seen to take a huge amount of python code using machine learning packages such as scikitlearn. I do think it is important to have some understanding of the underlying concepts on which these algorithms are based.
+While I did not look too closely at the machine learning code itself, I do intend to return to it as I learn more about machine learning. Various tutorials demonstrate how to perform clustering, logistic regression, linear discriminant analysis, support vector machines as well and these appear to be a valuable resource.
+
+While it is possible to apply the code for such algorithms to other datasets, I do think it it important to have some understanding of the underlying concepts on which these algorithms are based as well as some knowledge of the dataset.
  
 Much of modern statistical and machine learning is based upon the work of R.A Fisher in the 20th century and he is often referred to as the father of modern statistics. Fisher developed the linear discriminant model based on the combination of the four measurement features in the Iris dataset. The dataset became a test case for classification methods in the machine learning and the pattern recognition field because one class of the three Iris species in the data set is linearly separable from the other two classes while the other two classes are not linearly separable from each other. 
 
-A linearly separable data set is one where the observations or data points can be separated by a straight line drawn through the data. 
 The pairwise grid of scatter plots shows how the Iris Setosa is clearly different in these features compared to the other two species. The plots also show how it is not so simple to separate to separate the other two classes from each other as there is a bit of overlap. This corresponds with Fisher's conclusions back in 1936.
 
-- INSERT SOME SUMMARY STATS - MAIN POINTS ONLY!
-- The summary statistics for each Class of iris plant in the data set:
-- look at the correlation and how it relates to the scatter plots
-# come back to this! 
-Correlation is a statistical method used to determine whether a linear relationship between variables exists and shows if one variable tends to occur with large or small values of another variable.
-The scatter plot shows quite a strong positive relationship overall between the petal length and petal width measurements. The relationship between petal length and petal width is not as strong for the Iris Setosa as with the o
-
-Table II in Fisher's paper is entitled *Observed means for two species and their difference (cm.)*
-This table displays the means for each of the 4 measurements for the Iris-Versicolor and Iris-Setosa species. It also shows the differences between the Versicolor means and the Setosa means for each of the 4 measurement variables.
-
-##### The difference in means between iris species:
-<img src="images/iris_diff_means.png" height="200" alt="iris_diff_means" />
+I don't think the Iris dataset really reflects the type of dataset that actually exists in the world today and that data scientists and machine learning analysts work with.
+The Iris dataset is quite small with only 150 observations. It's observations are also evenly divided into three classes which would indicate that they were probably selected to demonstrate the linear discriminant model, rather than being randomly selected from a larger population of iris flowers. It is useful for practicing and demonstrating classification algorithms. 
 
 
+The statistics generated by the code in the script shows that the average petal length for an Iris Setosa is much smaller than the other two classes.
+The Iris Virginica has the largest average petal length which is almost four times greater than the petal length of the Iris Setosa. The average petal length for the Iris Versicolor is not very different to that of the Iris Versicolor. 
 
-### Summary results of the Fisher Iris data set. 
+The standard deviations also show that the petal measurements of the Iris Setosa is much less variable than that of the other two species. 
+
+The average petal width of the Setosa is also much smaller than the average petal widths of the other two species. In fact the petal width of the Setosa is about twelve times smaller than the petal width of the Virginica. There is less variability in petal widths in all three species though compared to the variability in the petal length.
+
+There is not such a large difference between the sepal lengths of the three Iris species, although the Setosa is again showing the smallest average measurements.
+The average sepal width of the Setosa however is actually larger than the averages for the other two species but not by a huge amount. 
+
+From the summary statistics of the sepal and petal measurements by class type it would appear that the differences between the Iris Setosa and the other two species is more pronounced that any other differences between the three classes.
+
+Correlation shows whether a linear relationship between variables exists and shows if one variable tends to occur with large or small values of another variable.
+The scatter plot shows quite a strong positive relationship overall between the petal length and petal width measurements. The relationship between petal length and petal width is not as strong for the Iris Setosa as with the other two species. 
+The correlation matrix showed a strong relationship between sepal length and sepal width for the Iris Setosa only and a strong relatioship between the petal length and petal widths for the Iris Versicolor only.
+However the relationship between the petal lengths and sepal lengths is very strong for the Iris Virginica with Iris Versicolor being only a little bit weaker. 
 
 
 ## What I have learned from the project.
 
-#### markdown. 
-
+- using git and github 
 - python programming using pandas library
 - markdown techniques
 - can format code in markdown by specifying the langauge
@@ -697,7 +650,9 @@ This table displays the means for each of the 4 measurements for the Iris-Versic
 
 - [Edgar Anderson 1897 to 1969, A Biographical Memoir by G Ledyard Stebbins.](http://www.nasonline.org/publications/biographical-memoirs/memoir-pdfs/anderson-edgar.pdf)
 
-- [Iris Dataset - Exploratory Data Analysis](https://www.kaggle.com/lalitharajesh/iris-dataset-exploratory-data-analysis)
+- [Iris Datasets on Kaggle](https://www.kaggle.com/datasets?sortBy=relevance&group=public&search=iris&page=1&pageSize=20&size=all&filetype=all&license=all)
+
+- [Machine Learning in Python](https://machinelearningmastery.com/machine-learning-in-python-step-by-step/)
 
 - "A Whirlwind Tour of Python" by Jake VanderPlas
 

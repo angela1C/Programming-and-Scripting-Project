@@ -234,6 +234,7 @@ print(iris_ranges)
 # sorting the range of values in ascending order, first by petal lengths, then petal widths and then by sepal lengths.
 iris_ranges.sort_values(["Petal_Length","Petal_Width","Sepal_Length"])
 
+# these stats are available from the describe() summary function
 # get mean of group values
 iris.groupby("Class").mean()
 
@@ -250,11 +251,21 @@ print(iris.groupby("Class").describe())
 # print(iris_grouped.describe())
 # print(iris_grouped.describe().T)
 
-## NEXT LOOKING AT PAIRWISE SCATTER PLOTS
+# PAIRWISE SCATTER PLOTS
 
 # SCATTER PLOTS OF THE IRIS DATA SET
+
+print(" Here is a pairplot scatter matrix")
 sns.pairplot(iris, hue="Class")
 
-plt.title("pair plots of Iris data set")
-
 plt.savefig("images/irispairplots.png")
+
+## correlation matrix of the iris dataset
+
+# First getting the correlation between pairs of the measurement variables across the dataset
+
+print("correlation between pairs of measurement variables for the dataset \n")
+print(iris.corr())
+
+print("correlation between pairs of measurement variables for the dataset by Class of iris \n")
+iris.groupby("Class").corr()

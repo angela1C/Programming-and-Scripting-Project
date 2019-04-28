@@ -8,17 +8,10 @@
 # Here I import the pandas library, the matplotlib pyplot library and the seaborn library using short name aliases pd, plt and sns. 
 # This seems to be the conventional way to import these particular packages.
 
-print("First importing the python libraries")
+print("First importing the python libraries \n")
 import pandas as pd  
 import matplotlib.pyplot as plt 
 import seaborn as sns
-
-# I want to save my plots to a pdf file instead of to the screen
-# https://stackoverflow.com/a/11329151
-
-from matplotlib.backends.backend_pdf import PdfPages
-pp= PdfPages("iris_plots.pdf")
-
 
 # help can be obtained using the python help function.
 # help(pd) or help(pd.DataFrame.describe())
@@ -40,11 +33,11 @@ iris =  pd.read_csv(csv_url, names = col_names)
 # iris = pd.read_csv('iris_data.csv', names = col_names)
 
 # using the pandas DataFrame method head to return the first rows of the DataFrame and check that the file was correctly loaded
-print("The first 10 rows of the iris dataframe:")
+print("The first 10 rows of the iris dataframe:\n")
 print(iris.head(10))
 
 # using the pandas DataFrame method tail to return the last rows of the DataFrame and check that the file was correctly loaded
-print("The last 10 rows of the iris dataframe:")
+print("The last 10 rows of the iris dataframe:\n")
 print(iris.tail(10))
 
 # check the data types to ensure they have been correctly inferred by read_csv
@@ -57,7 +50,7 @@ print(iris.dtypes)
 # First looking at the attributes of the iris DataFrame created from importing the iris data set above.
 
 # Getting the number of axes / array dimensions of the iris DataFrame using ndim attribute
-print(f"The iris DataFrame has {iris.ndim} dimensions")
+print(f"The iris DataFrame has {iris.ndim} dimensions.")
 
 # Look at the shape of the iris DataFrame as this shows the number of rows and columns in the table or matrix of data
 # This will show how many rows (containing observations) and columns (containing features/variables)
@@ -132,7 +125,7 @@ print(iris.describe())
 # The number of bins can be specified. 
 
 # pandas DataFrame.hist() plots the histograms of the columns on multiple subplots:
-print("Histogram of the distribution of the iris data. Make sure to close the plot to continue. ") 
+print("Histogram of the distribution of the iris data. This plot is saved to a png file \n") 
 # iris.hist(alpha=0.8, bins=30, figsize=(12,8))
 
 iris.hist(alpha=0.8, bins=30, figsize=(12,8))
@@ -197,7 +190,7 @@ row_mask = iris.isin(values).any(1)
 
 # GROUP BY 
 
-print("using groupby to split the iris dataframe by Class of iris species")
+print("using groupby to split the iris dataframe by Class of iris species \n")
 # Using groupby functions to look at statistics at the class / species level
 iris_grouped = iris.groupby("Class")
 
@@ -254,6 +247,7 @@ print(iris_grouped.mean())
 
 # Can look at the summary statistics for each class of Iris in the data set.
 # I transposed the results to make it easier to read.
+print("summary statistics for each Class of Iris in the data set \n")
 print(iris.groupby("Class").describe())
 # print(iris_grouped.describe())
 # print(iris_grouped.describe().T)
@@ -265,11 +259,8 @@ iris_means
 
 iris_grouped.median()
 
-# Now instead of looking at the calculations manually I will try adding a column that shows the differences in means between the three species.
 # Having used groupby to the get the summary statistics by species, I will add a column to the DataFrame to calculate the differences in means.
-
 # use groupby with "Class" variable and then get the mean of each class for each measurement variable.
-
 # create a dataframe from grouping the iris dataframe by class and calculating the means for each class
 # Transpose the rows and columns
 means = iris.groupby("Class").mean().T
@@ -277,7 +268,6 @@ means = iris.groupby("Class").mean().T
 means.loc[:,'Class':'Iris-versicolor'] 
 
 # Instead of doing it for two species, I will do it for all the three species. 
-
 # add a new column for the difference in means between the Versicolor and Setosa species
 # I have changed the difference in means to show the absolute differences in means
 means['diff (Versicolor - Setosa)'] = abs(means['Iris-versicolor'] - means['Iris-setosa'])
@@ -287,7 +277,9 @@ means['diff (Versicolor - Virginica)'] = abs(means['Iris-versicolor'] - means['I
 
 # add a new column for the difference in means between the Versicolor and Virginica species
 means['diff (Virginica - Setosa)'] = abs(means['Iris-virginica'] - means['Iris-setosa'])
-means
+
+print("The differences in means between classes of Iris are \n")
+print(means)
 
 # differences in average measurements between species
 
@@ -295,13 +287,12 @@ means
 # I can use these to calculate the range of values for each measurement.
 
 iris_ranges = iris_grouped.max() - iris_grouped.min()
-iris_ranges
+print("The range for each measurement variable by iris class is \n")
+print(iris_ranges)
 
 # sorting the range of values in ascending order, first by petal lengths, then petal widths and then by sepal lengths.
 iris_ranges.sort_values(["Petal_Length","Petal_Width","Sepal_Length"])
-
 # The iris setosa has the smallest range of values for the petal lengths, petal widths and sepal lengths. However the sepal widths of the setosa have a wider range of values than the other two species. This corresponds to the boxplots above. 
-
 
 iris_std = iris.groupby("Class").std().T
 iris_std
@@ -318,8 +309,8 @@ iris_std['diff (Versicolor - Virginica)'] = abs(iris_std['Iris-versicolor'] - ir
 # add a new column for the difference in standard deviations between the Versicolor and Virginica species
 iris_std['diff (Virginica - Setosa)'] = abs(iris_std['Iris-virginica'] - iris_std['Iris-setosa'])
 
-# Now doing it for the standard deviations.
-# iris_std
+print("The differences between the standard deviations for each class of iris species is as follows: \n")
+print(iris_std)
 
 # PAIRWISE SCATTER PLOTS
 
@@ -327,3 +318,16 @@ iris_std['diff (Virginica - Setosa)'] = abs(iris_std['Iris-virginica'] - iris_st
 sns.pairplot(iris, hue="Class")
 
 plt.savefig("images/irispairplots.png")
+
+
+
+## correlation matrix of the iris dataset
+
+# First getting the correlation between pairs of the measurement variables across the dataset
+
+print("     Correlation between pairs of measurement variables for the iris dataset \n")
+print(iris.corr())
+
+print("    Correlation between pairs of measurement variables for the iris dataset by Class of iris \n")
+print(iris.groupby("Class").corr())
+
