@@ -7,12 +7,10 @@ Project 2019 for Programming and Scripting Module
 1. [Introduction to the project](#1.-introduction-to-the-project.) 
 2. [The Fisher Iris Data Set](#2.-the-fisher-iris-dataset) 
 3. [Python and other software tools used in this project](#3.-python-and-other-software-tools-used-in-this-project)
-4. [Download the Iris data set using python code](#3.-download-the-fisher-iris-data-set-and-investigate-it-using-python-code.)
-5. [Exploring the data set -summary overview](#exploring)
-6. [Exploring the data set in more detail](#detail)
-6. [Summarise the data set](#summarise)
-7. [conclusions](#conclusions)
-10. [References](#references)
+4. [Downloading the Fisher Iris dataset using Python code](#4.-download-the-fisher-iris-dataset-using-python-code.)
+5. [Investigating the Iris dataset in Python](#5.-investigating-the-iris-dataset-in-python)
+6. [Summary and Conclusions](#6.-summary-and-conclusions)
+7. [References](#7.-references)
 
 <a name="1.-introduction-to-the-project."></a>
 # 1. Introduction to the project.
@@ -237,8 +235,8 @@ The documentation pages for each of the python packages that are used in this pr
 
 
 ### GitHub and Git are used to manage the project.
-
-# 3. Download the Fisher Iris Data set and investigate it using Python code.
+<a name="4.-download-the-fisher-iris-dataset-using-python-code."></a>
+# 4. Download the Fisher Iris dataset using Python code.
 
 The Iris Data Set is available from the UC Irvine Machine Learning Repository at http://archive.ics.uci.edu/ml/datasets/Iris in csv format as described above in section 2. 
 I am using the python `pandas` library to import the csv file. 
@@ -282,10 +280,10 @@ print(iris.tail())
 print(iris.dtypes)
 ```
 
+# 5. Investigating the Iris dataset in Python.
+<a name="5.-investigating-the-iris-dataset-in-python"></a> 
 
-# 4. Investigating the Iris dataset in Python.
-
-#### http://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dsintro 
+http://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dsintro
 
 The first part of my analysis looks at an overview of the Fisher Iris data set including some summary statistics that describe the data at a high level and some basic plots that provide an overall picture of the Fisher Iris data set. 
 
@@ -561,7 +559,10 @@ The correlation matrix shows the following relationships between the measurement
 - a very strong relationship between the petal length and the sepal length for the Iris Virginica at over 0.86 
 - The Iris Versicolor also shows a strong correlation between the petal length and the sepal length at 0.75
 
-# Summary and conclusions
+
+<a name="6.-summary-and-conclusions"></a>
+# 6. Summary and conclusions  
+
 For this project, I mainly worked through the python documentation manuals of the [Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html), [Matplotlib](https://matplotlib.org/index.html) and [Seaborn](https://seaborn.pydata.org/index.html) modules as well as  the [Python 3 documentation](https://docs.python.org/3/index.html). There are many resources freely available for learning how to use Python and applying it to analysing datasets such as the Iris dataset. The pandas library is quite intuitive and in a valuable tool in investigating and analysing multi-class multi-variates datasets such as the Iris dataset.
 
 I looked at some of the statistical properties of the Iris data set in this project. Visualising the data gives a better understanding of the data and what can be done with it. It demonstrates some of the properties of the dataset which Fisher used in developing his linear discriminant model.
@@ -601,15 +602,14 @@ The following image shows the frequency histogram that Fisher and while the plot
 
 Correlation shows whether a linear relationship between variables exists and shows if one variable tends to occur with large or small values of another variable.
 The scatter plot shows quite a strong positive relationship overall between the petal length and petal width measurements. The relationship between petal length and petal width is not as strong for the Iris Setosa as with the other two species. 
-The correlation matrix showed a strong relationship between sepal length and sepal width for the Iris Setosa only and a strong relatioship between the petal length and petal widths for the Iris Versicolor only.
+The correlation matrix showed a strong relationship between sepal length and sepal width for the Iris Setosa only and a strong relationship between the petal length and petal widths for the Iris Versicolor only.
 However the relationship between the petal lengths and sepal lengths is very strong for the Iris Virginica with Iris Versicolor being only a little bit weaker. 
 
 
 I have learned quite a bit from the project. Not only have I gained a better knowledge of the python programming language, but I have also gained an insight into the field of machine learning. I am getting more familiar with git and using GitHub. I have also learned a little bit about writing using markdown. Now I just need to get my table of content links to work!
 
-
-## 10. References
-<a name="references"></a>
+<a name="7.-references"></a>
+# 7. References
 
 - [Python 3 documentation](https://docs.python.org/3/index.html)    
 - [Getting Started with pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html)    
