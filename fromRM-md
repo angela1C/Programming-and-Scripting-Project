@@ -1,0 +1,39 @@
+Here I am going to keep some of the things I am removing from the Readme in case I need to put them back in again.
+    I know I would be able to see the changes in the files through the git history but this is easier for me at the moment.
+## heading
+
+### markdown
+
+print(iris.groupby("Class").describe())
+print(iris.groupby("Class").describe())print(iris.groupby("Class").describe())
+print(iris.groupby("Class").describe())ca
+
+
+
+Table II in Fisher's paper is entitled *Observed means for two species and their difference (cm.)*
+This table displays the means for each of the 4 measurements for the Iris-Versicolor and Iris-Setosa species. It also shows the differences between the Versicolor means and the Setosa means for each of the 4 measurement variables.
+
+##### The difference in means between iris species:
+<img src="images/iris_diff_means.png" height="200" alt="iris_diff_means" />
+
+
+### Correlation between variables.
+Correlation is a statistical method used to determine whether a linear relationship between variables exists. It shows if one variable tends to occur with large or small values of another variable. It calculates a number *r* between -1 and + 1 where the number (the correlation coefficient) indicates the strength of the relationship and the sign indicates whether that relationship is positive or negative. The correlation coefficient does not depend on the units of measurement or on which variable is on the x or y axis. 
+(In the case of the Iris data set, the measurements are all in the same units anyway as they are provided in centimetres.)
+The correlation statistics are computed from  pairs of arguments.
+The correlation of the measurements can be got using the `corr` method on the DataFrame. If there is a strong positive relationship beytween the variables, the value of the correlation coefficient *r* will be close to 1, while a strong negative relationship will have a correlation coefficient *r* close to -1. A vlaue of *r* close to zero would indicate that there is no relationship between the variables.
+
+A scatter plot is used to visualise the relationship between two variables. It is a graph of the ordered pairs of two variables. One variable is plotted on the x-axis while the other variable is plotted on the y-axis.
+
+##### The correlation coefficients between measurement variables:
+<img src="images/iris_grouped_corr.png" width="400" alt="correlation" />
+
+~~The `DataFrame` method `duplicated` can be used to see if any of the rows in the data set are duplicates of another row. I am just using it to see if there are any individual observations that have the exact same measurements as another observation.~~
+
+~~There are three observations which appear to have the same measurements as other observations in the dataset as follows. It is possible that these values may have been rounded at some stage when or since the dataset was put together in 1936.~~
+
+i~~ndex
+34   Iris-setosa
+37   Iris-setosa
+142  Iris-virginica~~
+

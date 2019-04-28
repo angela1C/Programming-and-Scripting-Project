@@ -1,4 +1,4 @@
-# project_iris.py
+# iris.py
 # Angela Carpenter
 # This script contains my script for project 2019.
 
@@ -13,18 +13,10 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 import seaborn as sns
 
-# I want to save my plots to a pdf file instead of to the screen
-# https://stackoverflow.com/a/11329151
-
-from matplotlib.backends.backend_pdf import PdfPages
-pp= PdfPages("iris_plots.pdf")
-
-
 # help can be obtained using the python help function.
 # help(pd) or help(pd.DataFrame.describe())
 
 # 2. LOADING / READING IN THE IRIS DATA SET INTO PYTHON
-
 
 # Create a variable `csv_url` and pass to it the url where the data set is available at 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'. 
 csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
@@ -258,72 +250,11 @@ print(iris.groupby("Class").describe())
 # print(iris_grouped.describe())
 # print(iris_grouped.describe().T)
 
-
-# Using the mean function to see the average measurements by species.
-iris_means =iris_grouped.mean()
-iris_means
-
-iris_grouped.median()
-
-# Now instead of looking at the calculations manually I will try adding a column that shows the differences in means between the three species.
-# Having used groupby to the get the summary statistics by species, I will add a column to the DataFrame to calculate the differences in means.
-
-# use groupby with "Class" variable and then get the mean of each class for each measurement variable.
-
-# create a dataframe from grouping the iris dataframe by class and calculating the means for each class
-# Transpose the rows and columns
-means = iris.groupby("Class").mean().T
-# only getting the columns up to Iris-versicolor to match Table II in Fisher's paper
-means.loc[:,'Class':'Iris-versicolor'] 
-
-# Instead of doing it for two species, I will do it for all the three species. 
-
-# add a new column for the difference in means between the Versicolor and Setosa species
-# I have changed the difference in means to show the absolute differences in means
-means['diff (Versicolor - Setosa)'] = abs(means['Iris-versicolor'] - means['Iris-setosa'])
-
-# add a new column for the difference in means between the Versicolor and Virginica species
-means['diff (Versicolor - Virginica)'] = abs(means['Iris-versicolor'] - means['Iris-virginica'])
-
-# add a new column for the difference in means between the Versicolor and Virginica species
-means['diff (Virginica - Setosa)'] = abs(means['Iris-virginica'] - means['Iris-setosa'])
-means
-
-# differences in average measurements between species
-
-# The pandas describe function shows the minimum and maximum values for the various measurements.
-# I can use these to calculate the range of values for each measurement.
-
-iris_ranges = iris_grouped.max() - iris_grouped.min()
-iris_ranges
-
-# sorting the range of values in ascending order, first by petal lengths, then petal widths and then by sepal lengths.
-iris_ranges.sort_values(["Petal_Length","Petal_Width","Sepal_Length"])
-
-# The iris setosa has the smallest range of values for the petal lengths, petal widths and sepal lengths. However the sepal widths of the setosa have a wider range of values than the other two species. This corresponds to the boxplots above. 
-
-
-iris_std = iris.groupby("Class").std().T
-iris_std
-
-# create a dataframe from grouping the iris dataframe by class and calculating the standard deviations for each class
-iris_std = iris.groupby("Class").std().T
-
-# add a new column for the difference in standard deviations between the Versicolor and Setosa species
-iris_std['diff (Versicolor - Setosa)'] = abs(iris_std['Iris-versicolor'] - iris_std['Iris-setosa'])
-
-# add a new column for the difference in standard deviations between the Versicolor and Virginica species
-iris_std['diff (Versicolor - Virginica)'] = abs(iris_std['Iris-versicolor'] - iris_std['Iris-virginica'])
-
-# add a new column for the difference in standard deviations between the Versicolor and Virginica species
-iris_std['diff (Virginica - Setosa)'] = abs(iris_std['Iris-virginica'] - iris_std['Iris-setosa'])
-
-# Now doing it for the standard deviations.
-# iris_std
-
-# PAIRWISE SCATTER PLOTS
+## NEXT LOOKING AT PAIRWISE SCATTER PLOTS
 
 # SCATTER PLOTS OF THE IRIS DATA SET
 sns.pairplot(iris, hue="Class")
+
+plt.title("pair plots of Iris data set")
 
 plt.savefig("images/irispairplots.png")

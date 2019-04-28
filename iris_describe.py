@@ -95,10 +95,6 @@ print(iris.tail(10))
 print("The number of null or missing values in the iris dataframe for each column: ")
 print(iris.isnull().sum())
 
-# look at the summary statistics of the DataFrame
-print("Here are some summary statistics for the iris DataFrame: \n")
-print(iris.describe())
-
 # Print a concise summary of the iris DataFrame.
 print(f"A concise summary of the iris DataFrame: \n")
 iris.info()
@@ -117,6 +113,8 @@ print("The following are the three class or species types of iris in the data se
 # count  the number of distinct observations for each column 
 iris.nunique()
 
+# look at the summary statistics of the DataFrame
+print("Here are some summary statistics for the iris DataFrame: \n")
+print(iris.describe())
 
-
-#####
+####   ####   ####   ####   ####   ####§

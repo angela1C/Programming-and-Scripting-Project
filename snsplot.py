@@ -12,6 +12,11 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 import seaborn as sns
 
+# I want to save my plots to a pdf file instead of to the screen
+# https://stackoverflow.com/a/11329151
+
+from matplotlib.backends.backend_pdf import PdfPages
+pp= PdfPages("iris_plots.pdf")
 
 csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
 col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Class']
@@ -20,15 +25,17 @@ iris =  pd.read_csv(csv_url, names = col_names)
 print(iris.head(10))
 
 iris2 = sns.load_dataset("iris")
-# sns.relplot(x="Petal_Length",y="Petal_Width", col ="species", hue = "species", data = iris2)
+# snsplot1 = sns.relplot(x="Petal_Length",y="Petal_Width", col ="species", hue = "species", data = iris2)
 
 # set a white grid for the figure
 # sns.set(style ="whitegrid")
 # # using a facet grid and setting hue = Class which means the points will be coloured on the plot according to their Class/species.
 # sns.relplot(x="Sepal_Length",y="Sepal_Width", data = iris, hue ="Class")
-# plt.show()
+# # plt.show()
+# pp.savefig(snsplot)
 
-import seaborn as sns
+
+
 # apply the default default seaborn theme, scaling, and color palette.
 sns.set()
 # draw a faceted scatter plot with multiple semantic variables, two numeric and one categorical.
@@ -58,9 +65,13 @@ sns.boxplot(x="species",y="petal_width", data = iris2, ax=axes[1])
 plt.show()
 
 
-sns.boxplot(x="Class", y="Petal_Length",data=iris, ax = axes[0,0])
-sns.boxplot(x="Class", y="Sepal_Length", data=iris, ax=axes[0,1])
-sns.boxplot(x="Class", y="Petal_Width",data=iris, ax=axes[1,0])
-sns.boxplot(x="Class", y="Sepal_Width", data=iris, ax=axes[1,1])
+# sns.boxplot(x="Class", y="Petal_Length",data=iris, ax = axes[0,0])
+# sns.boxplot(x="Class", y="Sepal_Length", data=iris, ax=axes[0,1])
+# sns.boxplot(x="Class", y="Petal_Width",data=iris, ax=axes[1,0])
+# sns.boxplot(x="Class", y="Sepal_Width", data=iris, ax=axes[1,1])
+
+# plt.show()
+
+g = sns.pairplot(iris, hue="Class")
 
 plt.show()

@@ -67,7 +67,7 @@ A plot showing the univariate distribution for the variable in that column is dr
 # print("Histogram of the distribution of the iris data. Make sure to close the plot to continue. ") 
 # iris.hist(alpha=0.8, bins=30, figsize=(12,8))
 
-
+"""
 # PAIRPLOT
 # a this function will create a grid of Axes such that each variable in the dataframe will by shared in the y-axis across a single row and
 # in the x-axis across a single column. 
@@ -109,9 +109,15 @@ sns.boxplot(x="Class", y="Petal_Width",hue = "Class",data=iris, ax=axes[1,0])
 # adding a title to the plot
 f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
 plt.show()
+"""
 
+# SCATTER PLOTS OF THE IRIS DATA SET
 
-
+f, axes = plt.subplots(1, 2, sharey=True, figsize=(10, 4))
+sns.scatterplot(x="Petal_Length", y="Sepal_Length", hue = "Class",data=iris, ax=axes[0])
+sns.scatterplot(x="Petal_Width", y="Sepal_Width", hue="Class", data=iris, ax=axes[1])
+f.suptitle("Scatterplots of the Iris petal and sepal measurements")
+plt.show()
 
 # DISTPLOT using Seaborn
 # sns.distplot(iris, kde=False, rug=True)

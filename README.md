@@ -64,7 +64,7 @@ Project Task List
 - [x] Download the Iris data set  
 - [x] Investigate the Iris data set using python code
 - [x] Summarise the Iris data set - provide statistics such as means, minimum and maximum values
-- [ ] summarise the research a bit better so it not too long or irrelevant
+- [x] summarise the research a bit better so it not too long or irrelevant
 - [x] some information on Edgar Anderson and why he collected the data in the first place.
 - [x] a little bit on the linear disciminant function
 - [ ] show how the linearly separable the data appears to be as noted in the research
@@ -85,10 +85,11 @@ Project Task List
 
 #### organisation and presentation tasks
 - [ ] review the layout of the readme
-- [ ] maybe move all the plots out of the main python script as they slow down running the script
-- [ ] table of contents. numbering
-- [ ] keep the jupyter notebook in line with the python script and readme document.
-- [x] get links to images working
+- [ ] maybe move all the plots out of the main python script - instead I am saving the plot output to png files rather than displaying each one to the screen
+- [ ] possibly move some code from the readme. redirect the script output to a text file and save that to the repository
+- [ ] table of contents. numbering. not all links are working
+- [ ] keep the jupyter notebook in line with the python script and readme document. will come back to this after the project due date as it not necessary for now
+- [x] get links to images working. sizing works with html tags
 - [ ] Ensure the project is well organised and contain detailed explanations throughout
 
 <a name="2.-background-information-about-the-fisher-iris-dataset"></a>
@@ -184,7 +185,7 @@ It is possible to check results from supervised learning and how well a model pr
 
 The Fisher Iris data set is still widely used in learning classification methods.
 
-
+<a name="2.-background-information-about-the-fisher-iris-dataset"></a>
 <a name="3.-python-and-other-software-tools-used-in-this-project."></a>
 # 3. Python and other software tools used in this project
 
@@ -487,9 +488,9 @@ Each row corresponds to an individual observation of an iris plant.
 - The shortest sepal in the data set is 4.3 cm while the longest sepal is 7.9 cm. 
 - The narrowest sepal is 2cm while the widest sepal is 4.4 centimetres.  
 - There are 50 observations in each class.
-
-### Visualising the Iris data set
-A picture tells a thousand words! Therefore I now look at some visual summaries of the Iris data set using some plots.
+---
+## Visualising the Iris data set
+A picture tells a thousand words! Therefore I will now look at some visual summaries of the Iris data set using some plots and see what it shows.
 Plots can show how variables in the Iris data set relate to each other and trends and patterns that may indicate relationships between the variables.
 In particular I am looking at how **linearly separable** the three different classes of Iris appear as this seems to be a key reason for the Iris data set being so widely used. 
 
@@ -506,19 +507,13 @@ The histograms here show the distribution of each of the the measurements attrib
 
 The histogram for the petal lengths show a clear group of observations having petal lengths that are much smaller than the rest of the observations. Similarly with the petal widths. The sepal lengths show quite a bit of variation with a number of peaks while sepal widths seem to be centred around 3 cms but with a few smaller peaks at both sides of 3 cms.  
 
-A `boxplot` is a useful plot as it shows various statistics in one go, including the median, quantiles, interquartile range, outliers etc. The length of the box is the interquartile range and measures the variability in the data set. The interquartile range (IQR) is the middle 50% of the data and can show the spread or variation of the data. The whiskers show if the data is skewed in one direction or the other. The median is the line through the box. (horizontal line in the plot above)  
+A `boxplot` is a very useful plot as it shows various statistics in one go, including the median, quantiles, interquartile range, outliers etc. The length of the box is the interquartile range and measures the variability in the data set. The interquartile range (IQR) is the middle 50% of the data and can show the spread or variation of the data. The whiskers show if the data is skewed in one direction or the other. The median is the line through the box.   
 
-<img src="images/irisbox.png" width="400" alt="iris-boxplot"/>
+Along with showing the distribution of values within each category, boxplots also allow for comparisons across the various classes. The boxplots below are generated using the `seaborn` library.
 
-The boxplot of the petal and sepal measurements for the dataset as a whole are not very informative. It is more useful to look at the boxplots by Iris Class.
-
-#### using seaborn
-
-The [seaborn](https://seaborn.pydata.org/introduction.html#introduction) is very suitable for plotting a dataset such as the Iris dataset.
-Some of it's plotting functions are actually illustrated in the [visualising dataset structure](http://seaborn.pydata.org/introduction.html#visualizing-dataset-structure) of the documentation pages using the Iris dataset which is also built into the `seaborn` library.     
-
-The `seaborn` library has several methods for visualising a relationship between categorical data. It's `catplot()` can capture the relationship between a numeric variable and one (or more) categorical variables, such as the class or species of iris plant.     
-The **boxplot** is a type of categorical distribution plot which shows the three quartile values of the distribution as well as any extreme values or outliers.    
+[seaborn](https://seaborn.pydata.org/introduction.html#introduction) is very suitable for plotting a dataset such as the Iris dataset.
+Some of it's plotting functions are actually illustrated in the [examples](http://seaborn.pydata.org/introduction.html#visualizing-dataset-structure) of the documentation pages using the Iris dataset which is also built into the `seaborn` library.     
+    
 In the boxplot below, the columns containing the categorical variable `Class` and the petal and sepal length measurement variables are passed in as the x and y parameters to the boxplot. Four plots are being plotted on a 2 by 2 grid. 
 I am also specifying that the y axis should not be shared between plots and setting the figure size.
 The appearance of the plot can be changed by setting the figure aesthetics including the theme and the colour palette.
@@ -539,27 +534,12 @@ plt.show()
 ```
 <img src="images/irisBoxbyClass.png" width="500" alt="iris boxplot" />  
   
-The boxplot is a very useful plot for showing the differences in the distributions of the measurements across the three iris species in the dataset. The Iris Setosa stands out from the other two classes, particularly in the petal measurements.
+The boxplot proves to be a very useful plot for clearly showing the differences in the distributions of the measurements across the three iris species in the dataset. The Iris Setosa stands out from the other two classes as having much smaller petals.
 
-A `scatter plot` can be used to visualize relationships between numerical variables such as the petal measurements and the sepal measurements in the iris data set.  A scatter plot is a useful plot that visually shows how the different variables or features in the data set correlate with one another. 
+---
+The Iris data set can be separated into three groups based on their known class or species of Iris plant.
 
-<img src="images/Scatter1.png" width="500" alt="iris scatter" />  
-
-The `seaborn` library 
-sns.pairplot(data=iris, hue="species")
-  
-There are three classes or species of iris flower in this data set, the Iris Setosa, the Iris Versicolor and the Iris Virginica.
-It is possible to look at the summary statistics as the class or species level.
-
-## Exploring the Iris data set in more detail
-
-As mentioned above, Fishers Iris data set is well known in the pattern recognition field because one class of the three Iris plants in the data set are linearly separable from the other two classes. The other two classes are not linearly separable from each other.
-Therefore, having looked at the data set as a whole, I will look more closely at the data at the iris species / class level and see are there clear differences visible in the data.
-
-I will now look at the different classes  of Iris on their own and see what the data shows. To do so, I will need to be able to separate the observations into three groups based on their known class. 
-
-
-There are several ways of selecting data from the DataFrame that is detailed on  the [Indexing and selecting data](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-and-selecting-data) section of the the pandas documentation.
+There are several ways of selecting data from the DataFrame which is detailed on  the [Indexing and selecting data](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-and-selecting-data) section of the the pandas documentation.
 
 Columns can be selected by name using square brackets. `iris["Sepal_Length"]` will return the column 'Sepal_Length' of the `iris` DataFrame. A column of data can also be retrieved from the Iris DataFrame using dict-like notation or by attribute such as `iris.Petal_Width`.  Index operators can be used to select a subset or rows and columns using the `loc` attribute for axis labels or `iloc` attribute for integers. An index into the dataframe can used to retrieve one or more columns, either with a single value or a sequence of values for the index.  
 [Boolean Indexing](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#boolean-index) can be used to select rows from the `iris` DataFrame by filtering the data for rows that correspond to a a particular class or species of the iris plant, for example:
@@ -608,50 +588,94 @@ Iris-versicolor            50           50            50           50
 Iris-virginica             50           50            50           50
 ```
 
-
-
-
-
-
-
 Summary statistics for each Class of iris plant in the dataset can be obtained using the `describe` method on the `GroupBy`object.  
 (The results can be transposed to make them easier to read.)  
   
 ```python
 print(iris.groupby("Class").describe())
 ```
-
-
-
-[Having looked at the basic statistical properties of the iris data set and having pictured the data gives a better understanding of the data and what can be done with it. The iris data set is widely used for demonstrating machine learning so I will look a little bit at this. As mentioned earlier, one class is linearly separable from the other two classes. A linearly separable data set is one where the observations or data points can be separated by a straight line drawn through the data.
-I will look at the pairwise scatter plots for this as this concept of linear separation is more applicable to data with two classes. The iris data set is a multi-class data set as there are three classes to which the observations could belong to.
-
-Can see on the scatter plots that the setosa is clearly separable from the other two species when the sepal lengths are plotted against the sepal width. However it is not so simple to separate to separate the other two classes.
-When the petal lengths are plotted against the petal widths, again the setosas are clearly identifiable. now it lookes a nit easier to separate the other two classes.]
-
-
-### Summary results of the Fisher Iris data set by species or class or iris plant.
-
-
-
 ##### The first 3 rows of each Class in the iris data set:
 <img src="images/groupby_class_head.png" width="400" alt="groupby_class_head" />
 
 ##### The last 3 rows of each Class in the iris data set:
 <img src="images/groupby_class_tail.png" width="400" alt="groupby_class_tail" />
 
+The statistics at the Iris species or class level show that the average petal length for an Iris Setosa is much smaller at 1.464 cm than the other two classes. The average petal length for the Versicolor is 4.26 while the Iris Virginica has the largest average petal length of 5.552 centimetres which is almost four times greater than the petal length of the Iris Setosa.
+The petal measurements of the Iris Setosa is much less variable than that of the other two species. 
 
-The statistics at the class level show that the average petal length for a Setosa is much smaller at 1.464 cm than the other two classes. The average petal length for the Versicolor is 4.26 while the iris Virginica has the largest average petal length of 5.552 centimetres which is almost four times greater than the petal length of the Iris Setosa.
-The standard deviation of the setosa petal length is quite small compared to the standard deviation of the other two species. The petal measurements of the iris setosa is much less variable than that of the other two species. 
+The average petal width of the Setosa is also much smaller than the average petal widths of the other two species. In fact the petal width of the Setosa is about twelve times smaller than the petal width of the Virginica. There is less variability in petal widths in all three species though compared to the variability in the petal length.
+There is not such a large difference between the sepal lengths of the three Iris species, although the Setosa is again showing the smallest average measurements.
+The average sepal width of the Setosa however is actually larger than the averages for the other two species. The average sepal width for the Setosa is 3.42 centimetres compared to an average of 2.77 cm for the Versicolor and 2.97 for the virginica. This is also shown in the minimum and maximum measurements for the three species.
 
-The average petal width of the setosa is also much smaller than the average petal width of the other two species. In fact the petal width of the setosa is twelve times smaller than the petal width of the virginica. There is less variability in petal widths in all three species though compared to the variability in the petal length.
-There is not such a large difference between the sepal lengths of the three iris species, although the setosa is again showing the smallest average measurements.
-The average sepal width of the setosa however is actually larger than the averages for the other two species. The average sepal width for the setosa is 3.42 centimetres compared to an average of 2.77 cm for the Versicolor and 2.97 for the virginica. This is also shown in the minimum and maximum measurements for the three species.
+From the summary statistics of the sepal and petal measurements by class type it would seem that the differences between the Iris Setosa and the other two species is more pronounced that any other differences between the three classes.
 
-From the summary statistics of the sepal and petal measurements by class type it would seem that the iris setosa is very different from the other two species, the versicolor and the virginica.
+### Scatterplots of the Iris data set.
 
-##### The summary statistics for each Class of iris plant in the data set:
-<img src="images/groupby_describe.png" width="400" alt="groupby_describe" />
+A scatter plot is a useful plot as it visually shows how the different variables or features in the data set correlate with one another. It is a graph of the ordered pairs of two variables. One variable is plotted on the x-axis while the other variable is plotted on the y-axis. A scatter plot can be used to visualize relationships between numerical variables such as the petal measurements and the sepal measurements in the Iris data set.  
+The Iris data set is a multi-class data set as there are three classes to which the observations could belong to.  `seaborn` has a pairwise scatter plots function that is suitable for dealing with this. 
+The `pairplot()` function shows all pairwise relationships and the marginal distributions that can be conditioned on a categorical variable.
+`pairplot` creates a grid of axes with each variable in the data is shared in the y-axis across a single row and in the x-axis across a single column. The diagonals show plots of the univariate distribution of the data for the variable in that column.
+
+```python
+sns.pairplot(iris, hue="Class")
+```
+
+<img src="images/irispairplots.png" width="500" alt="iris scatter" />  
+
+The scatter plots in the pairwise grid of plots shows how the Iris Setosa is clearly different from the other two species. However it is not so simple to separate to separate the other two classes from each other as there is a bit of overlap.
+
+Correlation is a statistical method used to determine whether a linear relationship between variables exists and shows if one variable tends to occur with large or small values of another variable.  
+The correlation statistics are computed from  pairs of arguments.
+The correlation of the measurements can be got using the `corr` method on the DataFrame. If there is a strong positive relationship between the variables, the value of the correlation coefficient  will be close to 1, while a strong negative relationship will have a correlation coefficient close to -1. A value close to zero would indicate that there is no relationship between the variables.
+
+##### The correlation coefficients between measurement variables:
+<img src="images/iris_grouped_corr.png" width="400" alt="correlation" />
+
+# summary and conclusion
+
+Having looked at some of the statistical properties of the Iris data set and having visualised the data gives a better understanding of the data and what can be done with it. 
+
+As mentioned at the start, Fishers Iris data set is very well known in machine learning and the pattern recognition field because one class of the three Iris plants in the data set are linearly separable from the other two classes. The other two classes are not linearly separable from each other.
+
+A linearly separable data set is one where the observations or data points can be separated by a straight line drawn through the data.
+
+The scatter plots in the pairwise grid of plots shows how the Iris Setosa is clearly different from the other two species. However it is not so simple to separate to separate the other two classes from each other as there is a bit of overlap.
+
+The scatter plot shows quite a strong positive relationship overall between the petal length and petal width measurements. The relationship between petal length and petal width is not as strong for the Iris Setosa as with the o
+# come back to this! 
+
+Correlation is a statistical method used to determine whether a linear relationship between variables exists and shows if one variable tends to occur with large or small values of another variable.
+
+The Iris data set is referenced quite a bit in machine learning and many resources on the internet use it to demonstrate their product.
+I did not look too closely at machine learning here but instead focussed on investigating some of the statistical properties of the iris data so that I could see what it has that makes it so attractive to use when teaching and when learning about machine learning.
+
+The 
+
+resources on the internet that use the iris data set in their tutorial such as the python machine learning package [scikit-learn](https://scikit-learn.org/stable/tutorial/basic/tutorial.html). My aim in the project was to learn a little bit about the 
+
+
+~~Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Problems` shows the four measurement for each of the three Iris Species.~~
+
+<img src="images/FisherTable1.png" width="500" alt="Fisher Table I">  
+
+~~The equivalent data can be obtained using python code and is made particularly easy by the `pandas` library.~~
+
+- INSERT SOME SUMMARY STATS - MAIN POINTS!
+- The summary statistics for each Class of iris plant in the data set:
+- look at the correlation and how it relates to the scatter plots
+
+
+https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html
+
+https://scikit-learn.org/stable/tutorial/basic/tutorial.html
+
+
+
+
+
+
+
+
 
 Table II in Fisher's paper is entitled *Observed means for two species and their difference (cm.)*
 This table displays the means for each of the 4 measurements for the Iris-Versicolor and Iris-Setosa species. It also shows the differences between the Versicolor means and the Setosa means for each of the 4 measurement variables.
@@ -660,57 +684,9 @@ This table displays the means for each of the 4 measurements for the Iris-Versic
 <img src="images/iris_diff_means.png" height="200" alt="iris_diff_means" />
 
 
-### Correlation between variables.
-Correlation is a statistical method used to determine whether a linear relationship between variables exists. It shows if one variable tends to occur with large or small values of another variable. It calculates a number *r* between -1 and + 1 where the number (the correlation coefficient) indicates the strength of the relationship and the sign indicates whether that relationship is positive or negative. The correlation coefficient does not depend on the units of measurement or on which variable is on the x or y axis. 
-(In the case of the Iris data set, the measurements are all in the same units anyway as they are provided in centimetres.)
-The correlation statistics are computed from  pairs of arguments.
-The correlation of the measurements can be got using the `corr` method on the DataFrame. If there is a strong positive relationship beytween the variables, the value of the correlation coefficient *r* will be close to 1, while a strong negative relationship will have a correlation coefficient *r* close to -1. A vlaue of *r* close to zero would indicate that there is no relationship between the variables.
-
-A scatter plot is used to visualise the relationship between two variables. It is a graph of the ordered pairs of two variables. One variable is plotted on the x-axis while the other variable is plotted on the y-axis.
-
-##### The correlation coefficients between measurement variables:
-<img src="images/iris_grouped_corr.png" width="400" alt="correlation" />
-
-
-### Visualising the Iris data set by class of iris.
-
-The `seaborn` library is used for making statistical graphics in Python. It is built on top of matplotlib and closely integrated with pandas data structures. It provides a high-level interface for creating nice looking and informative plots. 
-It's dataset-oriented plotting functions operate on DataFrames such as the `iris` dataframe created from importing the csv data.
-
-[seaborn](https://seaborn.pydata.org/introduction.html#introduction)
-I will use `seaborn` to create a facetted scatter plot. The iris measurement variables determine the position of each point on the axes. 
-- A `scatter plot` can be used to visualize relationships between numerical variables such as the petal measurements and the sepal measurements in the iris data set.    
-- A `catplot()` can capture the relationship between a numeric variable and one (or more) categorical variables, such as the class or species of iris plant.   
-
-The `seaborn` documentation section called [Visualising dataset structure](http://seaborn.pydata.org/introduction.html#visualizing-dataset-structure) actually illustrates some of the `seaborn` plotting functions using the iris data set which is built into the seabron library.
-
-It's `jointplot()` function focusses on a single relationship in the data set, while it's `pairplot()` function shows all pairwise relationships and the marginal distributions that can be conditioned on a categorical variable.
-
-The function `relplot()` is used to visualize many different statistical relationships.
-
-
-
-
-##### The scatter plots between measurement variables:
-<img src="images/sns_scatterplots.png" height="300" alt="scatter plots" />
-
-The `DataFrame` method `duplicated` can be used to see if any of the rows in the data set are duplicates of another row. I am just using it to see if there are any individual observations that have the exact same measurements as another observation.
-
-There are three observations which appear to have the same measurements as other observations in the dataset as follows. It is possible that these values may have been rounded at some stage when or since the dataset was put together in 1936.
-
-index
-34   Iris-setosa
-37   Iris-setosa
-142  Iris-virginica
-
 
 ### Summary results of the Fisher Iris data set. 
 
-Table 1 from Fisher's paper `The Use of Multiple Measurements in Taxonomic Problems` shows the four measurement for each of the three Iris Species. 
-
-<img src="images/IrisTable1.png" height="400" alt="Fisher Table I">  
-
-The equivalent data can be obtained using python code and is made particularly easy by the `pandas` library. 
 
 ## What I have learned from the project.
 
