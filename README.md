@@ -4,7 +4,7 @@ Project 2019 for Programming and Scripting Module
 
 # Table of Contents
 
-1. [Introduction to the project](1.-introduction-to-the-project.) 
+1. [Introduction to the project](introduction-to-the-project.) 
 2. [The Fisher Iris Data Set](#2.-the-fisher-iris-dataset) 
 3. [Python and other software tools used in this project](#3.-python-and-other-software-tools-used-in-this-project)
 4. [Downloading the Fisher Iris dataset using Python code](#4.-download-the-fisher-iris-dataset-using-python-code.)
@@ -12,7 +12,7 @@ Project 2019 for Programming and Scripting Module
 6. [Summary and Conclusions](#6.-summary-and-conclusions)
 7. [References](#7.-references)
 
-<a name="1.-introduction-to-the-project."></a>
+<a name="introduction-to-the-project."></a>
 # 1. Introduction to the project.
 
 This repository contains my submission for the [Programming and Scripting Project 2019](https://github.com/ianmcloughlin/project-pands/raw/master/project.pdf) class project for the Programming and Scripting Module at GMIT as part of the Higher Diploma in Computing and Data Analytics.
