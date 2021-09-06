@@ -28,17 +28,17 @@ As per the project requirements, the project [README](https://github.com/angela1
 The Python script containing the Python code used to investigate the Iris dataset is called  [project_iris.py](https://github.com/angela1C/Programming-and-Scripting-Project/blob/master/project_iris.py).
 
 
-This README file introduces the project and outlines the [requirements of the project](###-project-problem-statement). It also contains some background information about the Fisher's Iris data set including some information about where it originated, who created it, and how it was put together.   
-This README file also outlines the [tools](#3.-python-and-other-software-tools-used-in-this-project) used in preparing and executing this project and some information on [how to run the Python code](###-how-to-run-the-python-code), how the data can be loaded into Python, what the Python code does and what output is produced by running it.
+This README file introduces the project and outlines the [requirements of the project](#-project-problem-statement). It also contains some background information about the Fisher's Iris data set including some information about where it originated, who created it, and how it was put together.   
+This README file also outlines the [tools](#3.-python-and-other-software-tools-used-in-this-project) used in preparing and executing this project and some information on [how to run the Python code](#-how-to-run-the-python-code), how the data can be loaded into Python, what the Python code does and what output is produced by running it.
 
 The aim of the project is to investigate the Iris dataset using the Python programming language. Python can be used to gain a high level overview of a dataset such as the Iris dataset.  Statistics and visualisations can be very easily generated using a programming language such as Python. Plots produced in Python can provide an overview of of a dataset.   
-The python programming language is widely used in statistical and machine learning. The Iris data set is frequently referenced in online tutorials and text books relating to machine learning. 
+The Python programming language is widely used in statistical and machine learning. The Iris data set is frequently referenced in online tutorials and text books relating to machine learning. 
 
 My main objective in this project is to learn more about the Python programming by applying it to the Iris data set in this project. There are many free resources available, starting with the extensive [Python documentation](https://docs.python.org/3/) for its standard library of modules. There are also several well known third-party packages that enhance the use of python and are used for data analytics and machine learning.  
 
 A web search on the Iris data set will return many pages of results. Many of these apply machine learning to the Iris data set. I will look at the reasons why the Fisher Iris dataset is considered such an important database in the field of statistical and machine learning - particularly in the area of classification. 
 
-The iris dataset is described as having one class that is linearly separable from the other two classes so I will look at this in the code, particularly using the plots.
+The Iris dataset is described as having one class that is linearly separable from the other two classes so I will look at this in the code, particularly using the plots.
 
 ### Project Problem Statement <a name="project-problem-statement"></a>
 
@@ -178,11 +178,16 @@ The Fisher Iris data set is still widely used in learning classification methods
 
 # 3. Python and other software tools used in this project
 <a name="3.-python-and-other-software-tools-used-in-this-project"></a>
-The purpose of this project is to investigate the Fisher Iris data set described above using python code.
-Python is a high level interpreted general purpose programming language. The python interpreter and its extensive standard library are freely available to all. Along with the python standard library, there are many libraries that enhance the usage of python and make it a powerful tool for performing data analytics and machine learning.  
+The purpose of this project is to investigate the Fisher Iris data set described above using Python code.
+Python is a high level interpreted general purpose programming language. The Python interpreter and its extensive standard library are freely available to all. Along with the Python standard library, there are many libraries that enhance the usage of Python and make it a powerful tool for performing data analytics and machine learning.  
+
+The free and open source [Visual Studio code editor](https://code.visualstudio.com/) was used to write the Python code and the Markdown content. Visual Studio Code can be downloaded [here](https://code.visualstudio.com/Download).
+
+ 
 
 
-### How to download this repository.
+### How to download this repository
+
 1. Go to the URL for the repository on GitHub at [https://github.com/angela1C/pands-project.git](https://github.com/angela1C/pands-project.git).
 2. Click the green `Clone or download` button
    
@@ -202,8 +207,7 @@ The `pandas` library is the main python library being used in this project. Acco
 
 [pandas](https://pandas.pydata.org/index.html) provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. It is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type.  This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column. 
 
-The [seaborn](https://seaborn.pydata.org/index.html)
-> is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. 
+[seaborn](https://seaborn.pydata.org/index.html) is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. 
 
 The [seaborn](https://seaborn.pydata.org/introduction.html#introduction) library is used for making statistical graphics in Python. It is built on top of `matplotlib` and closely integrated with `pandas` data structures. It provides a high-level interface for creating nice looking and informative plots. It has many useful features for examining relationships between multiple variables such as those in the Iris dataset. 
 
@@ -212,18 +216,18 @@ The [seaborn](https://seaborn.pydata.org/introduction.html#introduction) library
 
 ### How to run the Python code
 <a name="###-how-to-run-the-python-code"></a>
-To run the python script, first navigate to the folder downloaded from this repository.
+To run the Python script, first navigate to the folder downloaded from this repository.
 
-At the command line enter python <program_name> for example: $ python project_iris.py
+At the command line enter `python <program_name>` for example: `$ python project_iris.py`
 
-The python program can also be run inside the environment of an iPython session using the `%run` command.
+The Python program can also be run inside the environment of an iPython session using the `%run` command.
  `% run project_iris.py`  
- I used `ipython` to run interactive code. This was very useful in testing sections of the script, rather than running the entire python script for each change.
+ I used `ipython` to run interactive code. This was very useful in testing sections of the script, rather than running the entire Python script for each change.
 
- There are several plots produced by the script. I have saved these to .png files in the images folder of the repository. The plots can be printed by uncommenting the 'plt.show()` command. Some of these plots are shown in this Readme file below. 
+ There are several plots produced by the script. I have saved these to `.png` files in the images folder of the repository. The plots can be printed by uncommenting the 'plt.show()` command. Some of these plots are shown in this Readme file below. 
 
- The output of the python script (excluding plot images) can be saved to a text file by appending `>'filename.txt'`.
- I have saved the output in this repository in a file called 'iris_output.txt' for convenience.
+ The output of the Python script (excluding plot images) can be saved to a text file by appending `>'filename.txt'`.
+
  
 
 ### Loading Python libraries
@@ -647,51 +651,52 @@ I have learned quite a bit from the project. Not only have I gained a better kno
 # 7. References
 <a name="7.-references"></a>
 
-- [Python 3 documentation](https://docs.python.org/3/index.html)    
-- [Getting Started with pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html)    
-- [Matplotlib documentation](https://matplotlib.org/index.html)    
-- [Seaborn documentation](https://seaborn.pydata.org/index.html)    
+- Website: [Python 3 documentation](https://docs.python.org/3/index.html) Official Python 3 Documentation at <https://docs.python.org>
+- Website: [Getting Started with pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html) Official `pandas` tutorial  at <https://pandas.pydata.org>
+- Website: [Matplotlib documentation](https://matplotlib.org/index.html)   Official `matplotlib` documentation  at <https://matplotlib.org>
+- Website [Seaborn documentation](https://seaborn.pydata.org/index.html)  Official `seaborn` at <https://seaborn.pydata.org>  
 
-- [Python Data Analysis Library](https://pandas.pydata.org)
+- Website: [Python Data Analysis Library](https://pandas.pydata.org) Official `pandas` documentation at <https://pandas.pydata.org>
 
-- [10 Minutes to Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html)
+- Website: [10 Minutes to Pandas](https://pandas.pydata.org/docs/user_guide/10min.html) A short introduction to `pandas` for new users. 
 
-- [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+- Website: [Mastering Markdown](https://guides.github.com/features/mastering-markdown/) A tutorial on using Markdown.
 
-- [Github Flavoured Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-)
+- Website: [Github Flavoured Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-) GitHub Flavoured Markdown formal specification
 
-- [seaborn:statistical data visualisation ](https://seaborn.pydata.org/index.html)
+- Website: [seaborn: statistical data visualisation ](https://seaborn.pydata.org/index.html) Official `seaborn` documentation at <https://seaborn.pydata.org>
 
-- [scikit-learn using iris example](https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html)
+- Website: [scikit-learn tutorial](https://scikit-learn.org/stable/tutorial/basic/tutorial.html) An introduction to machine learning with `scikit-learn` at <https://scikit-learn.org/>
 
-- [scikit-learn tutorial](https://scikit-learn.org/stable/tutorial/basic/tutorial.html)
+- Website: [scikit-learn using iris example](https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html) An example using `scikit-learn` on the Iris Dataset at <https://scikit-learn.org/>
 
-- [UCI Machine Learning Repository: Iris Dataset](https://archive.ics.uci.edu/ml/datasets/iris)
-- http://archive.ics.uci.edu/ml/datasets/Iris
+- Website: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php) A collection of databases, domain theories, and data generators that are used by the machine learning community for the empirical analysis of machine learning algorithms at <https://archive.ics.uci.edu/ml/index.php>
 
-- [Python, R and Linux Tips](https://cmdlinetips.com/category/python/)
+- Website: [UCI Machine Learning Repository: Iris Dataset](https://archive.ics.uci.edu/ml/datasets/iris) 
 
-- [Wikipedia - Iris Flower Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set)
+- Website: [Python, R and Linux Tips](https://cmdlinetips.com/category/python/) A blog / tutorial for learning data science with Python and R at <https://cmdlinetips.com>
 
-- [Wikipedia - Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher)
+- Website: [cmdlinetips.com](https://cmdlinetips.com/2018/01/7-tips-to-read-a-csv-file-as-pandas-data-frame/) Blog article on reading a CSV file into a pandas DataFrame at <https://cmdlinetips.com>
+- 
+- Website: [Wikipedia - Iris Flower Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set) Article on the Iris Flower dataset at Wikipedia, the free encyclopedia at <https://en.wikipedia.org/>
 
-- [cmdlinetips.com](https://cmdlinetips.com/2018/01/7-tips-to-read-a-csv-file-as-pandas-data-frame/)
+- Website: [Wikipedia - Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher) Article on the Ronald Fisher at Wikipedia, the free encyclopedia at <https://en.wikipedia.org/>
 
-- "An introduction to statistical learning with applications in R" by Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani
+- Book: "An introduction to statistical learning with applications in R" by Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani
 
-- [Multiple Measurements in Taxonomic Problems by R.A Fisher](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-1809.1936.tb02137.x)
+- Research Article: [The Use of Multiple Measurements in Taxonomic Problems by R.A Fisher](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-1809.1936.tb02137.x) Annals of Eugenics https://doi.org/10.1111/j.1469-1809.1936.tb02137.x at Wiley Online Library
 
-- [people.wku.edu](http://people.wku.edu/charles.smith/chronob/ANDE1897.htm)
+- Website: [people.wku.edu](http://people.wku.edu/charles.smith/chronob/ANDE1897.htm) Life chronology of Edgar Anderson (United Stated 1897 - 1969) at <http://people.wku.edu>
 
-- [Edgar Anderson 1897 to 1969, A Biographical Memoir by G Ledyard Stebbins.](http://www.nasonline.org/publications/biographical-memoirs/memoir-pdfs/anderson-edgar.pdf)
+- Publication: [Edgar Anderson 1897 to 1969, A Biographical Memoir by G Ledyard Stebbins.](http://www.nasonline.org/publications/biographical-memoirs/memoir-pdfs/anderson-edgar.pdf) National  Academy of Sciences article at <http://www.nasonline.org>
 
-- [Iris Datasets on Kaggle](https://www.kaggle.com/datasets?sortBy=relevance&group=public&search=iris&page=1&pageSize=20&size=all&filetype=all&license=all)
+- Website: [Iris Datasets on Kaggle](https://www.kaggle.com/datasets?sortBy=relevance&group=public&search=iris&page=1&pageSize=20&size=all&filetype=all&license=all) The Iris dataset on <https://www.kaggle.com>
 
-- [Machine Learning in Python](https://machinelearningmastery.com/machine-learning-in-python-step-by-step/)
+- Website: [Machine Learning in Python](https://machinelearningmastery.com/machine-learning-in-python-step-by-step/) Blog article at <https://machinelearningmastery.com>
 
-- "A Whirlwind Tour of Python" by Jake VanderPlas
+- Book / Website: "A Whirlwind Tour of Python" by Jake VanderPlas available free online at <https://jakevdp.github.io/WhirlwindTourOfPython/>
 
-- "Python for Data Analysis - Data Wrangling with Pandas, NumPy and IPython" - Wes McKinney 
+- Book: "Python for Data Analysis - Data Wrangling with Pandas, NumPy and IPython" - by McKinney, Wes. Python  O'Reilly Media.
 
 
 
