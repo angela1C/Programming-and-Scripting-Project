@@ -6,8 +6,8 @@
 <a name="-table-of-contents"></a>
 
 1. [Introduction to the project](#1.-introduction-to-the-project) 
-2. [The Fisher Iris Data Set](#2.-the-fisher-iris-dataset) 
-3. [Python and other software tools used in this project](#3.-python-and-other-software-tools-used-in-this-project)
+2. [Python and other software tools used in this project](#2.-python-and-other-software-tools-used-in-this-project)
+3. [The Fisher Iris Data Set](#3.-the-fisher-iris-dataset) 
 4. [Downloading the Fisher Iris dataset using Python code](#4.-download-the-fisher-iris-dataset-using-python-code.)
 5. [Investigating the Iris dataset in Python](#5.-investigating-the-iris-dataset-in-python)
 6. [Summary and Conclusions](#6.-summary-and-conclusions)
@@ -28,7 +28,8 @@ As per the project requirements, the project [README](https://github.com/angela1
 The Python script containing the Python code used to investigate the Iris dataset is called  [project_iris.py](https://github.com/angela1C/Programming-and-Scripting-Project/blob/master/project_iris.py).
 
 
-This README file introduces the project and outlines the [requirements of the project](#-project-problem-statement). It also contains some background information about the Fisher's Iris data set including some information about where it originated, who created it, and how it was put together.   
+This README file introduces the project and outlines the requirements of the project.
+It also contains some background information about the Fisher's Iris data set including some information about where it originated, who created it, and how it was put together.   
 This README file also outlines the [tools](#3.-python-and-other-software-tools-used-in-this-project) used in preparing and executing this project and some information on [how to run the Python code](#-how-to-run-the-python-code), how the data can be loaded into Python, what the Python code does and what output is produced by running it.
 
 The aim of the project is to investigate the Iris dataset using the Python programming language. Python can be used to gain a high level overview of a dataset such as the Iris dataset.  Statistics and visualisations can be very easily generated using a programming language such as Python. Plots produced in Python can provide an overview of of a dataset.   
@@ -56,11 +57,96 @@ instructions, the project should achieve the following goals:
 [back to  top](#-table-of-contents)
 
 
+
 ---
 
+# 2. Python and other software tools used in this project
+<a name="2.-python-and-other-software-tools-used-in-this-project"></a>
+The purpose of this project is to investigate the Fisher Iris data set described above using Python code.
+Python is a high level interpreted general purpose programming language. The Python interpreter and its extensive standard library are freely available to all. Along with the Python standard library, there are many libraries that enhance the usage of Python and make it a powerful tool for performing data analytics and machine learning.  
 
-# 2. The Fisher Iris dataset
-<a name="2.-the-fisher-iris-dataset"></a>
+The free and open source [Visual Studio code editor](https://code.visualstudio.com/) was used to write the Python code and the Markdown content. Visual Studio Code can be downloaded [here](https://code.visualstudio.com/Download).
+
+ 
+
+
+### How to download this repository
+
+1. Go to the URL for the repository on GitHub at [https://github.com/angela1C/pands-project.git](https://github.com/angela1C/pands-project.git).
+2. Click the green `Clone or download` button
+   
+### Python 3
+To be able to run this script, you need to have Python 3 installed. You can check this on the command line using `python -V`.
+If you do not have Python 3 installed go to https://www.python.org/downloads/ and follow the instructions there.
+
+Python comes with a library of standard modules that can perform a wide range of tasks. These modules can be imported using the `import` function. In addition to the standard modules, there are many third-party packages which enhance it's functionality and I use some of these packages in this project outlined below, in  particular the [pandas](https://pandas.pydata.org/about.html) package which provides data structures and data analysis tools for the Python programming langauge. These packages can be also be imported but they first need to be installed on your system. See [Installing Packages](https://packaging.python.org/tutorials/installing-packages/#requirements-for-installing-packages) of the [Python Documentation](https://docs.python.org/3/index.html).
+`pip` is the package installer for Python and can be used to install packages from the [PyPI](https://pypi.org) repository of software for the Python programming language.
+
+[pandas installation instructions](https://pandas.pydata.org/pandas-docs/stable/install.html) recommend installing the package as part of the Anaconda distribution, a cross platform distribution for data analysis and scientific computing using `conda install pandas`.
+The `seaborn` package can be installed using `pip install seaborn` or `conda install seaborn`. [seaborn installation instructions](https://seaborn.pydata.org/installing.html)
+ 
+The `pandas` library is the main python library being used in this project. According to the [pandas package overview ](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html)  
+
+> `pandas` is a `Python` package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.  
+
+[pandas](https://pandas.pydata.org/index.html) provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. It is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type.  This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column. 
+
+[seaborn](https://seaborn.pydata.org/index.html) is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. 
+
+The [seaborn](https://seaborn.pydata.org/introduction.html#introduction) library is used for making statistical graphics in Python. It is built on top of `matplotlib` and closely integrated with `pandas` data structures. It provides a high-level interface for creating nice looking and informative plots. It has many useful features for examining relationships between multiple variables such as those in the Iris dataset. 
+
+[matplotlib.org](https://matplotlib.org)
+>Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
+
+### How to run the Python code
+<a name="###-how-to-run-the-python-code"></a>
+To run the Python script, first navigate to the folder downloaded from this repository.
+
+At the command line enter `python <program_name>` for example: `$ python project_iris.py`
+
+The Python program can also be run inside the environment of an iPython session using the `%run` command.
+ `% run project_iris.py`  
+ I used `ipython` to run interactive code. This was very useful in testing sections of the script, rather than running the entire Python script for each change.
+
+ There are several plots produced by the script. I have saved these to `.png` files in the images folder of the repository. The plots can be printed by uncommenting the 'plt.show()` command. Some of these plots are shown in this Readme file below. 
+
+ The output of the Python script (excluding plot images) can be saved to a text file by appending `>'filename.txt'`.
+
+ 
+
+### Loading Python libraries
+
+The libraries mentioned above must first be imported before they can be used by the script.  
+
+The pandas library is imported at the very start of the script using `import pandas as pd` where `pd` is a shorter alias name that is used by convention to save having to write `pandas` each time it is used.
+ Therefore, wherever `pd` is used in the script, it is referring to the pandas library. Similarly, the `seaborn` library is imported using the alias `sn` and thereafter referred to using `sn`. Once these packages are loaded, all of the available functions can be used by the script.
+
+```python
+import pandas as pd  
+import matplotlib.pyplot as plt 
+import seaborn as sns
+```
+
+### Getting help in Python
+To get help on any python command, use the python help function as outlined in the [Python help command document](https://docs.python.org/3/library/pdb.html?highlight=help#pdbcommand-help) with the command in parentheses.  
+For example, `help(pd)` will show help on the python `pandas` package while `help(pd.DataFrame.describe())` provides help on the `describe` function of the pandas DataFrame.    
+The documentation pages for each of the python packages that are used in this project provided details of all the commands for that package. I found these resources quite valuable for this project and referred to them extensively over the course of this project, both when looking for a function to do something in particular but also for getting a start with the packages as the documentation pages are quite comprehensive and outline the different functions of the various packages.
+
+ 
+- [Pandas.pydata documentation](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html) 
+- [Matplotlib documentation](https://matplotlib.org/index.html) 
+- [Seaborn.pydata documentation](https://seaborn.pydata.org/index.html) 
+- [Python 3 documentation](https://docs.python.org/3/index.html) 
+
+
+### GitHub and Git are used to manage the project.
+
+[back to  top](#-table-of-contents)
+
+---
+
+# 3. The Fisher Iris dataset
+<a name="3.-the-fisher-iris-dataset"></a>
 
 >This is perhaps the best known database to be found in the pattern recognition literature. Fisher's paper is a classic in the field and is referenced frequently to this day. 
 
@@ -174,90 +260,7 @@ The Fisher Iris data set is still widely used in learning classification methods
 
 [back to  top](#-table-of-contents)
 
----
 
-# 3. Python and other software tools used in this project
-<a name="3.-python-and-other-software-tools-used-in-this-project"></a>
-The purpose of this project is to investigate the Fisher Iris data set described above using Python code.
-Python is a high level interpreted general purpose programming language. The Python interpreter and its extensive standard library are freely available to all. Along with the Python standard library, there are many libraries that enhance the usage of Python and make it a powerful tool for performing data analytics and machine learning.  
-
-The free and open source [Visual Studio code editor](https://code.visualstudio.com/) was used to write the Python code and the Markdown content. Visual Studio Code can be downloaded [here](https://code.visualstudio.com/Download).
-
- 
-
-
-### How to download this repository
-
-1. Go to the URL for the repository on GitHub at [https://github.com/angela1C/pands-project.git](https://github.com/angela1C/pands-project.git).
-2. Click the green `Clone or download` button
-   
-### Python 3
-To be able to run this script, you need to have Python 3 installed. You can check this on the command line using `python -V`.
-If you do not have Python 3 installed go to https://www.python.org/downloads/ and follow the instructions there.
-
-Python comes with a library of standard modules that can perform a wide range of tasks. These modules can be imported using the `import` function. In addition to the standard modules, there are many third-party packages which enhance it's functionality and I use some of these packages in this project outlined below, in  particular the [pandas](https://pandas.pydata.org/about.html) package which provides data structures and data analysis tools for the Python programming langauge. These packages can be also be imported but they first need to be installed on your system. See [Installing Packages](https://packaging.python.org/tutorials/installing-packages/#requirements-for-installing-packages) of the [Python Documentation](https://docs.python.org/3/index.html).
-`pip` is the package installer for Python and can be used to install packages from the [PyPI](https://pypi.org) repository of software for the Python programming language.
-
-[pandas installation instructions](https://pandas.pydata.org/pandas-docs/stable/install.html) recommend installing the package as part of the Anaconda distribution, a cross platform distribution for data analysis and scientific computing using `conda install pandas`.
-The `seaborn` package can be installed using `pip install seaborn` or `conda install seaborn`. [seaborn installation instructions](https://seaborn.pydata.org/installing.html)
- 
-The `pandas` library is the main python library being used in this project. According to the [pandas package overview ](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html)  
-
-> `pandas` is a `Python` package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.  
-
-[pandas](https://pandas.pydata.org/index.html) provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. It is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type.  This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column. 
-
-[seaborn](https://seaborn.pydata.org/index.html) is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. 
-
-The [seaborn](https://seaborn.pydata.org/introduction.html#introduction) library is used for making statistical graphics in Python. It is built on top of `matplotlib` and closely integrated with `pandas` data structures. It provides a high-level interface for creating nice looking and informative plots. It has many useful features for examining relationships between multiple variables such as those in the Iris dataset. 
-
-[matplotlib.org](https://matplotlib.org)
->Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
-
-### How to run the Python code
-<a name="###-how-to-run-the-python-code"></a>
-To run the Python script, first navigate to the folder downloaded from this repository.
-
-At the command line enter `python <program_name>` for example: `$ python project_iris.py`
-
-The Python program can also be run inside the environment of an iPython session using the `%run` command.
- `% run project_iris.py`  
- I used `ipython` to run interactive code. This was very useful in testing sections of the script, rather than running the entire Python script for each change.
-
- There are several plots produced by the script. I have saved these to `.png` files in the images folder of the repository. The plots can be printed by uncommenting the 'plt.show()` command. Some of these plots are shown in this Readme file below. 
-
- The output of the Python script (excluding plot images) can be saved to a text file by appending `>'filename.txt'`.
-
- 
-
-### Loading Python libraries
-
-The libraries mentioned above must first be imported before they can be used by the script.  
-
-The pandas library is imported at the very start of the script using `import pandas as pd` where `pd` is a shorter alias name that is used by convention to save having to write `pandas` each time it is used.
- Therefore, wherever `pd` is used in the script, it is referring to the pandas library. Similarly, the `seaborn` library is imported using the alias `sn` and thereafter referred to using `sn`. Once these packages are loaded, all of the available functions can be used by the script.
-
-```python
-import pandas as pd  
-import matplotlib.pyplot as plt 
-import seaborn as sns
-```
-
-### Getting help in Python
-To get help on any python command, use the python help function as outlined in the [Python help command document](https://docs.python.org/3/library/pdb.html?highlight=help#pdbcommand-help) with the command in parentheses.  
-For example, `help(pd)` will show help on the python `pandas` package while `help(pd.DataFrame.describe())` provides help on the `describe` function of the pandas DataFrame.    
-The documentation pages for each of the python packages that are used in this project provided details of all the commands for that package. I found these resources quite valuable for this project and referred to them extensively over the course of this project, both when looking for a function to do something in particular but also for getting a start with the packages as the documentation pages are quite comprehensive and outline the different functions of the various packages.
-
- 
--[Pandas.pydata documentation](https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html)  
--[Matplotlib documentation](https://matplotlib.org/index.html)  
--[Seaborn.pydata documentation](https://seaborn.pydata.org/index.html)  
--[Python 3 documentation](https://docs.python.org/3/index.html)  
-
-
-### GitHub and Git are used to manage the project.
-
-[back to  top](#-table-of-contents)
 
 ---
 
@@ -677,7 +680,7 @@ I have learned quite a bit from the project. Not only have I gained a better kno
 - Website: [Python, R and Linux Tips](https://cmdlinetips.com/category/python/) A blog / tutorial for learning data science with Python and R at <https://cmdlinetips.com>
 
 - Website: [cmdlinetips.com](https://cmdlinetips.com/2018/01/7-tips-to-read-a-csv-file-as-pandas-data-frame/) Blog article on reading a CSV file into a pandas DataFrame at <https://cmdlinetips.com>
-- 
+
 - Website: [Wikipedia - Iris Flower Data Set](https://en.wikipedia.org/wiki/Iris_flower_data_set) Article on the Iris Flower dataset at Wikipedia, the free encyclopedia at <https://en.wikipedia.org/>
 
 - Website: [Wikipedia - Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher) Article on the Ronald Fisher at Wikipedia, the free encyclopedia at <https://en.wikipedia.org/>
