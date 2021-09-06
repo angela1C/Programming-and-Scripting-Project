@@ -4,7 +4,7 @@ Project 2019 for Programming and Scripting Module
 
 # Table of Contents
 
-1. [Introduction to the project](#1.-introduction-to-the-project.) 
+1. [Introduction to the project](1.-introduction-to-the-project.) 
 2. [The Fisher Iris Data Set](#2.-the-fisher-iris-dataset) 
 3. [Python and other software tools used in this project](#3.-python-and-other-software-tools-used-in-this-project)
 4. [Downloading the Fisher Iris dataset using Python code](#4.-download-the-fisher-iris-dataset-using-python-code.)
@@ -20,14 +20,14 @@ This repository contains my submission for the [Programming and Scripting Projec
 The project concerns the well-known Fisher's Iris data set. 
 It entails researching the data set, and then writing documentation and code in the Python programming language based on that research.
 
-The repository consists of this readme file and some python scripts containing the code used to investigate the iris data set. 
+The repository consists of this README file and some Python scripts containing the code used to investigate the Iris dataset. 
 The readme file introduces the project and outlines the requirements of the project. It also contains some background information about the Fisher's Iris data set including some information about where it originated, who created it, and how it was put together.   
-The readme outlines the tools used in preparing and executing this project and some information on how to run the python code including how the data can be loaded into python, what the python code does and what output is produced by running it.
+This README file outlines the tools used in preparing and executing this project and some information on how to run the python code including how the data can be loaded into python, what the python code does and what output is produced by running it.
 
 The aim of the project is to investigate the Iris dataset using the Python programming language. Python can be used to gain a high level overview of a dataset such as the Iris dataset.  Statistics and visualisations can be very easily generated using a programming language such as Python. Plots produced in Python can provide an overview of of a dataset.   
 The python programming language is widely used in statistical and machine learning. The Iris data set is frequently referenced in online tutorials and text books relating to machine learning. 
 
-My main objective in this project is to learn more about the python programming by applying it to the Iris data set in this project. There are many free resources available, starting with the extensive [python documentation](https://docs.python.org/3/) for its standard library of modules. There are also several well known third-party packages that enhance the use of python and are used for data analytics and machine learning.  
+My main objective in this project is to learn more about the Python programming by applying it to the Iris data set in this project. There are many free resources available, starting with the extensive [Python documentation](https://docs.python.org/3/) for its standard library of modules. There are also several well known third-party packages that enhance the use of python and are used for data analytics and machine learning.  
 
 A web search on the Iris data set will return many pages of results. Many of these apply machine learning to the Iris data set. I will look at the reasons why the Fisher Iris dataset is considered such an important database in the field of statistical and machine learning - particularly in the area of classification. 
 
